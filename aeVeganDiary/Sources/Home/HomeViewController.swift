@@ -1,23 +1,18 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  aeVeganDiary
 //
-//  Created by 권하은 on 2022/05/28.
+//  Created by 권하은 on 2022/05/29.
 //
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+class HomeViewController: BaseViewController {
 
-    @IBAction func toMain(_ sender: Any) {
-        changeRootViewController(BaseTabBarController())
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        // Do any additional setup after loading the view.
+
+        setNavigationTitle(title: "기록")
     }
 
 
