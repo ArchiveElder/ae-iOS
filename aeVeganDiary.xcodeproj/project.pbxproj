@@ -7,25 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
 		CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */; };
-		CDE47F3A28424B44005D8BB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3928424B44005D8BB3 /* ViewController.swift */; };
-		CDE47F3D28424B44005D8BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F3B28424B44005D8BB3 /* Main.storyboard */; };
 		CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3E28424B44005D8BB3 /* aeVeganDiary.xcdatamodeld */; };
 		CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F4128424B45005D8BB3 /* Assets.xcassets */; };
 		CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F4328424B45005D8BB3 /* LaunchScreen.storyboard */; };
+		CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F4E28426B86005D8BB3 /* Constant.swift */; };
+		CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5128426BAD005D8BB3 /* IndicatorView.swift */; };
+		CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5428426BCB005D8BB3 /* UIColor.swift */; };
+		CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5628426E74005D8BB3 /* UIViewController.swift */; };
+		CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5928426FA7005D8BB3 /* BaseViewController.swift */; };
+		CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5B28426FB8005D8BB3 /* BaseTabBarController.swift */; };
+		CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F5F28427062005D8BB3 /* LoginViewController.swift */; };
+		CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F6028427062005D8BB3 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
+		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE47F3528424B44005D8BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CDE47F3928424B44005D8BB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CDE47F3C28424B44005D8BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDE47F3F28424B44005D8BB3 /* aeVeganDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = aeVeganDiary.xcdatamodel; sourceTree = "<group>"; };
 		CDE47F4128424B45005D8BB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDE47F4428424B45005D8BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDE47F4628424B45005D8BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDE47F4E28426B86005D8BB3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		CDE47F5128426BAD005D8BB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		CDE47F5428426BCB005D8BB3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		CDE47F5628426E74005D8BB3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		CDE47F5928426FA7005D8BB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CDE47F5B28426FB8005D8BB3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		CDE47F5F28427062005D8BB3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CDE47F6028427062005D8BB3 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A20A341C97853D4154E2F773 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CDE47F2928424B44005D8BB3 = {
 			isa = PBXGroup;
 			children = (
 				CDE47F3428424B44005D8BB3 /* aeVeganDiary */,
 				CDE47F3328424B44005D8BB3 /* Products */,
+				F1680EF3741D64B34F0B2D5F /* Pods */,
+				A20A341C97853D4154E2F773 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +85,87 @@
 		CDE47F3428424B44005D8BB3 /* aeVeganDiary */ = {
 			isa = PBXGroup;
 			children = (
+				CDE47F4C28426B65005D8BB3 /* Configuration */,
+				CDE47F4D28426B71005D8BB3 /* Sources */,
 				CDE47F3528424B44005D8BB3 /* AppDelegate.swift */,
 				CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */,
-				CDE47F3928424B44005D8BB3 /* ViewController.swift */,
-				CDE47F3B28424B44005D8BB3 /* Main.storyboard */,
 				CDE47F4128424B45005D8BB3 /* Assets.xcassets */,
 				CDE47F4328424B45005D8BB3 /* LaunchScreen.storyboard */,
 				CDE47F4628424B45005D8BB3 /* Info.plist */,
 				CDE47F3E28424B44005D8BB3 /* aeVeganDiary.xcdatamodeld */,
 			);
 			path = aeVeganDiary;
+			sourceTree = "<group>";
+		};
+		CDE47F4C28426B65005D8BB3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F4E28426B86005D8BB3 /* Constant.swift */,
+				CDE47F5328426BC1005D8BB3 /* Extensions */,
+				CDE47F5028426B9C005D8BB3 /* Commonclass */,
+				CDE47F5828426F8C005D8BB3 /* Base */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		CDE47F4D28426B71005D8BB3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5D28426FFB005D8BB3 /* Splash */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CDE47F5028426B9C005D8BB3 /* Commonclass */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5128426BAD005D8BB3 /* IndicatorView.swift */,
+			);
+			path = Commonclass;
+			sourceTree = "<group>";
+		};
+		CDE47F5328426BC1005D8BB3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5428426BCB005D8BB3 /* UIColor.swift */,
+				CDE47F5628426E74005D8BB3 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CDE47F5828426F8C005D8BB3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5928426FA7005D8BB3 /* BaseViewController.swift */,
+				CDE47F5B28426FB8005D8BB3 /* BaseTabBarController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CDE47F5D28426FFB005D8BB3 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5E28427021005D8BB3 /* Login */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		CDE47F5E28427021005D8BB3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CDE47F5F28427062005D8BB3 /* LoginViewController.swift */,
+				CDE47F6028427062005D8BB3 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F1680EF3741D64B34F0B2D5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */,
+				79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDE47F4928424B45005D8BB3 /* Build configuration list for PBXNativeTarget "aeVeganDiary" */;
 			buildPhases = (
+				F2A092C192659C03D17E6907 /* [CP] Check Pods Manifest.lock */,
 				CDE47F2E28424B44005D8BB3 /* Sources */,
 				CDE47F2F28424B44005D8BB3 /* Frameworks */,
 				CDE47F3028424B44005D8BB3 /* Resources */,
+				C7687ADB8B4DF5751C7B5A40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,35 +230,75 @@
 			files = (
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
-				CDE47F3D28424B44005D8BB3 /* Main.storyboard in Resources */,
+				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C7687ADB8B4DF5751C7B5A40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A092C192659C03D17E6907 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aeVeganDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDE47F2E28424B44005D8BB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDE47F3A28424B44005D8BB3 /* ViewController.swift in Sources */,
+				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
+				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
+				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
+				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
+				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
+				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CDE47F3B28424B44005D8BB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CDE47F3C28424B44005D8BB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CDE47F4328424B45005D8BB3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,6 +426,7 @@
 		};
 		CDE47F4A28424B45005D8BB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -296,9 +437,9 @@
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,6 +455,7 @@
 		};
 		CDE47F4B28424B45005D8BB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,9 +466,9 @@
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
