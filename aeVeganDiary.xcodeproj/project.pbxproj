@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
+		CD2EFDA32843C305005D06A9 /* tabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EFDA12843C305005D06A9 /* tabCollectionViewCell.swift */; };
+		CD2EFDA42843C305005D06A9 /* tabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2EFDA22843C305005D06A9 /* tabCollectionViewCell.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
 		CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		8EF633548B34724731ED2E5C /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2EFDA12843C305005D06A9 /* tabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD2EFDA22843C305005D06A9 /* tabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tabCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE47F3528424B44005D8BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 				919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2EFDA02843BC4B005D06A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CD2EFDA12843C305005D06A9 /* tabCollectionViewCell.swift */,
+				CD2EFDA22843C305005D06A9 /* tabCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CDE47F2928424B44005D8BB3 = {
@@ -187,6 +200,7 @@
 		CDE47F6328427409005D8BB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
 			);
@@ -291,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2EFDA42843C305005D06A9 /* tabCollectionViewCell.xib in Resources */,
 				CDE47F72284274A5005D8BB3 /* AlbumViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
@@ -354,6 +369,7 @@
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
 				CDE47F71284274A5005D8BB3 /* AlbumViewController.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
+				CD2EFDA32843C305005D06A9 /* tabCollectionViewCell.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
