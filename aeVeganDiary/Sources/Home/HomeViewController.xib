@@ -27,17 +27,49 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
-                                    <rect key="frame" x="10" y="10" width="370" height="120"/>
+                                    <rect key="frame" x="10" y="10" width="370" height="300"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdY-Q8-QJH">
+                                            <rect key="frame" x="10" y="78" width="170" height="212"/>
+                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="212" id="zar-rL-oGw"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMi-eC-2bV">
+                                            <rect key="frame" x="190" y="78" width="170" height="212"/>
+                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="212" id="8DM-R3-4Sh"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="120" id="IFt-l9-hdx"/>
+                                        <constraint firstAttribute="trailing" secondItem="BMi-eC-2bV" secondAttribute="trailing" constant="10" id="5dO-8a-0uc"/>
+                                        <constraint firstItem="jdY-Q8-QJH" firstAttribute="leading" secondItem="ifb-Sb-h85" secondAttribute="leading" constant="10" id="HKf-ys-usD"/>
+                                        <constraint firstItem="BMi-eC-2bV" firstAttribute="leading" secondItem="jdY-Q8-QJH" secondAttribute="trailing" constant="10" id="HMa-lf-aYf"/>
+                                        <constraint firstAttribute="height" constant="300" id="IFt-l9-hdx"/>
+                                        <constraint firstAttribute="bottom" secondItem="jdY-Q8-QJH" secondAttribute="bottom" constant="10" id="Waf-1V-Ifd"/>
+                                        <constraint firstItem="BMi-eC-2bV" firstAttribute="width" secondItem="jdY-Q8-QJH" secondAttribute="width" id="fY3-bB-cWn"/>
+                                        <constraint firstAttribute="bottom" secondItem="BMi-eC-2bV" secondAttribute="bottom" constant="10" id="gr0-L4-eeu"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
                                             <integer key="value" value="2"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
-                                            <real key="value" value="0.0"/>
+                                            <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="weekdayHeight">
                                             <real key="value" value="23"/>
@@ -62,31 +94,19 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
                                             <real key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
-                                            <color key="value" red="0.27704783989999998" green="0.50196078430000002" blue="0.3596142463" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="20"/>
+                                            <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value=" "/>
                                     </userDefinedRuntimeAttributes>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUT-aT-Zxb">
-                                    <rect key="frame" x="10" y="140" width="370" height="200"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="200" id="29d-Lf-uNc"/>
-                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGray3Color"/>
                             <constraints>
                                 <constraint firstItem="ifb-Sb-h85" firstAttribute="top" secondItem="T5y-LP-RfN" secondAttribute="top" constant="10" id="Drb-hU-poc"/>
-                                <constraint firstAttribute="trailing" secondItem="OUT-aT-Zxb" secondAttribute="trailing" constant="10" id="Jgy-Os-HNX"/>
                                 <constraint firstAttribute="trailing" secondItem="ifb-Sb-h85" secondAttribute="trailing" constant="10" id="Nvi-92-My7"/>
-                                <constraint firstItem="OUT-aT-Zxb" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="10" id="SVa-NR-yfg"/>
                                 <constraint firstItem="ifb-Sb-h85" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="10" id="TOj-er-VJC"/>
                                 <constraint firstAttribute="height" constant="1000" id="j6g-f6-Vsn"/>
-                                <constraint firstItem="OUT-aT-Zxb" firstAttribute="top" secondItem="ifb-Sb-h85" secondAttribute="bottom" constant="10" id="xbV-Qd-2Ic"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -109,7 +129,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-            <point key="canvasLocation" x="139" y="121"/>
+            <point key="canvasLocation" x="138.46153846153845" y="120.85308056872037"/>
         </view>
     </objects>
     <resources>
@@ -118,6 +138,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

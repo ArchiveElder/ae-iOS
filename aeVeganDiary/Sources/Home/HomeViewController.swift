@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
         weekCalendarView.dataSource = self
         weekCalendarView.scope = .week
         weekCalendarView.locale = Locale(identifier: "ko_KR")
-        weekCalendarView.headerHeight = 0
+        weekCalendarView.headerHeight = 3
         weekCalendarView.appearance.headerMinimumDissolvedAlpha = 0.0
         weekCalendarView.appearance.weekdayTextColor = .darkGray
     }
