@@ -7,4 +7,6 @@ target 'aeVeganDiary' do
 
   # Pods for aeVeganDiary
   pod 'SnapKit', '~> 5.0.0'
+  pod 'FSCalendar'
+
 end

@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import FSCalendar
 
 class HomeViewController: BaseViewController {
 
+    @IBOutlet weak var weekCalendarView: FSCalendar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationTitle(title: "기록")
+        
+        weekCalendarView.delegate = self
+        weekCalendarView.dataSource = self
+        weekCalendarView.scope = .week
+        weekCalendarView.locale = Locale(identifier: "ko_KR")
+        weekCalendarView.headerHeight = 0
+        weekCalendarView.appearance.headerMinimumDissolvedAlpha = 0.0
+        weekCalendarView.appearance.weekdayTextColor = .darkGray
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
 }
