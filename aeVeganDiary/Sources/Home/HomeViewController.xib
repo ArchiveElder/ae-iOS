@@ -40,7 +40,7 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="weekdayHeight">
-                                            <real key="value" value="20"/>
+                                            <real key="value" value="23"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="YES"/>
                                         <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
@@ -64,6 +64,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
                                             <color key="value" red="0.27704783989999998" green="0.50196078430000002" blue="0.3596142463" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>

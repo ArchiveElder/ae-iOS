@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
+		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
 		CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */; };
 		CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3E28424B44005D8BB3 /* aeVeganDiary.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		8EF633548B34724731ED2E5C /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE47F3528424B44005D8BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				CDE47F5428426BCB005D8BB3 /* UIColor.swift */,
 				CDE47F5628426E74005D8BB3 /* UIViewController.swift */,
+				CDA125DF2843A0C500ECBED6 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
+				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
