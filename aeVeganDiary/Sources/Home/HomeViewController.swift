@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
     @IBOutlet weak var tabCollectionView: UICollectionView!
+    @IBOutlet weak var mealCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,12 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         //CollectionView
         tabCollectionView.delegate = self
         tabCollectionView.dataSource = self
-        tabCollectionView.register(UINib(nibName: "tabCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "tabCollectionViewCell")
+        tabCollectionView.register(UINib(nibName: "TabCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TabCollectionViewCell")
+        tabCollectionView.backgroundColor = .lightGray
+        
+        mealCollectionView.delegate = self
+        mealCollectionView.dataSource = self
+        mealCollectionView.register(UINib(nibName: "RegisterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RegisterCollectionViewCell")
     }
 
 }
@@ -42,14 +48,33 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let mealList = ["아침", "점심", "저녁"]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabCollectionViewCell", for: indexPath) as! tabCollectionViewCell
-        cell.mealLabel.text = mealList[indexPath.row]
-        return cell
+        if collectionView == tabCollectionView {
+            let mealList = ["아침", "점심", "저녁"]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
+            cell.mealLabel.text = mealList[indexPath.row]
+            return cell
+        } else {
+            let number = ["1", "2", "3"]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
+            cell.numberLabel.text = number[indexPath.row]
+            return cell
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: tabCollectionView.frame.width / 3, height: tabCollectionView.frame.height)
+        if collectionView == tabCollectionView {
+            return CGSize(width: tabCollectionView.frame.width / 3, height: tabCollectionView.frame.height)
+        } else {
+            return CGSize(width: mealCollectionView.frame.width, height: 170)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == tabCollectionView {
+            mealCollectionView.scrollToItem(at: NSIndexPath(item: indexPath.row, section: 0) as IndexPath, at: .right, animated: false)
+        }
     }
     
 }

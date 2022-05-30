@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="mealCollectionView" destination="8re-C7-Q1h" id="fRO-IR-JJy"/>
                 <outlet property="tabCollectionView" destination="8KX-Cv-sIg" id="TRK-Bi-8DU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weekCalendarView" destination="ifb-Sb-h85" id="esz-pY-8cf"/>
@@ -28,19 +29,19 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
-                                    <rect key="frame" x="10" y="10" width="370" height="280"/>
+                                    <rect key="frame" x="15" y="15" width="360" height="280"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdY-Q8-QJH">
-                                            <rect key="frame" x="10" y="78" width="170" height="192"/>
+                                            <rect key="frame" x="10" y="78" width="165" height="192"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 칼로리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iH5-bA-uUE">
-                                                    <rect key="frame" x="52.666666666666671" y="65" width="65" height="17"/>
+                                                    <rect key="frame" x="50" y="65" width="65" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd8-L8-InX">
-                                                    <rect key="frame" x="48.666666666666671" y="90" width="73" height="21"/>
+                                                    <rect key="frame" x="46" y="90" width="73" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -61,7 +62,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMi-eC-2bV">
-                                            <rect key="frame" x="190" y="78" width="170" height="192"/>
+                                            <rect key="frame" x="185" y="78" width="165" height="192"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 영양소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrJ-a5-JVH">
                                                     <rect key="frame" x="10" y="10" width="65" height="17"/>
@@ -130,28 +131,59 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8KX-Cv-sIg">
-                                    <rect key="frame" x="10" y="300" width="370" height="50"/>
+                                    <rect key="frame" x="15" y="305" width="360" height="40"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="Bxe-g8-Q1t"/>
+                                        <constraint firstAttribute="height" constant="40" id="Bxe-g8-Q1t"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RxN-HO-Q7A">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="1" id="RxN-HO-Q7A">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8re-C7-Q1h">
+                                    <rect key="frame" x="15" y="345" width="360" height="170"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="170" id="aBF-ej-O9A"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dps-U3-1Vg">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mka-e9-bfQ">
+                                    <rect key="frame" x="15" y="525" width="360" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="Vad-RR-zjK"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGray3Color"/>
                             <constraints>
-                                <constraint firstItem="8KX-Cv-sIg" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="10" id="1QM-Di-gu8"/>
-                                <constraint firstItem="ifb-Sb-h85" firstAttribute="top" secondItem="T5y-LP-RfN" secondAttribute="top" constant="10" id="Drb-hU-poc"/>
-                                <constraint firstAttribute="trailing" secondItem="ifb-Sb-h85" secondAttribute="trailing" constant="10" id="Nvi-92-My7"/>
-                                <constraint firstItem="ifb-Sb-h85" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="10" id="TOj-er-VJC"/>
+                                <constraint firstItem="8KX-Cv-sIg" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="1QM-Di-gu8"/>
+                                <constraint firstItem="ifb-Sb-h85" firstAttribute="top" secondItem="T5y-LP-RfN" secondAttribute="top" constant="15" id="Drb-hU-poc"/>
+                                <constraint firstAttribute="trailing" secondItem="ifb-Sb-h85" secondAttribute="trailing" constant="15" id="Nvi-92-My7"/>
+                                <constraint firstItem="ifb-Sb-h85" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="TOj-er-VJC"/>
                                 <constraint firstItem="8KX-Cv-sIg" firstAttribute="top" secondItem="ifb-Sb-h85" secondAttribute="bottom" constant="10" id="YXw-Pi-Otl"/>
-                                <constraint firstAttribute="trailing" secondItem="8KX-Cv-sIg" secondAttribute="trailing" constant="10" id="a2l-uk-dM5"/>
+                                <constraint firstAttribute="trailing" secondItem="8KX-Cv-sIg" secondAttribute="trailing" constant="15" id="a2l-uk-dM5"/>
+                                <constraint firstItem="8re-C7-Q1h" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="dlo-wa-Zia"/>
+                                <constraint firstItem="8re-C7-Q1h" firstAttribute="top" secondItem="8KX-Cv-sIg" secondAttribute="bottom" id="ebe-P4-dFM"/>
                                 <constraint firstAttribute="height" constant="1000" id="j6g-f6-Vsn"/>
+                                <constraint firstItem="Mka-e9-bfQ" firstAttribute="top" secondItem="8re-C7-Q1h" secondAttribute="bottom" constant="10" id="nuS-e1-Dhv"/>
+                                <constraint firstAttribute="trailing" secondItem="8re-C7-Q1h" secondAttribute="trailing" constant="15" id="pz0-fi-dfl"/>
+                                <constraint firstAttribute="trailing" secondItem="Mka-e9-bfQ" secondAttribute="trailing" constant="15" id="tLW-IL-kTE"/>
+                                <constraint firstItem="Mka-e9-bfQ" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="uEW-cm-Wsu"/>
                             </constraints>
                         </view>
                     </subviews>
