@@ -156,6 +156,18 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mka-e9-bfQ">
+                                    <rect key="frame" x="15" y="525" width="360" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="Vad-RR-zjK"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGray3Color"/>
                             <constraints>
@@ -168,7 +180,10 @@
                                 <constraint firstItem="8re-C7-Q1h" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="dlo-wa-Zia"/>
                                 <constraint firstItem="8re-C7-Q1h" firstAttribute="top" secondItem="8KX-Cv-sIg" secondAttribute="bottom" id="ebe-P4-dFM"/>
                                 <constraint firstAttribute="height" constant="1000" id="j6g-f6-Vsn"/>
+                                <constraint firstItem="Mka-e9-bfQ" firstAttribute="top" secondItem="8re-C7-Q1h" secondAttribute="bottom" constant="10" id="nuS-e1-Dhv"/>
                                 <constraint firstAttribute="trailing" secondItem="8re-C7-Q1h" secondAttribute="trailing" constant="15" id="pz0-fi-dfl"/>
+                                <constraint firstAttribute="trailing" secondItem="Mka-e9-bfQ" secondAttribute="trailing" constant="15" id="tLW-IL-kTE"/>
+                                <constraint firstItem="Mka-e9-bfQ" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="uEW-cm-Wsu"/>
                             </constraints>
                         </view>
                     </subviews>
