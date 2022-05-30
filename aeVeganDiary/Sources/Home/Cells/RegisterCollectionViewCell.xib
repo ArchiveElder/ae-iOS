@@ -39,6 +39,7 @@
             <size key="customSize" width="348" height="223"/>
             <connections>
                 <outlet property="numberLabel" destination="hU8-yj-PvQ" id="y4B-3I-q0S"/>
+                <outlet property="registerMealButton" destination="und-RR-2gS" id="HVk-RP-7F1"/>
             </connections>
             <point key="canvasLocation" x="353.62318840579712" y="159.70982142857142"/>
         </collectionViewCell>

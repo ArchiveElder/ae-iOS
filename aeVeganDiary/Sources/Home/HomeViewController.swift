@@ -57,9 +57,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let number = ["1", "2", "3"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
             cell.numberLabel.text = number[indexPath.row]
+            cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
             return cell
         }
         
+    }
+    
+    @objc func toRegister(sender : UIButton) {
+        let vc = FoodRegisterViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
