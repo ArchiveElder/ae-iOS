@@ -60,13 +60,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
             return cell
         }
-        
     }
     
     @objc func toRegister(sender : UIButton) {
-        let vc = FoodRegisterViewController()
-        vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = PopUpViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: false)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
