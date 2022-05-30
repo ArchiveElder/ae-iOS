@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
         
-        view.backgroundColor = .white
+        view.backgroundColor = .gray4
         navigationController?.navigationBar.isTranslucent = false
         
         //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
