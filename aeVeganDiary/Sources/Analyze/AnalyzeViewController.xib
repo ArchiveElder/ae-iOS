@@ -5,11 +5,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnalyzeViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="calChartView" destination="OlY-7X-ZH7" id="HUT-Mo-mkr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,13 +35,28 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlY-7X-ZH7" customClass="LineChartView" customModule="Charts">
+                            <rect key="frame" x="10" y="95" width="364" height="150"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="hF3-CR-H7q"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bgz-8E-K3l" firstAttribute="top" secondItem="TgK-yj-bQN" secondAttribute="bottom" constant="8" id="0dy-fv-MDJ"/>
                         <constraint firstItem="bgz-8E-K3l" firstAttribute="centerX" secondItem="EbN-X5-Xhq" secondAttribute="centerX" id="8z7-9y-Rxt"/>
+                        <constraint firstItem="OlY-7X-ZH7" firstAttribute="top" secondItem="bgz-8E-K3l" secondAttribute="bottom" constant="15" id="FHC-yA-4gW"/>
                         <constraint firstItem="TgK-yj-bQN" firstAttribute="top" secondItem="EbN-X5-Xhq" secondAttribute="top" constant="30" id="KNd-cL-dm5"/>
                         <constraint firstItem="TgK-yj-bQN" firstAttribute="centerX" secondItem="EbN-X5-Xhq" secondAttribute="centerX" id="OMK-Kt-9xp"/>
+                        <constraint firstItem="OlY-7X-ZH7" firstAttribute="leading" secondItem="EbN-X5-Xhq" secondAttribute="leading" constant="10" id="e4d-Ki-icL"/>
+                        <constraint firstAttribute="trailing" secondItem="OlY-7X-ZH7" secondAttribute="trailing" constant="10" id="i6R-d5-gOU"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -61,4 +78,9 @@
             <point key="canvasLocation" x="383" y="121"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
