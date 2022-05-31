@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
+		CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */; };
+		CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */; };
 		CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */; };
 		CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */; };
 		CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */; };
@@ -46,6 +48,8 @@
 		8EF633548B34724731ED2E5C /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,9 +115,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CD4FFA942845F86D004B5BB4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */,
+				CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CD7F38232844AE3600D15356 /* FoodRegister */ = {
 			isa = PBXGroup;
 			children = (
+				CD4FFA942845F86D004B5BB4 /* Cell */,
 				CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */,
 				CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */,
 			);
@@ -349,6 +363,7 @@
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
+				CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +435,7 @@
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
+				CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
