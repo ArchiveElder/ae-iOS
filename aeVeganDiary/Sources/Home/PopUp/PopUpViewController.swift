@@ -50,10 +50,10 @@ extension PopUpViewController: UIImagePickerControllerDelegate, UINavigationCont
             
             picker.dismiss(animated: true, completion: {
                 let vc = FoodRegisterViewController()
-                
+                vc.foodImage = possibleImage
                 let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .overFullScreen
                 nav.view.backgroundColor = .white
+                nav.modalPresentationStyle = .overFullScreen
                 
                 self.present(nav, animated: true)
             })
