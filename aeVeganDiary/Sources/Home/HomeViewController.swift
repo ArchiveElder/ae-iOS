@@ -63,7 +63,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     @objc func toRegister(sender : UIButton) {
-        let vc = PopUpViewController()
+        let vc = SelectTypeViewController()
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: false)
