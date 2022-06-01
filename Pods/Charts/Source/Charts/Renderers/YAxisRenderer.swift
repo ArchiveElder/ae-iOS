@@ -307,8 +307,8 @@ open class YAxisRenderer: NSObject, AxisRenderer
             {
             case .rightTop:
                 align = .right
-                point = CGPoint(x: viewPortHandler.contentRight - xOffset,
-                                y: position.y - yOffset)
+                point = CGPoint(x: viewPortHandler.contentRight - xOffset + 8,
+                                y: position.y - yOffset + 3)
 
             case .rightBottom:
                 align = .right
