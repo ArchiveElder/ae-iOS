@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class SelectTypeViewController: UIViewController, PHPickerViewControllerDelegate {
+class SelectTypeViewController: UIViewController {
     
     let camera = UIImagePickerController()
     var pickerConfiguration = PHPickerConfiguration()
@@ -27,8 +27,9 @@ class SelectTypeViewController: UIViewController, PHPickerViewControllerDelegate
     @IBAction func photoLibraryButton(_ sender: Any) {
         pickerConfiguration.filter = .images
         let picker = PHPickerViewController(configuration: pickerConfiguration)
-        //imagePicker.modalPresentationStyle = .overFullScreen
-        //self.present(self.imagePicker, animated: true)
+        picker.delegate = self
+        picker.modalPresentationStyle = .overFullScreen
+        self.present(picker, animated: true)
     }
     
     @IBAction func searchButton(_ sender: Any) {
@@ -44,9 +45,29 @@ class SelectTypeViewController: UIViewController, PHPickerViewControllerDelegate
 
 }
 
-extension SelectTypeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        
+        picker.dismiss(animated: true) // 1
+        let itemProvider = results.first?.itemProvider // 2
+
+        if let itemProvider = itemProvider,
+
+        itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in // 4
+                DispatchQueue.main.async {
+                    let vc = FoodRegisterViewController()
+                    vc.foodImage = (image as? UIImage)!
+                    let nav = UINavigationController(rootViewController: vc)
+                    nav.view.backgroundColor = .white
+                    nav.modalPresentationStyle = .overFullScreen
+                    
+                    self.present(nav, animated: true)
+                }
+            }
+        } else {
+            // TODO: Handle empty results or item provider not being able load UIImage
+
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
