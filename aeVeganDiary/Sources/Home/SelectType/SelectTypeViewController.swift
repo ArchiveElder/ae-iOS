@@ -1,13 +1,13 @@
 //
-//  PopUpViewController.swift
+//  SelectTypeViewController.swift
 //  aeVeganDiary
 //
-//  Created by 권하은 on 2022/05/30.
+//  Created by 권하은 on 2022/06/01.
 //
 
 import UIKit
 
-class PopUpViewController: UIViewController {
+class SelectTypeViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     
@@ -16,7 +16,6 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func takePhotoButton(_ sender: Any) {
-        
     }
     
     @IBAction func photoLibraryButton(_ sender: Any) {
@@ -25,7 +24,6 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
-        
     }
     
     override func viewDidLoad() {
@@ -39,7 +37,7 @@ class PopUpViewController: UIViewController {
 
 }
 
-extension PopUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SelectTypeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if picker == imagePicker {
             //var newImage: UIImage? = nil // update 할 이미지

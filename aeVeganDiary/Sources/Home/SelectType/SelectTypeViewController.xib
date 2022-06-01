@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectTypeViewController" customModule="aeVeganDiary" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOI-Rq-0bp">
+                    <rect key="frame" x="324" y="164" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="M1F-Qa-2Zs"/>
+                        <constraint firstAttribute="height" constant="40" id="chm-Ks-YsV"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissButton:" destination="-1" eventType="touchUpInside" id="cJw-XC-06P"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfE-Vs-gkJ">
+                    <rect key="frame" x="57" y="353" width="300" height="190"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R86-Ox-yKI">
+                            <rect key="frame" x="20" y="10" width="260" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="mf0-1H-wlL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="촬영하기"/>
+                            <connections>
+                                <action selector="takePhotoButton:" destination="-1" eventType="touchUpInside" id="1ib-ZL-lnj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MA-hS-b6u">
+                            <rect key="frame" x="20" y="70" width="260" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="DfL-RZ-lQE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="사진 불러오기"/>
+                            <connections>
+                                <action selector="photoLibraryButton:" destination="-1" eventType="touchUpInside" id="Qhx-MJ-ZfQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fi5-Co-zne">
+                            <rect key="frame" x="20" y="130" width="260" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="oVk-ml-YnR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="검색하기"/>
+                            <connections>
+                                <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="ub4-Le-fCH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="R86-Ox-yKI" firstAttribute="leading" secondItem="QfE-Vs-gkJ" secondAttribute="leading" constant="20" id="752-k1-0YK"/>
+                        <constraint firstItem="3MA-hS-b6u" firstAttribute="leading" secondItem="QfE-Vs-gkJ" secondAttribute="leading" constant="20" id="7OE-hg-ieT"/>
+                        <constraint firstAttribute="trailing" secondItem="R86-Ox-yKI" secondAttribute="trailing" constant="20" id="Cee-Vy-xXG"/>
+                        <constraint firstItem="Fi5-Co-zne" firstAttribute="top" secondItem="3MA-hS-b6u" secondAttribute="bottom" constant="10" id="Erf-BG-RjF"/>
+                        <constraint firstItem="3MA-hS-b6u" firstAttribute="top" secondItem="R86-Ox-yKI" secondAttribute="bottom" constant="10" id="dEW-ik-TGt"/>
+                        <constraint firstAttribute="width" constant="300" id="djW-iE-eVj"/>
+                        <constraint firstItem="R86-Ox-yKI" firstAttribute="top" secondItem="QfE-Vs-gkJ" secondAttribute="top" constant="10" id="fHu-Y6-ZnS"/>
+                        <constraint firstAttribute="trailing" secondItem="Fi5-Co-zne" secondAttribute="trailing" constant="20" id="h49-l7-Hur"/>
+                        <constraint firstAttribute="trailing" secondItem="3MA-hS-b6u" secondAttribute="trailing" constant="20" id="hTw-WI-l1f"/>
+                        <constraint firstAttribute="bottom" secondItem="Fi5-Co-zne" secondAttribute="bottom" constant="10" id="huX-O9-MKV"/>
+                        <constraint firstItem="Fi5-Co-zne" firstAttribute="leading" secondItem="QfE-Vs-gkJ" secondAttribute="leading" constant="20" id="rtJ-TL-YEc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.10000000000000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="QfE-Vs-gkJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fju-rQ-hHr"/>
+                <constraint firstItem="QfE-Vs-gkJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Y2X-2q-haB"/>
+                <constraint firstItem="xOI-Rq-0bp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="bBh-Pk-Jrp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xOI-Rq-0bp" secondAttribute="trailing" constant="50" id="v69-xI-Kl2"/>
+            </constraints>
+            <point key="canvasLocation" x="87" y="84"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

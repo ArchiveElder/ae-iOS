@@ -16,13 +16,13 @@
 		CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38202844678700D15356 /* TabCollectionViewCell.xib */; };
 		CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */; };
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
-		CD7F382B2844D66200D15356 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38292844D66200D15356 /* PopUpViewController.swift */; };
-		CD7F382C2844D66200D15356 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F382A2844D66200D15356 /* PopUpViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE24884284751E600FE35E3 /* AlbumCollectionViewCell.swift */; };
 		CDE24887284751E600FE35E3 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE24885284751E600FE35E3 /* AlbumCollectionViewCell.xib */; };
 		CDE2488A2847567800FE35E3 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE248882847567800FE35E3 /* HeaderCollectionReusableView.swift */; };
 		CDE2488B2847567800FE35E3 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE248892847567800FE35E3 /* HeaderCollectionReusableView.xib */; };
+		CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */; };
+		CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
 		CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */; };
 		CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3E28424B44005D8BB3 /* aeVeganDiary.xcdatamodeld */; };
@@ -60,13 +60,13 @@
 		CD7F38202844678700D15356 /* TabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
-		CD7F38292844D66200D15356 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		CD7F382A2844D66200D15356 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDE24884284751E600FE35E3 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDE24885284751E600FE35E3 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDE248882847567800FE35E3 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		CDE248892847567800FE35E3 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypeViewController.swift; sourceTree = "<group>"; };
+		CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE47F3528424B44005D8BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,13 +142,13 @@
 			path = FoodRegister;
 			sourceTree = "<group>";
 		};
-		CD7F38282844D62600D15356 /* PopUp */ = {
+		CD7F38282844D62600D15356 /* SelectType */ = {
 			isa = PBXGroup;
 			children = (
-				CD7F38292844D66200D15356 /* PopUpViewController.swift */,
-				CD7F382A2844D66200D15356 /* PopUpViewController.xib */,
+				CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */,
+				CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */,
 			);
-			path = PopUp;
+			path = SelectType;
 			sourceTree = "<group>";
 		};
 		CDE2487F2847519900FE35E3 /* Cells */ = {
@@ -266,7 +266,7 @@
 		CDE47F6328427409005D8BB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CD7F38282844D62600D15356 /* PopUp */,
+				CD7F38282844D62600D15356 /* SelectType */,
 				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
@@ -375,12 +375,12 @@
 			files = (
 				CDE2488B2847567800FE35E3 /* HeaderCollectionReusableView.xib in Resources */,
 				CDE47F72284274A5005D8BB3 /* AlbumViewController.xib in Resources */,
+				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
-				CD7F382C2844D66200D15356 /* PopUpViewController.xib in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
@@ -455,11 +455,11 @@
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
-				CD7F382B2844D66200D15356 /* PopUpViewController.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */,
+				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
