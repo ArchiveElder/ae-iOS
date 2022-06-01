@@ -6,56 +6,62 @@
 //
 
 import UIKit
+import PhotosUI
 
-class SelectTypeViewController: UIViewController {
+class SelectTypeViewController: UIViewController, PHPickerViewControllerDelegate {
     
-    let imagePicker = UIImagePickerController()
+    let camera = UIImagePickerController()
+    var pickerConfiguration = PHPickerConfiguration()
     
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
     @IBAction func takePhotoButton(_ sender: Any) {
+        camera.sourceType = .camera
+        camera.allowsEditing = true
+        camera.cameraDevice = .rear
+        present(camera, animated: true, completion: nil)
     }
     
     @IBAction func photoLibraryButton(_ sender: Any) {
-        imagePicker.modalPresentationStyle = .overFullScreen
-        self.present(self.imagePicker, animated: true)
+        pickerConfiguration.filter = .images
+        let picker = PHPickerViewController(configuration: pickerConfiguration)
+        //imagePicker.modalPresentationStyle = .overFullScreen
+        //self.present(self.imagePicker, animated: true)
     }
     
     @IBAction func searchButton(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.imagePicker.sourceType = .photoLibrary // 앨범에서 가져옴
-        self.imagePicker.allowsEditing = false // 수정 가능 여부
-        self.imagePicker.delegate = self // picker delegate
+        self.camera.delegate = self // picker delegate
         
     }
 
 }
 
 extension SelectTypeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if picker == imagePicker {
-            //var newImage: UIImage? = nil // update 할 이미지
-            
-            let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-    
-            print(possibleImage)
-            
-            picker.dismiss(animated: true, completion: {
-                let vc = FoodRegisterViewController()
-                vc.foodImage = possibleImage
-                let nav = UINavigationController(rootViewController: vc)
-                nav.view.backgroundColor = .white
-                nav.modalPresentationStyle = .overFullScreen
-                
-                self.present(nav, animated: true)
-            })
-        }
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        picker.dismiss(animated: true, completion: {
+            let vc = FoodRegisterViewController()
+            vc.foodImage = possibleImage
+            let nav = UINavigationController(rootViewController: vc)
+            nav.view.backgroundColor = .white
+            nav.modalPresentationStyle = .overFullScreen
+            
+            self.present(nav, animated: true)
+        })
+
+        picker.dismiss(animated: true, completion: nil)
     }
 }
