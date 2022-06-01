@@ -19,6 +19,8 @@
 		CD7F382B2844D66200D15356 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38292844D66200D15356 /* PopUpViewController.swift */; };
 		CD7F382C2844D66200D15356 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F382A2844D66200D15356 /* PopUpViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
+		CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE24884284751E600FE35E3 /* AlbumCollectionViewCell.swift */; };
+		CDE24887284751E600FE35E3 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE24885284751E600FE35E3 /* AlbumCollectionViewCell.xib */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
 		CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */; };
 		CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3E28424B44005D8BB3 /* aeVeganDiary.xcdatamodeld */; };
@@ -59,6 +61,8 @@
 		CD7F38292844D66200D15356 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		CD7F382A2844D66200D15356 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		CDE24884284751E600FE35E3 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDE24885284751E600FE35E3 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE47F3528424B44005D8BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE47F3728424B44005D8BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,15 @@
 				CD7F382A2844D66200D15356 /* PopUpViewController.xib */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
+		CDE2487F2847519900FE35E3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CDE24884284751E600FE35E3 /* AlbumCollectionViewCell.swift */,
+				CDE24885284751E600FE35E3 /* AlbumCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CDE47F2928424B44005D8BB3 = {
@@ -276,6 +289,7 @@
 		CDE47F6A28427456005D8BB3 /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				CDE2487F2847519900FE35E3 /* Cells */,
 				CDE47F6F284274A5005D8BB3 /* AlbumViewController.swift */,
 				CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */,
 			);
@@ -364,6 +378,7 @@
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
 				CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */,
+				CDE24887284751E600FE35E3 /* AlbumCollectionViewCell.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +438,7 @@
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
+				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
