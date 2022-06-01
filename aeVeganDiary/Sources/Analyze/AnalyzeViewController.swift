@@ -51,6 +51,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         let data = LineChartData(dataSet: set)
         data.setValueFont(UIFont.systemFont(ofSize: 10, weight: .semibold))
         data.setValueTextColor(.lightGray)
+        data.setDrawValues(false)
         
         calChartView.data = data
         calChartView.doubleTapToZoomEnabled = false
@@ -66,7 +67,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         //calChartView.xAxis.labelRotationAngle = -20
         calChartView.leftAxis.drawLabelsEnabled = false
         calChartView.leftAxis.drawAxisLineEnabled = false
-        calChartView.leftAxis.drawLimitLinesBehindDataEnabled = true
+        calChartView.leftAxis.drawLimitLinesBehindDataEnabled = false
         calChartView.xAxis.forceLabelsEnabled = true
         calChartView.xAxis.gridColor = .lightGray
         calChartView.xAxis.labelTextColor = .lightGray
@@ -82,7 +83,8 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         for element in values {
             sum += element
         }
-        var ll = ChartLimitLine(limit: sum / Double(values.count), label: "평균")
+        let avg = sum / Double(values.count)
+        let ll = ChartLimitLine(limit: avg, label: "평균 \(Int(avg))kcal")
         ll.lineWidth = 1
         ll.valueFont = UIFont.systemFont(ofSize: 11)
         calChartView.leftAxis.addLimitLine(ll)
