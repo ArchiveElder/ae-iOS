@@ -12,6 +12,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     @IBOutlet weak var calChartView: LineChartView!
     
+    
     var dates: [String]!
     var values: [Double]!
     
@@ -36,25 +37,54 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     func setLineChart(dataPoints: [String], values: [Double]) {
         var entries = [ChartDataEntry]()
         
-        for x in 0...6 {
+        for x in 0...5 {
             entries.append(ChartDataEntry(x: Double(x), y: Double(values[x])))
         }
         
         let set = LineChartDataSet(entries: entries, label: "kcal")
-        set.colors = [.darkGray]
+        set.circleRadius = 5
+        set.circleHoleRadius = 2.5
+        set.circleColors = [.mainGreen]
+        set.colors = [.mainGreen]
+        set.lineWidth = 2
+        
         let data = LineChartData(dataSet: set)
+        data.setValueFont(UIFont.systemFont(ofSize: 10, weight: .semibold))
+        data.setValueTextColor(.lightGray)
+        
         calChartView.data = data
-        calChartView.gridBackgroundColor = .clear
         calChartView.doubleTapToZoomEnabled = false
-        calChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        calChartView.highlightPerTapEnabled = false
+        calChartView.animate(yAxisDuration: 1.0)
         calChartView.xAxis.labelPosition = .bottom
         calChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dates)
         calChartView.rightAxis.enabled = false
         calChartView.xAxis.drawGridLinesEnabled = false
-        calChartView.backgroundColor = .mainGreen
+        
+        calChartView.leftAxis.drawGridLinesEnabled = false
+        calChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 9)
+        //calChartView.xAxis.labelRotationAngle = -20
+        calChartView.leftAxis.drawLabelsEnabled = false
+        calChartView.leftAxis.drawAxisLineEnabled = false
+        calChartView.leftAxis.drawLimitLinesBehindDataEnabled = true
+        calChartView.xAxis.forceLabelsEnabled = true
+        calChartView.xAxis.gridColor = .lightGray
+        calChartView.xAxis.labelTextColor = .lightGray
+        
+        calChartView.legend.enabled = false
+        
+        calChartView.extraLeftOffset = 20
+        calChartView.extraRightOffset = 20
+        calChartView.extraTopOffset = 10
         
         //리미트라인
-        let ll = ChartLimitLine(limit: 1700.0, label: "타겟")
+        var sum: Double = 0
+        for element in values {
+            sum += element
+        }
+        var ll = ChartLimitLine(limit: sum / Double(values.count), label: "평균")
+        ll.lineWidth = 1
+        ll.valueFont = UIFont.systemFont(ofSize: 11)
         calChartView.leftAxis.addLimitLine(ll)
     }
 }

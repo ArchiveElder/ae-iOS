@@ -47,13 +47,28 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 영양섭취량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSh-IZ-uIm">
+                            <rect key="frame" x="10" y="265" width="101" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnd-Wg-ezA">
+                            <rect key="frame" x="10" y="302" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bgz-8E-K3l" firstAttribute="top" secondItem="TgK-yj-bQN" secondAttribute="bottom" constant="8" id="0dy-fv-MDJ"/>
                         <constraint firstItem="bgz-8E-K3l" firstAttribute="centerX" secondItem="EbN-X5-Xhq" secondAttribute="centerX" id="8z7-9y-Rxt"/>
+                        <constraint firstItem="FSh-IZ-uIm" firstAttribute="top" secondItem="OlY-7X-ZH7" secondAttribute="bottom" constant="20" id="EUE-sZ-mOW"/>
                         <constraint firstItem="OlY-7X-ZH7" firstAttribute="top" secondItem="bgz-8E-K3l" secondAttribute="bottom" constant="15" id="FHC-yA-4gW"/>
                         <constraint firstItem="TgK-yj-bQN" firstAttribute="top" secondItem="EbN-X5-Xhq" secondAttribute="top" constant="30" id="KNd-cL-dm5"/>
+                        <constraint firstItem="FSh-IZ-uIm" firstAttribute="leading" secondItem="EbN-X5-Xhq" secondAttribute="leading" constant="10" id="NRm-Em-k1M"/>
                         <constraint firstItem="TgK-yj-bQN" firstAttribute="centerX" secondItem="EbN-X5-Xhq" secondAttribute="centerX" id="OMK-Kt-9xp"/>
                         <constraint firstItem="OlY-7X-ZH7" firstAttribute="leading" secondItem="EbN-X5-Xhq" secondAttribute="leading" constant="10" id="e4d-Ki-icL"/>
                         <constraint firstAttribute="trailing" secondItem="OlY-7X-ZH7" secondAttribute="trailing" constant="10" id="i6R-d5-gOU"/>
