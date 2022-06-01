@@ -8,7 +8,13 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var nutritionButton: UIButton!
+    @IBOutlet weak var measureButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
