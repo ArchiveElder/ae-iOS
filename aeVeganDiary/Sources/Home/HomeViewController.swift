@@ -10,25 +10,15 @@ import FSCalendar
 
 class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
-    @IBOutlet weak var datePickButton: UIButton!
-    @IBAction func datePickButtonAction(_ sender: Any) {
-        let datePicker : UIDatePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
-        //datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControlEvents.valueChanged)
-        
-        datePicker.backgroundColor = .white
-        datePicker.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        datePicker.layer.cornerRadius = 10
-        self.view.addSubview(datePicker)
-    }
-    
     @IBOutlet weak var datePickTextField: UITextField!
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
     @IBOutlet weak var tabCollectionView: UICollectionView!
     @IBOutlet weak var mealCollectionView: UICollectionView!
+    
+    let dateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +44,14 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         mealCollectionView.dataSource = self
         mealCollectionView.register(UINib(nibName: "RegisterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RegisterCollectionViewCell")
         
+        dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+        self.datePickTextField.text = dateFormatter.string(from: Date())
     }
     
     @objc func tapDone() {
         if let datePicker = self.datePickTextField.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "yyyy.MM.dd."
-            self.datePickTextField.text = dateformatter.string(from: datePicker.date)
+            self.datePickTextField.text = dateFormatter.string(from: datePicker.date)
         }
         self.datePickTextField.resignFirstResponder()
     }
@@ -115,23 +105,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension UITextField {
     
     func setInputViewDatePicker(target: Any, selector: Selector) {
+        
         // Create a UIDatePicker object and assign to inputView
         let screenWidth = UIScreen.main.bounds.width
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))//1
-        datePicker.datePickerMode = .date //2
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
+        datePicker.datePickerMode = .date
         // iOS 14 and above
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd."
+        let date = dateFormatter.date(from: self.text ?? "2022.01.01")
+        datePicker.date = date!
         
-        self.inputView = datePicker //3
+        
+        self.inputView = datePicker
         
         // Create a toolbar and assign it to inputAccessoryView
-        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0)) //4
-        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil) //5
-        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel)) // 6
-        let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector) //7
-        toolBar.setItems([cancel, flexible, barButton], animated: false) //8
-        self.inputAccessoryView = toolBar //9
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0))
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
+        let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
+        toolBar.setItems([cancel, flexible, barButton], animated: false)
+        self.inputAccessoryView = toolBar
     }
     
     @objc func tapCancel() {
