@@ -18,10 +18,13 @@ class SelectTypeViewController: UIViewController {
     }
     
     @IBAction func takePhotoButton(_ sender: Any) {
-        camera.sourceType = .camera
-        camera.allowsEditing = true
-        camera.cameraDevice = .rear
-        present(camera, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.camera.sourceType = .camera
+            self.camera.allowsEditing = true
+            self.camera.cameraDevice = .rear
+            self.present(self.camera, animated: true, completion: nil)
+        })
+        
     }
     
     @IBAction func photoLibraryButton(_ sender: Any) {
@@ -30,6 +33,11 @@ class SelectTypeViewController: UIViewController {
         picker.delegate = self
         picker.modalPresentationStyle = .overFullScreen
         self.present(picker, animated: true)
+        
+        /*guard let pvc = self.presentingViewController else { return }
+        self.dismiss(animated: true, completion: {
+          pvc.present(picker, animated: true, completion: nil)
+        })*/
     }
     
     @IBAction func searchButton(_ sender: Any) {
@@ -40,18 +48,16 @@ class SelectTypeViewController: UIViewController {
         super.viewDidLoad()
 
         self.camera.delegate = self // picker delegate
-        
     }
 
 }
 
 extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true) // 1
+        picker.dismiss(animated: false) // 1
         let itemProvider = results.first?.itemProvider // 2
 
         if let itemProvider = itemProvider,
-
         itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
             itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in // 4
                 DispatchQueue.main.async {
@@ -80,9 +86,7 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
             nav.view.backgroundColor = .white
             nav.modalPresentationStyle = .overFullScreen
             
-            self.present(nav, animated: true)
+            self.present(vc, animated: true)
         })
-
-        picker.dismiss(animated: true, completion: nil)
     }
 }
