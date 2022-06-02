@@ -25,10 +25,25 @@ class FoodRegisterViewController: BaseViewController {
         foodImageView.image = foodImage
         
         dismissKeyboardWhenTappedAround()
+        setBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    func setBackButton() {
+        let backButton: UIButton = UIButton()
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addBackButton = UIBarButtonItem(customView: backButton)
+        
+        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
+    }
+    
+    @objc func popToRoot() {
+        self.dismiss(animated: true)
     }
 }
 
