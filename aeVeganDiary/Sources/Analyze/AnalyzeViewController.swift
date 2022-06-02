@@ -27,8 +27,8 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        dates = ["05.24", "05.25", "05.26", "05.27", "05.28", "05.29", "05.30"]
-        values = [1500, 1600, 2000, 1700, 1800, 2100, 2000]
+        dates = ["05.24", "05.25", "05.26", "05.27", "05.28", "05.29", "05.30", "05.31"]
+        values = [1500, 1600, 2000, 1700, 1800, 2100, 2000, 1800]
         
         
         setLineChart(dataPoints: dates, values: values)
@@ -37,7 +37,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     func setLineChart(dataPoints: [String], values: [Double]) {
         var entries = [ChartDataEntry]()
         
-        for x in 0...5 {
+        for x in 0...6 {
             entries.append(ChartDataEntry(x: Double(x), y: Double(values[x])))
         }
         
@@ -68,7 +68,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         calChartView.leftAxis.drawLabelsEnabled = false
         calChartView.leftAxis.drawAxisLineEnabled = false
         calChartView.leftAxis.drawLimitLinesBehindDataEnabled = false
-        calChartView.xAxis.forceLabelsEnabled = true
+        //calChartView.xAxis.forceLabelsEnabled = true
         calChartView.xAxis.gridColor = .lightGray
         calChartView.xAxis.labelTextColor = .lightGray
         
