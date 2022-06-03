@@ -9,6 +9,7 @@ target 'aeVeganDiary' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'FSCalendar'
   pod 'Charts'
+  pod 'Alamofire', '~> 5.2'
 
 end
 
