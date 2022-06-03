@@ -14,7 +14,10 @@ class TabCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        tabBackgroundView.clipsToBounds = true
+        tabBackgroundView.layer.cornerRadius = 10
+        tabBackgroundView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     }
 
 }
