@@ -15,6 +15,7 @@ class TabCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 뷰 왼쪽 위, 오른쪽 위 둥글게 하는 코드
         tabBackgroundView.clipsToBounds = true
         tabBackgroundView.layer.cornerRadius = 10
         tabBackgroundView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)

@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -22,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var controller: UIViewController
         
+        // 시작하는 뷰를 로그인뷰로 설정
         controller = LoginViewController()
         let navController = UINavigationController(rootViewController: controller)
         navController.view.backgroundColor = .white

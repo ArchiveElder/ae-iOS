@@ -12,7 +12,6 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     @IBOutlet weak var calChartView: LineChartView!
     
-    
     var dates: [String]!
     var values: [Double]!
     
@@ -27,13 +26,14 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // 그래프에 들어갈 데이터들
         dates = ["05.24", "05.25", "05.26", "05.27", "05.28", "05.29", "05.30", "05.31"]
         values = [1500, 1600, 2000, 1700, 1800, 2100, 2000, 1800]
-        
         
         setLineChart(dataPoints: dates, values: values)
     }
     
+    // 그래프 설정 코드
     func setLineChart(dataPoints: [String], values: [Double]) {
         var entries = [ChartDataEntry]()
         
@@ -53,6 +53,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         data.setValueTextColor(.lightGray)
         data.setDrawValues(false)
         
+        // 그래프 설정
         calChartView.data = data
         calChartView.doubleTapToZoomEnabled = false
         calChartView.highlightPerTapEnabled = false

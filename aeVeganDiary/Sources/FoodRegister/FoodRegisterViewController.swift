@@ -18,6 +18,8 @@ class FoodRegisterViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationTitle(title: "식사 등록하기")
+        
+        // 식단 상세 tableView
         detailTableView.delegate = self
         detailTableView.dataSource = self
         detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
@@ -28,21 +30,18 @@ class FoodRegisterViewController: BaseViewController {
         setBackButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+    // 뒤로가기 버튼 설정
     func setBackButton() {
         let backButton: UIButton = UIButton()
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
     }
     
-    @objc func popToRoot() {
+    @objc func pop() {
         self.dismiss(animated: true)
     }
 }
@@ -61,6 +60,7 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
+    // 인분/g 바꾸는 메뉴 생성
     @objc func showMeasure(sender : UIButton) {
         let optionMenu = UIAlertController(title: nil, message: "단위를 선택해주세요.", preferredStyle: .actionSheet)
 

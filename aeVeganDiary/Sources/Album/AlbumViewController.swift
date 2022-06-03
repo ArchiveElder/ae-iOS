@@ -16,6 +16,7 @@ class AlbumViewController: BaseViewController {
 
         setNavigationTitle(title: "식사 앨범")
         
+        //식사 앨범 collectionView
         albumCollectionView.delegate = self
         albumCollectionView.dataSource = self
         albumCollectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCollectionViewCell")
@@ -42,6 +43,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: width, height: width)
     }
     
+    // 각 section의 header 지정해주기
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         switch kind {
@@ -54,6 +56,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     }
     
+    // header 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width: CGFloat = collectionView.frame.width
         let height: CGFloat = 30

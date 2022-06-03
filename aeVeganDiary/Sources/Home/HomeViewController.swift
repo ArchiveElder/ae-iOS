@@ -49,10 +49,13 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         self.datePickTextField.text = dateFormatter.string(from: Date())
     }
     
+    // datePicker에서 Done 누르면 실행
     @objc func tapDone() {
         if let datePicker = self.datePickTextField.inputView as? UIDatePicker {
+            // textField 업데이트
             self.datePickTextField.text = dateFormatter.string(from: datePicker.date)
         }
+        // textField에서 커서 제거
         self.datePickTextField.resignFirstResponder()
     }
 
@@ -64,6 +67,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 탭 collectionView
         if collectionView == tabCollectionView {
             let mealList = ["아침", "점심", "저녁"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
@@ -71,6 +75,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.backgroundColor = .clear
             return cell
         } else {
+            // 식사 collectionView
             let number = ["1", "2", "3"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
             cell.numberLabel.text = number[indexPath.row]
@@ -79,6 +84,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    // 식단 등록하기 버튼 누르면 팝업 띄움
     @objc func toRegister(sender : UIButton) {
         let vc = SelectTypeViewController()
         vc.modalPresentationStyle = .overFullScreen
@@ -86,6 +92,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         present(vc, animated: false)
     }
     
+    // collectionView 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == tabCollectionView {
             return CGSize(width: tabCollectionView.frame.width / 3 - 1.2, height: tabCollectionView.frame.height)
@@ -95,6 +102,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
     }
     
+    // 탭 collectionView의 cell들 누르면 실행되는 코드
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabCollectionView {
             mealCollectionView.scrollToItem(at: NSIndexPath(item: indexPath.row, section: 0) as IndexPath, at: .right, animated: false)
@@ -104,7 +112,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 extension UITextField {
-    
+    // datePicker 설정
     func setInputViewDatePicker(target: Any, selector: Selector) {
         // Create a UIDatePicker object and assign to inputView
         let screenWidth = UIScreen.main.bounds.width
