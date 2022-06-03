@@ -76,16 +76,18 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
     
     // 카메라로 사진 찍고 use photo 누르면 실행됨
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        picker.dismiss(animated: true, completion: nil)
         
-        picker.dismiss(animated: true, completion: {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let vc = FoodRegisterViewController()
-            vc.foodImage = possibleImage
+            vc.foodImage = image
             let nav = UINavigationController(rootViewController: vc)
             nav.view.backgroundColor = .white
             nav.modalPresentationStyle = .overFullScreen
             
-            self.present(vc, animated: true)
-        })
+            self.present(nav, animated: true)
+        }
+        
+        
     }
 }
