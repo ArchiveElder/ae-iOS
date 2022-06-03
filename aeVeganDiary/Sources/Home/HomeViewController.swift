@@ -21,6 +21,11 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
     
     var selected: Int? = 0
     
+    // ProgressBar
+    @IBOutlet weak var carbProgressBar: UIProgressView!
+    @IBOutlet weak var proteinProgressBar: UIProgressView!
+    @IBOutlet weak var fatProgressBar: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

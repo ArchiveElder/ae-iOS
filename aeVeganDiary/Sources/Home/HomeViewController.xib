@@ -12,8 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="carbProgressBar" destination="nOn-1X-A63" id="NNW-gk-Oc5"/>
                 <outlet property="datePickTextField" destination="Fqs-qr-GOo" id="MSZ-Lc-4Pb"/>
+                <outlet property="fatProgressBar" destination="Q5I-V3-CTv" id="4su-Y4-QzI"/>
                 <outlet property="mealCollectionView" destination="8re-C7-Q1h" id="fRO-IR-JJy"/>
+                <outlet property="proteinProgressBar" destination="Hfx-y7-bKg" id="Weh-zo-2yr"/>
                 <outlet property="tabCollectionView" destination="8KX-Cv-sIg" id="TRK-Bi-8DU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weekCalendarView" destination="ifb-Sb-h85" id="esz-pY-8cf"/>
@@ -67,17 +70,59 @@
                                             <rect key="frame" x="185" y="78" width="165" height="192"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 영양소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrJ-a5-JVH">
-                                                    <rect key="frame" x="10" y="10" width="65" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="12" y="12" width="60" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄수화물" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iq-Vq-vVi">
+                                                    <rect key="frame" x="12" y="42.666666666666686" width="45" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단백질" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23o-HH-3xN">
+                                                    <rect key="frame" x="12" y="84.666666666666686" width="34" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-Y0-6S6">
+                                                    <rect key="frame" x="12.000000000000002" y="126.66666666666669" width="22.666666666666671" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hfx-y7-bKg">
+                                                    <rect key="frame" x="12" y="110.66666666666669" width="141" height="4"/>
+                                                </progressView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q5I-V3-CTv">
+                                                    <rect key="frame" x="12" y="152.66666666666669" width="141" height="4"/>
+                                                </progressView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-1X-A63">
+                                                    <rect key="frame" x="12" y="68.666666666666686" width="141" height="4"/>
+                                                </progressView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray4Color"/>
                                             <constraints>
-                                                <constraint firstItem="SrJ-a5-JVH" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="10" id="1Z2-qP-UZO"/>
+                                                <constraint firstItem="SrJ-a5-JVH" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="1Z2-qP-UZO"/>
+                                                <constraint firstItem="6iq-Vq-vVi" firstAttribute="top" secondItem="SrJ-a5-JVH" secondAttribute="bottom" constant="15" id="21X-Aj-QFW"/>
                                                 <constraint firstAttribute="height" constant="192" id="8DM-R3-4Sh"/>
-                                                <constraint firstItem="SrJ-a5-JVH" firstAttribute="top" secondItem="BMi-eC-2bV" secondAttribute="top" constant="10" id="pld-dX-VVS"/>
+                                                <constraint firstItem="6iq-Vq-vVi" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="D9Q-Ie-DfA"/>
+                                                <constraint firstItem="Hfx-y7-bKg" firstAttribute="top" secondItem="23o-HH-3xN" secondAttribute="bottom" constant="10" id="Gec-9s-46K"/>
+                                                <constraint firstItem="JQr-Y0-6S6" firstAttribute="top" secondItem="Hfx-y7-bKg" secondAttribute="bottom" constant="12" id="I5F-Xp-Rp1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Hfx-y7-bKg" secondAttribute="trailing" constant="12" id="KUi-jg-nYl"/>
+                                                <constraint firstItem="Hfx-y7-bKg" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="SA4-pw-dk3"/>
+                                                <constraint firstItem="Q5I-V3-CTv" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="TMQ-6F-Bg5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q5I-V3-CTv" secondAttribute="trailing" constant="12" id="Val-3t-fPw"/>
+                                                <constraint firstItem="JQr-Y0-6S6" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="W9K-vq-wxT"/>
+                                                <constraint firstAttribute="trailing" secondItem="nOn-1X-A63" secondAttribute="trailing" constant="12" id="eKE-0s-gZh"/>
+                                                <constraint firstItem="nOn-1X-A63" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="hHV-h4-JFU"/>
+                                                <constraint firstItem="nOn-1X-A63" firstAttribute="top" secondItem="6iq-Vq-vVi" secondAttribute="bottom" constant="10" id="jvz-SM-YV1"/>
+                                                <constraint firstItem="23o-HH-3xN" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="kJi-wo-WjX"/>
+                                                <constraint firstItem="SrJ-a5-JVH" firstAttribute="top" secondItem="BMi-eC-2bV" secondAttribute="top" constant="12" id="pld-dX-VVS"/>
+                                                <constraint firstItem="Q5I-V3-CTv" firstAttribute="top" secondItem="JQr-Y0-6S6" secondAttribute="bottom" constant="10" id="qJ4-1b-wuc"/>
+                                                <constraint firstItem="23o-HH-3xN" firstAttribute="top" secondItem="nOn-1X-A63" secondAttribute="bottom" constant="12" id="xKu-3M-vMb"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
