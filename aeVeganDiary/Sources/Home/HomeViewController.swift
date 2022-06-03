@@ -8,9 +8,10 @@
 import UIKit
 import FSCalendar
 
-class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class HomeViewController: BaseViewController {
     
     @IBOutlet weak var datePickTextField: UITextField!
+    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
@@ -23,8 +24,16 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
     
     // ProgressBar
     @IBOutlet weak var carbProgressBar: UIProgressView!
+    @IBOutlet weak var carbLabel: UILabel!
+    
     @IBOutlet weak var proteinProgressBar: UIProgressView!
+    @IBOutlet weak var proteinLabel: UILabel!
+    
     @IBOutlet weak var fatProgressBar: UIProgressView!
+    @IBOutlet weak var fatLabel: UILabel!
+    
+    // MARK: 서버 통신 변수 선언
+    let mealKcal = [114, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,18 +61,22 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         mealCollectionView.backgroundColor = .clear
         
         dateFormatter.dateFormat = "yyyy.MM.dd."
-        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         self.datePickTextField.text = dateFormatter.string(from: Date())
+        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
         self.view.backgroundColor = .lightGray
+        
+        // ProgressView
+        carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
+        proteinProgressBar.transform = proteinProgressBar.transform.scaledBy(x: 1, y: 2)
+        fatProgressBar.transform = fatProgressBar.transform.scaledBy(x: 1, y: 2)
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showIndicator()
-        let input = HomeInput(date: "2022.06.01.")
-        HomeDataManager().requestData(input, viewController: self)
-    }*/
+        
+        request(dateText: datePickTextField.text!)
+    }
 
     
     // datePicker에서 Done 누르면 실행
@@ -71,13 +84,31 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         if let datePicker = self.datePickTextField.inputView as? UIDatePicker {
             // textField 업데이트
             self.datePickTextField.text = dateFormatter.string(from: datePicker.date)
+            self.weekCalendarView.select(datePicker.date)
         }
         // textField에서 커서 제거
         self.datePickTextField.resignFirstResponder()
+        
+        request(dateText: dateFormatter.string(from: datePicker.date))
     }
 
 }
 
+// MARK: FSCalendar
+extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    // 날짜 선택 시 콜백 메소드
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        datePickTextField.text = dateFormatter.string(from: date)
+        datePicker.date = date
+        request(dateText: dateFormatter.string(from: date))
+    }
+    
+    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+         return false
+    }
+}
+
+// MARK: CollectionView
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -87,7 +118,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // 탭 collectionView
         if collectionView == tabCollectionView {
             let mealList = ["아침", "점심", "저녁"]
-            let mealKcal = [114, 0, 0]
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
             if mealKcal[indexPath.row] == 0  {
@@ -148,42 +179,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-extension UITextField {
-    // datePicker 설정
-    func setInputViewDatePicker(target: Any, selector: Selector) {
-        // Create a UIDatePicker object and assign to inputView
-        let screenWidth = UIScreen.main.bounds.width
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
-        datePicker.datePickerMode = .date
-        // iOS 14 and above
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.sizeToFit()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd."
-        let date = dateFormatter.date(from: self.text ?? "2022.01.01")
-        datePicker.date = date!
-        
-        
-        self.inputView = datePicker
-        
-        // Create a toolbar and assign it to inputAccessoryView
-        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0))
-        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
-        let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
-        toolBar.setItems([cancel, flexible, barButton], animated: false)
-        self.inputAccessoryView = toolBar
-    }
-    
-    @objc func tapCancel() {
-        self.resignFirstResponder()
-    }
-    
-}
 
+
+
+// MARK: 서버 통신
 extension HomeViewController {
+    func request(dateText: String) {
+        showIndicator()
+        let input = HomeInput(date: dateText)
+        HomeDataManager().requestData(input, viewController: self)
+    }
+    
     func getData() {
-        print("됐다!")
+        dismissIndicator()
+        
     }
     
     func failedToRequest(message: String) {
