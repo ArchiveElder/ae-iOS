@@ -38,7 +38,7 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         tabCollectionView.delegate = self
         tabCollectionView.dataSource = self
         tabCollectionView.register(UINib(nibName: "TabCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TabCollectionViewCell")
-        tabCollectionView.backgroundColor = .lightGray
+        tabCollectionView.backgroundColor = .clear
         
         mealCollectionView.delegate = self
         mealCollectionView.dataSource = self
@@ -68,6 +68,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let mealList = ["아침", "점심", "저녁"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
+            cell.backgroundColor = .clear
             return cell
         } else {
             let number = ["1", "2", "3"]
@@ -87,7 +88,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == tabCollectionView {
-            return CGSize(width: tabCollectionView.frame.width / 3, height: tabCollectionView.frame.height)
+            return CGSize(width: tabCollectionView.frame.width / 3 - 1.2, height: tabCollectionView.frame.height)
         } else {
             return CGSize(width: mealCollectionView.frame.width, height: 170)
         }
@@ -105,7 +106,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension UITextField {
     
     func setInputViewDatePicker(target: Any, selector: Selector) {
-        
         // Create a UIDatePicker object and assign to inputView
         let screenWidth = UIScreen.main.bounds.width
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
