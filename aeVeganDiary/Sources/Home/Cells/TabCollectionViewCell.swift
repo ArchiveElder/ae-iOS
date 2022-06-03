@@ -11,6 +11,9 @@ class TabCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var tabBackgroundView: UIView!
     @IBOutlet weak var mealLabel: UILabel!
+    @IBOutlet weak var nullView: UIView!
+    @IBOutlet weak var kcalLabel: UILabel!
+    @IBOutlet weak var kcal: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

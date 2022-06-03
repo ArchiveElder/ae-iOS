@@ -44,6 +44,9 @@
 		CDE47F72284274A5005D8BB3 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */; };
 		CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F73284274B0005D8BB3 /* MypageViewController.swift */; };
 		CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F74284274B0005D8BB3 /* MypageViewController.xib */; };
+		CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB5284A076900217725 /* HomeInput.swift */; };
+		CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB7284A077900217725 /* HomeResponse.swift */; };
+		CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,9 @@
 		CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
 		CDE47F73284274B0005D8BB3 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		CDE47F74284274B0005D8BB3 /* MypageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MypageViewController.xib; sourceTree = "<group>"; };
+		CDFF9AB5284A076900217725 /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
+		CDFF9AB7284A077900217725 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
+		CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 			children = (
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
+				CD7F38282844D62600D15356 /* SelectType */,
 				CD7F38232844AE3600D15356 /* FoodRegister */,
 				CDE47F6828427442005D8BB3 /* Analyze */,
 				CDE47F6A28427456005D8BB3 /* Album */,
@@ -266,7 +273,8 @@
 		CDE47F6328427409005D8BB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CD7F38282844D62600D15356 /* SelectType */,
+				CDFF9AB3284A074600217725 /* Entity */,
+				CDFF9AB4284A075100217725 /* DataManager */,
 				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
@@ -300,6 +308,23 @@
 				CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */,
 			);
 			path = Album;
+			sourceTree = "<group>";
+		};
+		CDFF9AB3284A074600217725 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CDFF9AB5284A076900217725 /* HomeInput.swift */,
+				CDFF9AB7284A077900217725 /* HomeResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CDFF9AB4284A075100217725 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		F1680EF3741D64B34F0B2D5F /* Pods */ = {
@@ -446,11 +471,14 @@
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
+				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
+				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
+				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
 				CDE2488A2847567800FE35E3 /* HeaderCollectionReusableView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
