@@ -180,6 +180,7 @@
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="dfP-0r-f8M" secondAttribute="bottom" constant="8" id="6DC-rZ-M3K"/>
                                         <constraint firstItem="Fqs-qr-GOo" firstAttribute="leading" secondItem="dfP-0r-f8M" secondAttribute="trailing" constant="8" id="8KA-JS-Pc6"/>
