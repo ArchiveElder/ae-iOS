@@ -44,6 +44,7 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         mealCollectionView.delegate = self
         mealCollectionView.dataSource = self
         mealCollectionView.register(UINib(nibName: "RegisterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RegisterCollectionViewCell")
+        mealCollectionView.backgroundColor = .clear
         
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
@@ -126,7 +127,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == tabCollectionView {
             return CGSize(width: tabCollectionView.frame.width / 3 - 1.2, height: tabCollectionView.frame.height)
         } else {
-            return CGSize(width: mealCollectionView.frame.width, height: 170)
+            return CGSize(width: mealCollectionView.frame.width, height: mealCollectionView.frame.height)
         }
         
     }
