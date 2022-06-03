@@ -217,6 +217,7 @@
 			children = (
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
+				CD7F38282844D62600D15356 /* SelectType */,
 				CD7F38232844AE3600D15356 /* FoodRegister */,
 				CDE47F6828427442005D8BB3 /* Analyze */,
 				CDE47F6A28427456005D8BB3 /* Album */,
@@ -274,7 +275,6 @@
 			children = (
 				CDFF9AB3284A074600217725 /* Entity */,
 				CDFF9AB4284A075100217725 /* DataManager */,
-				CD7F38282844D62600D15356 /* SelectType */,
 				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
