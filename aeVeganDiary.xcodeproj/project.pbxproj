@@ -10,6 +10,8 @@
 		8FA5F314284A13E400ED3B66 /* img1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F313284A13E400ED3B66 /* img1.jpeg */; };
 		8FA5F316284A15C600ED3B66 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F315284A15C600ED3B66 /* tree.png */; };
 		8FA5F31A284A26E700ED3B66 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F319284A26E700ED3B66 /* earth.png */; };
+		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
+		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
 		CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */; };
 		CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */; };
@@ -59,6 +61,8 @@
 		8FA5F313284A13E400ED3B66 /* img1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = img1.jpeg; path = "../../../../../../Desktop/ahneve/사진/img1.jpeg"; sourceTree = "<group>"; };
 		8FA5F315284A15C600ED3B66 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree.png; path = ../../../../../../Desktop/tree.png; sourceTree = "<group>"; };
 		8FA5F319284A26E700ED3B66 /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earth.png; path = ../../../../../../Downloads/earth.png; sourceTree = "<group>"; };
+		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FA5F31B284A29B300ED3B66 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */,
+				8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		A20A341C97853D4154E2F773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +234,7 @@
 		CDE47F4D28426B71005D8BB3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8FA5F31B284A29B300ED3B66 /* Search */,
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
 				CD7F38282844D62600D15356 /* SelectType */,
@@ -421,6 +435,7 @@
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				8FA5F316284A15C600ED3B66 /* tree.png in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
+				8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */,
 				CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */,
 				CDE24887284751E600FE35E3 /* AlbumCollectionViewCell.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
@@ -484,6 +499,7 @@
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
+				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,

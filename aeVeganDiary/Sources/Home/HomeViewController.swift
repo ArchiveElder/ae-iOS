@@ -52,12 +52,14 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         self.view.backgroundColor = .lightGray
     }
     
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
         let input = HomeInput(date: "2022.06.01.")
         HomeDataManager().requestData(input, viewController: self)
     }
+     */
 
     
     // datePicker에서 Done 누르면 실행
