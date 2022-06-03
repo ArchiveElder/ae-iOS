@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
     
     let dateFormatter = DateFormatter()
     
+    var selected: Int? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,8 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         self.datePickTextField.text = dateFormatter.string(from: Date())
+        
+        self.view.backgroundColor = .lightGray
     }
     
     // datePicker에서 Done 누르면 실행
@@ -70,9 +73,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // 탭 collectionView
         if collectionView == tabCollectionView {
             let mealList = ["아침", "점심", "저녁"]
+            let mealKcal = [114, 0, 0]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
-            cell.backgroundColor = .clear
+            if mealKcal[indexPath.row] == 0  {
+                cell.kcalLabel.isHidden = true
+                cell.nullView.isHidden = false
+                cell.kcal.isHidden = true
+            }
+            else {
+                cell.kcalLabel.isHidden = false
+                cell.nullView.isHidden = true
+                cell.kcalLabel.text = String(mealKcal[indexPath.row])
+                cell.kcal.isHidden = false
+            }
+            
+            if selected == indexPath.row {
+                cell.tabBackgroundView.backgroundColor = .white
+            } else {
+                cell.tabBackgroundView.backgroundColor = .lGray
+            }
+            
             return cell
         } else {
             // 식사 collectionView
@@ -106,6 +127,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabCollectionView {
             mealCollectionView.scrollToItem(at: NSIndexPath(item: indexPath.row, section: 0) as IndexPath, at: .right, animated: false)
+            selected = indexPath.row
+            collectionView.reloadData()
         }
     }
     
@@ -143,3 +166,4 @@ extension UITextField {
     }
     
 }
+
