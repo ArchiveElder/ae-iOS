@@ -64,8 +64,6 @@ class HomeViewController: BaseViewController {
         self.datePickTextField.text = dateFormatter.string(from: Date())
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
-        self.view.backgroundColor = .lightGray
-        
         // ProgressView
         carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
         proteinProgressBar.transform = proteinProgressBar.transform.scaledBy(x: 1, y: 2)
@@ -143,9 +141,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             // 식사 collectionView
-            let number = ["1", "2", "3"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-            cell.numberLabel.text = number[indexPath.row]
             cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
             return cell
         }

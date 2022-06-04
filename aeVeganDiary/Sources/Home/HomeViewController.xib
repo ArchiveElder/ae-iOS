@@ -55,7 +55,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                            <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Kd8-L8-InX" firstAttribute="top" secondItem="iH5-bA-uUE" secondAttribute="bottom" constant="8" id="0Qt-0I-Ghf"/>
                                                 <constraint firstItem="iH5-bA-uUE" firstAttribute="top" secondItem="jdY-Q8-QJH" secondAttribute="top" constant="65" id="XUy-50-YSP"/>
@@ -133,7 +133,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                            <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="SrJ-a5-JVH" firstAttribute="leading" secondItem="BMi-eC-2bV" secondAttribute="leading" constant="12" id="1Z2-qP-UZO"/>
                                                 <constraint firstItem="6iq-Vq-vVi" firstAttribute="top" secondItem="SrJ-a5-JVH" secondAttribute="bottom" constant="15" id="21X-Aj-QFW"/>
@@ -189,10 +189,10 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="YES"/>
                                         <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
-                                            <color key="value" systemColor="systemTealColor"/>
+                                            <color key="value" red="0.77647058823529413" green="0.8666666666666667" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
-                                            <color key="value" red="0.27704783989999998" green="0.50196078430000002" blue="0.3596142463" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="value" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
                                             <real key="value" value="0.0"/>
@@ -211,6 +211,9 @@
                                             <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value=" "/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                            <color key="value" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8KX-Cv-sIg">
@@ -244,7 +247,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dfP-0r-f8M">
                                             <rect key="frame" x="8" y="9.6666666666666625" width="24" height="21"/>
-                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="dfP-0r-f8M" secondAttribute="height" multiplier="1:1" id="pbe-ZP-yRv"/>
                                             </constraints>
@@ -321,12 +324,6 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
