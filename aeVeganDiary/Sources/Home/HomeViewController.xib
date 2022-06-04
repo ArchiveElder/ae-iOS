@@ -35,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-LP-RfN">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="688"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="638"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
@@ -239,10 +239,10 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8re-C7-Q1h">
-                                    <rect key="frame" x="15" y="408" width="360" height="250"/>
+                                    <rect key="frame" x="15" y="408" width="360" height="200"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="250" id="aBF-ej-O9A"/>
+                                        <constraint firstAttribute="height" constant="200" id="aBF-ej-O9A"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dps-U3-1Vg">
                                         <size key="itemSize" width="128" height="128"/>

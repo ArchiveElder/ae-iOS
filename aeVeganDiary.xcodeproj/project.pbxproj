@@ -21,6 +21,8 @@
 		CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */; };
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
+		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
+		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61202284A50120041F5C7 /* RegisterInput.swift */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
 		CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61207284A50480041F5C7 /* RegisterDataManager.swift */; };
@@ -74,6 +76,8 @@
 		CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61202284A50120041F5C7 /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		CDC61207284A50480041F5C7 /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */,
 				CD636D20284B346700ED137E /* MealCollectionViewCell.swift */,
 				CD636D21284B346700ED137E /* MealCollectionViewCell.xib */,
+				CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */,
+				CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 				CDE47F72284274A5005D8BB3 /* AlbumViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
+				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
@@ -530,6 +537,7 @@
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
+				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
 				CDE2488A2847567800FE35E3 /* HeaderCollectionReusableView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
