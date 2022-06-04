@@ -36,9 +36,7 @@ class FoodRegisterViewController: BaseViewController {
     
     /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showIndicator()
-        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
-        RegisterDataManager().registerMeal(input, viewController: self)
+        
     }*/
     
     // 뒤로가기 버튼 설정
@@ -60,7 +58,9 @@ class FoodRegisterViewController: BaseViewController {
     }
     
     @objc func done() {
-        
+        showIndicator()
+        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
+        RegisterDataManager().registerMeal(input, viewController: self)
     }
     
     @objc func pop() {
@@ -117,7 +117,7 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
 extension FoodRegisterViewController {
     func postMeal() {
         dismissIndicator()
-        
+        self.dismiss(animated: true)
     }
     
     func failedToRequest(message: String) {
