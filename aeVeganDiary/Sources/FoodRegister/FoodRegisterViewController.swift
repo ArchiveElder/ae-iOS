@@ -17,7 +17,10 @@ class FoodRegisterViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //NavigationController
         setNavigationTitle(title: "식사 등록하기")
+        setBackButton()
+        setDoneButton()
         
         // 식단 상세 tableView
         detailTableView.delegate = self
@@ -27,15 +30,16 @@ class FoodRegisterViewController: BaseViewController {
         foodImageView.image = foodImage
         
         dismissKeyboardWhenTappedAround()
-        setBackButton()
+        
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
         let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
         RegisterDataManager().registerMeal(input, viewController: self)
-    }
+    }*/
     
     // 뒤로가기 버튼 설정
     func setBackButton() {
@@ -46,6 +50,17 @@ class FoodRegisterViewController: BaseViewController {
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
+    }
+    
+    // 완료 버튼 설정
+    func setDoneButton() {
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(done))
+        
+        self.navigationItem.setRightBarButton(doneButton, animated: false)
+    }
+    
+    @objc func done() {
+        
     }
     
     @objc func pop() {
@@ -102,6 +117,7 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
 extension FoodRegisterViewController {
     func postMeal() {
         dismissIndicator()
+        
     }
     
     func failedToRequest(message: String) {
