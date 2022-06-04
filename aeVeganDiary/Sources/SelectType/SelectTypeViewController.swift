@@ -64,13 +64,17 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
             itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in // 4
                 DispatchQueue.main.async {
                     // 식단 등록하기 뷰로 넘어가면서 선택한 사진 전달
-                    let vc = FoodRegisterViewController()
-                    vc.foodImage = (image as? UIImage)!
-                    let nav = UINavigationController(rootViewController: vc)
-                    nav.view.backgroundColor = .white
-                    nav.modalPresentationStyle = .overFullScreen
                     
-                    self.present(nav, animated: true)
+                    let rootView = self.presentingViewController
+                    self.dismiss(animated: false, completion: {
+                        let vc = FoodRegisterViewController()
+                        vc.foodImage = (image as? UIImage)!
+                        let nav = UINavigationController(rootViewController: vc)
+                        nav.view.backgroundColor = .white
+                        nav.modalPresentationStyle = .overFullScreen
+                        
+                        rootView?.present(nav, animated: true)
+                    })
                 }
             }
         } else {
@@ -84,13 +88,16 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            let vc = FoodRegisterViewController()
-            vc.foodImage = image
-            let nav = UINavigationController(rootViewController: vc)
-            nav.view.backgroundColor = .white
-            nav.modalPresentationStyle = .overFullScreen
-            
-            self.present(nav, animated: true)
+            let rootView = self.presentingViewController
+            self.dismiss(animated: false, completion: {
+                let vc = FoodRegisterViewController()
+                vc.foodImage = image
+                let nav = UINavigationController(rootViewController: vc)
+                nav.view.backgroundColor = .white
+                nav.modalPresentationStyle = .overFullScreen
+                
+                rootView?.present(nav, animated: true)
+            })
         }
         
         
