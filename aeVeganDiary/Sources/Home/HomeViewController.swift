@@ -22,6 +22,8 @@ class HomeViewController: BaseViewController {
     
     var selected: Int? = 0
     
+    @IBOutlet weak var calLabel: UILabel!
+    
     // ProgressBar
     @IBOutlet weak var carbProgressBar: UIProgressView!
     @IBOutlet weak var carbLabel: UILabel!
@@ -61,7 +63,9 @@ class HomeViewController: BaseViewController {
         mealCollectionView.delegate = self
         mealCollectionView.dataSource = self
         mealCollectionView.register(UINib(nibName: "RegisterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RegisterCollectionViewCell")
+        mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MealCollectionViewCell")
         mealCollectionView.backgroundColor = .clear
+        
         
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.text = dateFormatter.string(from: Date())
@@ -125,15 +129,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
-            if mealKcal[indexPath.row] == 0  {
-                cell.kcalLabel.isHidden = true
-                cell.nullView.isHidden = false
-                cell.kcal.isHidden = true
-            }
-            else {
+            cell.kcalLabel.isHidden = true
+            cell.nullView.isHidden = false
+            cell.kcal.isHidden = true
+            if records.count != 0 && records[indexPath.row].mcal != 0 {
                 cell.kcalLabel.isHidden = false
                 cell.nullView.isHidden = true
-                cell.kcalLabel.text = String(mealKcal[indexPath.row])
+                cell.kcalLabel.text = String(records[indexPath.row].mcal)
                 cell.kcal.isHidden = false
             }
             
@@ -146,9 +148,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             // 식사 collectionView
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-            cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
-            return cell
+            if records.count != 0 && records[indexPath.row].record.count != 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealCollectionViewCell", for: indexPath) as! MealCollectionViewCell
+                cell.records = records[indexPath.row]
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
+                cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
+                return cell
+            }
+            
         }
     }
     
@@ -195,6 +204,21 @@ extension HomeViewController {
         self.homeResponse = result
         self.records = result.records
         
+        let cal = result.recommCalory - result.totalCalory
+        
+        if cal < 0 {
+            self.calLabel.text = "0 kcal"
+        } else {
+            self.calLabel.text = "\(String(cal)) kcal"
+        }
+        
+        self.carbLabel.text = "\(result.totalCarb) / \(result.recommCarb)"
+        self.proteinLabel.text = "\(result.totalPro) / \(result.recommPro)"
+        self.fatLabel.text = "\(result.totalFat) / \(result.recommFat)"
+        
+        self.records.sort(by: { $0.meal < $1.meal })
+        self.tabCollectionView.reloadData()
+        self.mealCollectionView.reloadData()
     }
     
     func failedToRequest(message: String) {
