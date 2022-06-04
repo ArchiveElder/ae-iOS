@@ -30,6 +30,13 @@ class FoodRegisterViewController: BaseViewController {
         setBackButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
+        RegisterDataManager().registerMeal(input, viewController: self)
+    }
+    
     // 뒤로가기 버튼 설정
     func setBackButton() {
         let backButton: UIButton = UIButton()
@@ -90,4 +97,15 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+}
+
+extension FoodRegisterViewController {
+    func postMeal() {
+        dismissIndicator()
+    }
+    
+    func failedToRequest(message: String) {
+        dismissIndicator()
+        presentAlert(message: message)
+    }
 }
