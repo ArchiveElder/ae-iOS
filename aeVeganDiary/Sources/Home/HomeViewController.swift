@@ -33,7 +33,10 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var fatLabel: UILabel!
     
     // MARK: 서버 통신 변수 선언
-    let mealKcal = [114, 0, 0]
+    var homeResponse: HomeResponse?
+    var records = [Records]()
+    
+    var mealKcal: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +65,8 @@ class HomeViewController: BaseViewController {
         
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.text = dateFormatter.string(from: Date())
+        self.weekCalendarView.select(Date())
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
-        
-        self.view.backgroundColor = .lightGray
         
         // ProgressView
         carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
@@ -75,6 +77,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         
         request(dateText: datePickTextField.text!)
     }
@@ -143,9 +146,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             // 식사 collectionView
-            let number = ["1", "2", "3"]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-            cell.numberLabel.text = number[indexPath.row]
             cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
             return cell
         }
@@ -181,8 +182,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 
-
-
 // MARK: 서버 통신
 extension HomeViewController {
     func request(dateText: String) {
@@ -191,8 +190,10 @@ extension HomeViewController {
         HomeDataManager().requestData(input, viewController: self)
     }
     
-    func getData() {
+    func getData(result: HomeResponse) {
         dismissIndicator()
+        self.homeResponse = result
+        self.records = result.records
         
     }
     

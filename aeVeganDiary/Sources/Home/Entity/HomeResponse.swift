@@ -16,10 +16,14 @@ struct HomeResponse: Decodable {
     var recommCarb: Int
     var recommPro: Int
     var recommFat: Int
+    var bcal: Int
+    var lcal: Int
+    var dcal: Int
     var records: [Records]
 }
 
 struct Records: Decodable {
+    var meal: Int
     var text: String
     var date: String
     var calory: String
@@ -29,5 +33,4 @@ struct Records: Decodable {
     var rdate: String
     var rtime: String
     var amount: Double
-    var meal: Int
 }

@@ -14,7 +14,7 @@ class HomeDataManager {
             .responseDecodable(of: HomeResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    viewController.getData()
+                    viewController.getData(result: response)
                     print(response)
                 case .failure(let error):
                     print(error.localizedDescription)
