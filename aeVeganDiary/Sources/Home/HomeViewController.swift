@@ -22,6 +22,8 @@ class HomeViewController: BaseViewController {
     
     var selected: Int? = 0
     
+    @IBOutlet weak var calLabel: UILabel!
+    
     // ProgressBar
     @IBOutlet weak var carbProgressBar: UIProgressView!
     @IBOutlet weak var carbLabel: UILabel!
@@ -125,17 +127,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
-            if mealKcal[indexPath.row] == 0  {
-                cell.kcalLabel.isHidden = true
-                cell.nullView.isHidden = false
-                cell.kcal.isHidden = true
+            cell.kcalLabel.isHidden = true
+            cell.nullView.isHidden = false
+            cell.kcal.isHidden = true
+            /*if mealKcal[indexPath.row] == 0  {
+                
             }
             else {
                 cell.kcalLabel.isHidden = false
                 cell.nullView.isHidden = true
                 cell.kcalLabel.text = String(mealKcal[indexPath.row])
                 cell.kcal.isHidden = false
-            }
+            }*/
             
             if selected == indexPath.row {
                 cell.tabBackgroundView.backgroundColor = .white
@@ -195,6 +198,17 @@ extension HomeViewController {
         self.homeResponse = result
         self.records = result.records
         
+        let cal = result.recommCalory - result.totalCalory
+        
+        if cal < 0 {
+            self.calLabel.text = "0 kcal"
+        } else {
+            self.calLabel.text = "\(String(cal)) kcal"
+        }
+        
+        self.carbLabel.text = "\(result.totalCarb) / \(result.recommCarb)"
+        self.proteinLabel.text = "\(result.totalPro) / \(result.recommPro)"
+        self.fatLabel.text = "\(result.totalFat) / \(result.recommFat)"
     }
     
     func failedToRequest(message: String) {
