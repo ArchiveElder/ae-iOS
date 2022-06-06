@@ -8,9 +8,10 @@
 import UIKit
 import FSCalendar
 
-class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class HomeViewController: BaseViewController {
     
     @IBOutlet weak var datePickTextField: UITextField!
+    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
@@ -20,6 +21,24 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
     let dateFormatter = DateFormatter()
     
     var selected: Int? = 0
+    
+    @IBOutlet weak var calLabel: UILabel!
+    
+    // ProgressBar
+    @IBOutlet weak var carbProgressBar: UIProgressView!
+    @IBOutlet weak var carbLabel: UILabel!
+    
+    @IBOutlet weak var proteinProgressBar: UIProgressView!
+    @IBOutlet weak var proteinLabel: UILabel!
+    
+    @IBOutlet weak var fatProgressBar: UIProgressView!
+    @IBOutlet weak var fatLabel: UILabel!
+    
+    // MARK: 서버 통신 변수 선언
+    var homeResponse: HomeResponse?
+    var records = [Records]()
+    
+    var mealKcal: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,22 +63,28 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         mealCollectionView.delegate = self
         mealCollectionView.dataSource = self
         mealCollectionView.register(UINib(nibName: "RegisterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RegisterCollectionViewCell")
+        mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MealCollectionViewCell")
+        mealCollectionView.backgroundColor = .clear
+        
         
         dateFormatter.dateFormat = "yyyy.MM.dd."
-        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         self.datePickTextField.text = dateFormatter.string(from: Date())
+        self.weekCalendarView.select(Date())
+        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
-        self.view.backgroundColor = .lightGray
+        // ProgressView
+        carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
+        proteinProgressBar.transform = proteinProgressBar.transform.scaledBy(x: 1, y: 2)
+        fatProgressBar.transform = fatProgressBar.transform.scaledBy(x: 1, y: 2)
     }
     
-    /*
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showIndicator()
-        let input = HomeInput(date: "2022.06.01.")
-        HomeDataManager().requestData(input, viewController: self)
+        
+        
+        request(dateText: datePickTextField.text!)
     }
-     */
 
     
     // datePicker에서 Done 누르면 실행
@@ -67,13 +92,31 @@ class HomeViewController: BaseViewController, FSCalendarDelegate, FSCalendarData
         if let datePicker = self.datePickTextField.inputView as? UIDatePicker {
             // textField 업데이트
             self.datePickTextField.text = dateFormatter.string(from: datePicker.date)
+            self.weekCalendarView.select(datePicker.date)
         }
         // textField에서 커서 제거
         self.datePickTextField.resignFirstResponder()
+        
+        request(dateText: dateFormatter.string(from: datePicker.date))
     }
 
 }
 
+// MARK: FSCalendar
+extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    // 날짜 선택 시 콜백 메소드
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        datePickTextField.text = dateFormatter.string(from: date)
+        datePicker.date = date
+        request(dateText: dateFormatter.string(from: date))
+    }
+    
+    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+         return false
+    }
+}
+
+// MARK: CollectionView
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -83,18 +126,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // 탭 collectionView
         if collectionView == tabCollectionView {
             let mealList = ["아침", "점심", "저녁"]
-            let mealKcal = [114, 0, 0]
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCollectionViewCell", for: indexPath) as! TabCollectionViewCell
             cell.mealLabel.text = mealList[indexPath.row]
-            if mealKcal[indexPath.row] == 0  {
-                cell.kcalLabel.isHidden = true
-                cell.nullView.isHidden = false
-                cell.kcal.isHidden = true
-            }
-            else {
+            cell.kcalLabel.isHidden = true
+            cell.nullView.isHidden = false
+            cell.kcal.isHidden = true
+            if records.count != 0 && records[indexPath.row].mcal != 0 {
                 cell.kcalLabel.isHidden = false
                 cell.nullView.isHidden = true
-                cell.kcalLabel.text = String(mealKcal[indexPath.row])
+                cell.kcalLabel.text = String(records[indexPath.row].mcal)
                 cell.kcal.isHidden = false
             }
             
@@ -107,11 +148,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             // 식사 collectionView
-            let number = ["1", "2", "3"]
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-            cell.numberLabel.text = number[indexPath.row]
-            cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
-            return cell
+            if records.count != 0 && records[indexPath.row].record.count != 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealCollectionViewCell", for: indexPath) as! MealCollectionViewCell
+                cell.records = records[indexPath.row]
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
+                cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
+                return cell
+            }
+            
         }
     }
     
@@ -128,7 +174,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == tabCollectionView {
             return CGSize(width: tabCollectionView.frame.width / 3 - 1.2, height: tabCollectionView.frame.height)
         } else {
-            return CGSize(width: mealCollectionView.frame.width, height: 170)
+            return CGSize(width: mealCollectionView.frame.width, height: mealCollectionView.frame.height)
         }
         
     }
@@ -144,42 +190,35 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-extension UITextField {
-    // datePicker 설정
-    func setInputViewDatePicker(target: Any, selector: Selector) {
-        // Create a UIDatePicker object and assign to inputView
-        let screenWidth = UIScreen.main.bounds.width
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
-        datePicker.datePickerMode = .date
-        // iOS 14 and above
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.sizeToFit()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd."
-        let date = dateFormatter.date(from: self.text ?? "2022.01.01")
-        datePicker.date = date!
-        
-        
-        self.inputView = datePicker
-        
-        // Create a toolbar and assign it to inputAccessoryView
-        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0))
-        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
-        let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
-        toolBar.setItems([cancel, flexible, barButton], animated: false)
-        self.inputAccessoryView = toolBar
-    }
-    
-    @objc func tapCancel() {
-        self.resignFirstResponder()
-    }
-    
-}
 
+// MARK: 서버 통신
 extension HomeViewController {
-    func getData() {
-        print("됐다!")
+    func request(dateText: String) {
+        showIndicator()
+        let input = HomeInput(date: dateText)
+        HomeDataManager().requestData(input, viewController: self)
+    }
+    
+    func getData(result: HomeResponse) {
+        dismissIndicator()
+        self.homeResponse = result
+        self.records = result.records
+        
+        let cal = result.recommCalory - result.totalCalory
+        
+        if cal < 0 {
+            self.calLabel.text = "0 kcal"
+        } else {
+            self.calLabel.text = "\(String(cal)) kcal"
+        }
+        
+        self.carbLabel.text = "\(result.totalCarb) / \(result.recommCarb)"
+        self.proteinLabel.text = "\(result.totalPro) / \(result.recommPro)"
+        self.fatLabel.text = "\(result.totalFat) / \(result.recommFat)"
+        
+        self.records.sort(by: { $0.meal < $1.meal })
+        self.tabCollectionView.reloadData()
+        self.mealCollectionView.reloadData()
     }
     
     func failedToRequest(message: String) {
