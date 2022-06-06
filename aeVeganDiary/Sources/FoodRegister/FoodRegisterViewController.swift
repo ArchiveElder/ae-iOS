@@ -30,41 +30,7 @@ class FoodRegisterViewController: BaseViewController {
         foodImageView.image = foodImage
         
         dismissKeyboardWhenTappedAround()
-        
-        
-    }
-    
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }*/
-    
-    // 뒤로가기 버튼 설정
-    func setBackButton() {
-        let backButton: UIButton = UIButton()
-        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
-        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
-        let addBackButton = UIBarButtonItem(customView: backButton)
-        
-        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
-    }
-    
-    // 완료 버튼 설정
-    func setDoneButton() {
-        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(done))
-        
-        self.navigationItem.setRightBarButton(doneButton, animated: false)
-    }
-    
-    @objc func done() {
-        showIndicator()
-        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
-        RegisterDataManager().registerMeal(input, viewController: self)
-    }
-    
-    @objc func pop() {
-        self.dismiss(animated: true)
+        setBackButton()
     }
 }
 

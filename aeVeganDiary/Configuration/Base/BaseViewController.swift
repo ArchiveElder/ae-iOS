@@ -28,20 +28,4 @@ class BaseViewController: UIViewController {
         //navigationController?.navigationBar.layoutIfNeeded()
     }
     
-    // navigationBar title 설정하는 함수
-    func setNavigationTitle(title: String) {
-        let titleview = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        titleLabel.text = title
-        titleLabel.textColor = .black
-        titleLabel.textAlignment = .center
-        titleview.addSubview(titleLabel)
-        self.navigationItem.titleView = titleview
-    }
-    
-    // 한 단계 위에 있는 뷰로 pop 하는 함수, 뒤로가기 버튼에서 쓰임
-    @objc func popToVC() {
-        navigationController?.popViewController(animated: true)
-    }
-    
 }
