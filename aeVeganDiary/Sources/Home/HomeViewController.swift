@@ -234,12 +234,23 @@ extension HomeViewController {
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
         
-        //setProgressResult(sender: carbProgressBar, data: <#T##Int#>)
-        
+        setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
+        setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
+        setProgressResult(sender: fatProgressBar, data: Float(result.totalFat) / Float(result.recommFat))
     }
     
-    func setProgressResult(sender: UIProgressView, data: Int){
+    func setProgressResult(sender: UIProgressView, data: Float){
+        if data < 0.3 {
+            sender.progressTintColor = .barRed
+        } else if data < 0.6 {
+            sender.progressTintColor = .barYellow
+        } else {
+            sender.progressTintColor = .barGreen
+        }
         
+        print(data)
+        
+        sender.progress = data
     }
     
     func failedToRequest(message: String) {
