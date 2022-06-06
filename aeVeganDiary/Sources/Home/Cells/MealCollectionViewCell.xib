@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MealCollectionViewCell" customModule="aeVeganDiary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="284"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="284"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTv-Wt-cH4">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="284"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-gT-yX6">
+                                <rect key="frame" x="305" y="15" width="70" height="28"/>
+                                <color key="backgroundColor" red="0.2196078431372549" green="0.51764705882352935" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="ylp-MC-3S1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="+ 추가하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-UA-IAg">
+                                <rect key="frame" x="5" y="51" width="380" height="228"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8Cv-gT-yX6" secondAttribute="trailing" constant="15" id="7Vq-Wf-DsN"/>
+                            <constraint firstItem="Oyz-UA-IAg" firstAttribute="top" secondItem="8Cv-gT-yX6" secondAttribute="bottom" constant="8" id="TfP-Gy-DOd"/>
+                            <constraint firstItem="8Cv-gT-yX6" firstAttribute="top" secondItem="sTv-Wt-cH4" secondAttribute="top" constant="15" id="TzX-Hd-lp6"/>
+                            <constraint firstAttribute="trailing" secondItem="Oyz-UA-IAg" secondAttribute="trailing" constant="5" id="UU9-MT-OSs"/>
+                            <constraint firstItem="Oyz-UA-IAg" firstAttribute="leading" secondItem="sTv-Wt-cH4" secondAttribute="leading" constant="5" id="jRg-2r-4Ff"/>
+                            <constraint firstAttribute="bottom" secondItem="Oyz-UA-IAg" secondAttribute="bottom" constant="5" id="uZA-uT-2su"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="sTv-Wt-cH4" secondAttribute="bottom" id="3tm-qC-BJB"/>
+                <constraint firstAttribute="trailing" secondItem="sTv-Wt-cH4" secondAttribute="trailing" id="WQ3-BC-aai"/>
+                <constraint firstItem="sTv-Wt-cH4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="X0x-lm-TqK"/>
+                <constraint firstItem="sTv-Wt-cH4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="naK-Js-iu6"/>
+            </constraints>
+            <size key="customSize" width="390" height="284"/>
+            <connections>
+                <outlet property="addButton" destination="8Cv-gT-yX6" id="p1P-Ms-d7I"/>
+                <outlet property="cellBackgroundView" destination="sTv-Wt-cH4" id="ePn-Yf-yLB"/>
+                <outlet property="mealTableView" destination="Oyz-UA-IAg" id="Zbc-dv-UC7"/>
+            </connections>
+            <point key="canvasLocation" x="384.05797101449281" y="168.75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

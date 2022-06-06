@@ -22,21 +22,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="272" height="181"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="und-RR-2gS">
-                                <rect key="frame" x="79.5" y="130" width="113" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+ 식사 등록하기"/>
+                                <rect key="frame" x="81" y="131" width="110" height="30"/>
+                                <color key="backgroundColor" red="0.2196078431372549" green="0.51764705882352935" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="IbB-d0-PlJ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="+ 식사 등록하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU8-yj-PvQ">
-                                <rect key="frame" x="15" y="15" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 식사를 기록해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkl-HH-mui">
+                                <rect key="frame" x="74" y="84" width="124" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-sc-Bhf">
+                                <rect key="frame" x="124" y="52.5" width="24" height="19.5"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="k1k-SG-qTs"/>
+                                    <constraint firstAttribute="height" constant="24" id="y6J-aL-13J"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gkl-HH-mui" firstAttribute="top" secondItem="dfy-sc-Bhf" secondAttribute="bottom" constant="10" id="7Cq-4v-T04"/>
                             <constraint firstAttribute="bottom" secondItem="und-RR-2gS" secondAttribute="bottom" constant="20" id="92n-Dl-kt0"/>
+                            <constraint firstItem="gkl-HH-mui" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="H9Q-Dj-rQB"/>
+                            <constraint firstItem="dfy-sc-Bhf" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="Nvn-RX-6hT"/>
+                            <constraint firstItem="gkl-HH-mui" firstAttribute="centerY" secondItem="78f-FJ-z6S" secondAttribute="centerY" id="dhT-My-CV4"/>
                             <constraint firstItem="und-RR-2gS" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="hZt-C5-Coh"/>
                         </constraints>
                     </view>
@@ -52,13 +74,13 @@
             <size key="customSize" width="272" height="181"/>
             <connections>
                 <outlet property="cellBackgroundView" destination="78f-FJ-z6S" id="1pE-RE-gtp"/>
-                <outlet property="numberLabel" destination="hU8-yj-PvQ" id="y4B-3I-q0S"/>
                 <outlet property="registerMealButton" destination="und-RR-2gS" id="HVk-RP-7F1"/>
             </connections>
             <point key="canvasLocation" x="298.55072463768118" y="145.64732142857142"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

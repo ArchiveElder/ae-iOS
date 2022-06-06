@@ -10,16 +10,16 @@ import UIKit
 class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
 
     let homeViewController = HomeViewController()
-    let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabunselected"), tag: 0)
+    let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "home"), tag: 0)
     
     let analyzeViewController = AnalyzeViewController()
-    let analyzeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabunselected"), tag: 0)
+    let analyzeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "analyze"), tag: 1)
     
     let albumViewController = AlbumViewController()
-    let albumTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabunselected"), tag: 0)
+    let albumTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "album"), tag: 2)
     
     let mypageViewController = MypageViewController()
-    let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabunselected"), tag: 0)
+    let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), tag: 3)
 
     
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         
         tabBar.isTranslucent = false
         tabBar.barTintColor = .white
+        tabBar.tintColor = .darkGreen
         view.backgroundColor = .white
         
         let homeNavController = UINavigationController(rootViewController: homeViewController)
@@ -58,13 +59,9 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         mypageNavController.navigationController?.navigationBar.layoutIfNeeded()
         
         homeNavController.tabBarItem = homeTabBarItem
-        homeNavController.tabBarItem.selectedImage = UIImage(named: "tabselected")
         analyzeNavController.tabBarItem = analyzeTabBarItem
-        analyzeNavController.tabBarItem.selectedImage = UIImage(named: "tabselected")
         albumNavController.tabBarItem = albumTabBarItem
-        albumNavController.tabBarItem.selectedImage = UIImage(named: "tabselected")
         mypageNavController.tabBarItem = mypageTabBarItem
-        mypageNavController.tabBarItem.selectedImage = UIImage(named: "tabselected")
         
         
         self.viewControllers = [homeNavController, analyzeNavController, albumNavController, mypageNavController]

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MealTableViewCell" customModule="aeVeganDiary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-QK-WA1">
+                        <rect key="frame" x="15" y="13" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lxh-Rd-Vl9">
+                        <rect key="frame" x="292.5" y="14" width="12.5" height="16.5"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sS-br-sAd">
+                        <rect key="frame" x="67.5" y="13" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-fq-koV">
+                        <rect key="frame" x="227" y="14" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="120-aa-x6k">
+                        <rect key="frame" x="263" y="17" width="19.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="120-aa-x6k" firstAttribute="leading" secondItem="XeI-fq-koV" secondAttribute="trailing" constant="3" id="0DW-XA-Th6"/>
+                    <constraint firstItem="120-aa-x6k" firstAttribute="firstBaseline" secondItem="XeI-fq-koV" secondAttribute="firstBaseline" id="7V5-hi-fhe"/>
+                    <constraint firstItem="Deh-QK-WA1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gfd-8I-zju"/>
+                    <constraint firstAttribute="trailing" secondItem="Lxh-Rd-Vl9" secondAttribute="trailing" constant="15" id="RKT-Iu-eXn"/>
+                    <constraint firstItem="8sS-br-sAd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ReZ-rH-jNN"/>
+                    <constraint firstItem="XeI-fq-koV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8sS-br-sAd" secondAttribute="trailing" constant="10" id="XrM-Wz-m78"/>
+                    <constraint firstItem="Lxh-Rd-Vl9" firstAttribute="leading" secondItem="120-aa-x6k" secondAttribute="trailing" constant="10" id="b9z-4C-VTn"/>
+                    <constraint firstItem="8sS-br-sAd" firstAttribute="leading" secondItem="Deh-QK-WA1" secondAttribute="trailing" constant="15" id="cgG-rQ-18b"/>
+                    <constraint firstItem="XeI-fq-koV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fJE-Wt-Nlx"/>
+                    <constraint firstItem="Deh-QK-WA1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hA2-4c-oj3"/>
+                    <constraint firstItem="Lxh-Rd-Vl9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vTd-F8-9gU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="calLabel" destination="XeI-fq-koV" id="BF3-ok-uTX"/>
+                <outlet property="foodNameLabel" destination="8sS-br-sAd" id="0al-SW-Ms3"/>
+                <outlet property="timeLabel" destination="Deh-QK-WA1" id="ZNX-7j-G6H"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="93"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+    </resources>
+</document>

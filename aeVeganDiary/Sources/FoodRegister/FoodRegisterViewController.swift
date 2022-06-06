@@ -17,7 +17,10 @@ class FoodRegisterViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //NavigationController
         setNavigationTitle(title: "식사 등록하기")
+        setBackButton()
+        setDoneButton()
         
         // 식단 상세 tableView
         detailTableView.delegate = self
@@ -27,8 +30,10 @@ class FoodRegisterViewController: BaseViewController {
         foodImageView.image = foodImage
         
         dismissKeyboardWhenTappedAround()
-        setBackButton()
+        
+        
     }
+
 }
 
 extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource {
@@ -75,4 +80,16 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+}
+
+extension FoodRegisterViewController {
+    func postMeal() {
+        dismissIndicator()
+        self.dismiss(animated: true)
+    }
+    
+    func failedToRequest(message: String) {
+        dismissIndicator()
+        presentAlert(message: message)
+    }
 }

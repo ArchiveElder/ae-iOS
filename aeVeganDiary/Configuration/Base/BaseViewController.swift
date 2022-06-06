@@ -15,12 +15,12 @@ class BaseViewController: UIViewController {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .clear
-            appearance.shadowColor = .white
+            appearance.shadowColor = .mainGreen
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
         
-        //view.backgroundColor = .gray4
+        view.backgroundColor = .mainGreen
         navigationController?.navigationBar.isTranslucent = false
         
         //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
