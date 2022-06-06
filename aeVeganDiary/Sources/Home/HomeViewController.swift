@@ -38,7 +38,9 @@ class HomeViewController: BaseViewController {
     var homeResponse: HomeResponse?
     var records = [Records]()
     
-    var mealKcal: [Int] = []
+    @IBOutlet weak var mealName: UILabel!
+    @IBOutlet weak var foodName: UILabel!
+    @IBOutlet weak var recommCal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
