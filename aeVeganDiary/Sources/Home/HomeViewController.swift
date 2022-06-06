@@ -15,6 +15,7 @@ class HomeViewController: BaseViewController {
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
+    @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var tabCollectionView: UICollectionView!
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
@@ -75,6 +76,7 @@ class HomeViewController: BaseViewController {
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
         // ProgressView
+        
         carbProgressBar.clipsToBounds = true
         carbProgressBar.layer.cornerRadius = 4
         carbProgressBar.clipsToBounds = true
@@ -92,6 +94,8 @@ class HomeViewController: BaseViewController {
         fatProgressBar.clipsToBounds = true
         fatProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
         fatProgressBar.subviews[1].clipsToBounds = true
+        
+        arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
     }
     
     

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="arcProgressBar" destination="iK1-5Z-Bps" id="9Jd-0X-tZR"/>
                 <outlet property="calLabel" destination="Kd8-L8-InX" id="FCM-s7-y3A"/>
                 <outlet property="carbLabel" destination="cNg-yZ-OSW" id="okd-dK-Fxs"/>
                 <outlet property="carbProgressBar" destination="nOn-1X-A63" id="NNW-gk-Oc5"/>
@@ -38,7 +39,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-LP-RfN">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="793"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="721.33333333333337"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
@@ -46,15 +47,22 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdY-Q8-QJH">
                                             <rect key="frame" x="10" y="78" width="165" height="192"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 칼로리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iH5-bA-uUE">
-                                                    <rect key="frame" x="50" y="65" width="65" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iK1-5Z-Bps" customClass="ArcProgressView" customModule="aeVeganDiary" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="21.666666666666657" width="149" height="149"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iK1-5Z-Bps" secondAttribute="height" multiplier="1:1" id="RZO-s6-RzD"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd8-L8-InX">
                                                     <rect key="frame" x="46" y="90" width="73" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 칼로리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iH5-bA-uUE">
+                                                    <rect key="frame" x="50" y="65" width="65" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -62,7 +70,10 @@
                                             <color key="backgroundColor" red="0.77647058823529413" green="0.8666666666666667" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Kd8-L8-InX" firstAttribute="top" secondItem="iH5-bA-uUE" secondAttribute="bottom" constant="8" id="0Qt-0I-Ghf"/>
+                                                <constraint firstItem="iK1-5Z-Bps" firstAttribute="leading" secondItem="jdY-Q8-QJH" secondAttribute="leading" constant="8" id="C1q-tf-htv"/>
+                                                <constraint firstAttribute="trailing" secondItem="iK1-5Z-Bps" secondAttribute="trailing" constant="8" id="K8O-BP-H1f"/>
                                                 <constraint firstItem="iH5-bA-uUE" firstAttribute="top" secondItem="jdY-Q8-QJH" secondAttribute="top" constant="65" id="XUy-50-YSP"/>
+                                                <constraint firstItem="iK1-5Z-Bps" firstAttribute="centerY" secondItem="jdY-Q8-QJH" secondAttribute="centerY" id="pQv-RZ-nEI"/>
                                                 <constraint firstItem="Kd8-L8-InX" firstAttribute="centerX" secondItem="jdY-Q8-QJH" secondAttribute="centerX" id="rL6-tD-8dv"/>
                                                 <constraint firstItem="iH5-bA-uUE" firstAttribute="centerX" secondItem="jdY-Q8-QJH" secondAttribute="centerX" id="tvk-mn-f7a"/>
                                                 <constraint firstAttribute="height" constant="192" id="zar-rL-oGw"/>
@@ -294,7 +305,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-pS-y7T">
-                                    <rect key="frame" x="15" y="623" width="360" height="150"/>
+                                    <rect key="frame" x="15" y="623" width="360" height="78.333333333333371"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqV-cj-o1T">
                                             <rect key="frame" x="14.999999999999998" y="15" width="24.333333333333329" height="17"/>
@@ -324,7 +335,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="PV2-4R-sAd" firstAttribute="firstBaseline" secondItem="kqV-cj-o1T" secondAttribute="firstBaseline" id="Fqj-9O-Ils"/>
-                                        <constraint firstAttribute="height" constant="150" id="FwM-3v-81g"/>
+                                        <constraint firstAttribute="bottom" secondItem="hjK-sO-z3s" secondAttribute="bottom" constant="15" id="I1P-WJ-5wm"/>
                                         <constraint firstItem="PV2-4R-sAd" firstAttribute="leading" secondItem="kqV-cj-o1T" secondAttribute="trailing" constant="3" id="NJl-2m-BfF"/>
                                         <constraint firstItem="7ZX-Mr-e59" firstAttribute="leading" secondItem="hjK-sO-z3s" secondAttribute="trailing" constant="10" id="Xni-Xl-g9Z"/>
                                         <constraint firstItem="hjK-sO-z3s" firstAttribute="top" secondItem="kqV-cj-o1T" secondAttribute="bottom" constant="12" id="YTr-hF-FWI"/>
