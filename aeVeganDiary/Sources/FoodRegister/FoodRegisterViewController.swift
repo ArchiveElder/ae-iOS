@@ -29,21 +29,6 @@ class FoodRegisterViewController: BaseViewController {
         dismissKeyboardWhenTappedAround()
         setBackButton()
     }
-    
-    // 뒤로가기 버튼 설정
-    func setBackButton() {
-        let backButton: UIButton = UIButton()
-        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
-        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
-        let addBackButton = UIBarButtonItem(customView: backButton)
-        
-        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
-    }
-    
-    @objc func pop() {
-        self.dismiss(animated: true)
-    }
 }
 
 extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource {

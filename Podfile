@@ -10,6 +10,8 @@ target 'aeVeganDiary' do
   pod 'FSCalendar'
   pod 'Charts'
   pod 'Alamofire', '~> 5.2'
+  pod 'RxCocoa'
+  pod 'RxSwift'
 
 end
 
