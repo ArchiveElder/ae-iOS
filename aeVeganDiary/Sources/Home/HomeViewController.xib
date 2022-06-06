@@ -86,33 +86,33 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-1X-A63">
-                                                    <rect key="frame" x="12" y="73" width="141" height="4"/>
+                                                    <rect key="frame" x="12" y="73" width="141" height="8"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="4" id="v6u-v7-hRm"/>
+                                                        <constraint firstAttribute="height" constant="8" id="v6u-v7-hRm"/>
                                                     </constraints>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단백질" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23o-HH-3xN">
-                                                    <rect key="frame" x="11.999999999999998" y="92" width="31.333333333333329" height="14.333333333333329"/>
+                                                    <rect key="frame" x="11.999999999999998" y="96" width="31.333333333333329" height="14.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-Y0-6S6">
-                                                    <rect key="frame" x="12" y="133.33333333333331" width="21" height="14.333333333333343"/>
+                                                    <rect key="frame" x="12" y="141.33333333333331" width="21" height="14.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hfx-y7-bKg">
-                                                    <rect key="frame" x="12" y="114.33333333333331" width="141" height="4"/>
+                                                    <rect key="frame" x="12" y="118.33333333333331" width="141" height="8"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="4" id="QB7-P7-klg"/>
+                                                        <constraint firstAttribute="height" constant="8" id="QB7-P7-klg"/>
                                                     </constraints>
                                                 </progressView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q5I-V3-CTv">
-                                                    <rect key="frame" x="12" y="155.66666666666669" width="141" height="4"/>
+                                                    <rect key="frame" x="12" y="163.66666666666669" width="141" height="8"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="4" id="Zxm-ke-3J4"/>
+                                                        <constraint firstAttribute="height" constant="8" id="Zxm-ke-3J4"/>
                                                     </constraints>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNg-yZ-OSW">
@@ -122,13 +122,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KT-UR-9OR">
-                                                    <rect key="frame" x="120" y="91.666666666666686" width="33" height="15"/>
+                                                    <rect key="frame" x="120" y="95.666666666666686" width="33" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-na-sGy">
-                                                    <rect key="frame" x="120" y="133" width="33" height="15"/>
+                                                    <rect key="frame" x="120" y="141" width="33" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

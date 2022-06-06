@@ -73,9 +73,23 @@ class HomeViewController: BaseViewController {
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
         // ProgressView
-        carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
-        proteinProgressBar.transform = proteinProgressBar.transform.scaledBy(x: 1, y: 2)
-        fatProgressBar.transform = fatProgressBar.transform.scaledBy(x: 1, y: 2)
+        carbProgressBar.clipsToBounds = true
+        carbProgressBar.layer.cornerRadius = 4
+        carbProgressBar.clipsToBounds = true
+        carbProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        carbProgressBar.subviews[1].clipsToBounds = true
+        
+        proteinProgressBar.clipsToBounds = true
+        proteinProgressBar.layer.cornerRadius = 4
+        proteinProgressBar.clipsToBounds = true
+        proteinProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        proteinProgressBar.subviews[1].clipsToBounds = true
+        
+        fatProgressBar.clipsToBounds = true
+        fatProgressBar.layer.cornerRadius = 4
+        fatProgressBar.clipsToBounds = true
+        fatProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        fatProgressBar.subviews[1].clipsToBounds = true
     }
     
     
@@ -219,6 +233,13 @@ extension HomeViewController {
         self.records.sort(by: { $0.meal < $1.meal })
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
+        
+        //setProgressResult(sender: carbProgressBar, data: <#T##Int#>)
+        
+    }
+    
+    func setProgressResult(sender: UIProgressView, data: Int){
+        
     }
     
     func failedToRequest(message: String) {
