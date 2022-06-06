@@ -10,6 +10,7 @@
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
+		CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E9307284DDA090057E24F /* RecommendResponse.swift */; };
 		CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */; };
 		CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
@@ -65,6 +66,7 @@
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		CD3E9307284DDA090057E24F /* RecommendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResponse.swift; sourceTree = "<group>"; };
 		CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			children = (
 				CDFF9AB5284A076900217725 /* HomeInput.swift */,
 				CDFF9AB7284A077900217725 /* HomeResponse.swift */,
+				CD3E9307284DDA090057E24F /* RecommendResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
+				CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */,
 				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
