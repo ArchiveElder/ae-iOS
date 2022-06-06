@@ -37,11 +37,10 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
+        cell.selectionStyle = .none
         cell.timeLabel.text = records?.record[indexPath.row].rtime
         cell.foodNameLabel.text = records?.record[indexPath.row].text
         cell.calLabel.text = records?.record[indexPath.row].calory
         return cell
     }
-    
-    
 }
