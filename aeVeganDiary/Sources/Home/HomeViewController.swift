@@ -15,6 +15,7 @@ class HomeViewController: BaseViewController {
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
+    @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var tabCollectionView: UICollectionView!
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
@@ -38,7 +39,9 @@ class HomeViewController: BaseViewController {
     var homeResponse: HomeResponse?
     var records = [Records]()
     
-    var mealKcal: [Int] = []
+    @IBOutlet weak var mealName: UILabel!
+    @IBOutlet weak var foodName: UILabel!
+    @IBOutlet weak var recommCal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +76,26 @@ class HomeViewController: BaseViewController {
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
         
         // ProgressView
-        carbProgressBar.transform = carbProgressBar.transform.scaledBy(x: 1, y: 2)
-        proteinProgressBar.transform = proteinProgressBar.transform.scaledBy(x: 1, y: 2)
-        fatProgressBar.transform = fatProgressBar.transform.scaledBy(x: 1, y: 2)
+        
+        carbProgressBar.clipsToBounds = true
+        carbProgressBar.layer.cornerRadius = 4
+        carbProgressBar.clipsToBounds = true
+        carbProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        carbProgressBar.subviews[1].clipsToBounds = true
+        
+        proteinProgressBar.clipsToBounds = true
+        proteinProgressBar.layer.cornerRadius = 4
+        proteinProgressBar.clipsToBounds = true
+        proteinProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        proteinProgressBar.subviews[1].clipsToBounds = true
+        
+        fatProgressBar.clipsToBounds = true
+        fatProgressBar.layer.cornerRadius = 4
+        fatProgressBar.clipsToBounds = true
+        fatProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        fatProgressBar.subviews[1].clipsToBounds = true
+        
+        arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
     }
     
     
@@ -151,6 +171,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if records.count != 0 && records[indexPath.row].record.count != 0 {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealCollectionViewCell", for: indexPath) as! MealCollectionViewCell
                 cell.records = records[indexPath.row]
+                cell.addButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
@@ -219,6 +240,24 @@ extension HomeViewController {
         self.records.sort(by: { $0.meal < $1.meal })
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
+        
+        setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
+        setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
+        setProgressResult(sender: fatProgressBar, data: Float(result.totalFat) / Float(result.recommFat))
+    }
+    
+    func setProgressResult(sender: UIProgressView, data: Float){
+        if data < 0.3 {
+            sender.progressTintColor = .barRed
+        } else if data < 0.6 {
+            sender.progressTintColor = .barYellow
+        } else {
+            sender.progressTintColor = .barGreen
+        }
+        
+        print(data)
+        
+        sender.progress = data
     }
     
     func failedToRequest(message: String) {

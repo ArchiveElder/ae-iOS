@@ -23,5 +23,8 @@ extension UIColor {
     // ex. label.textColor = .mainOrange
     class var mainGreen: UIColor { UIColor(hex: 0xC6DDCF) }
     class var darkGreen: UIColor { UIColor(hex: 0x105240) }
-    class var lGray: UIColor { UIColor(hex: 0xD1D1D1)}
+    class var lGray: UIColor { UIColor(hex: 0xD1D1D1) }
+    class var barGreen: UIColor { UIColor(hex: 0x71F171) }
+    class var barYellow: UIColor { UIColor(hex: 0xFEE968) }
+    class var barRed: UIColor { UIColor(hex: 0xED6969) }
 }

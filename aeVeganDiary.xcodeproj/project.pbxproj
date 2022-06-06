@@ -12,6 +12,8 @@
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
+		CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E9307284DDA090057E24F /* RecommendResponse.swift */; };
+		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */; };
 		CD4FFA982845F8C8004B5BB4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
@@ -69,6 +71,8 @@
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		CD3E9307284DDA090057E24F /* RecommendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResponse.swift; sourceTree = "<group>"; };
+		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4FFA952845F8C8004B5BB4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		CD4FFA962845F8C8004B5BB4 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
+				CD3E930D284DED9D0057E24F /* ArcProgressView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 			children = (
 				CDFF9AB5284A076900217725 /* HomeInput.swift */,
 				CDFF9AB7284A077900217725 /* HomeResponse.swift */,
+				CD3E9307284DDA090057E24F /* RecommendResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -539,8 +545,10 @@
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
+				CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */,
 				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
+				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
