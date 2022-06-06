@@ -32,6 +32,20 @@ class FoodRegisterViewController: BaseViewController {
         dismissKeyboardWhenTappedAround()
         setBackButton()
     }
+    
+    // 완료 버튼 설정
+    func setDoneButton() {
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(done))
+        
+        self.navigationItem.setRightBarButton(doneButton, animated: false)
+    }
+    
+    @objc func done() {
+        showIndicator()
+        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
+        RegisterDataManager().registerMeal(input, viewController: self)
+    }
+
 }
 
 extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource {

@@ -39,8 +39,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
             .subscribe(onNext: { [unowned self] query in
                 self.shownFoods = self.allFoods.filter { $0.hasPrefix(query) }
                 self.tableView.reloadData()
-    })
-            //.addDisposableTo(disposeBag)
+            })
+        //.addDisposableTo(disposeBag)
     }
 }
 
