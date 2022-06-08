@@ -43,6 +43,16 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: width, height: width)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //클릭했을 때 넘어가기
+        let vc = MealDetailViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.view?.backgroundColor = .white
+        nav.modalPresentationStyle = .overFullScreen
+        
+        self.present(nav, animated: true)
+    }
+    
     // 각 section의 header 지정해주기
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
