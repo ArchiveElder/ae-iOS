@@ -14,8 +14,12 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
+    var meal = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
         
         //NavigationController
         setNavigationTitle(title: "식사 등록하기")

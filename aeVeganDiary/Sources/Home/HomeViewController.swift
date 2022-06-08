@@ -175,6 +175,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealCollectionViewCell", for: indexPath) as! MealCollectionViewCell
                 cell.records = records[indexPath.row]
                 cell.addButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
+                cell.productVC = self
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell

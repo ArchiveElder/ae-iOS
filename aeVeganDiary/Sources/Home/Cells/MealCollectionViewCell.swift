@@ -14,6 +14,7 @@ class MealCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mealTableView: UITableView!
     
     var records: Records?
+    var productVC: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,5 +43,9 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.foodNameLabel.text = records?.record[indexPath.row].text
         cell.calLabel.text = records?.record[indexPath.row].calory
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        productVC.present(FoodRegisterViewController(), animated: true)
     }
 }
