@@ -8,8 +8,8 @@
 import UIKit
 
 class ArcProgressView: UIView {
-    public var progressBackgoundColor = UIColor.lightGray
-    public var oneProgressForegroundColor = UIColor.red
+    public var progressBackgoundColor = UIColor(hex: 0xCBCCCC)
+    public var oneProgressForegroundColor = UIColor.darkGreen
     
     public var lineWidth:CGFloat = 10 {
         didSet{
