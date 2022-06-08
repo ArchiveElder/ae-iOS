@@ -245,6 +245,11 @@ extension HomeViewController {
         self.records.sort(by: { $0.meal < $1.meal })
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
+        let firstIndex = records.firstIndex(where: { $0.mcal == 0 }) ?? 0
+        print(firstIndex)
+        selected = firstIndex
+        tabCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
+        mealCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
         
         setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
         setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
@@ -260,8 +265,6 @@ extension HomeViewController {
         } else {
             sender.progressTintColor = .barGreen
         }
-        
-        print(data)
         
         sender.progress = data
     }
