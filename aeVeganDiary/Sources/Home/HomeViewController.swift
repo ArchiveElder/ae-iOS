@@ -16,6 +16,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
     @IBOutlet weak var arcProgressBar: ArcProgressView!
+    @IBOutlet weak var recommKcal: UILabel!
+    @IBOutlet weak var consumeKcal: UILabel!
+    
     @IBOutlet weak var tabCollectionView: UICollectionView!
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
@@ -226,6 +229,8 @@ extension HomeViewController {
         self.records = result.records
         
         let cal = result.recommCalory - result.totalCalory
+        recommKcal.text = "\(String(result.recommCalory)) kcal"
+        consumeKcal.text = "\(String(result.totalCalory)) kcal"
         
         if cal < 0 {
             self.calLabel.text = "0 kcal"
@@ -244,6 +249,7 @@ extension HomeViewController {
         setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
         setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
         setProgressResult(sender: fatProgressBar, data: Float(result.totalFat) / Float(result.recommFat))
+        arcProgressBar.setProgressOne(to: Double(result.totalCarb) / Double(result.recommCarb), withAnimation: false, maxSpeed: 45)
     }
     
     func setProgressResult(sender: UIProgressView, data: Float){
