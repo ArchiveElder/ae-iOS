@@ -8,13 +8,18 @@
 import UIKit
 
 class FoodRegisterViewController: BaseViewController {
+    
+    var rdate = ""
+    var meal:Int? = nil
     var foodImage = UIImage()
 
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
-    var meal = 0
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var mealLabel: UILabel!
+    let mealText = ["아침", "점심", "저녁"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,9 @@ class FoodRegisterViewController: BaseViewController {
         
         dismissKeyboardWhenTappedAround()
         setBackButton()
+        
+        dateLabel.text = rdate
+        mealLabel.text = "\(mealText[meal ?? 0]) 식사"
     }
     
     // 완료 버튼 설정

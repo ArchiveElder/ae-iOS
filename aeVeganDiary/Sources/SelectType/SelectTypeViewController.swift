@@ -9,6 +9,8 @@ import UIKit
 import PhotosUI
 
 class SelectTypeViewController: UIViewController {
+    var rdate = ""
+    var meal:Int? = nil
     
     let camera = UIImagePickerController()
     var pickerConfiguration = PHPickerConfiguration()
@@ -69,6 +71,8 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
                     self.dismiss(animated: false, completion: {
                         let vc = FoodRegisterViewController()
                         vc.foodImage = (image as? UIImage)!
+                        vc.rdate = self.rdate
+                        vc.meal = self.meal
                         let nav = UINavigationController(rootViewController: vc)
                         nav.view.backgroundColor = .white
                         nav.modalPresentationStyle = .overFullScreen
@@ -92,6 +96,8 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
             self.dismiss(animated: false, completion: {
                 let vc = FoodRegisterViewController()
                 vc.foodImage = image
+                vc.rdate = self.rdate
+                vc.meal = self.meal
                 let nav = UINavigationController(rootViewController: vc)
                 nav.view.backgroundColor = .white
                 nav.modalPresentationStyle = .overFullScreen

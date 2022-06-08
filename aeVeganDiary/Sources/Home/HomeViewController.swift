@@ -105,7 +105,6 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         request(dateText: datePickTextField.text!)
     }
 
@@ -191,6 +190,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let vc = SelectTypeViewController()
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
+        vc.rdate = datePickTextField.text ?? ""
+        vc.meal = selected
         present(vc, animated: false)
     }
     
