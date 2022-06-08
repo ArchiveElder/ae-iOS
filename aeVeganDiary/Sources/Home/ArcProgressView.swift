@@ -83,8 +83,8 @@ class ArcProgressView: UIView {
     
     
     // MARK: Speed bar
-    private let oneStartAngle = CGFloat.pi*2.6/3
-    private let oneEndAngle = CGFloat.pi*6/3
+    private let oneStartAngle = (160 * CGFloat.pi) / 180
+    private let oneEndAngle = (20 * CGFloat.pi) / 180
     
     private func drawBackgroundLayerSpeed(){
         let path = UIBezierPath(arcCenter: pathCenter, radius: self.radius, startAngle: oneStartAngle , endAngle: oneEndAngle, clockwise: true)

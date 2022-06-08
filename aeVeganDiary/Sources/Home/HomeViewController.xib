@@ -48,8 +48,7 @@
                                             <rect key="frame" x="10" y="78" width="165" height="192"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iK1-5Z-Bps" customClass="ArcProgressView" customModule="aeVeganDiary" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="21.666666666666657" width="149" height="149"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <rect key="frame" x="10" y="23.666666666666657" width="145" height="145"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="iK1-5Z-Bps" secondAttribute="height" multiplier="1:1" id="RZO-s6-RzD"/>
                                                     </constraints>
@@ -70,8 +69,8 @@
                                             <color key="backgroundColor" red="0.77647058823529413" green="0.8666666666666667" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Kd8-L8-InX" firstAttribute="top" secondItem="iH5-bA-uUE" secondAttribute="bottom" constant="8" id="0Qt-0I-Ghf"/>
-                                                <constraint firstItem="iK1-5Z-Bps" firstAttribute="leading" secondItem="jdY-Q8-QJH" secondAttribute="leading" constant="8" id="C1q-tf-htv"/>
-                                                <constraint firstAttribute="trailing" secondItem="iK1-5Z-Bps" secondAttribute="trailing" constant="8" id="K8O-BP-H1f"/>
+                                                <constraint firstItem="iK1-5Z-Bps" firstAttribute="leading" secondItem="jdY-Q8-QJH" secondAttribute="leading" constant="10" id="C1q-tf-htv"/>
+                                                <constraint firstAttribute="trailing" secondItem="iK1-5Z-Bps" secondAttribute="trailing" constant="10" id="K8O-BP-H1f"/>
                                                 <constraint firstItem="iH5-bA-uUE" firstAttribute="top" secondItem="jdY-Q8-QJH" secondAttribute="top" constant="65" id="XUy-50-YSP"/>
                                                 <constraint firstItem="iK1-5Z-Bps" firstAttribute="centerY" secondItem="jdY-Q8-QJH" secondAttribute="centerY" id="pQv-RZ-nEI"/>
                                                 <constraint firstItem="Kd8-L8-InX" firstAttribute="centerX" secondItem="jdY-Q8-QJH" secondAttribute="centerX" id="rL6-tD-8dv"/>
