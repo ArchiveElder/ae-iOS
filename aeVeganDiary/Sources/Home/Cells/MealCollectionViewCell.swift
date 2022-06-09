@@ -43,4 +43,9 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.calLabel.text = records?.record[indexPath.row].calory
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        productVC.present(MealDetailViewController(), animated: true)
+    }
+
 }
