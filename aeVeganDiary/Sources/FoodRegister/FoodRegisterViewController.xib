@@ -17,6 +17,7 @@
                 <outlet property="foodImageView" destination="3C3-XQ-p6J" id="dbI-mC-Ptz"/>
                 <outlet property="mealLabel" destination="99Q-qO-Uty" id="40S-aa-JUH"/>
                 <outlet property="tableViewHeight" destination="6dM-mW-VKO" id="JNF-hR-Tc0"/>
+                <outlet property="timeLabel" destination="tQ2-Nb-nZh" id="H6a-2a-QdO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7JX-OW-9AC"/>
             </connections>
         </placeholder>
@@ -94,30 +95,22 @@
                                     <rect key="frame" x="15" y="404.66666666666669" width="172.66666666666666" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칼로리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snq-3o-drn">
-                                            <rect key="frame" x="68" y="15" width="36.666666666666657" height="17"/>
+                                            <rect key="frame" x="68" y="24.999999999999943" width="36.666666666666657" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="114 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-e5-hZZ">
-                                            <rect key="frame" x="55.666666666666671" y="39.999999999999943" width="61" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-e5-hZZ">
+                                            <rect key="frame" x="53.333333333333329" y="49.999999999999943" width="66" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침 권장 385 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A57-eh-WoR">
-                                            <rect key="frame" x="37.666666666666657" y="70.999999999999943" width="97" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="Snq-3o-drn" firstAttribute="top" secondItem="4Oh-Fj-qdF" secondAttribute="top" constant="15" id="GSL-Oy-IFk"/>
-                                        <constraint firstItem="A57-eh-WoR" firstAttribute="centerX" secondItem="4Oh-Fj-qdF" secondAttribute="centerX" id="ZpE-Z8-kAI"/>
+                                        <constraint firstItem="Snq-3o-drn" firstAttribute="top" secondItem="4Oh-Fj-qdF" secondAttribute="top" constant="25" id="GSL-Oy-IFk"/>
                                         <constraint firstItem="Snq-3o-drn" firstAttribute="centerX" secondItem="4Oh-Fj-qdF" secondAttribute="centerX" id="tae-AE-kPs"/>
-                                        <constraint firstItem="A57-eh-WoR" firstAttribute="top" secondItem="kPb-e5-hZZ" secondAttribute="bottom" constant="10" id="ucL-vt-P0T"/>
                                         <constraint firstItem="kPb-e5-hZZ" firstAttribute="top" secondItem="Snq-3o-drn" secondAttribute="bottom" constant="8" id="uyD-dT-uwy"/>
                                         <constraint firstAttribute="height" constant="100" id="vpl-gs-pEx"/>
                                         <constraint firstItem="kPb-e5-hZZ" firstAttribute="centerX" secondItem="4Oh-Fj-qdF" secondAttribute="centerX" id="xPS-lq-OoL"/>
