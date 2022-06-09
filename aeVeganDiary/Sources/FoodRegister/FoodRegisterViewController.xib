@@ -12,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodRegisterViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="dateLabel" destination="b5l-pW-BfY" id="5U2-4q-Omw"/>
                 <outlet property="detailTableView" destination="5Qy-GY-L0M" id="1Bv-Vu-YTt"/>
                 <outlet property="foodImageView" destination="3C3-XQ-p6J" id="dbI-mC-Ptz"/>
+                <outlet property="mealLabel" destination="99Q-qO-Uty" id="40S-aa-JUH"/>
                 <outlet property="tableViewHeight" destination="6dM-mW-VKO" id="JNF-hR-Tc0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7JX-OW-9AC"/>
             </connections>
@@ -35,14 +37,14 @@
                                         <constraint firstAttribute="height" constant="320" id="GaR-9y-xQj"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.05.31." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-pW-BfY">
-                                    <rect key="frame" x="15" y="340" width="75.666666666666671" height="16"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-pW-BfY">
+                                    <rect key="frame" x="14.999999999999998" y="340" width="3.6666666666666661" height="16"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침 식사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99Q-qO-Uty">
-                                    <rect key="frame" x="14.999999999999996" y="364" width="63.666666666666657" height="20.666666666666686"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99Q-qO-Uty">
+                                    <rect key="frame" x="14.999999999999998" y="364" width="4.6666666666666661" height="20.666666666666686"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
