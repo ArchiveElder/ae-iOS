@@ -12,7 +12,8 @@ class FoodRegisterViewController: BaseViewController {
     var rdate = ""
     var meal:Int? = nil
     var foodImage = UIImage()
-
+    var amount = 1.0
+    
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -54,7 +55,7 @@ class FoodRegisterViewController: BaseViewController {
     
     @objc func done() {
         showIndicator()
-        let input = RegisterInput(text: "김치찌개", calory: "153", carb: "13", protein: "23", fat: "4", rdate: "2022.06.03.", rtime: "08:00", amount: 1.5, meal: 0)
+        let input = RegisterInput(rdate: self.rdate, rtime: "08:00", meal: self.meal ?? 0, creates: [Creates(text: "볶음밥", calory: "153", carb: "13", protein: "23", fat: "4", amount: self.amount)])
         RegisterDataManager().registerMeal(input, viewController: self)
     }
 
