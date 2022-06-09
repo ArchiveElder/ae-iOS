@@ -44,13 +44,13 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         let set = LineChartDataSet(entries: entries, label: "kcal")
         set.circleRadius = 5
         set.circleHoleRadius = 2.5
-        set.circleColors = [.mainGreen]
-        set.colors = [.mainGreen]
+        set.circleColors = [.middleGreen]
+        set.colors = [.middleGreen]
         set.lineWidth = 2
         
         let data = LineChartData(dataSet: set)
         data.setValueFont(UIFont.systemFont(ofSize: 10, weight: .semibold))
-        data.setValueTextColor(.lightGray)
+        data.setValueTextColor(.lGray)
         data.setDrawValues(false)
         
         // 그래프 설정
@@ -88,6 +88,14 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         let ll = ChartLimitLine(limit: avg, label: "평균 \(Int(avg))kcal")
         ll.lineWidth = 1
         ll.valueFont = UIFont.systemFont(ofSize: 11)
+        ll.labelPosition = .rightTop
         calChartView.leftAxis.addLimitLine(ll)
+        
+        let li = ChartLimitLine(limit: 2000, label: "권장 2000kcal")
+        li.lineWidth = 1
+        li.labelPosition = .leftTop
+        li.valueFont = UIFont.systemFont(ofSize: 11)
+        li.lineColor = .darkGreen
+        calChartView.leftAxis.addLimitLine(li)
     }
 }

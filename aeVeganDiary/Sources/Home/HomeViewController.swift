@@ -262,8 +262,12 @@ extension HomeViewController {
             sender.progressTintColor = .barRed
         } else if data < 0.6 {
             sender.progressTintColor = .barYellow
-        } else {
+        } else if data < 1.3 {
             sender.progressTintColor = .barGreen
+        } else if data < 1.6 {
+            sender.progressTintColor = .barYellow
+        } else {
+            sender.progressTintColor = .barRed
         }
         
         sender.progress = data
