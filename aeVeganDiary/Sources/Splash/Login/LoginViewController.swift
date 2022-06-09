@@ -6,11 +6,41 @@
 //
 
 import UIKit
+import KakaoSDKUser
 
 class LoginViewController: BaseViewController {
 
-    @IBAction func toMain(_ sender: Any) {
-        changeRootViewController(BaseTabBarController())
+    @IBAction func kakaoLoginButton(_ sender: Any) {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("카카오 로그인 성공")
+                    
+                    _ = oauthToken
+                    print(oauthToken?.accessToken ?? "없엉...")
+                    /// 로그인 관련 메소드 추가
+                    self.changeRootViewController(BaseTabBarController())
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoAccount() success.")
+
+                    //do something
+                    _ = oauthToken
+                    print(oauthToken?.accessToken ?? "없엉...")
+                    /// 로그인 관련 메소드 추가
+                    self.changeRootViewController(BaseTabBarController())
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -18,6 +48,7 @@ class LoginViewController: BaseViewController {
        
         
         // Do any additional setup after loading the view.
+        
     }
 
 
