@@ -75,7 +75,7 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
                         vc.meal = self.meal
                         let nav = UINavigationController(rootViewController: vc)
                         nav.view.backgroundColor = .white
-                        nav.modalPresentationStyle = .overFullScreen
+                        nav.modalPresentationStyle = .fullScreen
                         
                         rootView?.present(nav, animated: true)
                     })
@@ -100,7 +100,7 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
                 vc.meal = self.meal
                 let nav = UINavigationController(rootViewController: vc)
                 nav.view.backgroundColor = .white
-                nav.modalPresentationStyle = .overFullScreen
+                nav.modalPresentationStyle = .fullScreen
                 
                 rootView?.present(nav, animated: true)
             })
