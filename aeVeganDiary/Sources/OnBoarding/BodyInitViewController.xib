@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BodyInitViewController" customModule="aeVeganDiary" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 건강정보를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO6-N8-hHG">
+                    <rect key="frame" x="15" y="30" width="384" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM7-eq-Wlj">
+                    <rect key="frame" x="15" y="89" width="384" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="161 cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-tH-DNi">
+                    <rect key="frame" x="15" y="116" width="384" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="50 kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtV-l7-A11">
+                    <rect key="frame" x="15" y="192" width="384" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 체중을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgD-vF-qTn">
+                    <rect key="frame" x="15" y="165" width="384" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMf-BG-1uy">
+                    <rect key="frame" x="15" y="739" width="384" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="KRT-B4-boq"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="완료"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="TtV-l7-A11" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="02F-Go-AwG"/>
+                <constraint firstItem="sgD-vF-qTn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="3SM-16-XMT"/>
+                <constraint firstItem="kcf-tH-DNi" firstAttribute="top" secondItem="rM7-eq-Wlj" secondAttribute="bottom" constant="10" id="7sT-q2-nmN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sgD-vF-qTn" secondAttribute="trailing" constant="15" id="BVn-bA-TpK"/>
+                <constraint firstItem="rM7-eq-Wlj" firstAttribute="top" secondItem="sO6-N8-hHG" secondAttribute="bottom" constant="30" id="FLb-5c-xwF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kcf-tH-DNi" secondAttribute="trailing" constant="15" id="FWj-hj-FNY"/>
+                <constraint firstItem="TtV-l7-A11" firstAttribute="top" secondItem="sgD-vF-qTn" secondAttribute="bottom" constant="10" id="G2i-0R-qV5"/>
+                <constraint firstItem="rM7-eq-Wlj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="J7m-bv-Lm0"/>
+                <constraint firstItem="kcf-tH-DNi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="OpL-8F-2uA"/>
+                <constraint firstItem="sgD-vF-qTn" firstAttribute="top" secondItem="kcf-tH-DNi" secondAttribute="bottom" constant="15" id="QHe-dT-ltW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TtV-l7-A11" secondAttribute="trailing" constant="15" id="WTe-nS-ecV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sO6-N8-hHG" secondAttribute="trailing" constant="15" id="WZd-NA-B0Q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WMf-BG-1uy" secondAttribute="trailing" constant="15" id="acf-kf-8CF"/>
+                <constraint firstItem="WMf-BG-1uy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="as9-hY-cLD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rM7-eq-Wlj" secondAttribute="trailing" constant="15" id="dgo-Tj-Vys"/>
+                <constraint firstItem="sO6-N8-hHG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="g0O-kO-9M0"/>
+                <constraint firstItem="WMf-BG-1uy" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="15" id="lGv-kK-q4i"/>
+                <constraint firstItem="sO6-N8-hHG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="uAk-o9-Rh9"/>
+                <constraint firstItem="rM7-eq-Wlj" firstAttribute="top" secondItem="sO6-N8-hHG" secondAttribute="bottom" constant="30" id="zw6-ZS-0eA"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="139" y="97"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
