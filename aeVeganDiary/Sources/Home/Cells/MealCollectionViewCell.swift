@@ -46,6 +46,8 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        productVC.present(FoodRegisterViewController(), animated: true)
+        let vc = MealDetailViewController()
+        vc.modalPresentationStyle = .fullScreen
+        productVC.present(vc, animated: true)
     }
 }
