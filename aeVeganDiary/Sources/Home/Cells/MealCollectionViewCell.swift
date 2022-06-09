@@ -49,6 +49,7 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         let vc = MealDetailViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
+        nav.view.backgroundColor = .white
         productVC.present(nav, animated: true)
     }
 }

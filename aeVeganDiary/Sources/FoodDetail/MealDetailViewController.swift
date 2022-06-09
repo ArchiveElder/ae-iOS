@@ -15,12 +15,12 @@ class MealDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         setBackButton()
         setNavigationTitle(title: "상세 정보")
         
         kcalView.layer.cornerRadius = 8
         nutrView.layer.cornerRadius = 8
-        
         
         kcalView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMinXMinYCorner)
         
@@ -28,18 +28,5 @@ class MealDetailViewController: BaseViewController {
             
         }
 
-        
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
