@@ -21,6 +21,7 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mealLabel: UILabel!
     let mealText = ["아침", "점심", "저녁"]
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,22 @@ class FoodRegisterViewController: BaseViewController {
         detailTableView.dataSource = self
         detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
         
-        foodImageView.image = foodImage
-        
         dismissKeyboardWhenTappedAround()
         setBackButton()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        foodImageView.image = foodImage
         dateLabel.text = rdate
         mealLabel.text = "\(mealText[meal ?? 0]) 식사"
+        
+        let nowDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a hh:mm"
+        dateFormatter.locale = Locale(identifier:"ko_KR")
+        let convertNowStr = dateFormatter.string(from: nowDate)
+        timeLabel.text = convertNowStr
     }
     
     // 완료 버튼 설정
