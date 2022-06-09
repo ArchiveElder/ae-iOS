@@ -9,21 +9,17 @@ import UIKit
 
 class BodyInitViewController: BaseViewController {
 
+    @IBAction func doneButton(_ sender: Any) {
+        self.changeRootViewController(BaseTabBarController())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setBackButton()
+        view.backgroundColor = .white
+        setPopButton()
+        setNavigationTitle(title: "프로필 설정")
+        dismissKeyboardWhenTappedAround()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
