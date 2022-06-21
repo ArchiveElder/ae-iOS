@@ -34,6 +34,9 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as! AlbumCollectionViewCell
+        //cell.dayLabel.text = days[8-indexPath.row]
+        //cell.timeLabel.text = times[8-indexPath.row]
+        //cell.caloryLabel.text = "\(calories[indexPath.row])kcal"
         
         return cell
     }
