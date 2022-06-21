@@ -55,6 +55,18 @@ class BaseViewController: UIViewController {
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
     }
+    
+    func setPopButton() {
+        let backButton: UIButton = UIButton()
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(popToVC), for: .touchUpInside)
+        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addBackButton = UIBarButtonItem(customView: backButton)
+        
+        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
+    }
+    
+    
 
     @objc func pop() {
         self.dismiss(animated: true)

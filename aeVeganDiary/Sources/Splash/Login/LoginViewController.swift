@@ -22,7 +22,12 @@ class LoginViewController: BaseViewController {
                     _ = oauthToken
                     print(oauthToken?.accessToken ?? "없엉...")
                     /// 로그인 관련 메소드 추가
-                    self.changeRootViewController(BaseTabBarController())
+                    
+                    let vc = NicknameInitViewController()
+                    let navController = UINavigationController(rootViewController: vc)
+                    navController.view.backgroundColor = .white
+                    navController.navigationBar.isTranslucent = false
+                    self.changeRootViewController(navController)
                 }
             }
         } else {
@@ -37,7 +42,11 @@ class LoginViewController: BaseViewController {
                     _ = oauthToken
                     print(oauthToken?.accessToken ?? "없엉...")
                     /// 로그인 관련 메소드 추가
-                    self.changeRootViewController(BaseTabBarController())
+                    let vc = NicknameInitViewController()
+                    let navController = UINavigationController(rootViewController: vc)
+                    navController.view.backgroundColor = .white
+                    navController.navigationBar.isTranslucent = false
+                    self.changeRootViewController(navController)
                 }
             }
         }
