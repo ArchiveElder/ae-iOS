@@ -60,6 +60,11 @@
                     <real key="value" value="8"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="caloryLabel" destination="A19-D4-3ax" id="W2y-po-kE9"/>
+                <outlet property="dayLabel" destination="37N-Ag-fnY" id="HgI-ka-DsF"/>
+                <outlet property="timeLabel" destination="dpG-0V-Cg6" id="nJY-3G-zPQ"/>
+            </connections>
             <point key="canvasLocation" x="294.20289855072468" y="198.54910714285714"/>
         </collectionViewCell>
     </objects>
