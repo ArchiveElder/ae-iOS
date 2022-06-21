@@ -13,6 +13,7 @@ class FoodRegisterViewController: BaseViewController {
     var meal:Int? = nil
     var foodImage = UIImage()
     var amount = 1.0
+    var time = ""
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var detailTableView: UITableView!
@@ -54,6 +55,9 @@ class FoodRegisterViewController: BaseViewController {
         dateFormatter.locale = Locale(identifier:"ko_KR")
         let convertNowStr = dateFormatter.string(from: nowDate)
         timeLabel.text = convertNowStr
+        
+        dateFormatter.dateFormat = "HH:mm"
+        time = dateFormatter.string(from: nowDate)
     }
     
     // 완료 버튼 설정
@@ -65,7 +69,7 @@ class FoodRegisterViewController: BaseViewController {
     
     @objc func done() {
         showIndicator()
-        let input = RegisterInput(rdate: self.rdate, rtime: "08:00", meal: self.meal ?? 0, creates: [Creates(text: "볶음밥", calory: "153", carb: "13", protein: "23", fat: "4", amount: self.amount)])
+        let input = RegisterInput(rdate: self.rdate, rtime: time, meal: self.meal ?? 0, creates: [Creates(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", amount: self.amount)])
         RegisterDataManager().registerMeal(input, viewController: self)
     }
 
