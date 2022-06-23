@@ -17,7 +17,7 @@
                 <outlet property="foodImageView" destination="3C3-XQ-p6J" id="dbI-mC-Ptz"/>
                 <outlet property="mealLabel" destination="99Q-qO-Uty" id="40S-aa-JUH"/>
                 <outlet property="tableViewHeight" destination="6dM-mW-VKO" id="JNF-hR-Tc0"/>
-                <outlet property="timeLabel" destination="tQ2-Nb-nZh" id="H6a-2a-QdO"/>
+                <outlet property="timeTextField" destination="fAk-1x-CIM" id="Jyr-gN-KaJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7JX-OW-9AC"/>
             </connections>
         </placeholder>
@@ -51,16 +51,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHe-lT-8mg">
-                                    <rect key="frame" x="269.66666666666669" y="342" width="105.33333333333331" height="35"/>
+                                    <rect key="frame" x="325" y="342" width="50" height="35"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 03:01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQ2-Nb-nZh">
-                                            <rect key="frame" x="8.0000000000000036" y="9.6666666666666856" width="63.333333333333343" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13.5"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rkE-KN-dSA">
-                                            <rect key="frame" x="77.333333333333314" y="8.3333333333333144" width="20" height="19"/>
+                                            <rect key="frame" x="22" y="8.3333333333333144" width="20" height="19"/>
                                             <imageReference key="image" image="clock" catalog="system" renderingMode="hierarchical-single">
                                                 <hierarchicalColors>
                                                     <color systemColor="labelColor"/>
@@ -69,15 +63,21 @@
                                                 </hierarchicalColors>
                                             </imageReference>
                                         </imageView>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAk-1x-CIM">
+                                            <rect key="frame" x="8" y="2" width="8" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13.5"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="A2n-WT-mo7"/>
                                         <constraint firstItem="rkE-KN-dSA" firstAttribute="centerY" secondItem="WHe-lT-8mg" secondAttribute="centerY" id="Jen-uO-wvt"/>
+                                        <constraint firstAttribute="bottom" secondItem="fAk-1x-CIM" secondAttribute="bottom" constant="2" id="Jvy-9h-ZYw"/>
+                                        <constraint firstItem="fAk-1x-CIM" firstAttribute="leading" secondItem="WHe-lT-8mg" secondAttribute="leading" constant="8" id="UU1-wT-a9b"/>
+                                        <constraint firstItem="fAk-1x-CIM" firstAttribute="top" secondItem="WHe-lT-8mg" secondAttribute="top" constant="2" id="WG1-XA-tie"/>
                                         <constraint firstAttribute="trailing" secondItem="rkE-KN-dSA" secondAttribute="trailing" constant="8" id="XKK-HQ-GEI"/>
-                                        <constraint firstItem="tQ2-Nb-nZh" firstAttribute="leading" secondItem="WHe-lT-8mg" secondAttribute="leading" constant="8" id="aBf-bo-bQk"/>
-                                        <constraint firstItem="rkE-KN-dSA" firstAttribute="leading" secondItem="tQ2-Nb-nZh" secondAttribute="trailing" constant="6" id="jRB-7s-2gD"/>
-                                        <constraint firstItem="tQ2-Nb-nZh" firstAttribute="centerY" secondItem="WHe-lT-8mg" secondAttribute="centerY" id="mxs-vy-Tf5"/>
+                                        <constraint firstItem="rkE-KN-dSA" firstAttribute="leading" secondItem="fAk-1x-CIM" secondAttribute="trailing" constant="6" id="pmJ-0e-OBR"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -240,7 +240,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <nil key="simulatedBottomBarMetrics"/>
-            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+            <point key="canvasLocation" x="136.92307692307691" y="120.14218009478672"/>
         </view>
     </objects>
     <resources>
