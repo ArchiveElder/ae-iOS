@@ -76,7 +76,13 @@ class HomeViewController: BaseViewController {
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.text = dateFormatter.string(from: Date())
         self.weekCalendarView.select(Date())
-        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker)
+        datePicker.datePickerMode = .date
+        // iOS 14 and above
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.sizeToFit()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd."
+        self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
         
         // ProgressView
         
@@ -102,10 +108,10 @@ class HomeViewController: BaseViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         request(dateText: datePickTextField.text!)
-    }
+    }*/
     
     // datePicker에서 Done 누르면 실행
     @objc func tapDone() {

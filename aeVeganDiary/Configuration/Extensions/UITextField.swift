@@ -11,18 +11,11 @@ import UIKit
 extension UITextField {
     
     // datePicker 설정
-    func setInputViewDatePicker(target: Any, selector: Selector, datePicker: UIDatePicker) {
+    func setInputViewDatePicker(target: Any, selector: Selector, datePicker: UIDatePicker, dateFormatter: DateFormatter) {
         // Create a UIDatePicker object and assign to inputView
         
-        datePicker.datePickerMode = .date
-        // iOS 14 and above
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.sizeToFit()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd."
-        let date = dateFormatter.date(from: self.text ?? "2022.01.01")
-        datePicker.date = date!
-        
+        let date = dateFormatter.date(from: self.text ?? "")
+        datePicker.date = date ?? Date()
         
         self.inputView = datePicker
         
