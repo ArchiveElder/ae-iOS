@@ -25,6 +25,7 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var mealLabel: UILabel!
     
     @IBAction func toDetailButton(_ sender: Any) {
+        navigationController?.pushViewController(NutrientDetailViewController(), animated: true)
     }
     
     @IBAction func measureButton(_ sender: UIButton) {
@@ -65,7 +66,7 @@ class FoodRegisterViewController: BaseViewController {
         
         //NavigationController
         setNavigationTitle(title: "식사 등록하기")
-        setBackButton()
+        setDismissButton()
         setDoneButton()
         
         dismissKeyboardWhenTappedAround()
