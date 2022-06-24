@@ -7,12 +7,14 @@
 
 import UIKit
 
-class NutrientDetailViewController: UIViewController {
+class NutrientDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        setBackButton()
+        setNavigationTitle(title: "상세 영양 정보")
     }
 
 
