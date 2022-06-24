@@ -136,6 +136,9 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="자세히 보기"/>
+                                            <connections>
+                                                <action selector="toDetailButton:" destination="-1" eventType="touchUpInside" id="TU8-pM-zgh"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영양정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-oe-zYX">
                                             <rect key="frame" x="61.666666666666657" y="9" width="48.666666666666657" height="17"/>
@@ -289,6 +292,9 @@
                                             <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="인분" imagePadding="3">
                                                 <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="measureButton:" destination="-1" eventType="touchUpInside" id="FNS-Z0-boP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
