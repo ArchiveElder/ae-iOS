@@ -24,7 +24,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
-        setBackButton()
+        setDismissButton()
         setup()
     }
 
