@@ -21,8 +21,6 @@ class FoodRegisterViewController: BaseViewController {
     var amount = 1.0
     
     @IBOutlet weak var foodImageView: UIImageView!
-    @IBOutlet weak var detailTableView: UITableView!
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mealLabel: UILabel!
@@ -38,13 +36,7 @@ class FoodRegisterViewController: BaseViewController {
         setBackButton()
         setDoneButton()
         
-        // 식단 상세 tableView
-        detailTableView.delegate = self
-        detailTableView.dataSource = self
-        detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
-        
         dismissKeyboardWhenTappedAround()
-        setBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,23 +83,7 @@ class FoodRegisterViewController: BaseViewController {
         print(input)
         RegisterDataManager().registerMeal(input, viewController: self)
     }
-
-}
-
-extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
-        cell.detailImageView.image = foodImage
-        cell.amountTextField.text = "1.0"
-        cell.measureButton.addTarget(self, action: #selector(showMeasure(sender:)), for: .touchUpInside)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
+    /*
     // 인분/g 바꾸는 메뉴 생성
     @objc func showMeasure(sender : UIButton) {
         let optionMenu = UIAlertController(title: nil, message: "단위를 선택해주세요.", preferredStyle: .actionSheet)
@@ -136,8 +112,8 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
         optionMenu.addAction(cancelAction)
         
         self.present(optionMenu, animated: true, completion: nil)
-    }
-    
+     }*/
+
 }
 
 extension FoodRegisterViewController {
