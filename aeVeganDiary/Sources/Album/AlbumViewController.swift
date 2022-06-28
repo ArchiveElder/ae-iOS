@@ -48,7 +48,8 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //클릭했을 때 넘어가기
-        let vc = MealDetailViewController()
+        //let vc = MealDetailViewController()
+        let vc = SearchViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.view?.backgroundColor = .white
         nav.modalPresentationStyle = .overFullScreen
