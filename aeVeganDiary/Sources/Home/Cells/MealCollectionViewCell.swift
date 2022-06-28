@@ -15,6 +15,7 @@ class MealCollectionViewCell: UICollectionViewCell {
     
     var records: Records?
     var productVC: UIViewController!
+    var detail: MealDetailResponse?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +48,7 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MealDetailViewController()
+        vc.record_id = records?.record[indexPath.row]
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         nav.view.backgroundColor = .white

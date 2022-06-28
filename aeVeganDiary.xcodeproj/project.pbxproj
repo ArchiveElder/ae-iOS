@@ -21,7 +21,6 @@
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
-		CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E9307284DDA090057E24F /* RecommendResponse.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
@@ -66,6 +65,9 @@
 		CDE47F72284274A5005D8BB3 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */; };
 		CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F73284274B0005D8BB3 /* MypageViewController.swift */; };
 		CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F74284274B0005D8BB3 /* MypageViewController.xib */; };
+		CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C38286B238900725D41 /* MealDetailInput.swift */; };
+		CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */; };
+		CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */; };
 		CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB5284A076900217725 /* HomeInput.swift */; };
 		CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB7284A077900217725 /* HomeResponse.swift */; };
 		CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */; };
@@ -89,7 +91,6 @@
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		CD3E9307284DDA090057E24F /* RecommendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResponse.swift; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -136,6 +137,9 @@
 		CDE47F70284274A5005D8BB3 /* AlbumViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
 		CDE47F73284274B0005D8BB3 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		CDE47F74284274B0005D8BB3 /* MypageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MypageViewController.xib; sourceTree = "<group>"; };
+		CDEB0C38286B238900725D41 /* MealDetailInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInput.swift; sourceTree = "<group>"; };
+		CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
+		CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataManager.swift; sourceTree = "<group>"; };
 		CDFF9AB5284A076900217725 /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
 		CDFF9AB7284A077900217725 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		8FD58B75284DFBA000B7BDAD /* FoodDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CDEB0C36286B235E00725D41 /* Entity */,
+				CDEB0C37286B236500725D41 /* DataManager */,
 				8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */,
 				8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */,
 			);
@@ -238,8 +244,8 @@
 		CD7F38232844AE3600D15356 /* FoodRegister */ = {
 			isa = PBXGroup;
 			children = (
-				CDC61206284A50390041F5C7 /* DataManager */,
 				CDC61201284A4FD20041F5C7 /* Entity */,
+				CDC61206284A50390041F5C7 /* DataManager */,
 				CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */,
 				CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */,
 			);
@@ -440,12 +446,28 @@
 			path = Album;
 			sourceTree = "<group>";
 		};
+		CDEB0C36286B235E00725D41 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CDEB0C38286B238900725D41 /* MealDetailInput.swift */,
+				CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CDEB0C37286B236500725D41 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		CDFF9AB3284A074600217725 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				CDFF9AB5284A076900217725 /* HomeInput.swift */,
 				CDFF9AB7284A077900217725 /* HomeResponse.swift */,
-				CD3E9307284DDA090057E24F /* RecommendResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -602,12 +624,12 @@
 			files = (
 				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
+				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
 				CDE47F71284274A5005D8BB3 /* AlbumViewController.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
-				CD3E9308284DDA090057E24F /* RecommendResponse.swift in Sources */,
 				CDE24886284751E600FE35E3 /* AlbumCollectionViewCell.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
@@ -617,6 +639,7 @@
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
+				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
@@ -638,6 +661,7 @@
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
+				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
 				CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */,
 				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
