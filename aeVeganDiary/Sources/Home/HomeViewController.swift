@@ -108,10 +108,10 @@ class HomeViewController: BaseViewController {
     }
     
     
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         request(dateText: datePickTextField.text!)
-    }*/
+    }
     
     // datePicker에서 Done 누르면 실행
     @objc func tapDone() {
@@ -182,6 +182,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
+                cell.didntAteButton.addTarget(self, action: #selector(didntAte(sender:)), for: .touchUpInside)
                 cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
                 return cell
             }
@@ -197,6 +198,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc.rdate = datePickTextField.text ?? ""
         vc.meal = selected
         present(vc, animated: false)
+    }
+    
+    @objc func didntAte(sender: UIButton) {
+        
     }
     
     // collectionView 크기 설정
