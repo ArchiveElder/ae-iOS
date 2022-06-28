@@ -46,17 +46,17 @@ class BaseViewController: UIViewController {
     }
     
     // 홈화면 뒤로가기 버튼 설정
-    func setBackButton() {
+    func setDismissButton() {
         let backButton: UIButton = UIButton()
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
     }
     
-    func setPopButton() {
+    func setBackButton() {
         let backButton: UIButton = UIButton()
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(popToVC), for: .touchUpInside)
@@ -66,9 +66,8 @@ class BaseViewController: UIViewController {
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
     }
     
-    
-
-    @objc func pop() {
+    @objc func dismissVC() {
         self.dismiss(animated: true)
     }
+    
 }

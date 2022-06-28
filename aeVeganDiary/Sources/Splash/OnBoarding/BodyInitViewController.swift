@@ -17,7 +17,7 @@ class BodyInitViewController: BaseViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        setPopButton()
+        setBackButton()
         setNavigationTitle(title: "프로필 설정")
         dismissKeyboardWhenTappedAround()
     }

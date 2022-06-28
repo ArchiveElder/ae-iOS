@@ -8,89 +8,27 @@
 import UIKit
 
 class FoodRegisterViewController: BaseViewController {
+    // datePicker
+    @IBOutlet weak var timeTextField: UITextField!
+    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
+    let dateFormatterA = DateFormatter()
+    let dateFormatter24 = DateFormatter()
     
+    // 서버통신 변수
     var rdate = ""
     var meal:Int? = nil
     var foodImage = UIImage()
     var amount = 1.0
-    var time = ""
     
     @IBOutlet weak var foodImageView: UIImageView!
-    @IBOutlet weak var detailTableView: UITableView!
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mealLabel: UILabel!
-    let mealText = ["아침", "점심", "저녁"]
-    @IBOutlet weak var timeLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .white
-        
-        //NavigationController
-        setNavigationTitle(title: "식사 등록하기")
-        setBackButton()
-        setDoneButton()
-        
-        // 식단 상세 tableView
-        detailTableView.delegate = self
-        detailTableView.dataSource = self
-        detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
-        
-        dismissKeyboardWhenTappedAround()
-        setBackButton()
+    @IBAction func toDetailButton(_ sender: Any) {
+        navigationController?.pushViewController(NutrientDetailViewController(), animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        foodImageView.image = foodImage
-        dateLabel.text = rdate
-        mealLabel.text = "\(mealText[meal ?? 0]) 식사"
-        
-        let nowDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a hh:mm"
-        dateFormatter.locale = Locale(identifier:"ko_KR")
-        let convertNowStr = dateFormatter.string(from: nowDate)
-        timeLabel.text = convertNowStr
-        
-        dateFormatter.dateFormat = "HH:mm"
-        time = dateFormatter.string(from: nowDate)
-    }
-    
-    // 완료 버튼 설정
-    func setDoneButton() {
-        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(done))
-        
-        self.navigationItem.setRightBarButton(doneButton, animated: false)
-    }
-    
-    @objc func done() {
-        showIndicator()
-        let input = RegisterInput(rdate: self.rdate, rtime: time, meal: self.meal ?? 0, creates: [Creates(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", amount: self.amount)])
-        RegisterDataManager().registerMeal(input, viewController: self)
-    }
-
-}
-
-extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
-        cell.detailImageView.image = foodImage
-        cell.amountTextField.text = "1.0"
-        cell.measureButton.addTarget(self, action: #selector(showMeasure(sender:)), for: .touchUpInside)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    // 인분/g 바꾸는 메뉴 생성
-    @objc func showMeasure(sender : UIButton) {
+    @IBAction func measureButton(_ sender: UIButton) {
         let optionMenu = UIAlertController(title: nil, message: "단위를 선택해주세요.", preferredStyle: .actionSheet)
 
         let gAction = UIAlertAction(title: "g", style: .default, handler: {
@@ -119,6 +57,66 @@ extension FoodRegisterViewController: UITableViewDelegate, UITableViewDataSource
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+    let mealText = ["아침", "점심", "저녁"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        
+        //NavigationController
+        setNavigationTitle(title: "식사 등록하기")
+        setDismissButton()
+        setDoneButton()
+        
+        dismissKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        foodImageView.image = foodImage
+        dateLabel.text = rdate
+        mealLabel.text = "\(mealText[meal ?? 0]) 식사"
+        
+        let nowDate = Date()
+        dateFormatterA.dateFormat = "a hh:mm"
+        dateFormatterA.locale = Locale(identifier:"ko_KR")
+        let convertNowStr = dateFormatterA.string(from: nowDate)
+        timeTextField.text = convertNowStr
+        
+        datePicker.datePickerMode = .time
+        // iOS 14 and above
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.sizeToFit()
+        self.timeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatterA)
+    }
+    
+    // datePicker에서 Done 누르면 실행
+    @objc func tapDone() {
+        if let datePicker = self.timeTextField.inputView as? UIDatePicker {
+            // textField 업데이트
+            self.timeTextField.text = dateFormatterA.string(from: datePicker.date)
+        }
+        // textField에서 커서 제거
+        self.timeTextField.resignFirstResponder()
+    }
+    
+    // 완료 버튼 설정
+    func setDoneButton() {
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(done))
+        
+        self.navigationItem.setRightBarButton(doneButton, animated: false)
+    }
+    
+    @objc func done() {
+        showIndicator()
+        dateFormatter24.dateFormat = "HH:mm"
+        let time = dateFormatter24.string(from: datePicker.date)
+        let input = RegisterInput(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", rdate: self.rdate, rtime: time, amount: self.amount, meal: self.meal ?? 0)
+        print(input)
+        RegisterDataManager().registerMeal(input, viewController: self)
+    }
+
 }
 
 extension FoodRegisterViewController {
