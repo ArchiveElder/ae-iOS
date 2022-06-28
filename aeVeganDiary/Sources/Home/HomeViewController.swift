@@ -108,10 +108,10 @@ class HomeViewController: BaseViewController {
     }
     
     
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         request(dateText: datePickTextField.text!)
-    }*/
+    }
     
     // datePicker에서 Done 누르면 실행
     @objc func tapDone() {

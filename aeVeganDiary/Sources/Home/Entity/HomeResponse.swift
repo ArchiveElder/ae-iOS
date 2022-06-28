@@ -21,11 +21,12 @@ struct HomeResponse: Decodable {
 
 struct Records: Decodable {
     var meal: Int
-    var record: [Record]
     var mcal: Int
+    var record: [Record]
 }
 
 struct Record: Decodable {
+    var record_id: Int
     var text: String
     var date: String
     var calory: String
