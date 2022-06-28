@@ -13,9 +13,15 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
+    //MARK: 서버 통신 변수 선언
+    var searchResponse: SearchResponse?
+    var foods = [Food]()
+    //var foodNames = [String]()
+    
     var shownFoods = [String]()
-    let allFoods = ["비빔밥", "츄러스", "볶음밥"]
+    let allFoods = ["비빔밥", "츄러스", "볶음밥", "비비빅"]
     let disposeBag = DisposeBag()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,24 +43,43 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
             .distinctUntilChanged()
             .filter{ !$0.isEmpty }
             .subscribe(onNext: { [unowned self] query in
-                self.shownFoods = self.allFoods.filter { $0.hasPrefix(query) }
+                self.shownFoods = self.foods.filter {
+                    $0.name.hasPrefix(query) }.map {$0.name}
                 self.tableView.reloadData()
             })
         //.addDisposableTo(disposeBag)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+        SearchDataManager().getSearchData(viewController: self)
+        
+    }
 }
 
-
 extension SearchViewController : UITableViewDataSource {
+    
+    func getData(result: SearchResponse){
+        dismissIndicator()
+        self.searchResponse = result
+        self.foods = result.data
+        
+        //print(foods)
+    }
+    
+    
+    // MARK: 테이블뷰에 띄우기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shownFoods.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath)
+        //as! SearchTableViewCell
         cell.textLabel?.text = shownFoods[indexPath.row]
-        
+    
         return cell
     }
 }
+

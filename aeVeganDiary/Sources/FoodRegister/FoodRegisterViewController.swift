@@ -112,7 +112,7 @@ class FoodRegisterViewController: BaseViewController {
         showIndicator()
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
-        let input = RegisterInput(rdate: self.rdate, rtime: time, meal: self.meal ?? 0, creates: [Creates(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", amount: self.amount)])
+        let input = RegisterInput(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", rdate: self.rdate, rtime: time, amount: self.amount, meal: self.meal ?? 0)
         print(input)
         RegisterDataManager().registerMeal(input, viewController: self)
     }

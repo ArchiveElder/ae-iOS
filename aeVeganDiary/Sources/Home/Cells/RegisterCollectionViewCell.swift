@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var didntAteButton: UIButton!
     @IBOutlet weak var registerMealButton: UIButton!
     @IBOutlet weak var cellBackgroundView: UIView!
     

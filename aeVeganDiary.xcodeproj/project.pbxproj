@@ -13,6 +13,9 @@
 		8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13E9512851FAB600F090C4 /* NicknameInitViewController.xib */; };
 		8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9542851FADF00F090C4 /* BodyInitViewController.swift */; };
 		8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13E9552851FADF00F090C4 /* BodyInitViewController.xib */; };
+		8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */; };
+		8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F662868544F00B64409 /* SearchResponse.swift */; };
+		8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F692868563000B64409 /* SearchDataManager.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -79,6 +82,9 @@
 		8F13E9512851FAB600F090C4 /* NicknameInitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameInitViewController.xib; sourceTree = "<group>"; };
 		8F13E9542851FADF00F090C4 /* BodyInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInitViewController.swift; sourceTree = "<group>"; };
 		8F13E9552851FADF00F090C4 /* BodyInitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BodyInitViewController.xib; sourceTree = "<group>"; };
+		8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkResult.swift; sourceTree = "<group>"; };
+		8F1A5F662868544F00B64409 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		8F1A5F692868563000B64409 /* SearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataManager.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,12 +169,31 @@
 			path = OnBoarding;
 			sourceTree = "<group>";
 		};
+		8F1A5F652868543C00B64409 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F662868544F00B64409 /* SearchResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8F1A5F68286855A100B64409 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F692868563000B64409 /* SearchDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		8FA5F31B284A29B300ED3B66 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F68286855A100B64409 /* DataManager */,
+				8F1A5F652868543C00B64409 /* Entity */,
 				8FD58B6E284DBFBF00B7BDAD /* Cell */,
 				8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */,
 				8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */,
+				8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -610,7 +635,9 @@
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
+				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
+				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
@@ -635,6 +662,8 @@
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
+				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
+				CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */,
 				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
