@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MypageViewController: UIViewController {
-//BaseViewController로 바꾸기
+class MypageViewController: BaseViewController {
     
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImg: UIImageView!
@@ -19,7 +18,8 @@ class MypageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //setNavigationTitle(title: "마이페이지")
+        view.backgroundColor = .white
+        setNavigationTitle(title: "마이페이지")
         
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         profileImg.layer.borderWidth = 1

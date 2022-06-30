@@ -29,35 +29,36 @@
                         <constraint firstAttribute="height" constant="85" id="kch-n3-tJb"/>
                     </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="닉네임" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E50-pE-PLs">
-                    <rect key="frame" x="128" y="61" width="186" height="30"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="0D7-Vx-frP"/>
-                    </constraints>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVY-d4-ctL">
-                    <rect key="frame" x="322" y="63" width="33" height="31"/>
+                    <rect key="frame" x="322" y="63" width="33" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="DLb-8P-PbZ"/>
+                        <constraint firstAttribute="width" constant="33" id="q1p-sX-aY3"/>
+                        <constraint firstAttribute="height" constant="33" id="rCl-sx-XKN"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="gray" title="&gt;"/>
                     <connections>
                         <action selector="moveInfo:" destination="-1" eventType="touchUpInside" id="eM4-xf-GEI"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-XG-Uj2">
+                    <rect key="frame" x="128" y="68" width="186" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tVY-d4-ctL" secondAttribute="trailing" constant="35" id="4fY-Q6-KXZ"/>
                 <constraint firstItem="tVY-d4-ctL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="63" id="7St-d5-p3V"/>
-                <constraint firstItem="tVY-d4-ctL" firstAttribute="leading" secondItem="E50-pE-PLs" secondAttribute="trailing" constant="8" symbolic="YES" id="FJ6-uV-MDb"/>
-                <constraint firstItem="E50-pE-PLs" firstAttribute="leading" secondItem="lif-Pn-L9E" secondAttribute="trailing" constant="8" symbolic="YES" id="fmq-j7-qGv"/>
+                <constraint firstItem="Ili-XG-Uj2" firstAttribute="leading" secondItem="lif-Pn-L9E" secondAttribute="trailing" constant="8" symbolic="YES" id="Uvi-2Y-2KO"/>
                 <constraint firstItem="lif-Pn-L9E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="jUl-L1-F77"/>
-                <constraint firstItem="E50-pE-PLs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="61" id="kaZ-41-ozd"/>
+                <constraint firstItem="tVY-d4-ctL" firstAttribute="leading" secondItem="Ili-XG-Uj2" secondAttribute="trailing" constant="8" symbolic="YES" id="l9v-St-84y"/>
                 <constraint firstItem="lif-Pn-L9E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="rQi-JG-e2d"/>
+                <constraint firstItem="Ili-XG-Uj2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="68" id="wmI-dX-NwF"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="136.92307692307691" y="120.14218009478672"/>
@@ -65,9 +66,6 @@
     </objects>
     <resources>
         <image name="mypage" width="25" height="25"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
