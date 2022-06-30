@@ -16,6 +16,8 @@
 		8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */; };
 		8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F662868544F00B64409 /* SearchResponse.swift */; };
 		8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F692868563000B64409 /* SearchDataManager.swift */; };
+		8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */; };
+		8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6C286D7A1D00B64409 /* MyInfoViewController.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -85,6 +87,8 @@
 		8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkResult.swift; sourceTree = "<group>"; };
 		8F1A5F662868544F00B64409 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		8F1A5F692868563000B64409 /* SearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataManager.swift; sourceTree = "<group>"; };
+		8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		8F1A5F6C286D7A1D00B64409 /* MyInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoViewController.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 			children = (
 				CDE47F73284274B0005D8BB3 /* MypageViewController.swift */,
 				CDE47F74284274B0005D8BB3 /* MypageViewController.xib */,
+				8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */,
+				8F1A5F6C286D7A1D00B64409 /* MyInfoViewController.xib */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CDE2488B2847567800FE35E3 /* HeaderCollectionReusableView.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
@@ -652,6 +659,7 @@
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
 				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
+				8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */,
 				CDE2488A2847567800FE35E3 /* HeaderCollectionReusableView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
@@ -663,7 +671,6 @@
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
-				CD4FFA972845F8C8004B5BB4 /* DetailTableViewCell.swift in Sources */,
 				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
