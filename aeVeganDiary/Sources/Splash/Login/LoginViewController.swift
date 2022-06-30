@@ -20,14 +20,8 @@ class LoginViewController: BaseViewController {
                     print("카카오 로그인 성공")
                     
                     _ = oauthToken
-                    print(oauthToken?.accessToken ?? "없엉...")
-                    /// 로그인 관련 메소드 추가
-                    
-                    let vc = NicknameInitViewController()
-                    let navController = UINavigationController(rootViewController: vc)
-                    navController.view.backgroundColor = .white
-                    navController.navigationBar.isTranslucent = false
-                    self.changeRootViewController(navController)
+        
+                    self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
                 }
             }
         } else {
@@ -40,13 +34,8 @@ class LoginViewController: BaseViewController {
 
                     //do something
                     _ = oauthToken
-                    print(oauthToken?.accessToken ?? "없엉...")
-                    /// 로그인 관련 메소드 추가
-                    let vc = NicknameInitViewController()
-                    let navController = UINavigationController(rootViewController: vc)
-                    navController.view.backgroundColor = .white
-                    navController.navigationBar.isTranslucent = false
-                    self.changeRootViewController(navController)
+                    
+                    self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
                 }
             }
         }
@@ -61,14 +50,28 @@ class LoginViewController: BaseViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LoginViewController {
+    func request(accessToken: String) {
+        self.showIndicator()
+        let input = LoginInput(accessToken: accessToken)
+        LoginDataManager().login(input, viewController: self)
     }
-    */
-
+    
+    func login(result: LoginResponse) {
+        self.dismissIndicator()
+        UserDefaults.standard.setValue(result.userId, forKey: "UserId")
+        UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+        let vc = NicknameInitViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        navController.view.backgroundColor = .white
+        navController.navigationBar.isTranslucent = false
+        self.changeRootViewController(navController)
+    }
+    
+    func failedToRequest(message: String) {
+        dismissIndicator()
+        presentAlert(message: message)
+    }
 }

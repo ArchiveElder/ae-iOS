@@ -26,6 +26,9 @@
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
 		CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */; };
 		CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */; };
+		CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F686286DE0BC00F8A8C0 /* LoginInput.swift */; };
+		CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */; };
+		CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
@@ -101,6 +104,9 @@
 		CD00F67D286D77D700F8A8C0 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResponse.swift; sourceTree = "<group>"; };
 		CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeDataManager.swift; sourceTree = "<group>"; };
+		CD00F686286DE0BC00F8A8C0 /* LoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInput.swift; sourceTree = "<group>"; };
+		CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -250,6 +256,23 @@
 				CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		CD00F685286DDFD400F8A8C0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CD00F686286DE0BC00F8A8C0 /* LoginInput.swift */,
+				CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CD00F68A286DE0C800F8A8C0 /* LoginDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */,
+			);
+			path = LoginDataManager;
 			sourceTree = "<group>";
 		};
 		CD2EFDA02843BC4B005D06A9 /* Cells */ = {
@@ -426,6 +449,8 @@
 		CDE47F5E28427021005D8BB3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CD00F685286DDFD400F8A8C0 /* Entity */,
+				CD00F68A286DE0C800F8A8C0 /* LoginDataManager */,
 				CDE47F5F28427062005D8BB3 /* LoginViewController.swift */,
 				CDE47F6028427062005D8BB3 /* LoginViewController.xib */,
 			);
@@ -657,6 +682,7 @@
 				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
 				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
+				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CDE47F71284274A5005D8BB3 /* AlbumViewController.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
@@ -674,6 +700,7 @@
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
+				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
@@ -687,6 +714,7 @@
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
 				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
+				CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */,
 				8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */,
 				CDE2488A2847567800FE35E3 /* HeaderCollectionReusableView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
