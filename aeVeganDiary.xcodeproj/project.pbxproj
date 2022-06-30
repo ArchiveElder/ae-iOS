@@ -24,6 +24,8 @@
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
+		CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */; };
+		CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
@@ -97,6 +99,8 @@
 		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		CD00F67D286D77D700F8A8C0 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResponse.swift; sourceTree = "<group>"; };
+		CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeDataManager.swift; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -230,6 +234,22 @@
 				919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD00F67F286DDB3200F8A8C0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CD00F680286DDB3A00F8A8C0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		CD2EFDA02843BC4B005D06A9 /* Cells */ = {
@@ -428,6 +448,8 @@
 		CDE47F6828427442005D8BB3 /* Analyze */ = {
 			isa = PBXGroup;
 			children = (
+				CD00F67F286DDB3200F8A8C0 /* Entity */,
+				CD00F680286DDB3A00F8A8C0 /* DataManager */,
 				CDE47F6B2842747D005D8BB3 /* AnalyzeViewController.swift */,
 				CDE47F6C2842747D005D8BB3 /* AnalyzeViewController.xib */,
 			);
@@ -649,6 +671,7 @@
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
+				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
@@ -659,6 +682,7 @@
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
+				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
