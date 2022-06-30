@@ -48,7 +48,7 @@ extension MealCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MealDetailViewController()
-        vc.record_id = records?.record[indexPath.row]
+        vc.record_id = records?.record[indexPath.row].record_id
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         nav.view.backgroundColor = .white
