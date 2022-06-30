@@ -10,7 +10,7 @@ import Alamofire
 class SearchDataManager{
     
     func getSearchData(viewController: SearchViewController){
-        AF.request("\(Constant.BASE_URL)/api/foodname", method: .get, encoding: JSONEncoding.default)
+        AF.request("\(Constant.BASE_URL)/api/foodname", method: .get, encoding: JSONEncoding.default, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: SearchResponse.self){ response in
                 switch response.result{

@@ -9,7 +9,7 @@ import Alamofire
 
 class AnalyzeDataManager {
     func requestData(viewController: AnalyzeViewController) {
-        AF.request("\(Constant.BASE_URL)/api/analysis", method: .get)
+        AF.request("\(Constant.BASE_URL)/api/analysis", method: .get, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: AnalyzeResponse.self) { response in
                 switch response.result {
