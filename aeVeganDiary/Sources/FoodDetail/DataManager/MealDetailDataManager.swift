@@ -9,7 +9,7 @@ import Alamofire
 
 class MealDetailDataManager {
     func requestData(_ parameters: MealDetailInput, viewController: MealDetailViewController) {
-        AF.request("\(Constant.BASE_URL)/api/detailrecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default)
+        AF.request("\(Constant.BASE_URL)/api/detailrecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: MealDetailResponse.self) { response in
                 switch response.result {

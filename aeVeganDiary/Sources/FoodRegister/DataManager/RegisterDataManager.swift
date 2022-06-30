@@ -9,7 +9,7 @@ import Alamofire
 
 class RegisterDataManager {
     func registerMeal(_ parameters: RegisterInput, viewController: FoodRegisterViewController) {
-        AF.request("\(Constant.BASE_URL)/api/record", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default)
+        AF.request("\(Constant.BASE_URL)/api/record", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: RegisterResponse.self) { response in
                 switch response.result {

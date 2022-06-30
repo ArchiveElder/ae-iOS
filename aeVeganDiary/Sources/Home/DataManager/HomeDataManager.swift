@@ -9,7 +9,7 @@ import Alamofire
 
 class HomeDataManager {
     func requestData(_ parameters: HomeInput, viewController: HomeViewController) {
-        AF.request("\(Constant.BASE_URL)/api/daterecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default)
+        AF.request("\(Constant.BASE_URL)/api/daterecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: HomeResponse.self) { response in
                 switch response.result {
