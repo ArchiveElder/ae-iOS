@@ -10,5 +10,5 @@ import Alamofire
 struct Constant {
     static let BASE_URL = "http://localhost:8080"
     
-    //static var HEADERS: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "UserJwt") ?? "")"]
+    static var HEADERS: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "UserJwt") ?? "")"]
 }
