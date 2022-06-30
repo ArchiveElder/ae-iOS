@@ -31,6 +31,8 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         values = [1500, 1600, 2000, 1700, 1800, 2100, 2000, 1800]
         
         setLineChart(dataPoints: dates, values: values)
+        
+        drawStackedProgress(percentages: [0.2,0.3,0.5], width: 200, height: 20, x: 200, y: 200)
     }
     
     // 그래프 설정 코드
@@ -97,5 +99,20 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         li.valueFont = UIFont.systemFont(ofSize: 11)
         li.lineColor = .darkGreen
         calChartView.leftAxis.addLimitLine(li)
+    }
+    
+    func drawStackedProgress(percentages:[Float], width:Float, height:Float, x:Float, y:Float){
+        var currentX = x
+
+        // I just threw a bunch of random (mostly probably ugly) colors in this array. Go ahead and make sure there's as many colors as stacked elements.
+        let colors = [UIColor.red, UIColor.blue, UIColor.green]
+        var index = -1
+        for percentage in percentages{
+            index += 1
+            let DynamicView=UIView(frame: CGRect(x: CGFloat(currentX), y: CGFloat(y), width: CGFloat(Double(percentage)*Double(width)), height: CGFloat(height)))
+            currentX+=Float(Double(percentages[index])*Double(width))
+            DynamicView.backgroundColor=colors[index]
+            self.view.addSubview(DynamicView)
+        }
     }
 }
