@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BodyInitViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="heightTextField" destination="kcf-tH-DNi" id="wKn-JL-dQ0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weightTextField" destination="4yR-Wa-MTo" id="zar-v7-nZM"/>
                 <outletCollection property="activityButtons" destination="G2b-cb-O0v" collectionClass="NSMutableArray" id="ISE-PF-7u6"/>
                 <outletCollection property="activityButtons" destination="xkj-JG-Wyj" collectionClass="NSMutableArray" id="KXK-wu-jmS"/>
                 <outletCollection property="activityButtons" destination="UdC-as-NNX" collectionClass="NSMutableArray" id="zee-Wx-4t9"/>

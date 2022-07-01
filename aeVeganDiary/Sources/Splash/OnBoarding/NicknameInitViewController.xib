@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NicknameInitViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="ageTextField" destination="f4d-sP-1XP" id="lj3-Oa-Qxg"/>
+                <outlet property="nameTextField" destination="gDD-2b-hJV" id="1tG-9k-xhR"/>
                 <outlet property="nextButton" destination="06v-24-BIa" id="09d-Zj-IHX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="genderButtons" destination="9W9-Q3-qzn" collectionClass="NSMutableArray" id="YgT-NM-Amb"/>
