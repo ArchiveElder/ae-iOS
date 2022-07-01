@@ -11,8 +11,15 @@ class NicknameInitViewController: BaseViewController {
 
     @IBOutlet weak var nextButton: UIButton!
     @IBAction func nextButton(_ sender: Any) {
-        navigationController?.pushViewController(BodyInitViewController(), animated: true)
+        let vc = BodyInitViewController()
+        vc.name = nameTextField.text!
+        vc.age = Int(ageTextField.text!) ?? 0
+        vc.gender = indexOfOneAndOnly!
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
     
     var indexOfOneAndOnly: Int?
     @IBOutlet var genderButtons: [UIButton]!
@@ -54,8 +61,5 @@ class NicknameInitViewController: BaseViewController {
         setNavigationTitle(title: "프로필 설정")
         dismissKeyboardWhenTappedAround()
     }
-
-
- 
 
 }
