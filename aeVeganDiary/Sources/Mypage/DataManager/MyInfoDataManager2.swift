@@ -24,5 +24,17 @@ class MyInfoDataManager2{
             }
     }
     
-    
+    func updateMyInfo(_ parameters: MyInfoInput, viewController: MyInfoViewController){
+        AF.request("\(Constant.BASE_URL)/api/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+            .validate()
+            .responseData(emptyResponseCodes: [200], completionHandler: { response in
+                switch response.result {
+                case .success( _):
+                    //viewController.getData()
+                    print(response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        })
+    }
 }

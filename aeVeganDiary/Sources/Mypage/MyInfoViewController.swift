@@ -9,9 +9,18 @@ import UIKit
 
 class MyInfoViewController: BaseViewController {
     
+    @IBOutlet var EditButton: UIButton!
     @IBOutlet var age: UITextField!
     @IBOutlet var height: UITextField!
     @IBOutlet var weight: UITextField!
+    
+    @IBAction func EditDone(_ sender: Any) {
+        let input = MyInfoInput(age: 35, icon: 1, height: "180", weight: "80", activity: 1)
+        MyInfoDataManager2().updateMyInfo(input, viewController: self)
+        let vc = MypageViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     //MARK: 서버 통신 변수 선언
     var myInfoResponse : MyInfoResponse?
@@ -66,12 +75,14 @@ class MyInfoViewController: BaseViewController {
         super.viewWillAppear(animated)
         showIndicator()
         MyInfoDataManager2().getMyInfoData(viewController: self)
+        
     }
 
 }
 
 //MARK: 서버 통신
 extension MyInfoViewController {
+    
     func getData(result: MyInfoResponse){
         dismissIndicator()
         self.myInfoResponse = result
