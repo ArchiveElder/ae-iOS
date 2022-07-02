@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyInfoViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="age" destination="xfP-xx-15A" id="57Z-2w-saW"/>
-                <outlet property="height" destination="wAY-ch-tRa" id="OM6-YY-xV4"/>
+                <outlet property="ageField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
+                <outlet property="heightField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="weight" destination="oRQ-fr-EUv" id="z5g-VN-jzk"/>
+                <outlet property="weightField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
                 <outletCollection property="activityButtons" destination="FY3-sH-x0x" collectionClass="NSMutableArray" id="txu-8A-6oP"/>
                 <outletCollection property="activityButtons" destination="TZN-I8-QWK" collectionClass="NSMutableArray" id="VL9-o7-q9W"/>
                 <outletCollection property="activityButtons" destination="WRP-JF-faJ" collectionClass="NSMutableArray" id="ih4-sI-erh"/>
@@ -205,7 +205,7 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="수정 완료"/>
                     <connections>
-                        <action selector="EditDone:" destination="-1" eventType="touchUpInside" id="W4M-xL-Orw"/>
+                        <action selector="EditDone:" destination="-1" eventType="touchUpInside" id="kla-1k-Kfh"/>
                     </connections>
                 </button>
             </subviews>

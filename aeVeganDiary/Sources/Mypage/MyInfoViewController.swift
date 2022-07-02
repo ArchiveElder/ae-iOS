@@ -10,12 +10,12 @@ import UIKit
 class MyInfoViewController: BaseViewController {
     
     @IBOutlet var EditButton: UIButton!
-    @IBOutlet var age: UITextField!
-    @IBOutlet var height: UITextField!
-    @IBOutlet var weight: UITextField!
+    @IBOutlet var ageField: UITextField!
+    @IBOutlet var heightField: UITextField!
+    @IBOutlet var weightField: UITextField!
     
     @IBAction func EditDone(_ sender: Any) {
-        let input = MyInfoInput(age: 35, icon: 1, height: "180", weight: "80", activity: 1)
+        let input = MyInfoInput(age: Int(ageField.text!) ?? 0, height: self.heightField.text!, weight: self.weightField.text!, activity: activities[indexOfOneAndOnly ?? 25])
         MyInfoDataManager2().updateMyInfo(input, viewController: self)
         let vc = MypageViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -24,7 +24,6 @@ class MyInfoViewController: BaseViewController {
     
     //MARK: 서버 통신 변수 선언
     var myInfoResponse : MyInfoResponse?
-    
     
     var indexOfOneAndOnly: Int?
     var activities = [25, 33, 40]
@@ -87,9 +86,9 @@ extension MyInfoViewController {
         dismissIndicator()
         self.myInfoResponse = result
         
-        age.text = String(result.age)
-        height.text = result.height
-        weight.text = result.weight
+        ageField.text = String(result.age)
+        heightField.text = result.height
+        weightField.text = result.weight
         
     }
 }

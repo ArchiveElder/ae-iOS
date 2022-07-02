@@ -9,7 +9,6 @@ import Foundation
 
 struct MyInfoInput: Encodable {
     var age: Int
-    var icon: Int
     var height: String
     var weight: String
     var activity: Int
