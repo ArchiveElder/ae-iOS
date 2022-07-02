@@ -21,6 +21,7 @@
 		8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */; };
 		8F1A5F7428702CB200B64409 /* MyInfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */; };
 		8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */; };
+		8F1A5F782870493600B64409 /* MyInfoInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F772870493600B64409 /* MyInfoInput.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -104,6 +105,7 @@
 		8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
 		8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager.swift; sourceTree = "<group>"; };
 		8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager2.swift; sourceTree = "<group>"; };
+		8F1A5F772870493600B64409 /* MyInfoInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoInput.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		8F1A5F6F28702B1A00B64409 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F772870493600B64409 /* MyInfoInput.swift */,
 				8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */,
 			);
 			path = Entity;
@@ -775,6 +778,7 @@
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */,
+				8F1A5F782870493600B64409 /* MyInfoInput.swift in Sources */,
 				CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
