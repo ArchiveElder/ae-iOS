@@ -9,11 +9,16 @@ import UIKit
 
 class MypageViewController: BaseViewController {
     
+    @IBOutlet var Nickname: UILabel!
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImg: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         navigationController?.pushViewController(MyInfoViewController(), animated: true)
     }
+    
+    //MARK: 서버 통신 변수 선언
+    var myInfoResponse : MyInfoResponse?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,21 @@ class MypageViewController: BaseViewController {
         profileImg.clipsToBounds=true
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+        MyInfoDataManager().getMyInfoData(viewController: self)
+    }
 
+}
 
-
+//MARK: 서버 통신
+extension MypageViewController {
+    func getData(result: MyInfoResponse){
+        dismissIndicator()
+        self.myInfoResponse = result
+        
+        Nickname.text = result.name
+    }
 }

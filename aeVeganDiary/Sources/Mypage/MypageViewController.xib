@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MypageViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="Nickname" destination="Ili-XG-Uj2" id="sOl-Kn-fbF"/>
                 <outlet property="myInfoButton" destination="tVY-d4-ctL" id="bko-eR-Xrz"/>
                 <outlet property="profileImg" destination="lif-Pn-L9E" id="j6V-Fo-ZiP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
