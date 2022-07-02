@@ -9,7 +9,17 @@ import UIKit
 
 class MyInfoViewController: BaseViewController {
     
-    /*
+    @IBOutlet var age: UITextField!
+    @IBOutlet var height: UITextField!
+    @IBOutlet var weight: UITextField!
+    
+    //MARK: 서버 통신 변수 선언
+    var myInfoResponse : MyInfoResponse?
+    
+    
+    var indexOfOneAndOnly: Int?
+    var activities = [25, 33, 40]
+    @IBOutlet var activityButtons: [UIButton]!
     @IBAction func activityButtonAction(_ sender: UIButton) {
         if indexOfOneAndOnly != nil {
             if !sender.isSelected {
@@ -37,10 +47,10 @@ class MyInfoViewController: BaseViewController {
             nextButton.isEnabled = true
         }
         else {
-            nextButton.isEnabled = false
+            nextButton.isEnabled = falfse
         }*/
     }
-     */
+     
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +62,23 @@ class MyInfoViewController: BaseViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+        MyInfoDataManager2().getMyInfoData(viewController: self)
+    }
 
+}
 
+//MARK: 서버 통신
+extension MyInfoViewController {
+    func getData(result: MyInfoResponse){
+        dismissIndicator()
+        self.myInfoResponse = result
+        
+        age.text = String(result.age)
+        height.text = result.height
+        weight.text = result.weight
+        
+    }
 }

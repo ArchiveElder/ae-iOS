@@ -18,6 +18,9 @@
 		8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F692868563000B64409 /* SearchDataManager.swift */; };
 		8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */; };
 		8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F6C286D7A1D00B64409 /* MyInfoViewController.xib */; };
+		8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */; };
+		8F1A5F7428702CB200B64409 /* MyInfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */; };
+		8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -98,6 +101,9 @@
 		8F1A5F692868563000B64409 /* SearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataManager.swift; sourceTree = "<group>"; };
 		8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		8F1A5F6C286D7A1D00B64409 /* MyInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoViewController.xib; sourceTree = "<group>"; };
+		8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
+		8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager.swift; sourceTree = "<group>"; };
+		8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager2.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +211,23 @@
 			isa = PBXGroup;
 			children = (
 				8F1A5F692868563000B64409 /* SearchDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		8F1A5F6F28702B1A00B64409 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8F1A5F7028702B9400B64409 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */,
+				8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -509,6 +532,8 @@
 		CDE47F6928427451005D8BB3 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F7028702B9400B64409 /* DataManager */,
+				8F1A5F6F28702B1A00B64409 /* Entity */,
 				CDE47F73284274B0005D8BB3 /* MypageViewController.swift */,
 				CDE47F74284274B0005D8BB3 /* MypageViewController.xib */,
 				8F1A5F6B286D7A1D00B64409 /* MyInfoViewController.swift */,
@@ -726,11 +751,13 @@
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
+				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
+				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
@@ -755,6 +782,7 @@
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
+				8F1A5F7428702CB200B64409 /* MyInfoDataManager.swift in Sources */,
 				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
