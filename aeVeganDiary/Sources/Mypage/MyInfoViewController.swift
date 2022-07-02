@@ -8,7 +8,40 @@
 import UIKit
 
 class MyInfoViewController: BaseViewController {
-
+    
+    /*
+    @IBAction func activityButtonAction(_ sender: UIButton) {
+        if indexOfOneAndOnly != nil {
+            if !sender.isSelected {
+                for index in activityButtons.indices {
+                    activityButtons[index].isSelected = false
+                    activityButtons[index].backgroundColor = .lightGray
+                }
+                sender.isSelected = true
+                sender.backgroundColor = .darkGreen
+                indexOfOneAndOnly = activityButtons.firstIndex(of: sender)
+            }
+            else {
+                sender.isSelected = false
+                sender.backgroundColor = .lightGray
+                indexOfOneAndOnly = nil
+            }
+        }
+        else {
+            sender.isSelected = true
+            sender.backgroundColor = .darkGreen
+            indexOfOneAndOnly = activityButtons.firstIndex(of: sender)
+        }
+        
+        /*if indexOfOneAndOnly != nil && ageTextField.text != "" {
+            nextButton.isEnabled = true
+        }
+        else {
+            nextButton.isEnabled = false
+        }*/
+    }
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
