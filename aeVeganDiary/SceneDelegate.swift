@@ -37,6 +37,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         win.rootViewController = navController
         win.makeKeyAndVisible()
         window = win
+        
+        if UserDefaults.standard.string(forKey: "UserJwt") == "" {
+            controller = LoginViewController()
+            let navController = UINavigationController(rootViewController: controller)
+            navController.view.backgroundColor = .white
+            win.rootViewController = navController
+            win.makeKeyAndVisible()
+            window = win
+        }
+        else {
+            controller = BaseTabBarController()
+            win.rootViewController = controller
+            win.makeKeyAndVisible()
+            window = win
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
