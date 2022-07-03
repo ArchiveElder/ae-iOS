@@ -9,21 +9,21 @@ import UIKit
 
 class MyInfoViewController: BaseViewController {
     
-    @IBOutlet var EditButton: UIButton!
     @IBOutlet var ageField: UITextField!
     @IBOutlet var heightField: UITextField!
     @IBOutlet var weightField: UITextField!
     
+    var age = 0
+    var height = "0"
+    var weight = "0"
+    var activity = 0
+    
     @IBAction func EditDone(_ sender: Any) {
         let input = MyInfoInput(age: Int(ageField.text!) ?? 0, height: self.heightField.text!, weight: self.weightField.text!, activity: activities[indexOfOneAndOnly ?? 25])
         MyInfoDataManager2().updateMyInfo(input, viewController: self)
-        let vc = MypageViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
     }
     
-    
-    //MARK: 서버 통신 변수 선언
-    var myInfoResponse : MyInfoResponse?
     
     var indexOfOneAndOnly: Int?
     var activities = [25, 33, 40]
@@ -72,23 +72,28 @@ class MyInfoViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showIndicator()
-        MyInfoDataManager2().getMyInfoData(viewController: self)
-        
+        ageField.text = String(age)
+        heightField.text = String(height)
+        weightField.text = String(weight)
+        indexOfOneAndOnly = activities.firstIndex(of: activity)
+        // 버튼 outlet collection 배열에서 indexOfOneAndOnly 인 인덱스를 찾아서 그 인덱스에 해당하는 버튼만 selected로 설정
+        for index in activityButtons.indices {
+            if index == indexOfOneAndOnly {
+                activityButtons[index].isSelected = true
+                activityButtons[index].backgroundColor = .darkGreen
+            } else {
+                activityButtons[index].isSelected = false
+                activityButtons[index].backgroundColor = .lightGray
+            }
+        }
     }
 
 }
 
 //MARK: 서버 통신
 extension MyInfoViewController {
-    
-    func getData(result: MyInfoResponse){
-        dismissIndicator()
-        self.myInfoResponse = result
-        
-        ageField.text = String(result.age)
-        heightField.text = result.height
-        weightField.text = result.weight
-        
+    func update() {
+        //서버통신 성공하면 view를 pop 해준다
+        navigationController?.popViewController(animated: true)
     }
 }
