@@ -18,7 +18,8 @@ class MypageViewController: BaseViewController {
         vc.height = myInfoResponse?.height ?? "0"
         vc.weight = myInfoResponse?.weight ?? "0"
         vc.activity = myInfoResponse?.activity ?? 0
-        //vc.hidesBottomBarWhenPushed = true
+        // 화면 push 할 때 하단 탭바 가리는 코드
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
