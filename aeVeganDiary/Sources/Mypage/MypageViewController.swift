@@ -13,12 +13,18 @@ class MypageViewController: BaseViewController {
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImg: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
-        navigationController?.pushViewController(MyInfoViewController(), animated: true)
+        let vc = MyInfoViewController()
+        vc.age = myInfoResponse?.age ?? 0
+        vc.height = myInfoResponse?.height ?? "0"
+        vc.weight = myInfoResponse?.weight ?? "0"
+        vc.activity = myInfoResponse?.activity ?? 0
+        // 화면 push 할 때 하단 탭바 가리는 코드
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: 서버 통신 변수 선언
     var myInfoResponse : MyInfoResponse?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

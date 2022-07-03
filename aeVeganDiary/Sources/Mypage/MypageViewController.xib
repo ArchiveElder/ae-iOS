@@ -31,9 +31,8 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVY-d4-ctL">
-                    <rect key="frame" x="322" y="63" width="33" height="33"/>
+                    <rect key="frame" x="322" y="61" width="33" height="33"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="DLb-8P-PbZ"/>
                         <constraint firstAttribute="width" constant="33" id="q1p-sX-aY3"/>
                         <constraint firstAttribute="height" constant="33" id="rCl-sx-XKN"/>
                     </constraints>
@@ -44,7 +43,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-XG-Uj2">
-                    <rect key="frame" x="128" y="68" width="186" height="21"/>
+                    <rect key="frame" x="128" y="67" width="186" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -54,12 +53,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tVY-d4-ctL" secondAttribute="trailing" constant="35" id="4fY-Q6-KXZ"/>
-                <constraint firstItem="tVY-d4-ctL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="63" id="7St-d5-p3V"/>
                 <constraint firstItem="Ili-XG-Uj2" firstAttribute="leading" secondItem="lif-Pn-L9E" secondAttribute="trailing" constant="8" symbolic="YES" id="Uvi-2Y-2KO"/>
                 <constraint firstItem="lif-Pn-L9E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="jUl-L1-F77"/>
                 <constraint firstItem="tVY-d4-ctL" firstAttribute="leading" secondItem="Ili-XG-Uj2" secondAttribute="trailing" constant="8" symbolic="YES" id="l9v-St-84y"/>
+                <constraint firstItem="tVY-d4-ctL" firstAttribute="centerY" secondItem="lif-Pn-L9E" secondAttribute="centerY" id="oYL-kA-JeC"/>
                 <constraint firstItem="lif-Pn-L9E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="rQi-JG-e2d"/>
-                <constraint firstItem="Ili-XG-Uj2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="68" id="wmI-dX-NwF"/>
+                <constraint firstItem="Ili-XG-Uj2" firstAttribute="centerY" secondItem="lif-Pn-L9E" secondAttribute="centerY" id="znK-iL-CUD"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="136.92307692307691" y="120.14218009478672"/>
