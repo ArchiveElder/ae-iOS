@@ -15,7 +15,6 @@ class MealDetailDataManager {
                 switch response.result {
                 case .success(let response):
                     viewController.getData(result: response)
-                    print(response)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
