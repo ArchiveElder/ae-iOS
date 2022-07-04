@@ -21,6 +21,9 @@ class FoodRegisterViewController: BaseViewController {
     var amount = 1.0
     
     @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet var foodImageViewHeight: NSLayoutConstraint!
+    
+    var search = 0
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mealLabel: UILabel!
     
@@ -74,7 +77,14 @@ class FoodRegisterViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        foodImageView.image = foodImage
+        if search == 0 {
+            foodImageViewHeight.constant = 320
+            foodImageView.image = foodImage
+        } else {
+            foodImageViewHeight.constant = 0
+            foodImageView.isHidden = true
+        }
+        
         dateLabel.text = rdate
         mealLabel.text = "\(mealText[meal ?? 0]) 식사"
         
