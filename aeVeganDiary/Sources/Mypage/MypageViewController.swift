@@ -9,6 +9,16 @@ import UIKit
 
 class MypageViewController: BaseViewController {
     
+    @IBAction func logoutButton(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "UserJwt")
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        navController.view.backgroundColor = .white
+        navController.navigationBar.isTranslucent = false
+        self.changeRootViewController(navController)
+    }
+    
+    
     @IBOutlet var Nickname: UILabel!
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImg: UIImageView!

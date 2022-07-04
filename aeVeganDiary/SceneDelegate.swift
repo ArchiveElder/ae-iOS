@@ -30,15 +30,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var controller: UIViewController
         
-        // 시작하는 뷰를 로그인뷰로 설정
+        /*// 시작하는 뷰를 로그인뷰로 설정
         controller = LoginViewController()
         let navController = UINavigationController(rootViewController: controller)
         navController.view.backgroundColor = .white
         win.rootViewController = navController
         win.makeKeyAndVisible()
-        window = win
+        window = win*/
         
-        if UserDefaults.standard.string(forKey: "UserJwt") == "" {
+        if (UserDefaults.standard.string(forKey: "UserJwt") == nil) {
             controller = LoginViewController()
             let navController = UINavigationController(rootViewController: controller)
             navController.view.backgroundColor = .white
