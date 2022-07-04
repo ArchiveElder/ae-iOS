@@ -26,6 +26,9 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        showIndicator()
+        AnalyzeDataManager().requestData(viewController: self)
+        
         // 그래프에 들어갈 데이터들
         dates = ["05.24", "05.25", "05.26", "05.27", "05.28", "05.29", "05.30", "05.31"]
         values = [1500, 1600, 2000, 1700, 1800, 2100, 2000, 1800]
@@ -104,7 +107,6 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     func drawStackedProgress(percentages:[Float], width:Float, height:Float, x:Float, y:Float){
         var currentX = x
 
-        // I just threw a bunch of random (mostly probably ugly) colors in this array. Go ahead and make sure there's as many colors as stacked elements.
         let colors = [UIColor.red, UIColor.blue, UIColor.green]
         var index = -1
         for percentage in percentages{
@@ -114,5 +116,11 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
             DynamicView.backgroundColor=colors[index]
             self.view.addSubview(DynamicView)
         }
+    }
+}
+
+extension AnalyzeViewController {
+    func getData(response: AnalyzeResponse) {
+        dismissIndicator()
     }
 }
