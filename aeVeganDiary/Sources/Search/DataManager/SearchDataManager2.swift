@@ -13,7 +13,7 @@ class SearchDataManager2{
             .responseDecodable(of: SearchResponse2.self) { response in
                 switch response.result {
                 case .success(let response):
-                    //viewController.getData(result: response)
+                    //viewController.searchResponse2 = response
                     print(response)
                 case .failure(let error):
                     print(error.localizedDescription)

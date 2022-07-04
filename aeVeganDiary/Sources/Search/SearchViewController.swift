@@ -19,6 +19,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     //var foodNames = [String]()
     var id: CLong?
     var foodIdx: Int?
+    var searchResponse2: SearchResponse2?
     
     var shownFoods = [String]()
     let disposeBag = DisposeBag()
@@ -66,11 +67,6 @@ extension SearchViewController : UITableViewDataSource {
         dismissIndicator()
         self.searchResponse = result
         self.foods = result.data
-        
-    }
-    
-    func getData2(result: SearchResponse2){
-        dismissIndicator()
     }
     
     // MARK: 테이블뷰에 띄우기
@@ -82,17 +78,18 @@ extension SearchViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath)
         //as! SearchTableViewCell
         cell.textLabel?.text = shownFoods[indexPath.row]
-    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = FoodRegisterViewController()
-        let inputId = SearchInput(id:3)
-    
+        //음식 1개 선택 시
+        let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
+        var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
+        print(currentIndex)
+        let inputId = SearchInput(id:currentIndex)
         vc.search = 1
-        SearchDataManager2().requestData(inputId, viewController: self)
-        
+        let currentResponse = SearchDataManager2().requestData(inputId, viewController: self)
         navigationController?.pushViewController(vc, animated: true)
         
     }
