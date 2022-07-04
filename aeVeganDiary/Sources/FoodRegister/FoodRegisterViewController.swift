@@ -22,6 +22,8 @@ class FoodRegisterViewController: BaseViewController {
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet var foodImageViewHeight: NSLayoutConstraint!
+    @IBOutlet var foodName: UILabel!
+    @IBOutlet var foodCalory: UILabel!
     
     var search = 0
     @IBOutlet weak var dateLabel: UILabel!
