@@ -17,10 +17,12 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     var searchResponse: SearchResponse?
     var foods = [Food]()
     //var foodNames = [String]()
+    var id: CLong?
+    var foodIdx: Int?
     
     var shownFoods = [String]()
-    let allFoods = ["비빔밥", "츄러스", "볶음밥", "비비빅"]
     let disposeBag = DisposeBag()
+    var allFoodsDic : Dictionary = [Int:String]()
     
     
     override func viewDidLoad() {
@@ -54,7 +56,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
         super.viewWillAppear(animated)
         showIndicator()
         SearchDataManager().getSearchData(viewController: self)
-        
+
     }
 }
 
@@ -65,9 +67,11 @@ extension SearchViewController : UITableViewDataSource {
         self.searchResponse = result
         self.foods = result.data
         
-        //print(foods)
     }
     
+    func getData2(result: SearchResponse2){
+        dismissIndicator()
+    }
     
     // MARK: 테이블뷰에 띄우기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +84,17 @@ extension SearchViewController : UITableViewDataSource {
         cell.textLabel?.text = shownFoods[indexPath.row]
     
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = FoodRegisterViewController()
+        let inputId = SearchInput(id:3)
+    
+        vc.search = 1
+        SearchDataManager2().requestData(inputId, viewController: self)
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 
