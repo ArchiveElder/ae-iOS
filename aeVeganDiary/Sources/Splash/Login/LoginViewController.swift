@@ -63,11 +63,16 @@ extension LoginViewController {
         self.dismissIndicator()
         UserDefaults.standard.setValue(result.userId, forKey: "UserId")
         UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
-        let vc = NicknameInitViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        navController.view.backgroundColor = .white
-        navController.navigationBar.isTranslucent = false
-        self.changeRootViewController(navController)
+        if result.signup {
+            let vc = NicknameInitViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            navController.view.backgroundColor = .white
+            navController.navigationBar.isTranslucent = false
+            self.changeRootViewController(navController)
+        } else {
+            self.changeRootViewController(BaseTabBarController())
+        }
+        
     }
     
     func failedToRequest(message: String) {
