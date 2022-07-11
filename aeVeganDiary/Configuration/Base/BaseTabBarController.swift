@@ -16,7 +16,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
     let analyzeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "analyze"), tag: 1)
     
     let cookRecommViewController = CookRecommViewController()
-    let cookRecommTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "home"), tag:2)
+    let cookRecommTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "cookRecomm"), tag:2)
     
     let mypageViewController = MypageViewController()
     let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), tag: 3)
