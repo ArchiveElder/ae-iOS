@@ -25,6 +25,8 @@
 		8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F792872BD4C00B64409 /* SearchInput.swift */; };
 		8F1A5F7C2872BE0300B64409 /* SearchDataManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7B2872BE0300B64409 /* SearchDataManager2.swift */; };
 		8F1A5F7E2872C5FC00B64409 /* SearchResponse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7D2872C5FC00B64409 /* SearchResponse2.swift */; };
+		8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */; };
+		8F1A5F83287C0E0A00B64409 /* CookRecommViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -106,6 +108,8 @@
 		8F1A5F792872BD4C00B64409 /* SearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInput.swift; sourceTree = "<group>"; };
 		8F1A5F7B2872BE0300B64409 /* SearchDataManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataManager2.swift; sourceTree = "<group>"; };
 		8F1A5F7D2872C5FC00B64409 /* SearchResponse2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse2.swift; sourceTree = "<group>"; };
+		8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookRecommViewController.swift; sourceTree = "<group>"; };
+		8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookRecommViewController.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +234,15 @@
 				8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		8F1A5F7F287C0DC800B64409 /* CookRecomm */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */,
+				8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */,
+			);
+			path = CookRecomm;
 			sourceTree = "<group>";
 		};
 		8FA5F31B284A29B300ED3B66 /* Search */ = {
@@ -431,6 +444,7 @@
 		CDE47F4D28426B71005D8BB3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F7F287C0DC800B64409 /* CookRecomm */,
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
 				CD7F38282844D62600D15356 /* SelectType */,
@@ -648,6 +662,7 @@
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
+				8F1A5F83287C0E0A00B64409 /* CookRecommViewController.xib in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
 				8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */,
@@ -729,6 +744,7 @@
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
+				8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
