@@ -15,11 +15,8 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
     let analyzeViewController = AnalyzeViewController()
     let analyzeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "analyze"), tag: 1)
     
-    let albumViewController = AlbumViewController()
-    let albumTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "album"), tag: 2)
-    
     let mypageViewController = MypageViewController()
-    let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), tag: 3)
+    let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), tag: 2)
 
     
     override func viewDidLoad() {
@@ -39,7 +36,6 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         
         let homeNavController = UINavigationController(rootViewController: homeViewController)
         let analyzeNavController = UINavigationController(rootViewController: analyzeViewController)
-        let albumNavController = UINavigationController(rootViewController: albumViewController)
         let mypageNavController = UINavigationController(rootViewController: mypageViewController)
         
         homeNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -50,21 +46,16 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         analyzeNavController.navigationController?.navigationBar.shadowImage = UIImage()
         analyzeNavController.navigationController?.navigationBar.layoutIfNeeded()
         
-        albumNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        albumNavController.navigationController?.navigationBar.shadowImage = UIImage()
-        albumNavController.navigationController?.navigationBar.layoutIfNeeded()
-        
         mypageNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         mypageNavController.navigationController?.navigationBar.shadowImage = UIImage()
         mypageNavController.navigationController?.navigationBar.layoutIfNeeded()
         
         homeNavController.tabBarItem = homeTabBarItem
         analyzeNavController.tabBarItem = analyzeTabBarItem
-        albumNavController.tabBarItem = albumTabBarItem
         mypageNavController.tabBarItem = mypageTabBarItem
         
         
-        self.viewControllers = [homeNavController, analyzeNavController, albumNavController, mypageNavController]
+        self.viewControllers = [homeNavController, analyzeNavController, mypageNavController]
         
         self.delegate = self
     }
