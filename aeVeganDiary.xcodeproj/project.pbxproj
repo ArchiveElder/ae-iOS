@@ -27,6 +27,8 @@
 		8F1A5F7E2872C5FC00B64409 /* SearchResponse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F7D2872C5FC00B64409 /* SearchResponse2.swift */; };
 		8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */; };
 		8F1A5F83287C0E0A00B64409 /* CookRecommViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */; };
+		8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F86287C2BDE00B64409 /* CookRecommTableViewCell.swift */; };
+		8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -110,6 +112,8 @@
 		8F1A5F7D2872C5FC00B64409 /* SearchResponse2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse2.swift; sourceTree = "<group>"; };
 		8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookRecommViewController.swift; sourceTree = "<group>"; };
 		8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookRecommViewController.xib; sourceTree = "<group>"; };
+		8F1A5F86287C2BDE00B64409 /* CookRecommTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookRecommTableViewCell.swift; sourceTree = "<group>"; };
+		8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookRecommTableViewCell.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -239,10 +243,20 @@
 		8F1A5F7F287C0DC800B64409 /* CookRecomm */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F85287C2BBE00B64409 /* Cell */,
 				8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */,
 				8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */,
 			);
 			path = CookRecomm;
+			sourceTree = "<group>";
+		};
+		8F1A5F85287C2BBE00B64409 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F86287C2BDE00B64409 /* CookRecommTableViewCell.swift */,
+				8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8FA5F31B284A29B300ED3B66 /* Search */ = {
@@ -667,6 +681,7 @@
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
 				8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
+				8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +787,7 @@
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
+				8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */,
 				8F1A5F7E2872C5FC00B64409 /* SearchResponse2.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
 				8F1A5F7428702CB200B64409 /* MyInfoDataManager.swift in Sources */,
