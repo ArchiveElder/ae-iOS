@@ -21,28 +21,41 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fmS-o7-bYD">
-                    <rect key="frame" x="18" y="74" width="378" height="323"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7Q-AI-s7B">
+                    <rect key="frame" x="20" y="74" width="374" height="365"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fwz-uB-Dy0">
+                            <rect key="frame" x="0.0" y="18" width="378" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-ck-Zbb">
+                            <rect key="frame" x="8" y="84" width="358" height="273"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fmS-o7-bYD">
+                                    <rect key="frame" x="0.0" y="0.0" width="358" height="273"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </tableView>
+                            </subviews>
+                            <viewLayoutGuide key="contentLayoutGuide" id="n3b-yf-MF6"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="j1S-f8-MTP"/>
+                        </scrollView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Fwz-uB-Dy0">
-                    <rect key="frame" x="18" y="23" width="378" height="51"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3M4-jq-5gi">
+                    <rect key="frame" x="33" y="45" width="78" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="Fwz-uB-Dy0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0ZS-XD-tkf"/>
-                <constraint firstItem="fmS-o7-bYD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="Hxl-zS-Wew"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fwz-uB-Dy0" secondAttribute="trailing" constant="18" id="OeI-Nl-S7Y"/>
-                <constraint firstItem="fmS-o7-bYD" firstAttribute="top" secondItem="Fwz-uB-Dy0" secondAttribute="bottom" id="Sb7-TW-eh6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fmS-o7-bYD" secondAttribute="trailing" constant="18" id="buN-2f-Dvo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fmS-o7-bYD" secondAttribute="bottom" constant="377" id="dUh-gh-c7I"/>
-                <constraint firstItem="Fwz-uB-Dy0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="h9z-He-eTQ"/>
-                <constraint firstItem="fmS-o7-bYD" firstAttribute="top" secondItem="Fwz-uB-Dy0" secondAttribute="bottom" id="iTh-6C-X2F"/>
-                <constraint firstItem="Fwz-uB-Dy0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="23" id="lcy-cx-P3G"/>
-            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
         </view>

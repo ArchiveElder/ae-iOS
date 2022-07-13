@@ -4,18 +4,44 @@
 //
 //  Created by 소정의 Mac on 2022/07/11.
 //
+import SwiftUI
 
-import UIKit
-import RxCocoa
-import RxSwift
+struct SearchView: View {
+    //@StateObject var oo = CookRecommObservableObject()
+    @State private var searchTerm = ""
+    
+    var body: some View {
+        NavigationView{
+            VStack {
+                Text("재료를 찾아보세요")
+                    .font(.title.weight(.bold))
+                Text("만들 수 있는 채식음식을 추천해드립니다.")
+                    .multilineTextAlignment(.center)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .foregroundColor(.gray)
+            .navigationTitle("나의 냉장고")
+        }
+        .searchable(text: $searchTerm)
+    }
+}
 
+
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}
+
+/*
 class CookRecommViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
     
     var shownFoods = [String]()
-    let allFoods = ["비빔밥", "비비빅","비비빅1", "볶음밥"]
+    let allFoods = ["비빔밥","비비빅","비비빅1","비비빅2","비비빅3","비비빅4","비비빅5","볶음밥"]
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -60,3 +86,4 @@ extension CookRecommViewController : UITableViewDataSource {
     }
 }
 
+*/
