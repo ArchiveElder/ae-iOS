@@ -7,8 +7,15 @@
 
 import UIKit
 import FSCalendar
+import EventKit
+import CoreLocation
+import MapKit
 
 class HomeViewController: BaseViewController {
+    
+    var events: [EKEvent]? = nil
+    let store = EKEventStore()
+    var locationManager = CLLocationManager()
     
     @IBOutlet weak var datePickTextField: UITextField!
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
@@ -42,9 +49,6 @@ class HomeViewController: BaseViewController {
     var homeResponse: HomeResponse?
     var records = [Records]()
     
-    @IBOutlet weak var mealName: UILabel!
-    @IBOutlet weak var foodName: UILabel!
-    @IBOutlet weak var recommCal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +89,6 @@ class HomeViewController: BaseViewController {
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
         
         // ProgressView
-        
         carbProgressBar.clipsToBounds = true
         carbProgressBar.layer.cornerRadius = 4
         carbProgressBar.clipsToBounds = true
@@ -105,12 +108,19 @@ class HomeViewController: BaseViewController {
         fatProgressBar.subviews[1].clipsToBounds = true
         
         arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
+        
+        locationManager.delegate = self
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        store.requestAccess(to: .event) { granted, error in
+            //if granted { self.accessGranted() }
+        }
         super.viewWillAppear(animated)
         request(dateText: datePickTextField.text!)
+        
+        locationManager.requestWhenInUseAuthorization()
     }
     
     // datePicker에서 Done 누르면 실행
@@ -125,7 +135,7 @@ class HomeViewController: BaseViewController {
         
         request(dateText: dateFormatter.string(from: datePicker.date))
     }
-
+    
 }
 
 // MARK: FSCalendar
@@ -225,6 +235,55 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
+// MARK: EventKit
+extension HomeViewController: CLLocationManagerDelegate {
+    func fetchEvent() {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: datePicker.date)
+        dateComponents.hour = 9
+        
+        //var oneDayAgo = calendar.nextDate(after: datePicker.date, matching: dateComponents, matchingPolicy: .nextTime, direction: .forward)
+        //print("dateComponents \(dateComponents)")
+        let dayAgo = calendar.date(from: dateComponents)
+        
+        dateComponents.hour = 24 - (dateComponents.hour ?? 24) + 18
+        let dayAfter = calendar.date(from: dateComponents)
+        
+        var predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
+        events = store.events(matching: predicate)
+        
+        for i in events! {
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(i.location!) { (placemarks, error) in
+                guard
+                    let placemarks = placemarks,
+                    let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    return
+                }
+                
+                print(location)
+            }
+
+        }
+        
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        case .notDetermined:
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            print("Location Servies: Denied / Restricted")
+        }
+    }
+    
+}
+
 
 // MARK: 서버 통신
 extension HomeViewController {
@@ -232,6 +291,7 @@ extension HomeViewController {
         showIndicator()
         let input = HomeInput(date: dateText)
         HomeDataManager().requestData(input, viewController: self)
+        fetchEvent()
     }
     
     func getData(result: HomeResponse) {
@@ -257,7 +317,6 @@ extension HomeViewController {
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
         let firstIndex = records.firstIndex(where: { $0.mcal == 0 }) ?? 0
-        print(firstIndex)
         selected = firstIndex
         tabCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
         mealCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
