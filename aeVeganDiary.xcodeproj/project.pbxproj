@@ -903,7 +903,9 @@
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -933,7 +935,9 @@
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
