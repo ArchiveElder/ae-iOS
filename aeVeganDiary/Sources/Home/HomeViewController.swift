@@ -242,14 +242,12 @@ extension HomeViewController: CLLocationManagerDelegate {
         var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: datePicker.date)
         dateComponents.hour = 9
         
-        //var oneDayAgo = calendar.nextDate(after: datePicker.date, matching: dateComponents, matchingPolicy: .nextTime, direction: .forward)
-        //print("dateComponents \(dateComponents)")
         let dayAgo = calendar.date(from: dateComponents)
         
         dateComponents.hour = 24 - (dateComponents.hour ?? 24) + 18
         let dayAfter = calendar.date(from: dateComponents)
         
-        var predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
+        let predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
         events = store.events(matching: predicate)
         
         for i in events! {
@@ -257,15 +255,16 @@ extension HomeViewController: CLLocationManagerDelegate {
             geoCoder.geocodeAddressString(i.location!) { (placemarks, error) in
                 guard
                     let placemarks = placemarks,
-                    let location = placemarks.first?.location
+                    let lat = placemarks.first?.location?.coordinate.latitude,
+                    let long = placemarks.first?.location?.coordinate.longitude
                 else {
                     // handle no location found
                     return
                 }
                 
-                print(location)
+                print("lat: \(lat)")
+                print("long: \(long)")
             }
-
         }
         
     }
