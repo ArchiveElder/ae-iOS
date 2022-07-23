@@ -458,7 +458,6 @@
 		CDE47F4D28426B71005D8BB3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8F1A5F7F287C0DC800B64409 /* CookRecomm */,
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
 				CD7F38282844D62600D15356 /* SelectType */,
@@ -467,6 +466,7 @@
 				8FA5F31B284A29B300ED3B66 /* Search */,
 				CDE47F6828427442005D8BB3 /* Analyze */,
 				8FD58B75284DFBA000B7BDAD /* FoodDetail */,
+				8F1A5F7F287C0DC800B64409 /* CookRecomm */,
 				CDE47F6928427451005D8BB3 /* Mypage */,
 			);
 			path = Sources;
