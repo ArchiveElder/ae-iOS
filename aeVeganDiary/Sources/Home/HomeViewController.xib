@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,6 +17,7 @@
                 <outlet property="carbProgressBar" destination="3bH-JH-whL" id="gcJ-Ps-YWU"/>
                 <outlet property="consumeKcal" destination="Wt5-P8-s9K" id="fy0-vN-l6x"/>
                 <outlet property="datePickTextField" destination="Fqs-qr-GOo" id="MSZ-Lc-4Pb"/>
+                <outlet property="eventTableView" destination="htl-ew-qJ1" id="fnH-hP-3ow"/>
                 <outlet property="fatLabel" destination="Zut-Xv-Ofb" id="IkE-Gc-NEi"/>
                 <outlet property="fatProgressBar" destination="C68-6N-FJ8" id="EcC-1a-j2h"/>
                 <outlet property="mealCollectionView" destination="8re-C7-Q1h" id="fRO-IR-JJy"/>
@@ -42,9 +42,21 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
+                                    <subviews>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="htl-ew-qJ1">
+                                            <rect key="frame" x="15" y="85" width="330" height="180"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="180" id="YpH-0F-SBI"/>
+                                            </constraints>
+                                        </tableView>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="htl-ew-qJ1" secondAttribute="trailing" constant="15" id="1Cs-gm-m3B"/>
                                         <constraint firstAttribute="height" constant="280" id="IFt-l9-hdx"/>
+                                        <constraint firstItem="htl-ew-qJ1" firstAttribute="leading" secondItem="ifb-Sb-h85" secondAttribute="leading" constant="15" id="Jfj-5T-Tm0"/>
+                                        <constraint firstAttribute="bottom" secondItem="htl-ew-qJ1" secondAttribute="bottom" constant="15" id="RiZ-AA-KJb"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
