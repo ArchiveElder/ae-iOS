@@ -2,7 +2,7 @@
 //  EventTableViewCell.swift
 //  aeVeganDiary
 //
-//  Created by 권하은 on 2022/07/23.
+//  Created by 권하은 on 2022/07/25.
 //
 
 import UIKit
