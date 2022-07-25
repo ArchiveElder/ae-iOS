@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,12 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodRegisterViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
                 <outlet property="dateLabel" destination="b5l-pW-BfY" id="5U2-4q-Omw"/>
-                <outlet property="foodCalory" destination="kPb-e5-hZZ" id="Ik5-Yg-w68"/>
                 <outlet property="foodCalory1" destination="kPb-e5-hZZ" id="I7t-aZ-RWH"/>
                 <outlet property="foodCalory2" destination="RsZ-iu-1FG" id="RBv-Yz-JUR"/>
                 <outlet property="foodImageView" destination="3C3-XQ-p6J" id="dbI-mC-Ptz"/>
                 <outlet property="foodImageViewHeight" destination="GaR-9y-xQj" id="qQE-hG-4bs"/>
-                <outlet property="foodName" destination="mDQ-zj-68G" id="fhp-BZ-ItT"/>
                 <outlet property="foodName1" destination="mDQ-zj-68G" id="P1B-Nm-hsc"/>
                 <outlet property="mealLabel" destination="99Q-qO-Uty" id="40S-aa-JUH"/>
                 <outlet property="timeTextField" destination="fAk-1x-CIM" id="Jyr-gN-KaJ"/>
