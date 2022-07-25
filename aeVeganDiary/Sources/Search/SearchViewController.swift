@@ -16,10 +16,9 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     //MARK: 서버 통신 변수 선언
     var searchResponse: SearchResponse?
     var foods = [Food]()
-    //var foodNames = [String]()
+    var foodDetail = [FoodDetail]()
     var id: CLong?
     var foodIdx: Int?
-    var searchResponse2: SearchResponse2?
     
     var shownFoods = [String]()
     let disposeBag = DisposeBag()
@@ -89,7 +88,7 @@ extension SearchViewController : UITableViewDataSource {
         print(currentIndex)
         let inputId = SearchInput(id:currentIndex)
         vc.search = 1
-        let currentResponse = SearchDataManager2().requestData(inputId, viewController: self)
+        vc.id = SearchInput(id:currentIndex)
         navigationController?.pushViewController(vc, animated: true)
         
     }

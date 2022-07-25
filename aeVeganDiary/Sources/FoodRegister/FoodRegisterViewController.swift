@@ -10,6 +10,9 @@ import UIKit
 class FoodRegisterViewController: BaseViewController {
     // datePicker
     @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet var foodCalory1: UILabel!
+    @IBOutlet var foodCalory2: UILabel!
+    @IBOutlet var foodName1: UILabel!
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     let dateFormatterA = DateFormatter()
     let dateFormatter24 = DateFormatter()
@@ -19,6 +22,13 @@ class FoodRegisterViewController: BaseViewController {
     var meal:Int? = nil
     var foodImage = UIImage()
     var amount = 1.0
+    var id = SearchInput(id:0)
+    var foodDetailResponse: FoodDetailResponse?
+    var foodDetail = [FoodDetail]()
+    
+    var name: String = ""
+    var calory: Double = 0.0
+    
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet var foodImageViewHeight: NSLayoutConstraint!
@@ -74,6 +84,7 @@ class FoodRegisterViewController: BaseViewController {
         setDismissButton()
         setDoneButton()
         
+        
         dismissKeyboardWhenTappedAround()
     }
     
@@ -89,6 +100,8 @@ class FoodRegisterViewController: BaseViewController {
         
         dateLabel.text = rdate
         mealLabel.text = "\(mealText[meal ?? 0]) 식사"
+        
+        let currentResponse = FoodDetailDataManager().requestData(id, viewController: self)
         
         let nowDate = Date()
         dateFormatterA.dateFormat = "a hh:mm"
@@ -139,5 +152,16 @@ extension FoodRegisterViewController {
     func failedToRequest(message: String) {
         dismissIndicator()
         presentAlert(message: message)
+    }
+    
+    func getData(result: FoodDetailResponse){
+        dismissIndicator()
+        self.foodDetailResponse = result
+        self.foodDetail = result.data
+        name = foodDetail[0].name
+        calory = foodDetail[0].calory
+        foodName1.text = foodDetail[0].name
+        foodCalory1.text = String(foodDetail[0].calory)
+        foodCalory2.text = String(foodDetail[0].calory)
     }
 }

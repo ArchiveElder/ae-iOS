@@ -14,9 +14,12 @@
             <connections>
                 <outlet property="dateLabel" destination="b5l-pW-BfY" id="5U2-4q-Omw"/>
                 <outlet property="foodCalory" destination="kPb-e5-hZZ" id="Ik5-Yg-w68"/>
+                <outlet property="foodCalory1" destination="kPb-e5-hZZ" id="I7t-aZ-RWH"/>
+                <outlet property="foodCalory2" destination="RsZ-iu-1FG" id="RBv-Yz-JUR"/>
                 <outlet property="foodImageView" destination="3C3-XQ-p6J" id="dbI-mC-Ptz"/>
                 <outlet property="foodImageViewHeight" destination="GaR-9y-xQj" id="qQE-hG-4bs"/>
                 <outlet property="foodName" destination="mDQ-zj-68G" id="fhp-BZ-ItT"/>
+                <outlet property="foodName1" destination="mDQ-zj-68G" id="P1B-Nm-hsc"/>
                 <outlet property="mealLabel" destination="99Q-qO-Uty" id="40S-aa-JUH"/>
                 <outlet property="timeTextField" destination="fAk-1x-CIM" id="Jyr-gN-KaJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7JX-OW-9AC"/>
