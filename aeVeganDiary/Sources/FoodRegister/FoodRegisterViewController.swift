@@ -32,8 +32,6 @@ class FoodRegisterViewController: BaseViewController {
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet var foodImageViewHeight: NSLayoutConstraint!
-    @IBOutlet var foodName: UILabel!
-    @IBOutlet var foodCalory: UILabel!
     
     var search = 0
     @IBOutlet weak var dateLabel: UILabel!
@@ -158,10 +156,8 @@ extension FoodRegisterViewController {
         dismissIndicator()
         self.foodDetailResponse = result
         self.foodDetail = result.data
-        name = foodDetail[0].name
-        calory = foodDetail[0].calory
         foodName1.text = foodDetail[0].name
         foodCalory1.text = String(foodDetail[0].calory)
-        foodCalory2.text = String(foodDetail[0].calory)
+        //foodCalory2.text = String(foodDetail[0].calory)
     }
 }
