@@ -11,9 +11,22 @@ import EventKit
 import CoreLocation
 import MapKit
 
+struct Event {
+    var title: String
+    var location: String
+    var coordinate: [Coordinate]
+}
+
+struct Coordinate {
+    var lat: String
+    var long: String
+}
+
 class HomeViewController: BaseViewController {
     
-    var events: [EKEvent]? = nil
+    var eventList = [Event]()
+    var titleList = [String]()
+    
     let store = EKEventStore()
     var locationManager = CLLocationManager()
     
@@ -21,6 +34,8 @@ class HomeViewController: BaseViewController {
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     
     @IBOutlet weak var weekCalendarView: FSCalendar!
+    
+    @IBOutlet weak var eventTableView: UITableView!
     
     @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var recommKcal: UILabel!
@@ -76,7 +91,12 @@ class HomeViewController: BaseViewController {
         mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MealCollectionViewCell")
         mealCollectionView.backgroundColor = .clear
         
+        //TableView
+        eventTableView.delegate = self
+        eventTableView.dataSource = self
+        eventTableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableViewCell")
         
+        // date
         dateFormatter.dateFormat = "yyyy.MM.dd."
         self.datePickTextField.text = dateFormatter.string(from: Date())
         self.weekCalendarView.select(Date())
@@ -235,6 +255,25 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
+// MARK: TableView
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = MapViewController()
+        vc.hidesBottomBarWhenPushed
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
 // MARK: EventKit
 extension HomeViewController: CLLocationManagerDelegate {
     func fetchEvent() {
@@ -248,25 +287,54 @@ extension HomeViewController: CLLocationManagerDelegate {
         let dayAfter = calendar.date(from: dateComponents)
         
         let predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
-        events = store.events(matching: predicate)
+        let events: [EKEvent] = store.events(matching: predicate)
         
-        for i in events! {
+        for i in events where i.location != nil {
+            /*let lo = i.location
+            print(lo?.components(separatedBy: "대한민국 "))
+            
             let geoCoder = CLGeocoder()
             geoCoder.geocodeAddressString(i.location!) { (placemarks, error) in
+                var addressString = ""
+                if let placemarks = placemarks {
+                    if let adminitrativeArea = placemarks.first?.administrativeArea {
+                        addressString.append("\(adminitrativeArea)")
+                    }
+                    
+                    if let locality = placemarks.first?.locality {
+                        addressString.append(" \(locality)")
+                    }
+                    
+                    if let name = placemarks.first?.name {
+                        addressString.append(" \(name)")
+                    }
+                    print(addressString)
+                    print(placemarks.first?.location?.coordinate)
+                } else {
+                    print("no location")
+                }
                 guard
                     let placemarks = placemarks,
+                    let adminitrativeArea = placemarks.first?.administrativeArea,
+                    let locality = placemarks.first?.locality,
+                    let thoroughfare = placemarks.first?.thoroughfare,
+                    let name = placemarks.first?.name,
                     let lat = placemarks.first?.location?.coordinate.latitude,
                     let long = placemarks.first?.location?.coordinate.longitude
                 else {
                     // handle no location found
+                    print("no location found")
                     return
                 }
-                
+                print("\(adminitrativeArea) \(locality) \(name)")
                 print("lat: \(lat)")
                 print("long: \(long)")
-            }
+                
+            }*/
+            titleList.append(i.title)
         }
         
+        eventTableView.reloadData()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
