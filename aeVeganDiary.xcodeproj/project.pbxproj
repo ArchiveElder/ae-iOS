@@ -46,6 +46,10 @@
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
+		CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */; };
+		CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */; };
+		CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455F288E790D004B8B91 /* MapViewController.swift */; };
+		CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4560288E790D004B8B91 /* MapViewController.xib */; };
 		CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */; };
 		CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */; };
 		CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */; };
@@ -132,6 +136,10 @@
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
+		CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		CD6A455F288E790D004B8B91 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CD6A4560288E790D004B8B91 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -359,8 +367,19 @@
 				CD636D21284B346700ED137E /* MealCollectionViewCell.xib */,
 				CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */,
 				CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */,
+				CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */,
+				CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
+				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
+			);
+			path = Restaurant;
 			sourceTree = "<group>";
 		};
 		CD7F38232844AE3600D15356 /* FoodRegister */ = {
@@ -463,6 +482,7 @@
 				CD7F38282844D62600D15356 /* SelectType */,
 				CD7F38232844AE3600D15356 /* FoodRegister */,
 				CDDFF9852865EC1B00303501 /* NutrientDetail */,
+				CD6A455E288E78D9004B8B91 /* Restaurant */,
 				8FA5F31B284A29B300ED3B66 /* Search */,
 				CDE47F6828427442005D8BB3 /* Analyze */,
 				8FD58B75284DFBA000B7BDAD /* FoodDetail */,
@@ -661,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
@@ -674,6 +695,7 @@
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
+				CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
 				8F1A5F83287C0E0A00B64409 /* CookRecommViewController.xib in Resources */,
@@ -736,6 +758,7 @@
 			files = (
 				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
+				CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */,
 				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
 				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
@@ -782,6 +805,7 @@
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */,
 				8F1A5F782870493600B64409 /* MyInfoInput.swift in Sources */,
+				CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */,
 				CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
