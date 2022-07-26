@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D756EB25E74CD8EDFE3A915 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2617724301A8FD6552BEAD /* Pods_aeVeganDiary.framework */; };
 		8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */; };
 		8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */; };
 		8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */; };
@@ -33,7 +34,6 @@
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
-		C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
 		CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */; };
 		CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */; };
@@ -50,6 +50,8 @@
 		CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */; };
 		CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455F288E790D004B8B91 /* MapViewController.swift */; };
 		CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4560288E790D004B8B91 /* MapViewController.xib */; };
+		CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */; };
+		CD6A4566288EA6C8004B8B91 /* BottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */; };
 		CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */; };
 		CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */; };
 		CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */; };
@@ -95,7 +97,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
+		5B2617724301A8FD6552BEAD /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealDetailViewController.xib; sourceTree = "<group>"; };
 		8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInitViewController.swift; sourceTree = "<group>"; };
@@ -122,8 +124,8 @@
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
-		919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aeVeganDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		C631CBED21040A7912D91EEA /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
 		CD00F67D286D77D700F8A8C0 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResponse.swift; sourceTree = "<group>"; };
 		CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeDataManager.swift; sourceTree = "<group>"; };
@@ -140,6 +142,8 @@
 		CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		CD6A455F288E790D004B8B91 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CD6A4560288E790D004B8B91 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
+		CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewController.xib; sourceTree = "<group>"; };
 		CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,13 +195,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8E983E80046E5A1A16D85E4 /* Pods_aeVeganDiary.framework in Frameworks */,
+				0D756EB25E74CD8EDFE3A915 /* Pods_aeVeganDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55906DB013A0609A324C636B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B2617724301A8FD6552BEAD /* Pods_aeVeganDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8F13E94F2851FA3000F090C4 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,14 +310,6 @@
 			path = FoodDetail;
 			sourceTree = "<group>";
 		};
-		A20A341C97853D4154E2F773 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				919CE88282B7B6265A185482 /* Pods_aeVeganDiary.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CD00F67F286DDB3200F8A8C0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +382,8 @@
 			children = (
 				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
 				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
+				CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */,
+				CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -436,7 +442,7 @@
 				CDE47F3428424B44005D8BB3 /* aeVeganDiary */,
 				CDE47F3328424B44005D8BB3 /* Products */,
 				F1680EF3741D64B34F0B2D5F /* Pods */,
-				A20A341C97853D4154E2F773 /* Frameworks */,
+				55906DB013A0609A324C636B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -615,8 +621,8 @@
 		F1680EF3741D64B34F0B2D5F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */,
-				79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */,
+				AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */,
+				C631CBED21040A7912D91EEA /* Pods-aeVeganDiary.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -628,11 +634,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDE47F4928424B45005D8BB3 /* Build configuration list for PBXNativeTarget "aeVeganDiary" */;
 			buildPhases = (
-				F2A092C192659C03D17E6907 /* [CP] Check Pods Manifest.lock */,
+				F129A068DC6A22EB2FEE0B69 /* [CP] Check Pods Manifest.lock */,
 				CDE47F2E28424B44005D8BB3 /* Sources */,
 				CDE47F2F28424B44005D8BB3 /* Frameworks */,
 				CDE47F3028424B44005D8BB3 /* Resources */,
-				C7687ADB8B4DF5751C7B5A40 /* [CP] Embed Pods Frameworks */,
+				BD93CADB39706A7CF55BF007 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -686,6 +692,7 @@
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
+				CD6A4566288EA6C8004B8B91 /* BottomViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDDFF9892865EC5800303501 /* NutrientDetailViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
@@ -710,7 +717,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C7687ADB8B4DF5751C7B5A40 /* [CP] Embed Pods Frameworks */ = {
+		BD93CADB39706A7CF55BF007 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -727,7 +734,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2A092C192659C03D17E6907 /* [CP] Check Pods Manifest.lock */ = {
+		F129A068DC6A22EB2FEE0B69 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -775,6 +782,7 @@
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
+				CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
@@ -950,7 +958,7 @@
 		};
 		CDE47F4A28424B45005D8BB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C15876E888070BAA4D4B1E41 /* Pods-aeVeganDiary.debug.xcconfig */;
+			baseConfigurationReference = AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -982,7 +990,7 @@
 		};
 		CDE47F4B28424B45005D8BB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79CAABD8C0F86D00D40C9EF5 /* Pods-aeVeganDiary.release.xcconfig */;
+			baseConfigurationReference = C631CBED21040A7912D91EEA /* Pods-aeVeganDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

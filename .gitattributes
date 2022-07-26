@@ -1,0 +1,8 @@
+.Pods/NMapsMap/ filter=lfs diff=lfs merge=lfs -text
+Pods/NMapsMap/ filter=lfs diff=lfs merge=lfs -text
+Pods/NMapsMap/framework/NMapsMap.xcframework/ filter=lfs diff=lfs merge=lfs -text
+NMapsMap filter=lfs diff=lfs merge=lfs -text
+Pods/NMapsMap/framework/NMapsMap.xcframework/ios-arm64_armv7/NMapsMap.framework/NMapsMap filter=lfs diff=lfs merge=lfs -text
+Pods filter=lfs diff=lfs merge=lfs -text
+*.exec filter=lfs diff=lfs merge=lfs -text
+Pods/NMapsMap/framework/NMapsMap.xcframework/ios-arm64_i386_x86_64-simulator/NMapsMap.framework/NMapsMap filter=lfs diff=lfs merge=lfs -text
