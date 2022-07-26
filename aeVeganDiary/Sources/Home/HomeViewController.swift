@@ -268,7 +268,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MapViewController()
-        vc.hidesBottomBarWhenPushed
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -288,7 +288,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         
         let predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
         let events: [EKEvent] = store.events(matching: predicate)
-        
+        print(events)
+        titleList = [String]()
         for i in events where i.location != nil {
             /*let lo = i.location
             print(lo?.components(separatedBy: "대한민국 "))

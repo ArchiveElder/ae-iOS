@@ -16,6 +16,7 @@ PODS:
     - KakaoSDKCommon/Common (= 2.10.0)
   - KakaoSDKUser (2.10.0):
     - KakaoSDKAuth (= 2.10.0)
+  - NMapsMap (3.15.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - NMapsMap
   - RxCocoa
   - RxSwift
   - SnapKit (~> 5.0.0)
@@ -44,6 +46,7 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - NMapsMap
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -57,12 +60,13 @@ SPEC CHECKSUMS:
   KakaoSDKAuth: 94cdbd864a6e1b5691c11aba09d769ea91be107a
   KakaoSDKCommon: 9edbf77ef59c8594412908e023e64ef07f75db08
   KakaoSDKUser: 7969a38f9ccfd788140fa799b6bbaa223f62683e
+  NMapsMap: f151761c088d6516064c59da03ab6503769486e6
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 733f6a9eae2b3cc40c599bba4118d1102ec53501
+PODFILE CHECKSUM: e3ca60dbbde8ecd95ab3b58f850375ff4cd43d73
 
 COCOAPODS: 1.11.3

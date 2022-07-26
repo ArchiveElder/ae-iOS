@@ -6,24 +6,23 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showBottomSheet(_:)))
+        view.addGestureRecognizer(tap)
+        view.isUserInteractionEnabled = true
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc private func showBottomSheet(_ tapRecognizer: UITapGestureRecognizer) {
+        let vc = BottomViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false)
     }
-    */
-
 }
+
+
