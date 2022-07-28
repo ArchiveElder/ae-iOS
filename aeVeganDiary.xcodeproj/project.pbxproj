@@ -30,6 +30,8 @@
 		8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */; };
 		8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F8E288E63C900B64409 /* FoodDetailResponse.swift */; };
 		8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F90288E63D600B64409 /* FoodDetailDataManager.swift */; };
+		8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F942892520F00B64409 /* IngreResponse.swift */; };
+		8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5F962892522E00B64409 /* IngreDataManager.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
@@ -120,6 +122,8 @@
 		8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookRecommTableViewCell.xib; sourceTree = "<group>"; };
 		8F1A5F8E288E63C900B64409 /* FoodDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailResponse.swift; sourceTree = "<group>"; };
 		8F1A5F90288E63D600B64409 /* FoodDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailDataManager.swift; sourceTree = "<group>"; };
+		8F1A5F942892520F00B64409 /* IngreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngreResponse.swift; sourceTree = "<group>"; };
+		8F1A5F962892522E00B64409 /* IngreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngreDataManager.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 		8F1A5F7F287C0DC800B64409 /* CookRecomm */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F93289251E700B64409 /* Entity */,
+				8F1A5F92289251DC00B64409 /* DataManager */,
 				8F1A5F85287C2BBE00B64409 /* Cell */,
 				8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */,
 				8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */,
@@ -275,6 +281,22 @@
 				8F1A5F87287C2BDE00B64409 /* CookRecommTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8F1A5F92289251DC00B64409 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F942892520F00B64409 /* IngreResponse.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		8F1A5F93289251E700B64409 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A5F962892522E00B64409 /* IngreDataManager.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		8FA5F31B284A29B300ED3B66 /* Search */ = {
@@ -784,11 +806,13 @@
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
+				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
+				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
 				8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
