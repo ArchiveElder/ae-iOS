@@ -4,57 +4,43 @@
 //
 //  Created by 소정의 Mac on 2022/07/11.
 //
-import SwiftUI
 
-struct SearchView: View {
-    //@StateObject var oo = CookRecommObservableObject()
-    @State private var searchTerm = ""
+import UIKit
+import RxCocoa
+import RxSwift
+
+class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearchBarDelegate {
     
-    var body: some View {
-        NavigationView{
-            VStack {
-                Text("재료를 찾아보세요")
-                    .font(.title.weight(.bold))
-                Text("만들 수 있는 채식음식을 추천해드립니다.")
-                    .multilineTextAlignment(.center)
-            }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundColor(.gray)
-            .navigationTitle("나의 냉장고")
-        }
-        .searchable(text: $searchTerm)
-    }
-}
-
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
-
-/*
-class CookRecommViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
+    var searchBarFocused = false
+    var selectedIngre = [String?]()
+    //MARK: 서버 통신 변수 선언
+    var ingreResponse: IngreResponse?
+    var ingre = [Ingre]()
+    //var id : CLong?
+    //var foodIdx: Int?
     
     var shownFoods = [String]()
-    let allFoods = ["비빔밥","비비빅","비비빅1","비비빅2","비비빅3","비비빅4","비비빅5","볶음밥"]
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    var allFoodsDic : Dictionary = [Int:String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationTitle(title: "검색하기")
-        
+        tableView.isHidden = true
+        //tableView.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         tableView.register(UINib(nibName: "CookRecommTableViewCell", bundle: nil), forCellReuseIdentifier: "CookRecommTableViewCell")
-        setBackButton()
+        setDismissButton()
         setup()
-    }
 
+        
+    }
+    
     func setup() {
         tableView.dataSource = self
         searchBar
@@ -64,26 +50,64 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate {
             .distinctUntilChanged()
             .filter{ !$0.isEmpty }
             .subscribe(onNext: { [unowned self] query in
-                self.shownFoods = self.allFoods.filter { $0.hasPrefix(query) }
+                self.shownFoods = self.ingre.filter {
+                    $0.name.hasPrefix(query) }.map {$0.name}
                 self.tableView.reloadData()
-    })
-            //.addDisposableTo(disposeBag)
+            })
+        //.addDisposableTo(disposeBag)
     }
-}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+        IngreDataManager().getIngreData(viewController: self)
+        }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+        }
+    }
+    
+    
+    }
 
 
-extension CookRecommViewController : UITableViewDataSource {
+
+extension CookRecommViewController : UITableViewDataSource{
+    func getData(result: IngreResponse){
+        dismissIndicator()
+        self.ingreResponse = result
+        self.ingre = result.data
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shownFoods.count
     }
     
-    
+    //셀 하나하나에 검색 목록 띄워줌
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CookRecommTableViewCell", for: indexPath) as! CookRecommTableViewCell
-        cell.cookRecommtvclb?.text = shownFoods[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CookRecommTableViewCell", for: indexPath)
+        cell.textLabel?.text = shownFoods[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //음식 선택 시
+        let currentCell : String? = tableView.cellForRow(at: indexPath)?.textLabel!.text
+        selectedIngre.append(currentCell)
+        tableView.isHidden = true
+        print(selectedIngre)
+        //var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
+        //print(currentIndex)
+        //let inputId = SearchInput(id:currentIndex)
+        //vc.search = 1
+        //vc.id = SearchInput(id:currentIndex)
+        //navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
 }
-
-*/
