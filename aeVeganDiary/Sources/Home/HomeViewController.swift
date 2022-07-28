@@ -14,18 +14,17 @@ import MapKit
 struct Event {
     var title: String
     var location: String
-    var coordinate: [Coordinate]
+    //var coordinate: [Coordinate]
 }
 
-struct Coordinate {
+/*struct Coordinate {
     var lat: String
     var long: String
-}
+}*/
 
 class HomeViewController: BaseViewController {
     
     var eventList = [Event]()
-    var titleList = [String]()
     
     let store = EKEventStore()
     var locationManager = CLLocationManager()
@@ -258,17 +257,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: TableView
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleList.count
+        return eventList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+        cell.titleLabel.text = eventList[indexPath.row].title
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MapViewController()
         vc.hidesBottomBarWhenPushed = true
+        vc.location = eventList[indexPath.row].location
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -288,57 +289,19 @@ extension HomeViewController: CLLocationManagerDelegate {
         
         let predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
         let events: [EKEvent] = store.events(matching: predicate)
-        print(events)
-        titleList = [String]()
+        
+        eventList = [Event]()
         for i in events where i.location != nil {
-            /*let lo = i.location
-            print(lo?.components(separatedBy: "대한민국 "))
+            let lo = i.location
             
-            let geoCoder = CLGeocoder()
-            geoCoder.geocodeAddressString(i.location!) { (placemarks, error) in
-                var addressString = ""
-                if let placemarks = placemarks {
-                    if let adminitrativeArea = placemarks.first?.administrativeArea {
-                        addressString.append("\(adminitrativeArea)")
-                    }
-                    
-                    if let locality = placemarks.first?.locality {
-                        addressString.append(" \(locality)")
-                    }
-                    
-                    if let name = placemarks.first?.name {
-                        addressString.append(" \(name)")
-                    }
-                    print(addressString)
-                    print(placemarks.first?.location?.coordinate)
-                } else {
-                    print("no location")
-                }
-                guard
-                    let placemarks = placemarks,
-                    let adminitrativeArea = placemarks.first?.administrativeArea,
-                    let locality = placemarks.first?.locality,
-                    let thoroughfare = placemarks.first?.thoroughfare,
-                    let name = placemarks.first?.name,
-                    let lat = placemarks.first?.location?.coordinate.latitude,
-                    let long = placemarks.first?.location?.coordinate.longitude
-                else {
-                    // handle no location found
-                    print("no location found")
-                    return
-                }
-                print("\(adminitrativeArea) \(locality) \(name)")
-                print("lat: \(lat)")
-                print("long: \(long)")
-                
-            }*/
-            titleList.append(i.title)
+            let ev = Event(title: i.title, location: lo?.components(separatedBy: "대한민국 ").last ?? "")
+            self.eventList.append(ev)
         }
         
         eventTableView.reloadData()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    /*func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             break
@@ -348,7 +311,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         default:
             print("Location Servies: Denied / Restricted")
         }
-    }
+    }*/
     
 }
 

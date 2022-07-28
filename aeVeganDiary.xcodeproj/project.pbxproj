@@ -66,6 +66,7 @@
 		CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61202284A50120041F5C7 /* RegisterInput.swift */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
 		CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61207284A50480041F5C7 /* RegisterDataManager.swift */; };
+		CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6B0FF28927C1700E6473D /* Geocoding.swift */; };
 		CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDFF9862865EC5800303501 /* NutrientDetailViewController.swift */; };
 		CDDFF9892865EC5800303501 /* NutrientDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDFF9872865EC5800303501 /* NutrientDetailViewController.xib */; };
 		CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */; };
@@ -160,6 +161,7 @@
 		CDC61202284A50120041F5C7 /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		CDC61207284A50480041F5C7 /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
+		CDD6B0FF28927C1700E6473D /* Geocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoding.swift; sourceTree = "<group>"; };
 		CDDFF9862865EC5800303501 /* NutrientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientDetailViewController.swift; sourceTree = "<group>"; };
 		CDDFF9872865EC5800303501 /* NutrientDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientDetailViewController.xib; sourceTree = "<group>"; };
 		CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypeViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				CDD6B0FE28927BF800E6473D /* DataManager */,
 				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
 				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
 				CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */,
@@ -445,6 +448,14 @@
 			children = (
 				CDC61207284A50480041F5C7 /* RegisterDataManager.swift */,
 				8F1A5F90288E63D600B64409 /* FoodDetailDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		CDD6B0FE28927BF800E6473D /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CDD6B0FF28927C1700E6473D /* Geocoding.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -804,6 +815,7 @@
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
+				CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */,
 				CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
@@ -993,7 +1005,6 @@
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1004,7 +1015,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ae.aeVeganDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = ae.chaebbi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1025,7 +1036,6 @@
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1036,7 +1046,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ae.aeVeganDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = ae.chaebbi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
