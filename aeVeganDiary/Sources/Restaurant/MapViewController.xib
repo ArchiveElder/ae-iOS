@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="gxe-2r-C9a" id="qeT-By-nH1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,13 +18,28 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-2r-C9a" customClass="NMFMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
+            <constraints>
+                <constraint firstItem="gxe-2r-C9a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="D5n-zW-ghO"/>
+                <constraint firstAttribute="bottom" secondItem="gxe-2r-C9a" secondAttribute="bottom" id="gRD-me-Dap"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gxe-2r-C9a" secondAttribute="trailing" id="m58-80-KCQ"/>
+                <constraint firstItem="gxe-2r-C9a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rSb-6t-wKa"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

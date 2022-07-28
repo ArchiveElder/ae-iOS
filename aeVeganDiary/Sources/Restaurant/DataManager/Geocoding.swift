@@ -57,7 +57,7 @@ class Geocoding {
             .responseDecodable(of: geoJSON.self) { response in
                 switch response.result {
                 case .success(let response):
-                    viewController.getCoor(latitude: response.addresses?.first?.x ?? "", longtitude: response.addresses?.first?.y ?? "")
+                    viewController.getCoor(latitude: response.addresses?.first?.y ?? "", longtitude: response.addresses?.first?.x ?? "")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
