@@ -46,6 +46,8 @@
 		CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F0679286F23020032D590 /* SignupResponse.swift */; };
 		CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F067B286F236F0032D590 /* SignupDataManager.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
+		CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */; };
+		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
 		CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */; };
@@ -141,6 +143,8 @@
 		CD0F0679286F23020032D590 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		CD0F067B286F236F0032D590 /* SignupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDataManager.swift; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
+		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
+		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -401,9 +405,18 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CD4FE96828939AD400D2F2E6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				CD4FE96828939AD400D2F2E6 /* Entity */,
 				CDD6B0FE28927BF800E6473D /* DataManager */,
 				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
 				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
@@ -456,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD6B0FF28927C1700E6473D /* Geocoding.swift */,
+				CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -829,6 +843,7 @@
 				8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
+				CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */,
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
@@ -836,6 +851,7 @@
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
+				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
