@@ -13,9 +13,11 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var ingreTableView: UITableView!
     
     var searchBarFocused = false
     var selectedIngre = [String?]()
+    let cellReuseIdentifier = "cell"
     //MARK: 서버 통신 변수 선언
     var ingreResponse: IngreResponse?
     var ingre = [Ingre]()
@@ -37,6 +39,10 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         tableView.register(UINib(nibName: "CookRecommTableViewCell", bundle: nil), forCellReuseIdentifier: "CookRecommTableViewCell")
         setDismissButton()
         setup()
+        
+        self.ingreTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        ingreTableView.delegate = self
+        ingreTableView.dataSource = self
 
         
     }
@@ -87,19 +93,34 @@ extension CookRecommViewController : UITableViewDataSource{
         return shownFoods.count
     }
     
+    func ingreTableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedIngre.count
+    }
+    
+    
     //셀 하나하나에 검색 목록 띄워줌
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CookRecommTableViewCell", for: indexPath)
         cell.textLabel?.text = shownFoods[indexPath.row]
         return cell
     }
+
+    func ingreTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+        // set the text from the data model
+        cell.textLabel?.text = self.selectedIngre[indexPath.row]
+                
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //음식 선택 시
-        let currentCell : String? = tableView.cellForRow(at: indexPath)?.textLabel!.text
+        var currentCell : String?  = tableView.cellForRow(at: indexPath)?.textLabel!.text
+        print(currentCell)
         selectedIngre.append(currentCell)
-        tableView.isHidden = true
-        print(selectedIngre)
+        ingreTableView.reloadData()
+        //tableView.isHidden = true
+        //print(selectedIngre)
         //var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
         //print(currentIndex)
         //let inputId = SearchInput(id:currentIndex)
