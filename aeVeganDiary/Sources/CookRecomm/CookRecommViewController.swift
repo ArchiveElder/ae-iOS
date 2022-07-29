@@ -13,14 +13,22 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var ingreTableView: UITableView!
+    @IBOutlet var recommButton: UIButton!
+    
+    @IBAction func recommResult(_ sender: Any) {
+        CookRecommDataManager().requestData(ingreInput, viewController: self)
+        
+    }
     
     var searchBarFocused = false
     var selectedIngre = [String?]()
-    let cellReuseIdentifier = "cell"
+    var ingreInput = IngreInput(ingredients: ["감자", "두부", "설탕"])
+    
     //MARK: 서버 통신 변수 선언
     var ingreResponse: IngreResponse?
     var ingre = [Ingre]()
+    var cookRecommResponse: CookRecommResponse?
+    var cookRecomm = [CookRecomm?]()
     //var id : CLong?
     //var foodIdx: Int?
     
@@ -32,19 +40,12 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isHidden = true
-        //tableView.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
         tableView.register(UINib(nibName: "CookRecommTableViewCell", bundle: nil), forCellReuseIdentifier: "CookRecommTableViewCell")
         setDismissButton()
         setup()
-        
-        self.ingreTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        ingreTableView.delegate = self
-        ingreTableView.dataSource = self
-
-        
     }
     
     func setup() {
@@ -63,11 +64,12 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         //.addDisposableTo(disposeBag)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
         IngreDataManager().getIngreData(viewController: self)
-        }
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
@@ -78,9 +80,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     }
     
     
-    }
-
-
+}
 
 extension CookRecommViewController : UITableViewDataSource{
     func getData(result: IngreResponse){
@@ -89,12 +89,15 @@ extension CookRecommViewController : UITableViewDataSource{
         self.ingre = result.data
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shownFoods.count
+    func getRecomm(result: CookRecommResponse){
+        dismissIndicator()
+        self.cookRecommResponse = result
+        self.cookRecomm = result.foodDto
+        print(cookRecomm)
     }
     
-    func ingreTableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedIngre.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shownFoods.count
     }
     
     
@@ -104,22 +107,14 @@ extension CookRecommViewController : UITableViewDataSource{
         cell.textLabel?.text = shownFoods[indexPath.row]
         return cell
     }
-
-    func ingreTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        // set the text from the data model
-        cell.textLabel?.text = self.selectedIngre[indexPath.row]
-                
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //음식 선택 시
-        var currentCell : String?  = tableView.cellForRow(at: indexPath)?.textLabel!.text
+        let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
         print(currentCell)
-        selectedIngre.append(currentCell)
-        ingreTableView.reloadData()
-        //tableView.isHidden = true
+        //selectedIngre.append(currentCell)
+        //ingreTableView.reloadData()
+        tableView.isHidden = true
         //print(selectedIngre)
         //var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
         //print(currentIndex)
