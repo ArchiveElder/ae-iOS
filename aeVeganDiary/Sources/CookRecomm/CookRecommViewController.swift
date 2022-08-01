@@ -18,18 +18,14 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     @IBOutlet var searchTableView: UITableView!
     @IBOutlet var recommButton: UIButton!
     
+    //음식 찾기 API 이벤트
     @IBAction func recommResult(_ sender: Any) {
+        var ingreInput = IngreInput(ingredients: ingreArr)
         CookRecommDataManager().requestData(ingreInput, viewController: self)
-        
     }
     
-    
-    
     var searchBarFocused = false
-    var selectedIngre = [String?]()
     var ingreArr = [String]()
-    var ingreArr2 = ["감자", "두부", "설탕"]
-    var ingreInput = IngreInput(ingredients: ["감자", "두부", "설탕"])
     
     //MARK: 서버 통신 변수 선언
     var ingreResponse: IngreResponse?
@@ -111,7 +107,7 @@ extension CookRecommViewController : UITableViewDataSource{
         if tableView == searchTableView {
             count = shownFoods.count
         } else if tableView == ingreTableView {
-            count = ingreArr2.count
+            count = ingreArr.count
         }
         return count
     }
@@ -126,21 +122,33 @@ extension CookRecommViewController : UITableViewDataSource{
             return cell
         } else {
             let cell = ingreTableView.dequeueReusableCell(withIdentifier: "ingreTableViewCell", for: indexPath)
-            cell.textLabel?.text = ingreArr2[indexPath.row]
+            cell.textLabel?.text = ingreArr[indexPath.row]
             return cell
         }
         
     }
     
+    func tableView (_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if tableView == searchTableView {
+            
+        } else {
+            ingreTableView.beginUpdates()
+            ingreArr.remove(at: indexPath.row)
+            ingreTableView.deleteRows(at: [indexPath], with: .fade)
+            ingreTableView.endUpdates()
+            print(ingreArr)
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView == searchTableView {
             //음식 선택 시
             let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
-            print(currentCell)
-            //selectedIngre.append(currentCell)
-            //ingreTableView.reloadData()
+            print(currentCell ?? "")
+            ingreArr.append(currentCell ?? "")
+            ingreTableView.reloadData()
             tableView.isHidden = true
+        
             //print(selectedIngre)
             //var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
             //print(currentIndex)
