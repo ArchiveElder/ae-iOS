@@ -10,7 +10,7 @@ import Alamofire
 class IngreDataManager{
     
     func getIngreData(viewController: CookRecommViewController){
-        AF.request("\(Constant.BASE_URL)/api/foodname", method: .get, encoding: JSONEncoding.default, headers: Constant.HEADERS)
+        AF.request("\(Constant.BASE_URL)/api/ingredient", method: .get, encoding: JSONEncoding.default, headers: Constant.HEADERS)
             .validate()
             .responseDecodable(of: IngreResponse.self){ response in
                 switch response.result{
