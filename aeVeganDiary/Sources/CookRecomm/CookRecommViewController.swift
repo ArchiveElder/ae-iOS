@@ -12,6 +12,8 @@ import RxSwift
 
 
 class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearchBarDelegate {
+    @IBOutlet var recommPageControl: UIPageControl!
+    @IBOutlet var recommScrollView: UIScrollView!
     @IBOutlet var ingreTableView: UITableView!
     
     @IBOutlet var searchBar: UISearchBar!
