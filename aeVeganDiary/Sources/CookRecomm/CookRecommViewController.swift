@@ -17,15 +17,21 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     @IBOutlet var recommButton: UIButton!
     
     //@IBOutlet var recommView: UIView!
+    @IBOutlet var recommTextLabel: UILabel!
     @IBOutlet var recommScrollView: UIScrollView!
     @IBOutlet var recommPageControl: UIPageControl!
     @IBOutlet weak var recommInnerView : RecommInnerView!
     var test: [String] = ["One", "Two", "Three"]
+    var test2: [String] = ["One", "Two", "Three", "four"]
     
     //음식 찾기 API 이벤트
     @IBAction func recommResult(_ sender: Any) {
-        var ingreInput = IngreInput(ingredients: ingreArr)
-        CookRecommDataManager().requestData(ingreInput, viewController: self)
+        //추천 음식 api 연결 된 상태
+        addContentScrollView()
+        setPageControl()
+        recommPageControl.isHidden = false
+        recommTextLabel.isHidden = false
+        
     }
     
     var searchBarFocused = false
@@ -45,19 +51,23 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addContentScrollView()
-        setPageControl()
+        recommPageControl.isHidden = true
+        recommTextLabel.isHidden = true
+        //addContentScrollView()
+        //setPageControl()
         
         searchBar.delegate = self
         recommScrollView.delegate = self
         
+        /*
         recommInnerView?.hasDelegate = self
         recommInnerView?.hasDataSource = self
         recommInnerView?.hasRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "hasTableViewCell")
         
         recommInnerView?.noDelegate = self
         recommInnerView?.noDataSource = self
-        recommInnerView?.noRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "hasTableViewCell")
+        recommInnerView?.noRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "noTableViewCell")
+        */
         
         searchTableView.isHidden = true
         searchTableView.dataSource = self
@@ -86,15 +96,46 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
                 customView.frame = self.view.bounds
             returnView = customView
             }
+        
         return returnView
     }
     
     //MARK: 가로 스크롤 뷰 구현 func1
     private func addContentScrollView() {
         for i in 0...2 {
+            //i번째 커스텀뷰 생성
             var customView = addCustomView()
-            customView.recommLabel?.text  = test[i]
+            //i번째 추천된 음식이름 받아오기
+            customView.recommLabel?.text  = String(cookRecomm[i]?.food ?? "")
             
+            /*
+            //i번째 '있는 재료'와 '필요한 재료' tableview delegate과 datasource 설정
+            customView.hasDelegate = self
+            customView.hasDataSource = self
+            customView.hasRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "hasTableViewCell")
+            
+            customView.noDelegate = self
+            customView.noDataSource = self
+            customView.noRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "noTableViewCell")
+            */
+            
+            customView.hasTableView.dataSource = self
+            customView.hasTableView.delegate = self
+            customView.hasTableView.register(UINib(nibName: "hasTableViewCell", bundle: nil), forCellReuseIdentifier: "hasTableViewCell")
+            
+            
+            func tableView(tableView: UITableView, cellForRowAt indexPath : IndexPath) -> UITableViewCell {
+                let cell = customView.hasTableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath)
+                cell.textLabel?.text = test[indexPath.row]
+                return cell
+            }
+            
+            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+                return test.count
+            }
+            
+            
+            //scrollView에 i번째 customView 부착
             let xPosition = recommScrollView.frame.width * CGFloat(i)
             customView.frame = CGRect(x: xPosition, y: 0,
                  width: recommScrollView.frame.width,
@@ -104,6 +145,8 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
             recommScrollView.addSubview(customView)
         }
     }
+    
+    
     
     private func setPageControl(){
         recommPageControl.numberOfPages = 3
@@ -148,6 +191,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
 }
 
+
 extension CookRecommViewController : UITableViewDataSource{
     func getData(result: IngreResponse){
         dismissIndicator()
@@ -159,7 +203,7 @@ extension CookRecommViewController : UITableViewDataSource{
         dismissIndicator()
         self.cookRecommResponse = result
         self.cookRecomm = result.foodDto
-        print("냥",cookRecomm[0])
+        //print("냥",cookRecomm[0])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -169,6 +213,7 @@ extension CookRecommViewController : UITableViewDataSource{
         } else if tableView == ingreTableView {
             count = ingreArr.count
         }
+        
         return count
     }
     
@@ -194,6 +239,8 @@ extension CookRecommViewController : UITableViewDataSource{
             ingreArr.remove(at: indexPath.row)
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
+            var ingreInput = IngreInput(ingredients: ingreArr)
+            CookRecommDataManager().requestData(ingreInput, viewController: self)
         }
     }
     
@@ -203,6 +250,8 @@ extension CookRecommViewController : UITableViewDataSource{
             //음식 선택 시
             let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
             ingreArr.append(currentCell ?? "")
+            var ingreInput = IngreInput(ingredients: ingreArr)
+            CookRecommDataManager().requestData(ingreInput, viewController: self)
             ingreTableView.reloadData()
             tableView.isHidden = true
 
@@ -217,10 +266,11 @@ extension CookRecommViewController : UITableViewDataSource{
 @IBDesignable
 class RecommInnerView : UIView {
     
+    var test: [String] = ["One", "Two", "Three"]
+    
     @IBOutlet weak var noTableView: UITableView!
     @IBOutlet weak var hasTableView: UITableView!
     @IBOutlet weak var recommLabel: UILabel!
-    
     
     override init(frame:CGRect){
         super.init(frame: frame)
@@ -232,6 +282,7 @@ class RecommInnerView : UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     @IBOutlet weak var hasDelegate : UITableViewDelegate? {
@@ -288,4 +339,52 @@ class RecommInnerView : UIView {
         }
     
 }
+
+extension RecommInnerView : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count : Int = 0
+        if tableView == hasTableView {
+            count = test.count
+            print("웅",test.count)
+        } else if tableView == noTableView {
+            count = test.count
+        }
+        return count
+    }
+    
+    //셀 하나하나에 검색 목록 띄워줌
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if tableView == hasTableView {
+            print("아아아ㅏㄱ")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath)
+            cell.textLabel?.text = test[indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noTableViewCell", for: indexPath)
+            cell.textLabel?.text = test[indexPath.row]
+            return cell
+        }
+    }
+    
+    func tableView (_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if tableView == hasTableView {
+            
+        } else {
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == hasTableView {
+            //음식 선택 시
+        } else if tableView == noTableView {
+            
+        }
+
+    }
+}
+
 

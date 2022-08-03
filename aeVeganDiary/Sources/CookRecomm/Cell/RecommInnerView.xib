@@ -14,14 +14,14 @@
             <rect key="frame" x="0.0" y="0.0" width="340" height="252"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="has" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u20-g3-wuD">
-                    <rect key="frame" x="15" y="53" width="23" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="있는 재료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u20-g3-wuD">
+                    <rect key="frame" x="17" y="53" width="53" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxJ-Pn-g1B">
-                    <rect key="frame" x="199" y="53" width="16.5" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필요한 재료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxJ-Pn-g1B">
+                    <rect key="frame" x="193" y="53" width="65" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -33,6 +33,7 @@
                         <constraint firstAttribute="width" constant="136" id="5iY-Dm-K3N"/>
                         <constraint firstAttribute="height" constant="150" id="epZ-rs-1Ar"/>
                     </constraints>
+                    <color key="sectionIndexBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="8"/>
@@ -46,6 +47,7 @@
                         <constraint firstAttribute="height" constant="150" id="N9f-Jl-SoH"/>
                         <constraint firstAttribute="width" constant="135" id="UgT-gY-1en"/>
                     </constraints>
+                    <color key="sectionIndexBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="8"/>
@@ -60,12 +62,12 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Nof-65-pqa"/>
-            <color key="backgroundColor" systemColor="systemGray3Color"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="u20-g3-wuD" firstAttribute="leading" secondItem="rkw-gI-y5A" secondAttribute="leading" constant="15" id="4Yr-1E-R0M"/>
+                <constraint firstItem="u20-g3-wuD" firstAttribute="leading" secondItem="rkw-gI-y5A" secondAttribute="leading" constant="17" id="4Yr-1E-R0M"/>
                 <constraint firstItem="6q1-UJ-a1a" firstAttribute="leading" secondItem="rkw-gI-y5A" secondAttribute="leading" constant="15" id="8EH-qO-nEt"/>
                 <constraint firstAttribute="trailing" secondItem="vyi-uc-jfd" secondAttribute="trailing" constant="15" id="Ce1-xM-Ues"/>
-                <constraint firstItem="CxJ-Pn-g1B" firstAttribute="leading" secondItem="u20-g3-wuD" secondAttribute="trailing" constant="161" id="Hom-F1-kbO"/>
+                <constraint firstItem="CxJ-Pn-g1B" firstAttribute="leading" secondItem="u20-g3-wuD" secondAttribute="trailing" constant="123" id="Hom-F1-kbO"/>
                 <constraint firstItem="6q1-UJ-a1a" firstAttribute="top" secondItem="vyi-uc-jfd" secondAttribute="top" id="PPx-Ro-jqh"/>
                 <constraint firstItem="bQa-xA-8II" firstAttribute="leading" secondItem="rkw-gI-y5A" secondAttribute="leading" constant="15" id="UOF-6C-j64"/>
                 <constraint firstItem="6q1-UJ-a1a" firstAttribute="top" secondItem="u20-g3-wuD" secondAttribute="bottom" constant="8" symbolic="YES" id="ffT-6B-kgk"/>
@@ -85,15 +87,15 @@
                 <outlet property="noTableView" destination="vyi-uc-jfd" id="VSb-qr-qNS"/>
                 <outlet property="recommLabel" destination="bQa-xA-8II" id="sKk-wQ-3yD"/>
             </connections>
-            <point key="canvasLocation" x="812" y="-286"/>
+            <point key="canvasLocation" x="811.59420289855075" y="-286.60714285714283"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

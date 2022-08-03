@@ -12,8 +12,9 @@
             <connections>
                 <outlet property="ingreTableView" destination="1RN-Lj-RTF" id="WnZ-xm-gW1"/>
                 <outlet property="recommButton" destination="erQ-kw-TF8" id="IPf-QM-7uC"/>
-                <outlet property="recommPageControl" destination="4cf-dw-vwW" id="nfk-yo-bNa"/>
+                <outlet property="recommPageControl" destination="4cf-dw-vwW" id="mxR-BE-fi0"/>
                 <outlet property="recommScrollView" destination="x4S-FT-fgp" id="6t8-6O-Zp7"/>
+                <outlet property="recommTextLabel" destination="gOS-sp-NE4" id="E3K-jg-Vi3"/>
                 <outlet property="searchBar" destination="piu-Nw-eaQ" id="eEt-sf-OXB"/>
                 <outlet property="searchTableView" destination="C5P-Lo-Opn" id="BBv-lA-yUv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

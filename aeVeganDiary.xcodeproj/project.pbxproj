@@ -44,6 +44,8 @@
 		8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5FAE28990A7300B64409 /* RecommInnerView.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
+		8FD47FA8289A8047002D2B82 /* RecommResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FA6289A8047002D2B82 /* RecommResultCollectionViewCell.swift */; };
+		8FD47FA9289A8047002D2B82 /* RecommResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FA7289A8047002D2B82 /* RecommResultCollectionViewCell.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
@@ -147,6 +149,8 @@
 		8F1A5FAE28990A7300B64409 /* RecommInnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommInnerView.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		8FD47FA6289A8047002D2B82 /* RecommResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FD47FA7289A8047002D2B82 /* RecommResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				8F1A5FA32898F68900B64409 /* hasTableViewCell.xib */,
 				8F1A5FA62898F69500B64409 /* noTableViewCell.swift */,
 				8F1A5FA72898F69500B64409 /* noTableViewCell.xib */,
+				8FD47FA6289A8047002D2B82 /* RecommResultCollectionViewCell.swift */,
+				8FD47FA7289A8047002D2B82 /* RecommResultCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -761,6 +767,7 @@
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
+				8FD47FA9289A8047002D2B82 /* RecommResultCollectionViewCell.xib in Resources */,
 				8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */,
 				8F1A5FA92898F69500B64409 /* noTableViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
@@ -894,6 +901,7 @@
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				8FD47FA8289A8047002D2B82 /* RecommResultCollectionViewCell.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
 				8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */,
