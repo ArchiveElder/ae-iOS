@@ -54,8 +54,6 @@
 		CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */; };
 		CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455F288E790D004B8B91 /* MapViewController.swift */; };
 		CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4560288E790D004B8B91 /* MapViewController.xib */; };
-		CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */; };
-		CD6A4566288EA6C8004B8B91 /* BottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */; };
 		CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */; };
 		CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */; };
 		CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */; };
@@ -151,8 +149,6 @@
 		CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		CD6A455F288E790D004B8B91 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CD6A4560288E790D004B8B91 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
-		CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomViewController.xib; sourceTree = "<group>"; };
 		CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -420,8 +416,6 @@
 				CDD6B0FE28927BF800E6473D /* DataManager */,
 				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
 				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
-				CD6A4563288EA6C8004B8B91 /* BottomViewController.swift */,
-				CD6A4564288EA6C8004B8B91 /* BottomViewController.xib */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -686,6 +680,7 @@
 				CDE47F2F28424B44005D8BB3 /* Frameworks */,
 				CDE47F3028424B44005D8BB3 /* Resources */,
 				BD93CADB39706A7CF55BF007 /* [CP] Embed Pods Frameworks */,
+				9ABE9C9751293DA3AB79F741 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -739,7 +734,6 @@
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
-				CD6A4566288EA6C8004B8B91 /* BottomViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDDFF9892865EC5800303501 /* NutrientDetailViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
@@ -764,6 +758,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9ABE9C9751293DA3AB79F741 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD93CADB39706A7CF55BF007 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,7 +841,6 @@
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */,
-				CD6A4565288EA6C8004B8B91 /* BottomViewController.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
