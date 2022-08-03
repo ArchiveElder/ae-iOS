@@ -12,12 +12,13 @@ struct MapResponse: Decodable {
 }
 
 struct MapData: Decodable {
+    var isBookmark: Int
     var category: String
     var name: String
     var roadAddr: String
     var lnmAddr: String
     var telNo: String?
     var menuInfo: String
-    var la: String
-    var lo: String
+    var la: Double
+    var lo: Double
 }
