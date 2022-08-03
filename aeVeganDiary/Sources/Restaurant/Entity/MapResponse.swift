@@ -13,6 +13,7 @@ struct MapResponse: Decodable {
 
 struct MapData: Decodable {
     var isBookmark: Int
+    var bistro_id: Int
     var category: String
     var name: String
     var roadAddr: String
