@@ -12,6 +12,9 @@
             <connections>
                 <outlet property="ingreTableView" destination="1RN-Lj-RTF" id="WnZ-xm-gW1"/>
                 <outlet property="recommButton" destination="erQ-kw-TF8" id="IPf-QM-7uC"/>
+                <outlet property="recommPageControl" destination="4cf-dw-vwW" id="mxR-BE-fi0"/>
+                <outlet property="recommScrollView" destination="x4S-FT-fgp" id="6t8-6O-Zp7"/>
+                <outlet property="recommTextLabel" destination="gOS-sp-NE4" id="E3K-jg-Vi3"/>
                 <outlet property="searchBar" destination="piu-Nw-eaQ" id="eEt-sf-OXB"/>
                 <outlet property="searchTableView" destination="C5P-Lo-Opn" id="BBv-lA-yUv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,45 +25,119 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piu-Nw-eaQ">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="piu-Nw-eaQ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aMf-YK-Qrl">
-                    <rect key="frame" x="20" y="552" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C5P-Lo-Opn">
+                    <rect key="frame" x="0.0" y="51" width="414" height="757"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C5P-Lo-Opn">
-                    <rect key="frame" x="0.0" y="56" width="414" height="741"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rj-L9-GvR">
-                    <rect key="frame" x="20" y="64" width="166" height="48"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rj-L9-GvR">
+                    <rect key="frame" x="22" y="76" width="73.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erQ-kw-TF8">
-                    <rect key="frame" x="129" y="333" width="156" height="42"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="만들 수 있는 음식 찾기"/>
-                    <connections>
-                        <action selector="recommResult:" destination="-1" eventType="touchUpInside" id="oct-ZV-QF9"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1RN-Lj-RTF">
-                    <rect key="frame" x="12" y="120" width="391" height="180"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천된 음식" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOS-sp-NE4">
+                    <rect key="frame" x="22" y="325.5" width="73.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caV-Gu-n9w">
+                    <rect key="frame" x="37" y="105.5" width="340" height="190"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erQ-kw-TF8">
+                            <rect key="frame" x="148.5" y="152" width="43" height="28"/>
+                            <color key="backgroundColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="0tL-vW-uBw"/>
+                                <constraint firstAttribute="width" constant="43" id="NFJ-c0-tU0"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="추천">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="recommResult:" destination="-1" eventType="touchUpInside" id="oct-ZV-QF9"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1RN-Lj-RTF">
+                            <rect key="frame" x="5" y="9" width="330" height="135"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="135" id="B4A-Xa-qvP"/>
+                                <constraint firstAttribute="width" constant="330" id="W2t-8T-GEg"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
+                    <constraints>
+                        <constraint firstItem="erQ-kw-TF8" firstAttribute="top" secondItem="1RN-Lj-RTF" secondAttribute="bottom" constant="8" symbolic="YES" id="8fH-5Y-xLD"/>
+                        <constraint firstItem="1RN-Lj-RTF" firstAttribute="centerX" secondItem="caV-Gu-n9w" secondAttribute="centerX" id="8yv-Pq-JUV"/>
+                        <constraint firstItem="erQ-kw-TF8" firstAttribute="centerX" secondItem="caV-Gu-n9w" secondAttribute="centerX" id="N0C-wg-WQg"/>
+                        <constraint firstAttribute="height" constant="190" id="bCS-ex-eHi"/>
+                        <constraint firstAttribute="width" constant="340" id="bn2-Uz-PCK"/>
+                        <constraint firstAttribute="bottom" secondItem="erQ-kw-TF8" secondAttribute="bottom" constant="10" id="gc0-po-sZh"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4S-FT-fgp">
+                    <rect key="frame" x="37" y="355" width="340" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="340" id="TbB-wj-9gt"/>
+                        <constraint firstAttribute="height" constant="290" id="caH-l9-EjS"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="pyM-Tk-PBh"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="xTg-2J-0vu"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-dw-vwW">
+                    <rect key="frame" x="149" y="725" width="116" height="26"/>
+                    <color key="pageIndicatorTintColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="x4S-FT-fgp" firstAttribute="centerX" secondItem="4cf-dw-vwW" secondAttribute="centerX" id="CEz-tg-WRH"/>
+                <constraint firstAttribute="bottom" secondItem="C5P-Lo-Opn" secondAttribute="bottom" id="DDO-yr-2H8"/>
+                <constraint firstItem="caV-Gu-n9w" firstAttribute="top" secondItem="5rj-L9-GvR" secondAttribute="bottom" constant="10" id="Eon-72-j0m"/>
+                <constraint firstItem="gOS-sp-NE4" firstAttribute="top" secondItem="caV-Gu-n9w" secondAttribute="bottom" constant="30" id="Gtx-q0-D1h"/>
+                <constraint firstItem="C5P-Lo-Opn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hfi-mu-WTb"/>
+                <constraint firstItem="5rj-L9-GvR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="KZn-1u-Pka"/>
+                <constraint firstItem="caV-Gu-n9w" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lkr-44-ZyV"/>
+                <constraint firstItem="piu-Nw-eaQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SaP-tT-z6X"/>
+                <constraint firstItem="C5P-Lo-Opn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Swt-LV-bQw"/>
+                <constraint firstItem="5rj-L9-GvR" firstAttribute="top" secondItem="piu-Nw-eaQ" secondAttribute="bottom" constant="25" id="en7-5l-Pjc"/>
+                <constraint firstItem="gOS-sp-NE4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="fcm-ak-2uz"/>
+                <constraint firstItem="4cf-dw-vwW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gIp-C6-Vkg"/>
+                <constraint firstItem="x4S-FT-fgp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gj4-Uz-RK3"/>
+                <constraint firstItem="piu-Nw-eaQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hV2-0V-Ira"/>
+                <constraint firstItem="piu-Nw-eaQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lBi-qe-XYC"/>
+                <constraint firstItem="x4S-FT-fgp" firstAttribute="top" secondItem="gOS-sp-NE4" secondAttribute="bottom" constant="10" id="m59-Tq-G35"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4cf-dw-vwW" secondAttribute="bottom" constant="23" id="o9O-Qf-Dy9"/>
+                <constraint firstItem="C5P-Lo-Opn" firstAttribute="top" secondItem="piu-Nw-eaQ" secondAttribute="bottom" id="zsN-9J-KGK"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
         </view>
