@@ -14,19 +14,13 @@ import MapKit
 struct Event {
     var title: String
     var location: String
-    //var coordinate: [Coordinate]
 }
-
-/*struct Coordinate {
-    var lat: String
-    var long: String
-}*/
 
 class HomeViewController: BaseViewController {
     
     var eventList = [Event]()
     
-    let store = EKEventStore()
+    var store = EKEventStore()
     var locationManager = CLLocationManager()
     
     @IBOutlet weak var datePickTextField: UITextField!
@@ -286,6 +280,10 @@ extension HomeViewController: CLLocationManagerDelegate {
         
         dateComponents.hour = 24 - (dateComponents.hour ?? 24) + 18
         let dayAfter = calendar.date(from: dateComponents)
+        store.requestAccess(to: .event) { (granted, error) in
+            self.store = EKEventStore()//<---------here's trick
+            //do stuff
+        }
         
         let predicate = store.predicateForEvents(withStart: dayAgo!, end: dayAfter!, calendars: nil)
         let events: [EKEvent] = store.events(matching: predicate)

@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import KakaoSDKCommon
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         KakaoSDK.initSDK(appKey: "a1e70a82887c39234c72e16de663d7c2")
+        GMSServices.provideAPIKey("AIzaSyDUyxllWYNUKw_fwbc5addNr8vziRnbeag")
         return true
     }
 
