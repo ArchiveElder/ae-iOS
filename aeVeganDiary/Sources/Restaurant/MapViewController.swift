@@ -66,8 +66,8 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         }
         
         if let firstIndex = markerList.firstIndex(of: marker) {
-            markerIndex = firstIndex
             let info = restaurantList[firstIndex]
+            markerIndex = info.bistro_id
             nameLabel.text = info.name
             categoryLabel.text = info.category
             roadAddrLabel.text = info.roadAddr
