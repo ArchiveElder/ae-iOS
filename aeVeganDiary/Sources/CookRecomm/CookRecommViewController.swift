@@ -31,7 +31,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         setPageControl()
         recommPageControl.isHidden = false
         recommTextLabel.isHidden = false
-        
     }
     
     var searchBarFocused = false
@@ -96,7 +95,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
                 customView.frame = self.view.bounds
             returnView = customView
             }
-        
         return returnView
     }
     
@@ -108,6 +106,30 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
             //i번째 추천된 음식이름 받아오기
             customView.recommLabel?.text  = String(cookRecomm[i]?.food ?? "")
             
+            
+            
+            var hasString : String = ""
+            for j in 0...cookRecomm[i]!.has.count-1 {
+                hasString = hasString+"  "
+                hasString = hasString+String(cookRecomm[i]?.has[j] ?? "" )
+                hasString = hasString+"\n"
+            }
+            
+            print(hasString)
+            
+            var noString : String = ""
+            for k in 0...cookRecomm[i]!.no.count-1 {
+                noString = noString+"  "
+                noString = noString+String(cookRecomm[i]?.no[k] ?? "" )
+                noString = noString+"\n"
+            }
+            
+            
+            customView.hasLabel?.text = hasString
+            customView.noLabel?.text = noString
+             
+            print(noString)
+             
             /*
             //i번째 '있는 재료'와 '필요한 재료' tableview delegate과 datasource 설정
             customView.hasDelegate = self
@@ -254,7 +276,7 @@ extension CookRecommViewController : UITableViewDataSource{
             CookRecommDataManager().requestData(ingreInput, viewController: self)
             ingreTableView.reloadData()
             tableView.isHidden = true
-
+            dismissKeyboard()
         } else if tableView == ingreTableView {
             
         }
@@ -268,6 +290,8 @@ class RecommInnerView : UIView {
     
     var test: [String] = ["One", "Two", "Three"]
     
+    @IBOutlet var noLabel: UILabel!
+    @IBOutlet var hasLabel: UILabel!
     @IBOutlet weak var noTableView: UITableView!
     @IBOutlet weak var hasTableView: UITableView!
     @IBOutlet weak var recommLabel: UILabel!
