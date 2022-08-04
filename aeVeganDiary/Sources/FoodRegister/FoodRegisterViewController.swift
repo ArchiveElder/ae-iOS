@@ -94,12 +94,11 @@ class FoodRegisterViewController: BaseViewController {
         } else {
             foodImageViewHeight.constant = 0
             foodImageView.isHidden = true
+            FoodDetailDataManager().requestData(id, viewController: self)
         }
         
         dateLabel.text = rdate
         mealLabel.text = "\(mealText[meal ?? 0]) 식사"
-        
-        let currentResponse = FoodDetailDataManager().requestData(id, viewController: self)
         
         let nowDate = Date()
         dateFormatterA.dateFormat = "a hh:mm"

@@ -73,6 +73,7 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
                         vc.foodImage = (image as? UIImage)!
                         vc.rdate = self.rdate
                         vc.meal = self.meal
+                        vc.search = 0
                         let nav = UINavigationController(rootViewController: vc)
                         nav.view.backgroundColor = .white
                         nav.modalPresentationStyle = .fullScreen
@@ -98,6 +99,7 @@ extension SelectTypeViewController: PHPickerViewControllerDelegate, UIImagePicke
                 vc.foodImage = image
                 vc.rdate = self.rdate
                 vc.meal = self.meal
+                vc.search = 0
                 let nav = UINavigationController(rootViewController: vc)
                 nav.view.backgroundColor = .white
                 nav.modalPresentationStyle = .fullScreen
