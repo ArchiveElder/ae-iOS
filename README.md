@@ -39,12 +39,4 @@
 가지고 있는 재료를 입력하면 최소한의 재료를 추가하여 만들수 있는 음식을 보여줍니다.
   
 ## UI
-<figure class="third">
-    <img src="">
-    <img src="![IMG_8591](https://user-images.githubusercontent.com/88825022/183364966-eaaa166c-b39f-4583-8d3c-d9e66ad38adf.PNG)">
-    <img src="![KakaoTalk_Photo_2022-08-04-16-08-44](https://user-images.githubusercontent.com/88825022/183364988-5b0596f7-15e2-47fa-82eb-ff8170948661.png)">
-<figure>
-  
- ![IMG_8592](https://user-images.githubusercontent.com/88825022/183364927-5dcb2252-1a66-4cb7-a7d2-c14acba5794a.PNG)
- 
- ![스크린샷 2022-08-08 오후 4.42.10.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cc4e7bab-c9e2-4596-b06f-3ae95f444444/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.42.10.png)
+<img width="716" alt="스크린샷 2022-08-08 오후 4 42 01" src="https://user-images.githubusercontent.com/88825022/183365895-485631c5-8a6b-4020-9893-00e0b6737484.png">
