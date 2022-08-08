@@ -41,6 +41,7 @@
 ## UI
 <figure class="third">
     ![](../header.png)
-    <img src="![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b69168c-ae65-4995-9c84-4511ac8d6893/Untitled.png)">
-    <img src="http://zzz.jpg">
+    <img src="![IMG_8592](https://user-images.githubusercontent.com/88825022/183364927-5dcb2252-1a66-4cb7-a7d2-c14acba5794a.PNG)">
+    <img src="![IMG_8591](https://user-images.githubusercontent.com/88825022/183364966-eaaa166c-b39f-4583-8d3c-d9e66ad38adf.PNG)">
+    <img src="![KakaoTalk_Photo_2022-08-04-16-08-44](https://user-images.githubusercontent.com/88825022/183364988-5b0596f7-15e2-47fa-82eb-ff8170948661.png)">
 <figure>
