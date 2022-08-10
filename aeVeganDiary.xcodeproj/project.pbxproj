@@ -61,6 +61,8 @@
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */; };
 		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
+		CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */; };
+		CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
 		CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */; };
@@ -169,6 +171,8 @@
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
+		CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictResponse.swift; sourceTree = "<group>"; };
+		CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictDataManager.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -484,6 +488,7 @@
 				CDC61202284A50120041F5C7 /* RegisterInput.swift */,
 				CDC61204284A50190041F5C7 /* RegisterResponse.swift */,
 				8F1A5F8E288E63C900B64409 /* FoodDetailResponse.swift */,
+				CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 			children = (
 				CDC61207284A50480041F5C7 /* RegisterDataManager.swift */,
 				8F1A5F90288E63D600B64409 /* FoodDetailDataManager.swift */,
+				CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -905,6 +911,7 @@
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
+				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
@@ -917,6 +924,7 @@
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
+				CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
 				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
 				CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */,
