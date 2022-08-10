@@ -27,10 +27,16 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     //음식 찾기 API 이벤트
     @IBAction func recommResult(_ sender: Any) {
         //추천 음식 api 연결 된 상태
+        
+        /* 테스트 때문에 주석
         addContentScrollView()
         setPageControl()
         recommPageControl.isHidden = false
         recommTextLabel.isHidden = false
+        */
+        let vc = LargeCategoryViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     var searchBarFocused = false
