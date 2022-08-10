@@ -10,9 +10,18 @@ import UIKit
 class FoodRegisterViewController: BaseViewController {
     // datePicker
     @IBOutlet weak var timeTextField: UITextField!
-    @IBOutlet var foodCalory1: UILabel!
-    @IBOutlet var foodCalory2: UILabel!
-    @IBOutlet var foodName1: UILabel!
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var caloryLabel: UILabel!
+    @IBOutlet weak var carbLabel: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var notFoodLabel: UILabel!
+    @IBAction func changeFoodButtonAction(_ sender: Any) {
+        navigationController?.pushViewController(SearchViewController(), animated: true)
+    }
+    @IBOutlet weak var changeView: UIView!
+    
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     let dateFormatterA = DateFormatter()
     let dateFormatter24 = DateFormatter()
@@ -21,7 +30,7 @@ class FoodRegisterViewController: BaseViewController {
     var rdate = ""
     var meal:Int? = nil
     var foodImage = UIImage()
-    var amount = 1.0
+    var amount = 200
     var id = SearchInput(id:0)
     var foodDetailResponse: FoodDetailResponse?
     var foodDetail = [FoodDetail]()
@@ -37,38 +46,6 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mealLabel: UILabel!
     
-    @IBAction func toDetailButton(_ sender: Any) {
-        navigationController?.pushViewController(NutrientDetailViewController(), animated: true)
-    }
-    
-    @IBAction func measureButton(_ sender: UIButton) {
-        let optionMenu = UIAlertController(title: nil, message: "단위를 선택해주세요.", preferredStyle: .actionSheet)
-
-        let gAction = UIAlertAction(title: "g", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("g")
-            sender.setTitle("g", for: .normal)
-            sender.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        })
-        
-        let perAction = UIAlertAction(title: "인분", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("per")
-            sender.setTitle("인분", for: .normal)
-            sender.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        })
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("Cancelled")
-        })
-        
-        optionMenu.addAction(gAction)
-        optionMenu.addAction(perAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.present(optionMenu, animated: true, completion: nil)
-    }
     
     let mealText = ["아침", "점심", "저녁"]
     
@@ -79,11 +56,30 @@ class FoodRegisterViewController: BaseViewController {
         
         //NavigationController
         setNavigationTitle(title: "식사 등록하기")
-        setDismissButton()
+        
+        if search == 0 {
+            setDismissButton()
+        } else {
+            setToRootButton()
+        }
+        
         setDoneButton()
         
-        
         dismissKeyboardWhenTappedAround()
+    }
+    
+    func setToRootButton() {
+        let backButton: UIButton = UIButton()
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(toRoot), for: .touchUpInside)
+        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addBackButton = UIBarButtonItem(customView: backButton)
+        
+        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
+    }
+    
+    @objc func toRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,15 +87,19 @@ class FoodRegisterViewController: BaseViewController {
         if search == 0 {
             foodImageViewHeight.constant = 320
             foodImageView.image = foodImage
+            changeView.isHidden = false
+            showIndicator()
+            FoodPredictDataManager().foodPredict(foodImage, viewController: self)
         } else {
             foodImageViewHeight.constant = 0
             foodImageView.isHidden = true
+            changeView.isHidden = true
+            showIndicator()
+            FoodDetailDataManager().requestData(id, viewController: self)
         }
         
         dateLabel.text = rdate
         mealLabel.text = "\(mealText[meal ?? 0]) 식사"
-        
-        let currentResponse = FoodDetailDataManager().requestData(id, viewController: self)
         
         let nowDate = Date()
         dateFormatterA.dateFormat = "a hh:mm"
@@ -135,7 +135,7 @@ class FoodRegisterViewController: BaseViewController {
         showIndicator()
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
-        let input = RegisterInput(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", rdate: self.rdate, rtime: time, amount: self.amount, meal: self.meal ?? 0)
+        let input = RegisterInput(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", rdate: self.rdate, rtime: time, amount: Double(self.amount), meal: self.meal ?? 0)
         RegisterDataManager().registerMeal(input, foodImage, viewController: self)
     }
 
@@ -156,8 +156,19 @@ extension FoodRegisterViewController {
         dismissIndicator()
         self.foodDetailResponse = result
         self.foodDetail = result.data
-        foodName1.text = foodDetail[0].name
-        foodCalory1.text = String(foodDetail[0].calory)
-        //foodCalory2.text = String(foodDetail[0].calory)
+        foodNameLabel.text = foodDetail[0].name
+        caloryLabel.text = String(foodDetail[0].calory)
+        carbLabel.text = String(foodDetail[0].carb)
+        proteinLabel.text = String(foodDetail[0].pro)
+        fatLabel.text = String(foodDetail[0].fat)
+    }
+    
+    func foodPredict(result: FoodPredictResponse) {
+        dismissIndicator()
+        print(result)
+        //self.foodCalory1.text = String(result.calory)
+        //self.foodCalory2.text = String(result.calory)
+        //self.foodName1.text = String(result.name)
+        
     }
 }
