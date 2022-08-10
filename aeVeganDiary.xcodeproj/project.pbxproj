@@ -50,6 +50,9 @@
 		8FD47FE228A3A16C002D2B82 /* MiddleCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FE028A3A16C002D2B82 /* MiddleCategoryTableViewCell.xib */; };
 		8FD47FE528A3A206002D2B82 /* LargeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FE328A3A206002D2B82 /* LargeCategoryViewController.swift */; };
 		8FD47FE628A3A206002D2B82 /* LargeCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FE428A3A206002D2B82 /* LargeCategoryViewController.xib */; };
+		8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */; };
+		8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FEF28A3E655002D2B82 /* RegionInput.swift */; };
+		8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
@@ -162,6 +165,9 @@
 		8FD47FE028A3A16C002D2B82 /* MiddleCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FE328A3A206002D2B82 /* LargeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryViewController.swift; sourceTree = "<group>"; };
 		8FD47FE428A3A206002D2B82 /* LargeCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryViewController.xib; sourceTree = "<group>"; };
+		8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCategoryDataManager.swift; sourceTree = "<group>"; };
+		8FD47FEF28A3E655002D2B82 /* RegionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionInput.swift; sourceTree = "<group>"; };
+		8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionResponse.swift; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,6 +394,8 @@
 		8FD47FD928A39ABE002D2B82 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				8FD47FEF28A3E655002D2B82 /* RegionInput.swift */,
+				8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -395,6 +403,7 @@
 		8FD47FDA28A39ACB002D2B82 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -926,12 +935,14 @@
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
+				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
+				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
 				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
@@ -945,6 +956,7 @@
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CD29AD94289ACF42001C8C51 /* BookmarkInput.swift in Sources */,
+				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
 				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
