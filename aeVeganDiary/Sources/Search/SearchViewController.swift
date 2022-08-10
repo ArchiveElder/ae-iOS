@@ -84,9 +84,8 @@ extension SearchViewController : UITableViewDataSource {
         let vc = FoodRegisterViewController()
         //음식 1개 선택 시
         let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
-        var currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
+        let currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
         print(currentIndex)
-        let inputId = SearchInput(id:currentIndex)
         vc.search = 1
         vc.id = SearchInput(id:currentIndex)
         navigationController?.pushViewController(vc, animated: true)
