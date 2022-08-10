@@ -44,6 +44,10 @@
 		8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A5FAE28990A7300B64409 /* RecommInnerView.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
+		8FD47FD228A3993F002D2B82 /* LargeCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD028A3993F002D2B82 /* LargeCategoryTableViewController.swift */; };
+		8FD47FD328A3993F002D2B82 /* LargeCategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD128A3993F002D2B82 /* LargeCategoryTableViewController.xib */; };
+		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
+		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
@@ -150,6 +154,10 @@
 		8F1A5FAE28990A7300B64409 /* RecommInnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommInnerView.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		8FD47FD028A3993F002D2B82 /* LargeCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewController.swift; sourceTree = "<group>"; };
+		8FD47FD128A3993F002D2B82 /* LargeCategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewController.xib; sourceTree = "<group>"; };
+		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -348,6 +356,41 @@
 				8F1A5F6328684EF500B64409 /* SearchNetworkResult.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
+			isa = PBXGroup;
+			children = (
+				8FD47FDA28A39ACB002D2B82 /* DataManager */,
+				8FD47FD928A39ABE002D2B82 /* Entity */,
+				8FD47FD428A39A45002D2B82 /* cell */,
+				8FD47FD028A3993F002D2B82 /* LargeCategoryTableViewController.swift */,
+				8FD47FD128A3993F002D2B82 /* LargeCategoryTableViewController.xib */,
+			);
+			path = RestaurantSearch;
+			sourceTree = "<group>";
+		};
+		8FD47FD428A39A45002D2B82 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */,
+				8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8FD47FD928A39ABE002D2B82 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8FD47FDA28A39ACB002D2B82 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		8FD58B6E284DBFBF00B7BDAD /* Cell */ = {
@@ -563,6 +606,7 @@
 		CDE47F4D28426B71005D8BB3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8FD47FCF28A398CB002D2B82 /* RestaurantSearch */,
 				CDE47F5D28426FFB005D8BB3 /* Splash */,
 				CDE47F6328427409005D8BB3 /* Home */,
 				CD7F38282844D62600D15356 /* SelectType */,
@@ -776,11 +820,13 @@
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDDFF9892865EC5800303501 /* NutrientDetailViewController.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
+				8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
 				8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */,
 				8F1A5FA92898F69500B64409 /* noTableViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
+				8FD47FD328A3993F002D2B82 /* LargeCategoryTableViewController.xib in Resources */,
 				8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */,
 				8F1A5FA52898F68900B64409 /* hasTableViewCell.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
@@ -885,8 +931,10 @@
 				8F1A5F6428684EF500B64409 /* SearchNetworkResult.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */,
+				8FD47FD228A3993F002D2B82 /* LargeCategoryTableViewController.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
+				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
