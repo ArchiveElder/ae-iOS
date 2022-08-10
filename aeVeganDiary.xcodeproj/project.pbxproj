@@ -57,6 +57,7 @@
 		CD29AD94289ACF42001C8C51 /* BookmarkInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD93289ACF42001C8C51 /* BookmarkInput.swift */; };
 		CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */; };
 		CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */; };
+		CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */; };
 		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
@@ -166,6 +167,7 @@
 		CD29AD93289ACF42001C8C51 /* BookmarkInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInput.swift; sourceTree = "<group>"; };
 		CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkResponse.swift; sourceTree = "<group>"; };
 		CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDataManager.swift; sourceTree = "<group>"; };
+		CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
@@ -421,6 +423,17 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CD2A29A228A3BB5A00A271A6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CD4FE96828939AD400D2F2E6 /* Entity */,
+				CDD6B0FE28927BF800E6473D /* DataManager */,
+				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
+				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		CD2EFDA02843BC4B005D06A9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,10 +464,8 @@
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				CD4FE96828939AD400D2F2E6 /* Entity */,
-				CDD6B0FE28927BF800E6473D /* DataManager */,
-				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
-				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
+				CD2A29A228A3BB5A00A271A6 /* Map */,
+				CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -876,6 +887,7 @@
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
+				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
