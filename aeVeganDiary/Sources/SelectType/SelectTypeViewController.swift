@@ -39,12 +39,15 @@ class SelectTypeViewController: UIViewController {
     
     // 검색하기 눌렀을 때
     @IBAction func searchButton(_ sender: Any) {
-        let vc1 = SearchViewController()
-        let nav1 = UINavigationController(rootViewController: vc1)
-        nav1.view?.backgroundColor = .white
-        nav1.modalPresentationStyle = .overFullScreen
-        
-        self.present(nav1, animated: true)
+        let rootView = self.presentingViewController
+        self.dismiss(animated: false, completion: {
+            let vc = SearchViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.view.backgroundColor = .white
+            nav.modalPresentationStyle = .fullScreen
+            
+            rootView?.present(nav, animated: true)
+        })
     }
     
     override func viewDidLoad() {

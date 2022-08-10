@@ -18,6 +18,7 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var notFoodLabel: UILabel!
     @IBAction func changeFoodButtonAction(_ sender: Any) {
+        navigationController?.pushViewController(SearchViewController(), animated: true)
     }
     @IBOutlet weak var changeView: UIView!
     
@@ -55,11 +56,30 @@ class FoodRegisterViewController: BaseViewController {
         
         //NavigationController
         setNavigationTitle(title: "식사 등록하기")
-        setDismissButton()
+        
+        if search == 0 {
+            setDismissButton()
+        } else {
+            setToRootButton()
+        }
+        
         setDoneButton()
         
-        
         dismissKeyboardWhenTappedAround()
+    }
+    
+    func setToRootButton() {
+        let backButton: UIButton = UIButton()
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(toRoot), for: .touchUpInside)
+        backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addBackButton = UIBarButtonItem(customView: backButton)
+        
+        self.navigationItem.setLeftBarButton(addBackButton, animated: false)
+    }
+    
+    @objc func toRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

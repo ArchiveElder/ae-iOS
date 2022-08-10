@@ -17,13 +17,12 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     var searchResponse: SearchResponse?
     var foods = [Food]()
     var foodDetail = [FoodDetail]()
-    var id: CLong?
-    var foodIdx: Int?
     
     var shownFoods = [String]()
     let disposeBag = DisposeBag()
     var allFoodsDic : Dictionary = [Int:String]()
     
+    var isRegister = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +31,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
+        
         setDismissButton()
         setup()
     }
@@ -82,14 +82,12 @@ extension SearchViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = FoodRegisterViewController()
-        //음식 1개 선택 시
         let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
         let currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
         print(currentIndex)
         vc.search = 1
         vc.id = SearchInput(id:currentIndex)
         navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 
