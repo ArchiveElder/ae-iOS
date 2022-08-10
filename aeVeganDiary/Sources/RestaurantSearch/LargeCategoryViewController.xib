@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LargeCategoryViewController" customModule="aeVeganDiary" customModuleProvider="target">
+            <connections>
+                <outlet property="chooseLable" destination="dS4-9h-ef8" id="JGV-es-mCR"/>
+                <outlet property="tableView" destination="eye-dW-ACs" id="mDs-UK-vNy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eye-dW-ACs">
+                    <rect key="frame" x="0.0" y="92" width="414" height="527"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-VG-QEY">
+                    <rect key="frame" x="65" y="647" width="284" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rii-ng-RIh"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="선택된 지역 검색"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역을 선택하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-9h-ef8">
+                    <rect key="frame" x="14" y="44" width="151" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dS4-9h-ef8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="0Am-Mg-oYb"/>
+                <constraint firstItem="eye-dW-ACs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2yu-jH-UMJ"/>
+                <constraint firstItem="eye-dW-ACs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IhC-e6-rGH"/>
+                <constraint firstItem="Nf6-VG-QEY" firstAttribute="top" secondItem="eye-dW-ACs" secondAttribute="bottom" constant="28" id="b5j-p7-IKT"/>
+                <constraint firstItem="eye-dW-ACs" firstAttribute="top" secondItem="dS4-9h-ef8" secondAttribute="bottom" constant="22" id="bBj-S6-y7D"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Nf6-VG-QEY" secondAttribute="bottom" constant="28" id="bLi-Gw-T35"/>
+                <constraint firstItem="Nf6-VG-QEY" firstAttribute="centerX" secondItem="eye-dW-ACs" secondAttribute="centerX" id="csp-CP-tWf"/>
+                <constraint firstItem="dS4-9h-ef8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="14" id="msi-7f-u34"/>
+                <constraint firstItem="Nf6-VG-QEY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="65" id="rGX-7m-2o5"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+            <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
