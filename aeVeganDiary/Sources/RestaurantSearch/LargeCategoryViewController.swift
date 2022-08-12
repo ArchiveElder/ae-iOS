@@ -28,6 +28,11 @@ class LargeCategoryViewController: UIViewController, UITableViewDelegate {
     var wide : String = ""
     var middle : String = ""
     
+    //RestauarntSearch 데이터 전달 파라미터
+    var restaurantCount : Int = 0
+    var data : [CategoryListDto] = []
+    
+    
     @IBAction func reselctButton(_ sender: Any) {
         tableState = 1
         tableView.reloadData()
@@ -90,6 +95,7 @@ extension LargeCategoryViewController : UITableViewDataSource {
             let inputRestaurantSearch = RestaurantSearchInput(wide: wide, middle: middle)
             RestaurantSearchDataManager().postRestaurantSearch(inputRestaurantSearch, viewController: self)
             print(middle)
+    
         }
         
         
@@ -108,6 +114,16 @@ extension LargeCategoryViewController : UITableViewDataSource {
     func getRestaurantSearch(result: RestaurantSearchResponse){
         dismissIndicator()
         self.restaurantSearchResponse = result
+        
+        restaurantCount = result.size
+        data = result.categoryList
+        
+        let viewController = RestaurantSearchViewController()
+        //viewController.
+        viewController.rowCount = restaurantCount
+        viewController.middle = self.middle
+        viewController.data = self.data
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
