@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="chooseLable" destination="dS4-9h-ef8" id="JGV-es-mCR"/>
                 <outlet property="regionBackButton" destination="KVZ-XZ-fdR" id="weB-dS-5VW"/>
+                <outlet property="reselctButton" destination="KVZ-XZ-fdR" id="rOz-1a-kps"/>
                 <outlet property="tableView" destination="eye-dW-ACs" id="mDs-UK-vNy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,6 +25,7 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eye-dW-ACs">
                     <rect key="frame" x="0.0" y="110" width="414" height="615"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="separatorColor" red="0.5289542116" green="0.60862999360000003" blue="0.50992963290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역을 선택하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-9h-ef8">
                     <rect key="frame" x="14" y="59" width="151" height="26"/>
@@ -43,7 +45,7 @@
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="reselctButton:" destination="-1" eventType="touchUpInside" id="a64-sM-SKC"/>
+                        <action selector="reselctButton:" destination="-1" eventType="touchUpInside" id="Mdd-LO-D0k"/>
                     </connections>
                 </button>
             </subviews>

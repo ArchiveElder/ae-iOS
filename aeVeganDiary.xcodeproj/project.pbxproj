@@ -52,6 +52,9 @@
 		8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */; };
 		8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FEF28A3E655002D2B82 /* RegionInput.swift */; };
 		8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */; };
+		8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */; };
+		8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FF528A62D64002D2B82 /* RestaurantSearchInput.swift */; };
+		8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FF728A62D7C002D2B82 /* RestaurantSearchResponse.swift */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
@@ -168,6 +171,9 @@
 		8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCategoryDataManager.swift; sourceTree = "<group>"; };
 		8FD47FEF28A3E655002D2B82 /* RegionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionInput.swift; sourceTree = "<group>"; };
 		8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionResponse.swift; sourceTree = "<group>"; };
+		8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchDataManager.swift; sourceTree = "<group>"; };
+		8FD47FF528A62D64002D2B82 /* RestaurantSearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchInput.swift; sourceTree = "<group>"; };
+		8FD47FF728A62D7C002D2B82 /* RestaurantSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchResponse.swift; sourceTree = "<group>"; };
 		8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -397,6 +403,8 @@
 			children = (
 				8FD47FEF28A3E655002D2B82 /* RegionInput.swift */,
 				8FD47FF128A3E7B4002D2B82 /* RegionResponse.swift */,
+				8FD47FF528A62D64002D2B82 /* RestaurantSearchInput.swift */,
+				8FD47FF728A62D7C002D2B82 /* RestaurantSearchResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -405,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
+				8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -942,6 +951,7 @@
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
+				8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
@@ -974,7 +984,9 @@
 				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
+				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
+				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
