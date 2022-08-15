@@ -127,11 +127,14 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         
             customView.recommLabel.setTitle(cookRecomm[i]!.food, for: .normal)
             var hasString : String = ""
-            for j in 0...cookRecomm[i]!.has.count-1 {
-                hasString = hasString+"  "
-                hasString = hasString+String(cookRecomm[i]?.has[j] ?? "" )
-                hasString = hasString+"\n"
+            if cookRecomm[i]!.has.count > 0 {
+                for j in 0...cookRecomm[i]!.has.count-1 {
+                    hasString = hasString+"  "
+                    hasString = hasString+String(cookRecomm[i]?.has[j] ?? "" )
+                    hasString = hasString+"\n"
+                }
             }
+            
             
             
             var noString : String = ""
