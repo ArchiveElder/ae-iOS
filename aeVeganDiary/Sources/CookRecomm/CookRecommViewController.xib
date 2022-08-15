@@ -109,7 +109,8 @@
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-dw-vwW">
                     <rect key="frame" x="149" y="725" width="116" height="26"/>
-                    <color key="pageIndicatorTintColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="pageIndicatorTintColor" systemColor="opaqueSeparatorColor"/>
+                    <color key="currentPageIndicatorTintColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </pageControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C5P-Lo-Opn">
                     <rect key="frame" x="0.0" y="51" width="414" height="757"/>
@@ -143,6 +144,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
