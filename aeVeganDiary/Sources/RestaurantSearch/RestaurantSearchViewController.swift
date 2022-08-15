@@ -34,10 +34,10 @@ class RestaurantSearchViewController: UIViewController, UITableViewDelegate {
         
         for i in 0...rowCount-1  {
             nameArr.append(data[i].name)
-            categoryArr.append(data[i].category)
-            roadAddrArr.append(data[i].roadAddr)
-            lnmAddrArr.append(data[i].lnmAddr)
-            telNoArr.append(data[i].telNo)
+            categoryArr.append(data[i].category ?? "")
+            roadAddrArr.append(data[i].roadAddr ?? "")
+            lnmAddrArr.append(data[i].lnmAddr ?? "")
+            telNoArr.append(data[i].telNo ?? "")
         }
     }
 

@@ -15,12 +15,13 @@ class RestaurantSearchTableViewCell: UITableViewCell {
     @IBOutlet var lnmAddr: UILabel!
     @IBOutlet var telNo: UILabel!
     
-    
+    var phoneNum : Int = 0
+    @IBOutlet var callButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
