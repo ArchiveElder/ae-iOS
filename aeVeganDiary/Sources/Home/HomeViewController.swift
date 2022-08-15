@@ -261,7 +261,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MapViewController()
+        let vc = RestaurantViewController()
         vc.hidesBottomBarWhenPushed = true
         vc.location = eventList[indexPath.row].location
         navigationController?.pushViewController(vc, animated: true)
