@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SafariServices
 
 class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearchBarDelegate, UIScrollViewDelegate {
     
@@ -21,6 +22,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     @IBOutlet var recommScrollView: UIScrollView!
     @IBOutlet var recommPageControl: UIPageControl!
     @IBOutlet weak var recommInnerView : RecommInnerView!
+    
     var test: [String] = ["One", "Two", "Three"]
     var test2: [String] = ["One", "Two", "Three", "four"]
     
@@ -28,14 +30,15 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     @IBAction func recommResult(_ sender: Any) {
         //추천 음식 api 연결 된 상태
         
-        /* 테스트 때문에 주석
         addContentScrollView()
         setPageControl()
         recommPageControl.isHidden = false
         recommTextLabel.isHidden = false
-        */
-        let vc = LargeCategoryViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        /*
+         let vc = LargeCategoryViewController()
+         navigationController?.pushViewController(vc, animated: true)
+         */
         
     }
     
@@ -104,16 +107,25 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         return returnView
     }
     
+    func safari (myUrl : NSURL) {
+        let safariView : SFSafariViewController = SFSafariViewController(url: myUrl as! URL)
+        present(safariView, animated: true)
+        print(myUrl)
+    }
+    
     //MARK: 가로 스크롤 뷰 구현 func1
     private func addContentScrollView() {
         for i in 0...2 {
             //i번째 커스텀뷰 생성
             var customView = addCustomView()
+        
+            //
+            customView.innerUrl = cookRecomm[i]?.recipeUrl ?? ""
+            customView.vc = self
+            
             //i번째 추천된 음식이름 받아오기
-            customView.recommLabel?.text  = String(cookRecomm[i]?.food ?? "")
-            
-            
-            
+        
+            customView.recommLabel.setTitle(cookRecomm[i]!.food, for: .normal)
             var hasString : String = ""
             for j in 0...cookRecomm[i]!.has.count-1 {
                 hasString = hasString+"  "
@@ -121,7 +133,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
                 hasString = hasString+"\n"
             }
             
-            print(hasString)
             
             var noString : String = ""
             for k in 0...cookRecomm[i]!.no.count-1 {
@@ -134,19 +145,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
             customView.hasLabel?.text = hasString
             customView.noLabel?.text = noString
              
-            print(noString)
-             
-            /*
-            //i번째 '있는 재료'와 '필요한 재료' tableview delegate과 datasource 설정
-            customView.hasDelegate = self
-            customView.hasDataSource = self
-            customView.hasRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "hasTableViewCell")
-            
-            customView.noDelegate = self
-            customView.noDataSource = self
-            customView.noRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "noTableViewCell")
-            */
-            
             customView.hasTableView.dataSource = self
             customView.hasTableView.delegate = self
             customView.hasTableView.register(UINib(nibName: "hasTableViewCell", bundle: nil), forCellReuseIdentifier: "hasTableViewCell")
@@ -190,7 +188,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     }
     
 
-    
     //MARK: 검색 tableView func
     func setup() {
         searchTableView.dataSource = self
@@ -231,7 +228,6 @@ extension CookRecommViewController : UITableViewDataSource{
         dismissIndicator()
         self.cookRecommResponse = result
         self.cookRecomm = result.foodDto
-        //print("냥",cookRecomm[0])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -290,18 +286,26 @@ extension CookRecommViewController : UITableViewDataSource{
     }
 }
 
+
 //MARK: 추천된 음식 Custom View Class
 @IBDesignable
-class RecommInnerView : UIView {
+class RecommInnerView : UIView, UIWebViewDelegate {
     
-    var test: [String] = ["One", "Two", "Three"]
+    var vc : CookRecommViewController!
+    var innerUrl :String = "https://www.naver.com/"
     
     @IBOutlet var noLabel: UILabel!
     @IBOutlet var hasLabel: UILabel!
     @IBOutlet weak var noTableView: UITableView!
     @IBOutlet weak var hasTableView: UITableView!
-    @IBOutlet weak var recommLabel: UILabel!
+    @IBOutlet weak var recommLabel: UIButton!
+    @IBAction func recommWebButton(_ sender: Any) {
+        let myUrl = NSURL(string: innerUrl)
+        vc?.safari(myUrl: myUrl!)
+    }
+
     
+
     override init(frame:CGRect){
         super.init(frame: frame)
     }
@@ -370,6 +374,8 @@ class RecommInnerView : UIView {
     
 }
 
+
+/*
 extension RecommInnerView : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -417,4 +423,4 @@ extension RecommInnerView : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+*/
