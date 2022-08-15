@@ -11,7 +11,7 @@ class RestaurantViewController: UIViewController {
     
     var location = ""
     let mapVC = MapViewController()
-    //let largeCategoryVC = largeCategoryVC()
+    let largeCategoryVC = LargeCategoryViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,31 +34,31 @@ class RestaurantViewController: UIViewController {
     
     @objc func toggle(sender: UIButton) {
         mapVC.view.isHidden = true
-        //largeCategoryVC.view.isHidden = true
+        largeCategoryVC.view.isHidden = true
         if sender.isSelected {
             sender.isSelected = false
             mapVC.view.isHidden = false
         } else {
             sender.isSelected = true
-            //largeCategoryVC.view.isHidden = false
+            largeCategoryVC.view.isHidden = false
         }
     }
     
     func setUp() {
         addChild(mapVC)
-        //addChild(largeCategoryVC)
+        addChild(largeCategoryVC)
         
         self.view.addSubview(mapVC.view)
-        //self.view.addSubview(largeCategoryVC.view)
+        self.view.addSubview(largeCategoryVC.view)
         
         mapVC.didMove(toParent: self)
-        //largeCategoryVC.didMove(toParent: self)
+        largeCategoryVC.didMove(toParent: self)
         
         mapVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        //largeCategoryVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        largeCategoryVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
         mapVC.view.isHidden = false
-        //largeCategoryVC.view.isHidden = true
+        largeCategoryVC.view.isHidden = true
     }
 
 }

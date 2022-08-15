@@ -127,6 +127,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         
             customView.recommLabel.setTitle(cookRecomm[i]!.food, for: .normal)
             var hasString : String = ""
+
             if cookRecomm[i]!.has.count > 0 {
                 for j in 0...cookRecomm[i]!.has.count-1 {
                     hasString = hasString+"  "
@@ -315,10 +316,15 @@ class RecommInnerView : UIView, UIWebViewDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        noLabel.clipsToBounds = true
+        hasLabel.clipsToBounds = true
+        noLabel?.layer.cornerRadius = 8
+        hasLabel?.layer.cornerRadius = 8
         
     }
     
