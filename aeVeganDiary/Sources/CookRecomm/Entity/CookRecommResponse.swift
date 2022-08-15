@@ -16,4 +16,5 @@ struct CookRecomm : Decodable {
     var food : String
     var no : [String]
     var has : [String]
+    var recipeUrl : String
 }
