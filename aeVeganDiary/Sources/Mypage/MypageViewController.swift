@@ -13,8 +13,8 @@ class MypageViewController: BaseViewController {
         UserDefaults.standard.removeObject(forKey: "UserJwt")
         let vc = LoginViewController()
         let navController = UINavigationController(rootViewController: vc)
-        navController.view.backgroundColor = .white
-        navController.navigationBar.isTranslucent = false
+        //navController.view.backgroundColor = .white
+        //navController.navigationBar.isTranslucent = false
         self.changeRootViewController(navController)
     }
     
