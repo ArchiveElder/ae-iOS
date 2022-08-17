@@ -36,7 +36,7 @@ class MyInfoViewController: BaseViewController {
                     activityButtons[index].backgroundColor = .lightGray
                 }
                 sender.isSelected = true
-                sender.backgroundColor = .darkGreen
+                sender.backgroundColor = .mainGreen
                 indexOfOneAndOnly = activityButtons.firstIndex(of: sender)
             }
             else {
@@ -47,7 +47,7 @@ class MyInfoViewController: BaseViewController {
         }
         else {
             sender.isSelected = true
-            sender.backgroundColor = .darkGreen
+            sender.backgroundColor = .mainGreen
             indexOfOneAndOnly = activityButtons.firstIndex(of: sender)
         }
         
@@ -80,7 +80,7 @@ class MyInfoViewController: BaseViewController {
         for index in activityButtons.indices {
             if index == indexOfOneAndOnly {
                 activityButtons[index].isSelected = true
-                activityButtons[index].backgroundColor = .darkGreen
+                activityButtons[index].backgroundColor = .mainGreen
             } else {
                 activityButtons[index].isSelected = false
                 activityButtons[index].backgroundColor = .lightGray

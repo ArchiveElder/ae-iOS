@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -184,12 +183,22 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwH-6b-dtI">
-                    <rect key="frame" x="177" y="422" width="60" height="30"/>
+                    <rect key="frame" x="164" y="420" width="86" height="39"/>
+                    <color key="backgroundColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="WtO-aP-fhi"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="FdI-YK-fvY"/>
+                        <constraint firstAttribute="width" constant="86" id="WtO-aP-fhi"/>
+                        <constraint firstAttribute="height" constant="39" id="mNN-Hz-2qD"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="수정 완료"/>
+                    <state key="normal" title="수정 완료">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="EditDone:" destination="-1" eventType="touchUpInside" id="kla-1k-Kfh"/>
                     </connections>
@@ -213,7 +222,7 @@
                 <constraint firstItem="Qwr-W6-Kcb" firstAttribute="trailing" secondItem="r0a-k7-sM5" secondAttribute="trailing" id="Uld-sD-ejc"/>
                 <constraint firstItem="G8K-Y5-s3E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="39" id="ZUy-bC-Hnb"/>
                 <constraint firstItem="FY3-sH-x0x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Zy5-ak-8Kl"/>
-                <constraint firstItem="dwH-6b-dtI" firstAttribute="top" secondItem="TZN-I8-QWK" secondAttribute="bottom" constant="61" id="aEc-S5-1Ly"/>
+                <constraint firstItem="dwH-6b-dtI" firstAttribute="top" secondItem="TZN-I8-QWK" secondAttribute="bottom" constant="59" id="aEc-S5-1Ly"/>
                 <constraint firstItem="o7b-rB-C4R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="bEb-p4-sXz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cGV-iP-p43" secondAttribute="trailing" constant="15" id="cxz-nP-tq2"/>
                 <constraint firstItem="Qwr-W6-Kcb" firstAttribute="leading" secondItem="r0a-k7-sM5" secondAttribute="leading" id="fcW-A9-yVE"/>
