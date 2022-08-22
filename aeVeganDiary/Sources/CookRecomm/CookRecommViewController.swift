@@ -59,6 +59,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dismissKeyboardWhenTappedAround()
         recommPageControl.isHidden = true
         recommTextLabel.isHidden = true
         //addContentScrollView()
@@ -213,8 +214,14 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
             searchTableView.isHidden = true
+            dismissKeyboardWhenTappedAround()
         } else {
             searchTableView.isHidden = false
+            if let recognizers = self.view.gestureRecognizers {
+                for recognizer in recognizers {
+                    self.view.removeGestureRecognizer(recognizer)
+                }
+            }
         }
     }
     
