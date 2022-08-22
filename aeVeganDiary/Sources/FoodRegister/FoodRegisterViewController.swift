@@ -30,7 +30,11 @@ class FoodRegisterViewController: BaseViewController {
     var rdate = ""
     var meal:Int? = nil
     var foodImage = UIImage()
-    var amount = 200
+    var amount: Double = 200
+    var cal: Double = 0
+    var carb: Double = 0
+    var pro: Double = 0
+    var fat: Double = 0
     var id = SearchInput(id:0)
     var foodDetailResponse: FoodDetailResponse?
     var foodDetail = [FoodDetail]()
@@ -66,6 +70,22 @@ class FoodRegisterViewController: BaseViewController {
         setDoneButton()
         
         dismissKeyboardWhenTappedAround()
+        amountTextField.addTarget(self, action: #selector(changeAmount), for: .editingDidEnd)
+    }
+    
+    @objc func changeAmount() {
+        if amountTextField.text == "" || amountTextField.text == "0" {
+            amountTextField.text = String(amount)
+        } else {
+            let ratio = (Double(amountTextField.text!) ?? 1) / Double(amount)
+            
+            self.caloryLabel.text = "\(Int(cal * ratio))"
+            self.carbLabel.text = "\(Int(carb * ratio))"
+            self.proteinLabel.text = "\(Int(pro * ratio))"
+            self.fatLabel.text = "\(Int(fat * ratio))"
+            
+        }
+        
     }
     
     func setToRootButton() {
@@ -135,7 +155,7 @@ class FoodRegisterViewController: BaseViewController {
         showIndicator()
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
-        let input = RegisterInput(text: "볶음밥", calory: "400", carb: "13", protein: "23", fat: "4", rdate: self.rdate, rtime: time, amount: Double(self.amount), meal: self.meal ?? 0)
+        let input = RegisterInput(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
         RegisterDataManager().registerMeal(input, foodImage, viewController: self)
     }
 
@@ -169,6 +189,18 @@ extension FoodRegisterViewController {
         //self.foodCalory1.text = String(result.calory)
         //self.foodCalory2.text = String(result.calory)
         //self.foodName1.text = String(result.name)
+        self.foodNameLabel.text = result.name
+        self.amountTextField.text = "\(result.capacity ?? 0)"
+        self.amount = Double(result.capacity ?? 0)
+        self.caloryLabel.text = "\(result.calory ?? 0)"
+        self.cal = result.calory ?? 0
+        self.carbLabel.text = "\(result.carb ?? 0)"
+        self.carb = result.carb ?? 0
+        self.proteinLabel.text = "\(result.pro ?? 0)"
+        self.pro = result.pro ?? 0
+        self.fatLabel.text = "\(result.fat ?? 0)"
+        self.fat = result.fat ?? 0
         
+        self.notFoodLabel.text = "\(result.name ?? "")이(가) 아닌가요?"
     }
 }
