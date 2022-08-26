@@ -85,6 +85,7 @@
 		CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */; };
 		CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455F288E790D004B8B91 /* MapViewController.swift */; };
 		CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6A4560288E790D004B8B91 /* MapViewController.xib */; };
+		CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C9FD228B865BB00C8635E /* BookmarkDeleteDataManager.swift */; };
 		CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */; };
 		CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */; };
 		CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */; };
@@ -211,6 +212,7 @@
 		CD6A455B288E7859004B8B91 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		CD6A455F288E790D004B8B91 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CD6A4560288E790D004B8B91 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		CD7C9FD228B865BB00C8635E /* BookmarkDeleteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDeleteDataManager.swift; sourceTree = "<group>"; };
 		CD7F38172844668C00D15356 /* RegisterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7F38182844668C00D15356 /* RegisterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F381F2844678700D15356 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 				CDD6B0FF28927C1700E6473D /* Geocoding.swift */,
 				CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */,
 				CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */,
+				CD7C9FD228B865BB00C8635E /* BookmarkDeleteDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
 				8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */,

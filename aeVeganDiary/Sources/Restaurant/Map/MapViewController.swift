@@ -23,9 +23,14 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     @IBOutlet weak var lnmAddrLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBAction func bookmark(_ sender: Any) {
-        if markerIndex != nil && bookmarkButton.isSelected == false {
-            showIndicator()
-            BookmarkDataManager().postBookmark(BookmarkInput(id: markerIndex!), viewController: self)
+        if markerIndex != nil {
+            if bookmarkButton.isSelected == false {
+                showIndicator()
+                BookmarkDataManager().postBookmark(BookmarkInput(bistroId: markerIndex!), viewController: self)
+            } else {
+                showIndicator()
+                BookmarkDeleteDataManager().deleteBookmark(BookmarkInput(bistroId: markerIndex!), viewController: self)
+            }
         }
     }
     
@@ -119,5 +124,10 @@ extension MapViewController {
     func bookmark() {
         dismissIndicator()
         bookmarkButton.isSelected = true
+    }
+    
+    func bookmarkDelete() {
+        dismissIndicator()
+        bookmarkButton.isSelected = false
     }
 }
