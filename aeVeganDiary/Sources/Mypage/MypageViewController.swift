@@ -18,6 +18,11 @@ class MypageViewController: BaseViewController {
         self.changeRootViewController(navController)
     }
     
+    @IBAction func bookmarkButton(_ sender: Any) {
+        let vc = BookmarkViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBOutlet var Nickname: UILabel!
     @IBOutlet var myInfoButton: UIButton!

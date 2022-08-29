@@ -70,6 +70,9 @@
                     <state key="normal" title="즐겨찾기 한 식당">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="bookmarkButton:" destination="-1" eventType="touchUpInside" id="Wa0-HL-IrB"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8e-Tg-Pvh">
                     <rect key="frame" x="74" y="246" width="132" height="31"/>
