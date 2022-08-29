@@ -14,6 +14,8 @@ struct RestaurantSearchResponse : Decodable {
 }
 
 struct CategoryListDto : Decodable {
+    var bistroId : Int
+    var isBookmark : Int
     var category : String?
     var name : String
     var roadAddr : String?
