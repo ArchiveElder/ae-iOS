@@ -10,10 +10,18 @@ import Charts
 
 class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var ratioView: UIView!
+    @IBOutlet weak var calMessageLabel: UILabel!
     @IBOutlet weak var calChartView: LineChartView!
+    
+    @IBOutlet weak var carbProgressView: UIProgressView!
+    @IBOutlet weak var proProgressView: UIProgressView!
+    @IBOutlet weak var fatProgressView: UIProgressView!
     
     var dates: [String]!
     var values: [Double]!
+    var analysis = [Analysis]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +29,35 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         setNavigationTitle(title: "분석")
         
         calChartView.delegate = self
+        
+        // ProgressView
+        carbProgressView.clipsToBounds = true
+        carbProgressView.layer.cornerRadius = 4
+        carbProgressView.clipsToBounds = true
+        carbProgressView.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        carbProgressView.subviews[1].clipsToBounds = true
+        
+        proProgressView.clipsToBounds = true
+        proProgressView.layer.cornerRadius = 4
+        proProgressView.clipsToBounds = true
+        proProgressView.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        proProgressView.subviews[1].clipsToBounds = true
+        
+        fatProgressView.clipsToBounds = true
+        fatProgressView.layer.cornerRadius = 4
+        fatProgressView.clipsToBounds = true
+        fatProgressView.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
+        fatProgressView.subviews[1].clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        dates = [String]()
+        values = [Double]()
+        
         showIndicator()
         AnalyzeDataManager().requestData(viewController: self)
-        
-        // 그래프에 들어갈 데이터들
-        dates = ["05.24", "05.25", "05.26", "05.27", "05.28", "05.29", "05.30", "05.31"]
-        values = [1500, 1600, 2000, 1700, 1800, 2100, 2000, 1800]
-        
-        setLineChart(dataPoints: dates, values: values)
-        
-        drawStackedProgress(percentages: [0.2,0.3,0.5], width: 200, height: 20, x: 200, y: 200)
     }
     
     // 그래프 설정 코드
@@ -56,9 +78,10 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         let data = LineChartData(dataSet: set)
         data.setValueFont(UIFont.systemFont(ofSize: 10, weight: .semibold))
         data.setValueTextColor(.lGray)
-        data.setDrawValues(false)
+        data.setDrawValues(true)
         
         // 그래프 설정
+        calChartView.leftAxis.removeAllLimitLines()
         calChartView.data = data
         calChartView.doubleTapToZoomEnabled = false
         calChartView.highlightPerTapEnabled = false
@@ -107,20 +130,67 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     func drawStackedProgress(percentages:[Float], width:Float, height:Float, x:Float, y:Float){
         var currentX = x
 
-        let colors = [UIColor.red, UIColor.blue, UIColor.green]
+        //let text = ["탄수화물", "단백질", "지방"]
+        let colors = [UIColor.barRed, UIColor.barGreen, UIColor.barYellow]
         var index = -1
         for percentage in percentages{
             index += 1
             let DynamicView=UIView(frame: CGRect(x: CGFloat(currentX), y: CGFloat(y), width: CGFloat(Double(percentage)*Double(width)), height: CGFloat(height)))
+            if index == 0 {
+                DynamicView.clipsToBounds = true
+                DynamicView.layer.cornerRadius = 25
+                DynamicView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMinXMaxYCorner)
+            } else if index == 2 {
+                DynamicView.clipsToBounds = true
+                DynamicView.layer.cornerRadius = 25
+                DynamicView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMaxXMinYCorner, .layerMaxXMaxYCorner)
+            }
             currentX+=Float(Double(percentages[index])*Double(width))
             DynamicView.backgroundColor=colors[index]
-            self.view.addSubview(DynamicView)
+            self.ratioView.addSubview(DynamicView)
         }
+    }
+    
+    func setProgressResult(sender: UIProgressView, data: Float){
+        if data < 0.3 {
+            sender.progressTintColor = .barRed
+        } else if data < 0.6 {
+            sender.progressTintColor = .barYellow
+        } else if data < 1.3 {
+            sender.progressTintColor = .barGreen
+        } else if data < 1.6 {
+            sender.progressTintColor = .barYellow
+        } else {
+            sender.progressTintColor = .barRed
+        }
+        
+        sender.progress = data
     }
 }
 
 extension AnalyzeViewController {
     func getData(response: AnalyzeResponse) {
         dismissIndicator()
+        self.todayLabel.text = response.todayDate
+        analysis = response.analysisDtos ?? [Analysis]()
+        
+        if response.status == 1 {
+            // 그래프에 들어갈 데이터들
+            for i in analysis.reversed() {
+                dates.append(i.date ?? "")
+                values.append(Double(i.totalCal ?? 0))
+            }
+            
+            setLineChart(dataPoints: dates, values: values)
+            
+            drawStackedProgress(percentages: [0.2,0.3,0.5], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
+        }
+        
+        setProgressResult(sender: carbProgressView, data: Float(response.totalCarb) / (Float(response.rcarb) ?? 1))
+        setProgressResult(sender: proProgressView, data: Float(response.totalPro) / (Float(response.rpro) ?? 1))
+        setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / (Float(response.rfat) ?? 1))
+        
+        
+        //if response.
     }
 }

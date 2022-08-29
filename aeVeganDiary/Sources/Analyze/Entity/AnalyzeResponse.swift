@@ -9,12 +9,17 @@ import Foundation
 
 struct AnalyzeResponse: Decodable {
     var status: Int
-    var ratioCarb: Int?
-    var ratioPro: Int?
-    var ratioFat: Int?
-    var totalCarb: Int?
-    var totalPro: Int?
-    var totalFat: Int?
+    var todayDate: String
+    var rcal: String
+    var rcarb: String
+    var rpro: String
+    var rfat: String
+    var ratioCarb: Int
+    var ratioPro: Int
+    var ratioFat: Int
+    var totalCarb: Int
+    var totalPro: Int
+    var totalFat: Int
     var analysisDtos: [Analysis]?
 }
 

@@ -6,5 +6,5 @@
 //
 
 struct BookmarkInput: Encodable {
-    var id: Int
+    var bistroId: Int
 }

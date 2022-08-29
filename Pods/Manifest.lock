@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.6.1)
+  - Alamofire (5.6.2)
   - Charts (4.0.3):
     - Charts/Core (= 4.0.3)
   - Charts/Core (4.0.3):
@@ -26,17 +26,17 @@ PODS:
   - GoogleMaps/Base (6.1.0)
   - GoogleMaps/Maps (6.1.0):
     - GoogleMaps/Base
-  - KakaoSDKAuth (2.10.0):
-    - KakaoSDKCommon (= 2.10.0)
-  - KakaoSDKCommon (2.10.0):
-    - KakaoSDKCommon/Common (= 2.10.0)
-    - KakaoSDKCommon/Network (= 2.10.0)
-  - KakaoSDKCommon/Common (2.10.0)
-  - KakaoSDKCommon/Network (2.10.0):
+  - KakaoSDKAuth (2.11.1):
+    - KakaoSDKCommon (= 2.11.1)
+  - KakaoSDKCommon (2.11.1):
+    - KakaoSDKCommon/Common (= 2.11.1)
+    - KakaoSDKCommon/Network (= 2.11.1)
+  - KakaoSDKCommon/Common (2.11.1)
+  - KakaoSDKCommon/Network (2.11.1):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.10.0)
-  - KakaoSDKUser (2.10.0):
-    - KakaoSDKAuth (= 2.10.0)
+    - KakaoSDKCommon/Common (= 2.11.1)
+  - KakaoSDKUser (2.11.1):
+    - KakaoSDKAuth (= 2.11.1)
   - NMapsMap (3.15.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
@@ -82,14 +82,14 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   Charts: d959d6723c8eedfdd0735dfc28cb0a71762ac4d9
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   Google-Maps-iOS-Utils: 2b4971019b7e9b3c92b4635d218552d9e093df4b
   GoogleMaps: cffc5d24ce920063aaeebe6ac4dbaaca1dd7f377
-  KakaoSDKAuth: 94cdbd864a6e1b5691c11aba09d769ea91be107a
-  KakaoSDKCommon: 9edbf77ef59c8594412908e023e64ef07f75db08
-  KakaoSDKUser: 7969a38f9ccfd788140fa799b6bbaa223f62683e
+  KakaoSDKAuth: bb2dfa7be30daa8403c9cfc8001aa6fde7a5b779
+  KakaoSDKCommon: 555e1bb46595b842ded01cf7888cc17bbae4e113
+  KakaoSDKUser: 08c0a4f40bebdebdf948a9e3d0e44ed5c2754f99
   NMapsMap: f151761c088d6516064c59da03ab6503769486e6
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -98,6 +98,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f95c57c3c8b1e12e34cf308dd36d4332b92efd86
+PODFILE CHECKSUM: 2df03f0829a5ef1720d5aed17226818a66d16fd0
 
 COCOAPODS: 1.11.3

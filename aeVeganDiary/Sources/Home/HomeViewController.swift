@@ -134,6 +134,12 @@ class HomeViewController: BaseViewController {
         request(dateText: datePickTextField.text!)
         
         locationManager.requestWhenInUseAuthorization()
+        
+        if let recognizers = self.view.gestureRecognizers {
+            for recognizer in recognizers {
+                self.view.removeGestureRecognizer(recognizer)
+            }
+        }
     }
     
     // datePicker에서 Done 누르면 실행
