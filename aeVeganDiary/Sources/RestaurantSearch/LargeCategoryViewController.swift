@@ -98,7 +98,6 @@ extension LargeCategoryViewController : UITableViewDataSource {
     
         }
         
-        
     }
     
     func getMiddleRegion(result: RegionResponse){
@@ -110,6 +109,7 @@ extension LargeCategoryViewController : UITableViewDataSource {
         regionBackButton.isHidden = false
         tableView.reloadData()
     }
+    
     
     func getRestaurantSearch(result: RestaurantSearchResponse){
         dismissIndicator()

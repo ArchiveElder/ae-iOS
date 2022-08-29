@@ -42,11 +42,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>위치 권한 허용해주세요</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>위치 권한 허용해주세요</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 권한 허용해주세요</string>
 </dict>
 </plist>
