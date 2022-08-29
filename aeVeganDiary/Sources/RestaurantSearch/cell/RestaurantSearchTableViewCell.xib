@@ -55,6 +55,19 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button" image="starunselected"/>
                         <state key="selected" image="starselected"/>
+                        <connections>
+                            <action selector="bookmarkButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="48v-ip-QJ3"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-PY-gqv">
+                        <rect key="frame" x="329" y="73" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="2AK-c3-FTC"/>
+                            <constraint firstAttribute="height" constant="24" id="gmy-mZ-a4W"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Button"/>
+                        <state key="selected" image="starselected"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -75,7 +88,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bookmarkButton" destination="JZu-H8-zF0" id="vzH-JH-2PQ"/>
+                <outlet property="bookmarkButton" destination="JZu-H8-zF0" id="cfg-1n-d1Z"/>
+                <outlet property="callButton" destination="9w2-PY-gqv" id="VaJ-7a-bbI"/>
                 <outlet property="category" destination="460-fM-f4g" id="tTN-SO-332"/>
                 <outlet property="lnmAddr" destination="tpE-50-H0m" id="OXv-FE-Rr6"/>
                 <outlet property="name" destination="Xyh-IA-m8e" id="s3k-7z-Yqh"/>
