@@ -8,13 +8,13 @@
 import Alamofire
 
 class SearchBookmarkDataManager {
-    func postBookmark(_ parameters: BookmarkInput, viewController: RestaurantSearchViewController) {
+    func postBookmark(_ parameters: SearchBookmarkInput, viewController: RestaurantSearchViewController) {
         AF.request("\(Constant.BASE_URL)/api/bookmark", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
             .validate()
-            .responseDecodable(of: BookmarkResponse.self) { response in
+            .responseDecodable(of: SearchBookmarkResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    viewController.bookmark(result: response)
+                    viewController.bookmark()
                     print(response)
                 case .failure(let error):
                     print(error.localizedDescription)

@@ -16,6 +16,7 @@ class RestaurantSearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     var rowCount : Int = 0
     var middle : String = ""
+    var bookmarked : Int = 2
     var data : [CategoryListDto] = []
     var bistroIdArr: [CLong] = []
     var isBookmarkArr : [Int] = []
@@ -51,7 +52,7 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
     
     func bookmarkButtonAction(cell: RestaurantSearchTableViewCell) {
         var indexPath = tableView.indexPath(for: cell)?[1]
-        let inputBistroId = BookmarkInput(id: bistroIdArr[indexPath!])
+        let inputBistroId = SearchBookmarkInput(bistroId: bistroIdArr[indexPath!])
         
         
         //안눌렸으면
@@ -63,10 +64,8 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
     
     }
     
-    func bookmark(result: BookmarkResponse) {
+    func bookmark() {
         dismissIndicator()
-        print(result)
-        cell.bookmarkButton.setImage(UIImage(named: "starselected"), for: .normal)
         tableView.reloadData()
     }
     
@@ -92,6 +91,7 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         } else {
             cell.bookmarkButton.setImage(UIImage(named: "starunselected"), for: .normal)
         }
+        
         
         cell.delegate = self
         return cell
