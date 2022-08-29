@@ -59,6 +59,7 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         if(cell.bookmarkButton.currentImage == UIImage(named: "starunselected")){
             print(inputBistroId)
             SearchBookmarkDataManager().postBookmark(inputBistroId, viewController: self)
+            cell.bookmarkButton.isSelected = true
         }
         //눌렸으면
     
@@ -66,7 +67,6 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
     
     func bookmark() {
         dismissIndicator()
-        tableView.reloadData()
     }
     
     
