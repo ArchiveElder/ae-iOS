@@ -15,6 +15,7 @@ class SearchBookmarkDeleteDataManager {
                 switch response.result {
                 case .success(let response):
                     viewController.bookmarkDelete()
+                    print(response)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
