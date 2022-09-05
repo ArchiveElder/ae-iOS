@@ -212,6 +212,7 @@
 		CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkResponse.swift; sourceTree = "<group>"; };
 		CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDataManager.swift; sourceTree = "<group>"; };
 		CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		CD2D5AE828BF3F4B00F770DC /* aeVeganDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = aeVeganDiary.entitlements; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
@@ -680,6 +681,7 @@
 		CDE47F3428424B44005D8BB3 /* aeVeganDiary */ = {
 			isa = PBXGroup;
 			children = (
+				CD2D5AE828BF3F4B00F770DC /* aeVeganDiary.entitlements */,
 				CDE47F4C28426B65005D8BB3 /* Configuration */,
 				CDE47F4D28426B71005D8BB3 /* Sources */,
 				CDE47F3528424B44005D8BB3 /* AppDelegate.swift */,
@@ -1248,6 +1250,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = aeVeganDiary/aeVeganDiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
@@ -1282,6 +1285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = aeVeganDiary/aeVeganDiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
