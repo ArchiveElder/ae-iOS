@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="380" height="181"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="und-RR-2gS">
-                                <rect key="frame" x="220" y="126" width="120" height="35"/>
+                                <rect key="frame" x="130" y="126" width="120" height="35"/>
                                 <color key="backgroundColor" red="0.2196078431372549" green="0.51764705882352935" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="IbB-d0-PlJ"/>
@@ -51,34 +51,15 @@
                                     <constraint firstAttribute="height" constant="24" id="y6J-aL-13J"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab3-Hx-lD1">
-                                <rect key="frame" x="40" y="126" width="120" height="35"/>
-                                <color key="backgroundColor" red="0.21960784310000001" green="0.51764705879999995" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="RdJ-zL-E1D"/>
-                                    <constraint firstAttribute="width" constant="120" id="ksB-bd-1zm"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="식사하지 않았음">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gkl-HH-mui" firstAttribute="top" secondItem="dfy-sc-Bhf" secondAttribute="bottom" constant="10" id="7Cq-4v-T04"/>
                             <constraint firstAttribute="bottom" secondItem="und-RR-2gS" secondAttribute="bottom" constant="20" id="92n-Dl-kt0"/>
                             <constraint firstItem="gkl-HH-mui" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="H9Q-Dj-rQB"/>
-                            <constraint firstItem="ab3-Hx-lD1" firstAttribute="leading" secondItem="78f-FJ-z6S" secondAttribute="leading" constant="40" id="NBl-35-BJA"/>
                             <constraint firstItem="dfy-sc-Bhf" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="Nvn-RX-6hT"/>
-                            <constraint firstAttribute="trailing" secondItem="und-RR-2gS" secondAttribute="trailing" constant="40" id="Qxg-EQ-Y51"/>
                             <constraint firstItem="gkl-HH-mui" firstAttribute="centerY" secondItem="78f-FJ-z6S" secondAttribute="centerY" id="dhT-My-CV4"/>
-                            <constraint firstAttribute="bottom" secondItem="ab3-Hx-lD1" secondAttribute="bottom" constant="20" id="wNQ-yM-kJD"/>
+                            <constraint firstItem="und-RR-2gS" firstAttribute="centerX" secondItem="78f-FJ-z6S" secondAttribute="centerX" id="yAj-y0-p3x"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -93,7 +74,6 @@
             <size key="customSize" width="380" height="181"/>
             <connections>
                 <outlet property="cellBackgroundView" destination="78f-FJ-z6S" id="1pE-RE-gtp"/>
-                <outlet property="didntAteButton" destination="ab3-Hx-lD1" id="1mf-D3-UpV"/>
                 <outlet property="registerMealButton" destination="und-RR-2gS" id="HVk-RP-7F1"/>
             </connections>
             <point key="canvasLocation" x="220.28985507246378" y="145.64732142857142"/>

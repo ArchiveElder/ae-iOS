@@ -111,6 +111,7 @@ class FoodRegisterViewController: BaseViewController {
             showIndicator()
             FoodPredictDataManager().foodPredict(foodImage, viewController: self)
         } else {
+            foodImage = UIImage()
             foodImageViewHeight.constant = 0
             foodImageView.isHidden = true
             changeView.isHidden = true
