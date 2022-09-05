@@ -59,7 +59,7 @@
                             <action selector="bookmarkButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="48v-ip-QJ3"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-PY-gqv">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-PY-gqv">
                         <rect key="frame" x="329" y="73" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="2AK-c3-FTC"/>
