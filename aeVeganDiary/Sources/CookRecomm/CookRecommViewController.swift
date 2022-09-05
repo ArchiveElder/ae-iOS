@@ -89,8 +89,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         ingreTableView.dataSource = self
         ingreTableView.delegate = self
         ingreTableView.register(UINib(nibName: "ingreTableViewCell", bundle: nil), forCellReuseIdentifier: "ingreTableViewCell")
-        
-        setDismissButton()
+
         setup()
     }
     
