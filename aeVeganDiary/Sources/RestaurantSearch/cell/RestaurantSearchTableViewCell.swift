@@ -21,8 +21,7 @@ class RestaurantSearchTableViewCell: UITableViewCell {
     @IBOutlet var roadAddr: UILabel!
     @IBOutlet var lnmAddr: UILabel!
     @IBOutlet var telNo: UILabel!
-    
-    @IBOutlet var bookmarkButton: UIButton!
+    @IBOutlet weak var searchBookmarkButton: UIButton!
     @IBAction func bookmarkButtonAction(_ sender: Any) {
         delegate?.bookmarkButtonAction(cell: self)
     }
