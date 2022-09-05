@@ -13,6 +13,8 @@ class BookmarkViewController: BaseViewController {
 
     @IBOutlet weak var bookmarkTableView: UITableView!
     
+    @IBOutlet weak var messageImageView: UIImageView!
+    @IBOutlet weak var messageLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +28,7 @@ class BookmarkViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.backgroundColor = .white
         showIndicator()
         BookmarkListDataManager().getBookmarkList(viewController: self)
     }
@@ -44,19 +47,15 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.roadAddr.text = listData?.data?[indexPath.row].roadAddr
         cell.lnmAddr.text = listData?.data?[indexPath.row].lnmAddr
         cell.telNo.text = listData?.data?[indexPath.row].telNo
-        //cell.bookmarkButton.isHidden = true
+        cell.searchBookmarkButton.isSelected = true
+        cell.searchBookmarkButton.tag = indexPath.row
+        cell.searchBookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            
-        if editingStyle == .delete {
-            //let index = BookmarkInput(bistroId: listData?.data?[indexPath.row].)
-            //BookmarkListDeleteDataManager().deleteBookmark(<#T##parameters: BookmarkInput##BookmarkInput#>, viewController: <#T##BookmarkViewController#>)
-            
-            listData?.data?.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+    @objc func bookmarkDelete(sender: UIButton) {
+        let input = BookmarkInput(bistroId: listData?.data?[sender.tag].bistroId ?? 0)
+        BookmarkListDeleteDataManager().deleteBookmark(input, viewController: self)
     }
 }
 
@@ -65,10 +64,21 @@ extension BookmarkViewController {
         dismissIndicator()
         print(response)
         listData = response
+        if listData?.data?.count == 0 {
+            messageLabel.isHidden = false
+            messageImageView.isHidden = false
+            bookmarkTableView.isHidden = true
+        } else {
+            messageLabel.isHidden = true
+            messageImageView.isHidden = true
+            bookmarkTableView.isHidden = false
+        }
         bookmarkTableView.reloadData()
     }
     
     func bookmarkDelete() {
         dismissIndicator()
+        showIndicator()
+        BookmarkListDataManager().getBookmarkList(viewController: self)
     }
 }

@@ -17,6 +17,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     var searchResponse: SearchResponse?
     var foods = [Food]()
     var foodDetail = [FoodDetail]()
+    var rdate = ""
+    var meal = 0
     
     var shownFoods = [String]()
     let disposeBag = DisposeBag()
@@ -54,6 +56,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print(rdate)
         showIndicator()
         SearchDataManager().getSearchData(viewController: self)
 
@@ -86,6 +89,8 @@ extension SearchViewController : UITableViewDataSource {
         let currentIndex = foods.filter{$0.name==currentCell}.map{$0.id}[0]
         print(currentIndex)
         vc.search = 1
+        vc.rdate = self.rdate
+        vc.meal = self.meal
         vc.id = SearchInput(id:currentIndex)
         navigationController?.pushViewController(vc, animated: true)
     }
