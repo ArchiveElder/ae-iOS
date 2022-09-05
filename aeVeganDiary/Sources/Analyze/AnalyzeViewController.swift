@@ -153,7 +153,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
             label.textAlignment = .center
             label.numberOfLines = 2
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "\(text[index])\n\(percentage)%"
+            label.text = "\(text[index])\n\(Int(percentage * 100))%"
             
             if index == 0 {
                 DynamicView.clipsToBounds = true

@@ -163,9 +163,17 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        datePickTextField.text = dateFormatter.string(from: date)
-        datePicker.date = date
-        request(dateText: dateFormatter.string(from: date))
+        let nowDate = Date()
+        let time = date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
+        print(time)
+        if time <= 0 {
+            datePickTextField.text = dateFormatter.string(from: date)
+            datePicker.date = date
+            request(dateText: dateFormatter.string(from: date))
+        } else {
+            weekCalendarView.select(datePicker.date)
+            presentBottomAlert(message: "미래의 날짜는 선택할 수 없어요")
+        }
     }
     
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
