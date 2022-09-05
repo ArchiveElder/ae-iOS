@@ -28,18 +28,16 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
     //음식 찾기 API 이벤트
     @IBAction func recommResult(_ sender: Any) {
-        //추천 음식 api 연결 된 상태
         
-        addContentScrollView()
-        setPageControl()
-        recommPageControl.isHidden = false
-        recommTextLabel.isHidden = false
-        
-        /*
-         let vc = LargeCategoryViewController()
-         navigationController?.pushViewController(vc, animated: true)
-         */
-        
+        if ingreArr.count == 0 {
+            presentBottomAlert(message: "재료가 선택되지 않았습니다.")
+        } else {
+            //추천 음식 api 연결 된 상태
+            addContentScrollView()
+            setPageControl()
+            recommPageControl.isHidden = false
+            recommTextLabel.isHidden = false
+        }
     }
     
     var searchBarFocused = false
@@ -120,7 +118,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
             //i번째 커스텀뷰 생성
             var customView = addCustomView()
         
-            //
             customView.innerUrl = cookRecomm[i]?.recipeUrl ?? ""
             customView.vc = self
             
@@ -226,7 +223,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     }
     
 }
-
 
 extension CookRecommViewController : UITableViewDataSource{
     func getData(result: IngreResponse){
