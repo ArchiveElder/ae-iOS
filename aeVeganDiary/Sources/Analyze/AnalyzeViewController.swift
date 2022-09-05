@@ -22,6 +22,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     var dates: [String]!
     var values: [Double]!
     var analysis = [Analysis]()
+    var rcal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,15 +128,32 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         calChartView.leftAxis.addLimitLine(li)
     }
     
+    func message(rcal: Int, avg: Int) {
+        if rcal - 100 > avg {
+            calMessageLabel.text = "권장 칼로리보다 적게 섭취하셨어요"
+        } else if rcal + 100 < avg {
+            calMessageLabel.text = "권장 칼로리보다 많이 섭취하셨어요"
+        } else {
+            calMessageLabel.text = "적절하게 섭취하고 있어요"
+        }
+    }
+    
     func drawStackedProgress(percentages:[Float], width:Float, height:Float, x:Float, y:Float){
         var currentX = x
 
-        //let text = ["탄수화물", "단백질", "지방"]
+        let text = ["탄수화물", "단백질", "지방"]
         let colors = [UIColor.barRed, UIColor.barGreen, UIColor.barYellow]
         var index = -1
         for percentage in percentages{
             index += 1
             let DynamicView=UIView(frame: CGRect(x: CGFloat(currentX), y: CGFloat(y), width: CGFloat(Double(percentage)*Double(width)), height: CGFloat(height)))
+            let label = UILabel()
+            label.font = .systemFont(ofSize: 13, weight: .medium)
+            label.textAlignment = .center
+            label.numberOfLines = 2
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "\(text[index])\n\(percentage)%"
+            
             if index == 0 {
                 DynamicView.clipsToBounds = true
                 DynamicView.layer.cornerRadius = 25
@@ -147,6 +165,12 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
             }
             currentX+=Float(Double(percentages[index])*Double(width))
             DynamicView.backgroundColor=colors[index]
+            
+            DynamicView.addSubview(label)
+            label.centerXAnchor.constraint(equalTo:DynamicView.centerXAnchor)
+                        .isActive = true // ---- 1
+            label.centerYAnchor.constraint(equalTo:DynamicView.centerYAnchor)
+                .isActive = true
             self.ratioView.addSubview(DynamicView)
         }
     }
@@ -190,7 +214,6 @@ extension AnalyzeViewController {
         setProgressResult(sender: proProgressView, data: Float(response.totalPro) / (Float(response.rpro) ?? 1))
         setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / (Float(response.rfat) ?? 1))
         
-        
-        //if response.
+        self.rcal = Int(response.rcal) ?? 0
     }
 }
