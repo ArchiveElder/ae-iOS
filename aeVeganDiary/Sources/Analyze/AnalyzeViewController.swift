@@ -149,6 +149,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
             let DynamicView=UIView(frame: CGRect(x: CGFloat(currentX), y: CGFloat(y), width: CGFloat(Double(percentage)*Double(width)), height: CGFloat(height)))
             let label = UILabel()
             label.font = .systemFont(ofSize: 13, weight: .medium)
+            label.textColor = .darkGray
             label.textAlignment = .center
             label.numberOfLines = 2
             label.translatesAutoresizingMaskIntoConstraints = false
