@@ -15,7 +15,7 @@ class CookRecommDataManager {
             .responseDecodable(of: CookRecommResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    //print(response)
+                    print(response)
                     viewController.getRecomm(result: response)
                 case .failure(let error):
                     print(error.localizedDescription)

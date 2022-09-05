@@ -283,6 +283,7 @@ extension CookRecommViewController : UITableViewDataSource{
         
         if tableView == searchTableView {
             //음식 선택 시
+            searchBar.text = ""
             let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
             ingreArr.append(currentCell ?? "")
             var ingreInput = IngreInput(ingredients: ingreArr)
