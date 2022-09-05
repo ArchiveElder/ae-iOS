@@ -59,16 +59,6 @@
                             <action selector="bookmarkButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="48v-ip-QJ3"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-PY-gqv">
-                        <rect key="frame" x="329" y="73" width="24" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="24" id="2AK-c3-FTC"/>
-                            <constraint firstAttribute="height" constant="24" id="gmy-mZ-a4W"/>
-                        </constraints>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Button"/>
-                        <state key="selected" image="starselected"/>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TKc-dB-0gV" firstAttribute="top" secondItem="tpE-50-H0m" secondAttribute="bottom" constant="7" id="0Uf-qh-mS4"/>
@@ -80,6 +70,7 @@
                     <constraint firstItem="TKc-dB-0gV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="Yls-Ci-hU6"/>
                     <constraint firstItem="Xyh-IA-m8e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="j4Q-W6-r9d"/>
                     <constraint firstItem="tpE-50-H0m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="lPG-O5-GE9"/>
+                    <constraint firstItem="JZu-H8-zF0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="460-fM-f4g" secondAttribute="trailing" constant="10" id="qLL-vY-Q02"/>
                     <constraint firstItem="460-fM-f4g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="28" id="qeC-j3-KGp"/>
                     <constraint firstItem="460-fM-f4g" firstAttribute="leading" secondItem="Xyh-IA-m8e" secondAttribute="trailing" constant="30" id="t4P-TE-SRL"/>
                     <constraint firstAttribute="bottom" secondItem="TKc-dB-0gV" secondAttribute="bottom" constant="29.5" id="xih-Im-jz0"/>
@@ -88,12 +79,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bookmarkButton" destination="JZu-H8-zF0" id="cfg-1n-d1Z"/>
-                <outlet property="callButton" destination="9w2-PY-gqv" id="VaJ-7a-bbI"/>
                 <outlet property="category" destination="460-fM-f4g" id="tTN-SO-332"/>
                 <outlet property="lnmAddr" destination="tpE-50-H0m" id="OXv-FE-Rr6"/>
                 <outlet property="name" destination="Xyh-IA-m8e" id="s3k-7z-Yqh"/>
                 <outlet property="roadAddr" destination="4Xg-OE-mVO" id="WNs-zB-CjU"/>
+                <outlet property="searchBookmarkButton" destination="JZu-H8-zF0" id="g9A-FU-oND"/>
                 <outlet property="telNo" destination="TKc-dB-0gV" id="HRa-lB-RcJ"/>
             </connections>
             <point key="canvasLocation" x="208.69565217391306" y="114.50892857142857"/>
