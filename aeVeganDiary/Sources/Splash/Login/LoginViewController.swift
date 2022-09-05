@@ -57,9 +57,6 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
-        // Do any additional setup after loading the view.
-        
     }
 
 
@@ -80,8 +77,6 @@ extension LoginViewController {
     
     func login(result: LoginResponse) {
         self.dismissIndicator()
-        UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-        UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
         if result.signup {
             let vc = NicknameInitViewController()
             let navController = UINavigationController(rootViewController: vc)
@@ -89,6 +84,8 @@ extension LoginViewController {
             navController.navigationBar.isTranslucent = false
             self.changeRootViewController(navController)
         } else {
+            UserDefaults.standard.setValue(result.userId, forKey: "UserId")
+            UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
             self.changeRootViewController(BaseTabBarController())
         }
         
