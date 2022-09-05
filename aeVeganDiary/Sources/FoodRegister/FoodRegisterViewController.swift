@@ -86,9 +86,9 @@ class FoodRegisterViewController: BaseViewController {
             self.carbLabel.text = "\(Int(carb * ratio))"
             self.proteinLabel.text = "\(Int(pro * ratio))"
             self.fatLabel.text = "\(Int(fat * ratio))"
-            
         }
         
+        print(cal)
     }
     
     func setToRootButton() {
@@ -184,9 +184,13 @@ extension FoodRegisterViewController {
         self.foodDetail = result.data
         foodNameLabel.text = foodDetail[0].name
         caloryLabel.text = String(foodDetail[0].calory)
+        self.cal = foodDetail[0].calory
         carbLabel.text = String(foodDetail[0].carb)
+        self.carb = foodDetail[0].carb
         proteinLabel.text = String(foodDetail[0].pro)
+        self.pro = foodDetail[0].pro
         fatLabel.text = String(foodDetail[0].fat)
+        self.fat = foodDetail[0].fat
     }
     
     func foodPredict(result: FoodPredictResponse) {
