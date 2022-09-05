@@ -41,6 +41,7 @@ extension MealDetailViewController {
     func getData(result: MealDetailResponse) {
         dismissIndicator()
         let data = result.data[0]
+        titleLabel.text = data.text
         dateLabel.text = "\(data.date) \(data.time)"
         textLabel.text = data.text
         calLabel.text = data.cal
