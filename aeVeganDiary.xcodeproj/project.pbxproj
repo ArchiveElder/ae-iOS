@@ -1260,6 +1260,7 @@
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "채삐";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
@@ -1267,19 +1268,21 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ae.chaebbi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ae.chaebbi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1295,6 +1298,7 @@
 				DEVELOPMENT_TEAM = 7B7X32G7J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "채삐";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
@@ -1302,19 +1306,21 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ae.chaebbi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ae.chaebbi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

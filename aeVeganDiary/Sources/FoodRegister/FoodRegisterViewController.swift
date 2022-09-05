@@ -18,7 +18,10 @@ class FoodRegisterViewController: BaseViewController {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var notFoodLabel: UILabel!
     @IBAction func changeFoodButtonAction(_ sender: Any) {
-        navigationController?.pushViewController(SearchViewController(), animated: true)
+        let vc = SearchViewController()
+        vc.rdate = self.rdate
+        vc.meal = self.meal ?? 0
+        navigationController?.pushViewController(vc, animated: true)
     }
     @IBOutlet weak var changeView: UIView!
     
@@ -158,6 +161,7 @@ class FoodRegisterViewController: BaseViewController {
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
         let input = RegisterInput(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
+        print(input)
         RegisterDataManager().registerMeal(input, foodImage, viewController: self)
     }
 

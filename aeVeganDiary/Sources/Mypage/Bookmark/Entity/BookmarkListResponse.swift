@@ -13,6 +13,7 @@ struct BookmarkListResponse: Decodable {
 }
 
 struct BookmarkListData: Decodable {
+    var bistroId: Int
     var category: String
     var name: String
     var roadAddr: String?

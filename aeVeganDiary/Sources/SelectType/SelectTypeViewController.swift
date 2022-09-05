@@ -42,6 +42,8 @@ class SelectTypeViewController: UIViewController {
         let rootView = self.presentingViewController
         self.dismiss(animated: false, completion: {
             let vc = SearchViewController()
+            vc.rdate = self.rdate
+            vc.meal = self.meal ?? 0
             let nav = UINavigationController(rootViewController: vc)
             nav.view.backgroundColor = .white
             nav.modalPresentationStyle = .fullScreen
@@ -54,6 +56,11 @@ class SelectTypeViewController: UIViewController {
         super.viewDidLoad()
 
         self.camera.delegate = self // picker delegate
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(rdate)
     }
 
 }
