@@ -11,6 +11,7 @@
 		8F086E8428BCA05A0083958B /* SearchBookmarkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8328BCA05A0083958B /* SearchBookmarkDataManager.swift */; };
 		8F086E8628BCAFE80083958B /* SearchBookmarkInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8528BCAFE80083958B /* SearchBookmarkInput.swift */; };
 		8F086E8828BCAFF60083958B /* SearchBookmarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8728BCAFF60083958B /* SearchBookmarkResponse.swift */; };
+		8F086E8A28BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */; };
 		8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */; };
 		8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */; };
 		8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */; };
@@ -145,6 +146,7 @@
 		8F086E8328BCA05A0083958B /* SearchBookmarkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkDataManager.swift; sourceTree = "<group>"; };
 		8F086E8528BCAFE80083958B /* SearchBookmarkInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkInput.swift; sourceTree = "<group>"; };
 		8F086E8728BCAFF60083958B /* SearchBookmarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkResponse.swift; sourceTree = "<group>"; };
+		8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkDeleteDataManager.swift; sourceTree = "<group>"; };
 		8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealDetailViewController.xib; sourceTree = "<group>"; };
 		8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInitViewController.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
 				8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */,
 				8F086E8328BCA05A0083958B /* SearchBookmarkDataManager.swift */,
+				8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -1104,6 +1107,7 @@
 				8F1A5F782870493600B64409 /* MyInfoInput.swift in Sources */,
 				CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */,
 				CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */,
+				8F086E8A28BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift in Sources */,
 				8FD47FE528A3A206002D2B82 /* LargeCategoryViewController.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
