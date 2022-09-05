@@ -14,6 +14,7 @@ class AnalyzeDataManager {
             .responseDecodable(of: AnalyzeResponse.self) { response in
                 switch response.result {
                 case .success(let response):
+                    print(response)
                     viewController.getData(response: response)
                 case .failure(let error):
                     print(error.localizedDescription)
