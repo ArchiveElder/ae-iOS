@@ -44,7 +44,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.roadAddr.text = listData?.data?[indexPath.row].roadAddr
         cell.lnmAddr.text = listData?.data?[indexPath.row].lnmAddr
         cell.telNo.text = listData?.data?[indexPath.row].telNo
-        cell.bookmarkButton.isHidden = true
+        //cell.bookmarkButton.isHidden = true
         return cell
     }
     
