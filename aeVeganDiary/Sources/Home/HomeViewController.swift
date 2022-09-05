@@ -29,6 +29,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
     @IBOutlet weak var eventTableView: UITableView!
+    @IBOutlet weak var calendarMessageLabel: UILabel!
+    @IBOutlet weak var calendarMessageImageView: UIImageView!
     
     @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var recommKcal: UILabel!
@@ -300,6 +302,16 @@ extension HomeViewController: CLLocationManagerDelegate {
             
             let ev = Event(title: i.title, location: lo?.components(separatedBy: "대한민국 ").last ?? "")
             self.eventList.append(ev)
+        }
+        
+        if eventList.isEmpty {
+            calendarMessageLabel.isHidden = false
+            calendarMessageImageView.isHidden = false
+            eventTableView.isHidden = true
+        } else {
+            calendarMessageLabel.isHidden = true
+            calendarMessageImageView.isHidden = true
+            eventTableView.isHidden = false
         }
         
         eventTableView.reloadData()

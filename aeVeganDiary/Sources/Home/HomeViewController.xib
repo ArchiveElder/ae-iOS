@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="arcProgressBar" destination="186-yb-PrK" id="O7K-fW-Btn"/>
                 <outlet property="calLabel" destination="PTS-5q-sK5" id="JhI-FX-s10"/>
+                <outlet property="calendarMessageImageView" destination="rPq-Qb-PUt" id="3cz-zu-WBC"/>
+                <outlet property="calendarMessageLabel" destination="kLW-2E-mC9" id="xnf-UY-Q8Y"/>
                 <outlet property="carbLabel" destination="1Ux-F6-2Gd" id="CIE-AN-Hwe"/>
                 <outlet property="carbProgressBar" destination="3bH-JH-whL" id="gcJ-Ps-YWU"/>
                 <outlet property="consumeKcal" destination="Wt5-P8-s9K" id="fy0-vN-l6x"/>
@@ -43,6 +45,20 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="캘린더 앱에서 일정과 장소를 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-2E-mC9">
+                                            <rect key="frame" x="79.666666666666671" y="185.66666666666669" width="200.66666666666663" height="14.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPq-Qb-PUt">
+                                            <rect key="frame" x="168" y="153.33333333333334" width="25.333333333333329" height="22.666666666666657"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="sXp-mM-N57"/>
+                                                <constraint firstAttribute="width" constant="24" id="vlX-oJ-reG"/>
+                                            </constraints>
+                                        </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="htl-ew-qJ1">
                                             <rect key="frame" x="15" y="85" width="330" height="180"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,9 +70,13 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="htl-ew-qJ1" secondAttribute="trailing" constant="15" id="1Cs-gm-m3B"/>
+                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="top" secondItem="rPq-Qb-PUt" secondAttribute="bottom" constant="10" id="CED-J6-EgX"/>
                                         <constraint firstAttribute="height" constant="280" id="IFt-l9-hdx"/>
+                                        <constraint firstItem="rPq-Qb-PUt" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" id="Id4-La-KwN"/>
                                         <constraint firstItem="htl-ew-qJ1" firstAttribute="leading" secondItem="ifb-Sb-h85" secondAttribute="leading" constant="15" id="Jfj-5T-Tm0"/>
                                         <constraint firstAttribute="bottom" secondItem="htl-ew-qJ1" secondAttribute="bottom" constant="15" id="RiZ-AA-KJb"/>
+                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" id="SoZ-qg-caV"/>
+                                        <constraint firstAttribute="bottom" secondItem="kLW-2E-mC9" secondAttribute="bottom" constant="80" id="po5-6a-O1m"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -387,6 +407,7 @@
     </objects>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
