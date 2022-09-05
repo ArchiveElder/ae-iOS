@@ -40,13 +40,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if (UserDefaults.standard.string(forKey: "UserJwt") == nil) {
             controller = LoginViewController()
-            let navController = UINavigationController(rootViewController: controller)
-            navController.view.backgroundColor = .white
-            win.rootViewController = navController
+            win.rootViewController = controller
             win.makeKeyAndVisible()
             window = win
-        }
-        else {
+        } else {
             controller = BaseTabBarController()
             win.rootViewController = controller
             win.makeKeyAndVisible()

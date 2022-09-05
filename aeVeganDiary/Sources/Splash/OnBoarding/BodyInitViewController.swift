@@ -10,9 +10,14 @@ import UIKit
 class BodyInitViewController: BaseViewController {
 
     @IBAction func doneButton(_ sender: Any) {
-        showIndicator()
-        let input = SignupInput(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-        SignupDataManager().signUp(input, viewController: self)
+        if (self.name != "") && (self.age != 0) && (self.gender != nil) && (heightTextField.text != "") && (weightTextField.text != "") {
+            showIndicator()
+            let input = SignupInput(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
+            SignupDataManager().signUp(input, viewController: self)
+        } else {
+            presentBottomAlert(message: "정보를 모두 입력해주세요")
+        }
+        
     }
     
     var name = ""

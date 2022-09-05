@@ -84,17 +84,18 @@ extension UIViewController {
     func presentBottomAlert(message: String, target: ConstraintRelatableTarget? = nil, offset: Double? = -12) {
         let alertSuperview = UIView()
         alertSuperview.backgroundColor = .black
-        alertSuperview.layer.cornerRadius = 4
+        alertSuperview.layer.cornerRadius = 20
         alertSuperview.isHidden = true
         
         let alertLabel = UILabel()
         //alertLabel.font = .SpoqaSans(.regular, size: 14)
+        alertLabel.font = .systemFont(ofSize: 14, weight: .medium)
         alertLabel.textColor = .white
         
         self.view.addSubview(alertSuperview)
         alertSuperview.snp.makeConstraints { make in
             //make.bottom.equalTo(target ?? self.view.safeAreaLayoutGuide).offset(-12)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-80)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-60)
             make.centerX.equalToSuperview()
         }
         
@@ -107,7 +108,7 @@ extension UIViewController {
         }
         
         alertLabel.text = message
-        alertSuperview.alpha = 1.0
+        alertSuperview.alpha = 0.4
         alertSuperview.isHidden = false
         UIView.animate(
             withDuration: 2.0,

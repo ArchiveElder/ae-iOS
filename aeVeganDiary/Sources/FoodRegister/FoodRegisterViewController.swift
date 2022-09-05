@@ -104,18 +104,20 @@ class FoodRegisterViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if search == 0 {
-            foodImageViewHeight.constant = 320
-            foodImageView.image = foodImage
-            changeView.isHidden = false
-            showIndicator()
-            FoodPredictDataManager().foodPredict(foodImage, viewController: self)
-        } else {
+        if search == 1 {
+            foodImage = UIImage()
             foodImageViewHeight.constant = 0
             foodImageView.isHidden = true
             changeView.isHidden = true
             showIndicator()
             FoodDetailDataManager().requestData(id, viewController: self)
+            
+        } else {
+            foodImageViewHeight.constant = 320
+            foodImageView.image = foodImage
+            changeView.isHidden = false
+            showIndicator()
+            FoodPredictDataManager().foodPredict(foodImage, viewController: self)
         }
         
         dateLabel.text = rdate

@@ -29,6 +29,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var weekCalendarView: FSCalendar!
     
     @IBOutlet weak var eventTableView: UITableView!
+    @IBOutlet weak var calendarMessageLabel: UILabel!
+    @IBOutlet weak var calendarMessageImageView: UIImageView!
     
     @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var recommKcal: UILabel!
@@ -99,6 +101,7 @@ class HomeViewController: BaseViewController {
         datePicker.sizeToFit()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd."
+        datePicker.maximumDate = Date()
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
         
         // ProgressView
@@ -161,9 +164,17 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        datePickTextField.text = dateFormatter.string(from: date)
-        datePicker.date = date
-        request(dateText: dateFormatter.string(from: date))
+        let nowDate = Date()
+        let time = date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
+        print(time)
+        if time <= 0 {
+            datePickTextField.text = dateFormatter.string(from: date)
+            datePicker.date = date
+            request(dateText: dateFormatter.string(from: date))
+        } else {
+            weekCalendarView.select(datePicker.date)
+            presentBottomAlert(message: "미래의 날짜는 선택할 수 없어요")
+        }
     }
     
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
@@ -211,7 +222,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-                cell.didntAteButton.addTarget(self, action: #selector(didntAte(sender:)), for: .touchUpInside)
                 cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
                 return cell
             }
@@ -227,10 +237,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc.rdate = datePickTextField.text ?? ""
         vc.meal = selected
         present(vc, animated: false)
-    }
-    
-    @objc func didntAte(sender: UIButton) {
-        
     }
     
     // collectionView 크기 설정
@@ -300,6 +306,16 @@ extension HomeViewController: CLLocationManagerDelegate {
             
             let ev = Event(title: i.title, location: lo?.components(separatedBy: "대한민국 ").last ?? "")
             self.eventList.append(ev)
+        }
+        
+        if eventList.isEmpty {
+            calendarMessageLabel.isHidden = false
+            calendarMessageImageView.isHidden = false
+            eventTableView.isHidden = true
+        } else {
+            calendarMessageLabel.isHidden = true
+            calendarMessageImageView.isHidden = true
+            eventTableView.isHidden = false
         }
         
         eventTableView.reloadData()
