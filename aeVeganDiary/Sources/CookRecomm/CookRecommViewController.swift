@@ -31,10 +31,15 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         
         if ingreArr.count == 0 {
             presentBottomAlert(message: "재료가 선택되지 않았습니다.")
+            recommScrollView.isHidden = true
+            recommPageControl.isHidden = true
+            recommTextLabel.isHidden = true
+            
         } else {
             //추천 음식 api 연결 된 상태
             addContentScrollView()
             setPageControl()
+            recommScrollView.isHidden = false
             recommPageControl.isHidden = false
             recommTextLabel.isHidden = false
         }
@@ -133,7 +138,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
                     hasString = hasString+"\n"
                 }
             }
-            
             
             
             var noString : String = ""
