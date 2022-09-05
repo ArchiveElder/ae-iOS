@@ -101,6 +101,7 @@ class HomeViewController: BaseViewController {
         datePicker.sizeToFit()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd."
+        datePicker.maximumDate = Date()
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
         
         // ProgressView
@@ -221,7 +222,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
-                cell.didntAteButton.addTarget(self, action: #selector(didntAte(sender:)), for: .touchUpInside)
                 cell.registerMealButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
                 return cell
             }
@@ -237,10 +237,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc.rdate = datePickTextField.text ?? ""
         vc.meal = selected
         present(vc, animated: false)
-    }
-    
-    @objc func didntAte(sender: UIButton) {
-        
     }
     
     // collectionView 크기 설정
