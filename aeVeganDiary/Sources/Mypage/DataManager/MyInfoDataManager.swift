@@ -15,6 +15,7 @@ class MyInfoDataManager{
                 response in
                 switch response.result{
                 case .success(let response):
+                    print(response)
                     viewController.getData(result: response)
                 case .failure(let error):
                     print(error.localizedDescription)

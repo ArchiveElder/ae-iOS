@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="arcProgressBar" destination="186-yb-PrK" id="O7K-fW-Btn"/>
                 <outlet property="calLabel" destination="PTS-5q-sK5" id="JhI-FX-s10"/>
+                <outlet property="calendarMessageImageView" destination="rPq-Qb-PUt" id="3cz-zu-WBC"/>
+                <outlet property="calendarMessageLabel" destination="kLW-2E-mC9" id="xnf-UY-Q8Y"/>
                 <outlet property="carbLabel" destination="1Ux-F6-2Gd" id="CIE-AN-Hwe"/>
                 <outlet property="carbProgressBar" destination="3bH-JH-whL" id="gcJ-Ps-YWU"/>
                 <outlet property="consumeKcal" destination="Wt5-P8-s9K" id="fy0-vN-l6x"/>
@@ -43,6 +45,20 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="캘린더 앱에서 일정과 장소를 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-2E-mC9">
+                                            <rect key="frame" x="79.666666666666671" y="185.66666666666669" width="200.66666666666663" height="14.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPq-Qb-PUt">
+                                            <rect key="frame" x="168" y="153.33333333333334" width="25.333333333333329" height="22.666666666666657"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="sXp-mM-N57"/>
+                                                <constraint firstAttribute="width" constant="24" id="vlX-oJ-reG"/>
+                                            </constraints>
+                                        </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="htl-ew-qJ1">
                                             <rect key="frame" x="15" y="85" width="330" height="180"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,9 +70,13 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="htl-ew-qJ1" secondAttribute="trailing" constant="15" id="1Cs-gm-m3B"/>
+                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="top" secondItem="rPq-Qb-PUt" secondAttribute="bottom" constant="10" id="CED-J6-EgX"/>
                                         <constraint firstAttribute="height" constant="280" id="IFt-l9-hdx"/>
+                                        <constraint firstItem="rPq-Qb-PUt" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" id="Id4-La-KwN"/>
                                         <constraint firstItem="htl-ew-qJ1" firstAttribute="leading" secondItem="ifb-Sb-h85" secondAttribute="leading" constant="15" id="Jfj-5T-Tm0"/>
                                         <constraint firstAttribute="bottom" secondItem="htl-ew-qJ1" secondAttribute="bottom" constant="15" id="RiZ-AA-KJb"/>
+                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" id="SoZ-qg-caV"/>
+                                        <constraint firstAttribute="bottom" secondItem="kLW-2E-mC9" secondAttribute="bottom" constant="80" id="po5-6a-O1m"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -172,8 +192,8 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTS-5q-sK5">
-                                            <rect key="frame" x="51" y="85" width="73" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="49.999999999999993" y="85" width="75.333333333333314" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -184,26 +204,26 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="권장:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-rw-Cn0">
-                                            <rect key="frame" x="15.000000000000002" y="143" width="20.666666666666671" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <rect key="frame" x="14.999999999999998" y="140.33333333333337" width="24.333333333333329" height="13.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="섭취:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pol-pt-M80">
-                                            <rect key="frame" x="15.000000000000002" y="165" width="20.666666666666671" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <rect key="frame" x="14.999999999999998" y="163.66666666666663" width="24.333333333333329" height="13.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt5-P8-s9K">
-                                            <rect key="frame" x="40.666666666666664" y="164.33333333333337" width="28.666666666666664" height="13.333333333333343"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <rect key="frame" x="44.333333333333336" y="163.66666666666663" width="31.000000000000007" height="13.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t8-pc-W5r">
-                                            <rect key="frame" x="40.666666666666664" y="142.33333333333337" width="28.666666666666664" height="13.333333333333343"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <rect key="frame" x="44.333333333333336" y="140.33333333333337" width="31.000000000000007" height="13.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -237,62 +257,62 @@
                                     <rect key="frame" x="200" y="673" width="175" height="192"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 영양소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="big-fB-MpH">
-                                            <rect key="frame" x="11.999999999999996" y="20" width="59.666666666666657" height="15.666666666666664"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                            <rect key="frame" x="12" y="20" width="68.666666666666671" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄수화물" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx3-oX-IH5">
-                                            <rect key="frame" x="11.999999999999996" y="50.666666666666629" width="41.666666666666657" height="14.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <rect key="frame" x="12" y="53" width="45" height="15.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3bH-JH-whL">
-                                            <rect key="frame" x="12" y="73" width="151" height="8"/>
+                                            <rect key="frame" x="12" y="76.666666666666629" width="151" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="VQs-95-QG7"/>
                                             </constraints>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단백질" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhy-mH-iNe">
-                                            <rect key="frame" x="11.999999999999998" y="96" width="31.333333333333329" height="14.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <rect key="frame" x="12" y="99.666666666666629" width="34" height="15.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-4c-5Qf">
-                                            <rect key="frame" x="12" y="141.33333333333337" width="21" height="14.333333333333343"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <rect key="frame" x="12.000000000000002" y="146.33333333333337" width="22.666666666666671" height="15.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-XX-esC">
-                                            <rect key="frame" x="12" y="118.33333333333337" width="151" height="8"/>
+                                            <rect key="frame" x="12" y="123.33333333333337" width="151" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="VgD-KE-OYQ"/>
                                             </constraints>
                                         </progressView>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C68-6N-FJ8">
-                                            <rect key="frame" x="12" y="163.66666666666663" width="151" height="8"/>
+                                            <rect key="frame" x="12" y="170" width="151" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="6Jt-gw-IIF"/>
                                             </constraints>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ux-F6-2Gd">
-                                            <rect key="frame" x="130" y="50.333333333333371" width="33" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                            <rect key="frame" x="128.66666666666669" y="53.333333333333371" width="34.333333333333343" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waG-ZU-Xn9">
-                                            <rect key="frame" x="130" y="95.666666666666629" width="33" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                            <rect key="frame" x="128.66666666666669" y="100" width="34.333333333333343" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zut-Xv-Ofb">
-                                            <rect key="frame" x="130" y="141" width="33" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                            <rect key="frame" x="128.66666666666669" y="146.66666666666663" width="34.333333333333343" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -387,6 +407,7 @@
     </objects>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

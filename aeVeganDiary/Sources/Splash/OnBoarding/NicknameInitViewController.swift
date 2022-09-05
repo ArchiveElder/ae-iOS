@@ -11,11 +11,16 @@ class NicknameInitViewController: BaseViewController {
 
     @IBOutlet weak var nextButton: UIButton!
     @IBAction func nextButton(_ sender: Any) {
-        let vc = BodyInitViewController()
-        vc.name = nameTextField.text!
-        vc.age = Int(ageTextField.text!) ?? 0
-        vc.gender = indexOfOneAndOnly!
-        navigationController?.pushViewController(vc, animated: true)
+        if (nameTextField.text != "") && (ageTextField.text != "") && (indexOfOneAndOnly != nil) {
+            let vc = BodyInitViewController()
+            vc.name = nameTextField.text!
+            vc.age = Int(ageTextField.text!) ?? 0
+            vc.gender = indexOfOneAndOnly!
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            presentBottomAlert(message: "정보를 모두 입력해주세요")
+        }
+        
     }
     
     @IBOutlet weak var nameTextField: UITextField!

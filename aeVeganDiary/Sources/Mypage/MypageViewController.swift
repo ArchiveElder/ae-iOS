@@ -10,7 +10,7 @@ import UIKit
 class MypageViewController: BaseViewController {
     
     @IBAction func logoutButton(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "UserJwt")
+        UserDefaults.standard.setValue("", forKey: "UserJwt")
         let vc = LoginViewController()
         let navController = UINavigationController(rootViewController: vc)
         //navController.view.backgroundColor = .white
