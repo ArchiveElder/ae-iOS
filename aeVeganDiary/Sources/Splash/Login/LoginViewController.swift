@@ -72,6 +72,12 @@ extension LoginViewController {
         LoginDataManager().login(input, viewController: self)
     }
     
+    func requestAppleLogin(accessToken: String) {
+        self.showIndicator()
+        let input = LoginInput(accessToken: accessToken)
+        AppleLoginDataManager().appleLogin(input, viewController: self)
+    }
+    
     func login(result: LoginResponse) {
         self.dismissIndicator()
         UserDefaults.standard.setValue(result.userId, forKey: "UserId")
@@ -121,6 +127,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                let identityToken = appleIDCredential.identityToken,
                let tokenString = String(data: identityToken, encoding: .utf8) {
                 print("tokenString: \(tokenString)")
+                requestAppleLogin(accessToken: tokenString)
             }
             
         default:

@@ -70,6 +70,7 @@
 		CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F686286DE0BC00F8A8C0 /* LoginInput.swift */; };
 		CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */; };
 		CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */; };
+		CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */; };
 		CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F0677286F22ED0032D590 /* SignupInput.swift */; };
 		CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F0679286F23020032D590 /* SignupResponse.swift */; };
 		CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F067B286F236F0032D590 /* SignupDataManager.swift */; };
@@ -205,6 +206,7 @@
 		CD00F686286DE0BC00F8A8C0 /* LoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInput.swift; sourceTree = "<group>"; };
 		CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
+		CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataManager.swift; sourceTree = "<group>"; };
 		CD0F0677286F22ED0032D590 /* SignupInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInput.swift; sourceTree = "<group>"; };
 		CD0F0679286F23020032D590 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		CD0F067B286F236F0032D590 /* SignupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDataManager.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */,
+				CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */,
 			);
 			path = LoginDataManager;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
+				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
