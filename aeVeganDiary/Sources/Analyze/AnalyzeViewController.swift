@@ -19,6 +19,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var proProgressView: UIProgressView!
     @IBOutlet weak var fatProgressView: UIProgressView!
     
+    @IBOutlet weak var statusView: UIView!
     var dates: [String]!
     var values: [Double]!
     var analysis = [Analysis]()
@@ -200,6 +201,7 @@ extension AnalyzeViewController {
         analysis = response.analysisDtos ?? [Analysis]()
         
         if response.status == 1 {
+            statusView.isHidden = true
             // 그래프에 들어갈 데이터들
             for i in analysis.reversed() {
                 dates.append(i.date ?? "")
@@ -209,6 +211,8 @@ extension AnalyzeViewController {
             setLineChart(dataPoints: dates, values: values)
             
             drawStackedProgress(percentages: [0.2,0.3,0.5], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
+        } else {
+            statusView.isHidden = false
         }
         
         setProgressResult(sender: carbProgressView, data: Float(response.totalCarb) / (Float(response.rcarb) ?? 1))
