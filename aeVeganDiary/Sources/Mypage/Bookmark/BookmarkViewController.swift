@@ -47,9 +47,9 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.roadAddr.text = listData?.data?[indexPath.row].roadAddr
         cell.lnmAddr.text = listData?.data?[indexPath.row].lnmAddr
         cell.telNo.text = listData?.data?[indexPath.row].telNo
-        cell.searchBookmarkButton.isSelected = true
-        cell.searchBookmarkButton.tag = indexPath.row
-        cell.searchBookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
+        cell.bookmarkButton.isSelected = true
+        cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
         return cell
     }
     
