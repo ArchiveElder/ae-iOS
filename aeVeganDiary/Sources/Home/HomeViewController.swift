@@ -219,6 +219,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.records = records[indexPath.row]
                 cell.addButton.addTarget(self, action: #selector(toRegister(sender:)), for: .touchUpInside)
                 cell.productVC = self
+                cell.mealTableView.reloadData()
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterCollectionViewCell", for: indexPath) as! RegisterCollectionViewCell
@@ -365,6 +366,7 @@ extension HomeViewController {
         self.fatLabel.text = "\(result.totalFat) / \(result.recommFat)"
         
         self.records.sort(by: { $0.meal < $1.meal })
+        
         self.tabCollectionView.reloadData()
         self.mealCollectionView.reloadData()
         let firstIndex = records.firstIndex(where: { $0.mcal == 0 }) ?? 0
