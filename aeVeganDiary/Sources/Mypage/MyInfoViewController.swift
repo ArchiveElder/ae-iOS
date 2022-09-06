@@ -67,7 +67,7 @@ class MyInfoViewController: BaseViewController {
         setNavigationTitle(title: "내 정보 수정")
         
         view.backgroundColor = .white
-        
+        dismissKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {

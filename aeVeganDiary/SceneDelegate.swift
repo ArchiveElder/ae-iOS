@@ -38,13 +38,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         win.makeKeyAndVisible()
         window = win*/
         
-        if (UserDefaults.standard.string(forKey: "UserJwt") == nil) {
-            controller = LoginViewController()
+        if (UserDefaults.standard.string(forKey: "UserJwt") != nil) && (UserDefaults.standard.bool(forKey: "SignUp") == false) {
+            controller = BaseTabBarController()
             win.rootViewController = controller
             win.makeKeyAndVisible()
             window = win
         } else {
-            controller = BaseTabBarController()
+            controller = LoginViewController()
             win.rootViewController = controller
             win.makeKeyAndVisible()
             window = win

@@ -97,8 +97,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="볶음밥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDQ-zj-68G">
-                                    <rect key="frame" x="20.000000000000004" y="410.66666666666669" width="44.333333333333343" height="18"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDQ-zj-68G">
+                                    <rect key="frame" x="20" y="410.66666666666669" width="0.0" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="pDX-iH-dFr"/>
                                     </constraints>

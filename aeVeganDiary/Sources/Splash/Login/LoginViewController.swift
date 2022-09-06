@@ -57,6 +57,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        navigationController?.navigationBar.isHidden = true
     }
 
 
@@ -77,7 +78,11 @@ extension LoginViewController {
     
     func login(result: LoginResponse) {
         self.dismissIndicator()
+        print(result)
         if result.signup {
+            UserDefaults.standard.setValue(result.userId, forKey: "UserId")
+            UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             let vc = NicknameInitViewController()
             let navController = UINavigationController(rootViewController: vc)
             navController.view.backgroundColor = .white
@@ -86,6 +91,7 @@ extension LoginViewController {
         } else {
             UserDefaults.standard.setValue(result.userId, forKey: "UserId")
             UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             self.changeRootViewController(BaseTabBarController())
         }
         
