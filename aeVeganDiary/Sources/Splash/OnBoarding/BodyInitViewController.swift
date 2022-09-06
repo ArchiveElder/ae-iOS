@@ -10,7 +10,7 @@ import UIKit
 class BodyInitViewController: BaseViewController {
 
     @IBAction func doneButton(_ sender: Any) {
-        if (self.name != "") && (self.age != 0) && (self.gender != nil) && (heightTextField.text != "") && (weightTextField.text != "") {
+        if (heightTextField.text != "") && (weightTextField.text != "") && indexOfOneAndOnly != nil {
             showIndicator()
             let input = SignupInput(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
             SignupDataManager().signUp(input, viewController: self)
