@@ -314,9 +314,13 @@ class RecommInnerView : UIView, UIWebViewDelegate {
         let myUrl = NSURL(string: innerUrl)
         vc?.safari(myUrl: myUrl!)
     }
-
+/*
+    @IBAction func recipeWebButton(_ sender: Any) {
+        let myUrl = NSURL(string: innerUrl)
+        vc?.safari(myUrl: myUrl!)
+    }
     
-
+*/
     override init(frame:CGRect){
         super.init(frame: frame)
     }
