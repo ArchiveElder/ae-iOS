@@ -79,12 +79,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bookmarkButton" destination="JZu-H8-zF0" id="cfg-1n-d1Z"/>
                 <outlet property="category" destination="460-fM-f4g" id="tTN-SO-332"/>
                 <outlet property="lnmAddr" destination="tpE-50-H0m" id="OXv-FE-Rr6"/>
                 <outlet property="name" destination="Xyh-IA-m8e" id="s3k-7z-Yqh"/>
                 <outlet property="roadAddr" destination="4Xg-OE-mVO" id="WNs-zB-CjU"/>
-                <outlet property="searchBookmarkButton" destination="JZu-H8-zF0" id="g9A-FU-oND"/>
+                <outlet property="searchBookmarkButton" destination="JZu-H8-zF0" id="urg-HM-tIG"/>
                 <outlet property="telNo" destination="TKc-dB-0gV" id="HRa-lB-RcJ"/>
             </connections>
             <point key="canvasLocation" x="208.69565217391306" y="114.50892857142857"/>

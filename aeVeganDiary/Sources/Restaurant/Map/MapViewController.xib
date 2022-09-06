@@ -30,28 +30,22 @@
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slW-7F-dhP">
-                    <rect key="frame" x="16" y="709" width="382" height="125"/>
+                    <rect key="frame" x="16" y="701.5" width="382" height="132.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agi-fP-Lth">
-                            <rect key="frame" x="20" y="22" width="43.5" height="21"/>
+                            <rect key="frame" x="20" y="18" width="43.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-Zv-i1C">
-                            <rect key="frame" x="79.5" y="25.5" width="33" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TQ-UU-iAv">
-                            <rect key="frame" x="20" y="59" width="33" height="16"/>
+                            <rect key="frame" x="20" y="75" width="33" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 지번 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWe-M1-XYu">
-                            <rect key="frame" x="20" y="85" width="25.5" height="13.5"/>
+                            <rect key="frame" x="20" y="101" width="25.5" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -68,7 +62,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcX-vN-XTd">
-                            <rect key="frame" x="338" y="20.5" width="24" height="24"/>
+                            <rect key="frame" x="338" y="16.5" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="Q1Z-g5-E31"/>
                                 <constraint firstAttribute="height" constant="24" id="hay-hF-Z73"/>
@@ -81,7 +75,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-ea-HQE">
-                            <rect key="frame" x="51.5" y="84" width="33" height="16"/>
+                            <rect key="frame" x="51.5" y="100" width="33" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-Zv-i1C">
+                            <rect key="frame" x="20" y="47" width="33" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -90,19 +90,18 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="YcX-vN-XTd" firstAttribute="centerY" secondItem="Agi-fP-Lth" secondAttribute="centerY" id="1S5-MU-PbH"/>
-                        <constraint firstItem="iPL-Zv-i1C" firstAttribute="firstBaseline" secondItem="Agi-fP-Lth" secondAttribute="firstBaseline" id="2AA-UG-SvR"/>
+                        <constraint firstItem="7TQ-UU-iAv" firstAttribute="top" secondItem="iPL-Zv-i1C" secondAttribute="bottom" constant="12" id="1gX-aK-9aT"/>
                         <constraint firstItem="Agi-fP-Lth" firstAttribute="leading" secondItem="slW-7F-dhP" secondAttribute="leading" constant="20" id="5uG-Sc-CWQ"/>
-                        <constraint firstItem="iPL-Zv-i1C" firstAttribute="leading" secondItem="Agi-fP-Lth" secondAttribute="trailing" constant="16" id="970-f1-8S5"/>
                         <constraint firstItem="fWe-M1-XYu" firstAttribute="top" secondItem="7TQ-UU-iAv" secondAttribute="bottom" constant="10" id="9qy-nL-K2B"/>
-                        <constraint firstItem="7TQ-UU-iAv" firstAttribute="top" secondItem="Agi-fP-Lth" secondAttribute="bottom" constant="16" id="V6B-SJ-Tm7"/>
+                        <constraint firstAttribute="bottom" secondItem="fWe-M1-XYu" secondAttribute="bottom" constant="18" id="KPA-Mr-eql"/>
                         <constraint firstItem="sAt-ea-HQE" firstAttribute="centerY" secondItem="fWe-M1-XYu" secondAttribute="centerY" id="ZCQ-aP-L4k"/>
                         <constraint firstItem="sAt-ea-HQE" firstAttribute="leading" secondItem="fWe-M1-XYu" secondAttribute="trailing" constant="6" id="ceo-SZ-2Lv"/>
                         <constraint firstItem="fWe-M1-XYu" firstAttribute="leading" secondItem="7TQ-UU-iAv" secondAttribute="leading" id="esh-qt-ldQ"/>
                         <constraint firstAttribute="trailing" secondItem="YcX-vN-XTd" secondAttribute="trailing" constant="20" id="fAw-PW-0aS"/>
-                        <constraint firstItem="YcX-vN-XTd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iPL-Zv-i1C" secondAttribute="trailing" constant="10" id="fBT-10-dFf"/>
                         <constraint firstItem="7TQ-UU-iAv" firstAttribute="leading" secondItem="slW-7F-dhP" secondAttribute="leading" constant="20" id="i0N-EO-iOF"/>
-                        <constraint firstItem="Agi-fP-Lth" firstAttribute="top" secondItem="slW-7F-dhP" secondAttribute="top" constant="22" id="lsx-2m-4nk"/>
-                        <constraint firstAttribute="height" constant="125" id="zC0-oX-La8"/>
+                        <constraint firstItem="Agi-fP-Lth" firstAttribute="top" secondItem="slW-7F-dhP" secondAttribute="top" constant="18" id="lsx-2m-4nk"/>
+                        <constraint firstItem="iPL-Zv-i1C" firstAttribute="top" secondItem="Agi-fP-Lth" secondAttribute="bottom" constant="8" id="o3h-Zd-vba"/>
+                        <constraint firstItem="iPL-Zv-i1C" firstAttribute="leading" secondItem="Agi-fP-Lth" secondAttribute="leading" id="tmm-wL-gwx"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
