@@ -30,31 +30,31 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rj-L9-GvR">
-                    <rect key="frame" x="22" y="76" width="73.5" height="19.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <rect key="frame" x="22" y="76" width="82.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천된 음식" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOS-sp-NE4">
-                    <rect key="frame" x="22" y="325.5" width="73.5" height="19.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <rect key="frame" x="22" y="327.5" width="82.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caV-Gu-n9w">
-                    <rect key="frame" x="37" y="105.5" width="340" height="190"/>
+                    <rect key="frame" x="37" y="107.5" width="340" height="190"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erQ-kw-TF8">
-                            <rect key="frame" x="148.5" y="152" width="43" height="28"/>
-                            <color key="backgroundColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <rect key="frame" x="145" y="152" width="50" height="28"/>
+                            <color key="backgroundColor" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="0tL-vW-uBw"/>
-                                <constraint firstAttribute="width" constant="43" id="NFJ-c0-tU0"/>
+                                <constraint firstAttribute="width" constant="50" id="NFJ-c0-tU0"/>
                             </constraints>
                             <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="추천">
-                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
                             <userDefinedRuntimeAttributes>

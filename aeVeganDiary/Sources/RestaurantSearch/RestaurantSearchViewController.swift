@@ -50,23 +50,30 @@ class RestaurantSearchViewController: UIViewController {
 
 extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDelegate, RestaurantSearchTableViewCellDelegate {
     
+    func bookmark() {
+        dismissIndicator()
+    }
+    
+    func bookmarkDelete() {
+        dismissIndicator()
+    }
+    
     func bookmarkButtonAction(cell: RestaurantSearchTableViewCell) {
         var indexPath = tableView.indexPath(for: cell)?[1]
         let inputBistroId = SearchBookmarkInput(bistroId: bistroIdArr[indexPath!])
         
-        
         //안눌렸으면
-        if(cell.bookmarkButton.currentImage == UIImage(named: "starunselected")){
-            print(inputBistroId)
+        if(cell.searchBookmarkButton.isSelected == false){
             SearchBookmarkDataManager().postBookmark(inputBistroId, viewController: self)
-            cell.bookmarkButton.isSelected = true
+            cell.searchBookmarkButton.isSelected = true
         }
         //눌렸으면
+        else if(cell.searchBookmarkButton.isSelected == true){
+            SearchBookmarkDeleteDataManager().deleteBookmark(inputBistroId, viewController: self)
+            //BookmarkDeleteDataManager().deleteBookmark(BookmarkInput(bistroId: bistroIdArr[indexPath!]), viewController: RestaurantSearchViewController)
+            cell.searchBookmarkButton.isSelected = false
+        }
     
-    }
-    
-    func bookmark() {
-        dismissIndicator()
     }
     
     
@@ -79,20 +86,18 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         let vc = RestaurantSearchViewController()
         let cell : RestaurantSearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
         
+        
         cell.name?.text = nameArr[indexPath.row]
         cell.category?.text = categoryArr[indexPath.row]
         cell.roadAddr?.text = roadAddrArr[indexPath.row]
         cell.lnmAddr?.text = lnmAddrArr[indexPath.row]
         cell.telNo?.text = telNoArr[indexPath.row]
-        
         //즐겨찾기 조회
         if(isBookmarkArr[indexPath.row] == 1) {
-            cell.bookmarkButton.setImage(UIImage(named: "starselected"), for: .normal)
+            cell.searchBookmarkButton.isSelected=true
         } else {
-            cell.bookmarkButton.setImage(UIImage(named: "starunselected"), for: .normal)
+            cell.searchBookmarkButton.isSelected=false
         }
-        
-        
         cell.delegate = self
         return cell
     }
