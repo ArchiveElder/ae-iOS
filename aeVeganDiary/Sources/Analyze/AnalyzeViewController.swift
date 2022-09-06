@@ -18,12 +18,15 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var carbProgressView: UIProgressView!
     @IBOutlet weak var proProgressView: UIProgressView!
     @IBOutlet weak var fatProgressView: UIProgressView!
+    @IBOutlet weak var carbLabel: UILabel!
+    @IBOutlet weak var proLabel: UILabel!
+    @IBOutlet weak var fatLabel: UILabel!
     
     @IBOutlet weak var statusView: UIView!
     var dates: [String]!
     var values: [Double]!
     var analysis = [Analysis]()
-    var rcal = 0
+    var rcal:Double? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,19 +124,21 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         ll.labelPosition = .rightTop
         calChartView.leftAxis.addLimitLine(ll)
         
-        let li = ChartLimitLine(limit: 2000, label: "권장 2000kcal")
+        let li = ChartLimitLine(limit: Double(rcal ?? 0), label: "권장 \(rcal ?? 0)kcal")
         li.lineWidth = 1
         li.labelPosition = .leftTop
         li.valueFont = UIFont.systemFont(ofSize: 11)
         li.lineColor = .darkGreen
         calChartView.leftAxis.addLimitLine(li)
+        
+        message(rcal: rcal ?? 0, avg: avg)
     }
     
-    func message(rcal: Int, avg: Int) {
-        if rcal - 100 > avg {
-            calMessageLabel.text = "권장 칼로리보다 적게 섭취하셨어요"
-        } else if rcal + 100 < avg {
-            calMessageLabel.text = "권장 칼로리보다 많이 섭취하셨어요"
+    func message(rcal: Double, avg: Double) {
+        if rcal - 300 > avg {
+            calMessageLabel.text = "권장 칼로리(\(rcal)kcal)보다 적게 섭취하셨어요"
+        } else if rcal + 300 < avg {
+            calMessageLabel.text = "권장 칼로리(\(rcal)kcal)보다 많이 섭취하셨어요"
         } else {
             calMessageLabel.text = "적절하게 섭취하고 있어요"
         }
@@ -197,7 +202,11 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
 extension AnalyzeViewController {
     func getData(response: AnalyzeResponse) {
         dismissIndicator()
+        self.rcal = Double(response.rcal)
         self.todayLabel.text = response.todayDate
+        self.carbLabel.text = "\(response.totalCarb)/\(response.rcarb)"
+        self.proLabel.text = "\(response.totalPro)/\(response.rpro)"
+        self.fatLabel.text = "\(response.totalFat)/\(response.rfat)"
         analysis = response.analysisDtos ?? [Analysis]()
         
         if response.status == 1 {
@@ -219,6 +228,5 @@ extension AnalyzeViewController {
         setProgressResult(sender: proProgressView, data: Float(response.totalPro) / (Float(response.rpro) ?? 1))
         setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / (Float(response.rfat) ?? 1))
         
-        self.rcal = Int(response.rcal) ?? 0
     }
 }
