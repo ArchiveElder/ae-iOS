@@ -42,7 +42,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         super.viewDidLoad()
         setBackButton()
         
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 37.5034158, longitude: 127.0650719, zoom: 11)
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 37.5034158, longitude: 127.0650719, zoom: 13)
         mapView.frame = .zero
         mapView.camera = camera
         mapView.delegate = self
@@ -100,7 +100,7 @@ extension MapViewController {
             let marker = GMSMarker(position: mapCenter)
             marker.icon = UIImage(named: "currentpin")
             marker.map = mapView
-            mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 13)
+            mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 15)
         } else {
             print("coordinate error")
         }
