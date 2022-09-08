@@ -18,6 +18,7 @@ target 'aeVeganDiary' do
   pod 'KakaoSDKUser'  # 카카오 로그인, 사용자 관리
   pod 'GoogleMaps', '6.1.0'
   pod 'Google-Maps-iOS-Utils', '3.4.0'
+  pod 'KeychainSwift', '~> 20.0'
 
 end
 
