@@ -219,7 +219,7 @@ extension AnalyzeViewController {
             
             setLineChart(dataPoints: dates, values: values)
             
-            drawStackedProgress(percentages: [0.2,0.3,0.5], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
+            drawStackedProgress(percentages: [Float(response.ratioCarb) / 100, Float(response.ratioPro) / 100, Float(response.ratioFat) / 100], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
         } else {
             statusView.isHidden = false
         }

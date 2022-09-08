@@ -62,6 +62,8 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //var HEADERS: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        //print(Constant.HEADERS)
 
         setNavigationTitle(title: "기록")
         

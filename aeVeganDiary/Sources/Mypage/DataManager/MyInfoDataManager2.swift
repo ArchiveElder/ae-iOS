@@ -9,7 +9,8 @@ import Alamofire
 
 class MyInfoDataManager2{
     func updateMyInfo(_ parameters: MyInfoInput, viewController: MyInfoViewController){
-        AF.request("\(Constant.BASE_URL)/api/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseData(emptyResponseCodes: [200], completionHandler: { response in
                 switch response.result {

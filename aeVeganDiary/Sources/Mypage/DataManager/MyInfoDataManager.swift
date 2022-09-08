@@ -9,7 +9,8 @@ import Alamofire
 
 class MyInfoDataManager{
     func getMyInfoData(viewController: MypageViewController){
-        AF.request("\(Constant.BASE_URL)/api/userinfo", method: .get, encoding: JSONEncoding.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/userinfo", method: .get, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseDecodable(of: MyInfoResponse.self) {
                 response in

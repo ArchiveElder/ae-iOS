@@ -9,7 +9,8 @@ import Alamofire
 
 class RegionCategoryDataManager {
     func postRegionCategory(_ parameters: RegionInput, viewController: LargeCategoryViewController) {
-        AF.request("\(Constant.BASE_URL)/api/bistromiddle", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/bistromiddle", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: RegionResponse.self) { response in
                 switch response.result {
