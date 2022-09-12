@@ -9,7 +9,8 @@ import Alamofire
 
 class BookmarkDeleteDataManager {
     func deleteBookmark(_ parameters: BookmarkInput, viewController: MapViewController) {
-        AF.request("\(Constant.BASE_URL)/api/del/bookmark", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/del/bookmark", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: BookmarkResponse.self) { response in
                 switch response.result {

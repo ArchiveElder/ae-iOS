@@ -21,7 +21,7 @@ class LoginViewController: BaseViewController {
                     print("카카오 로그인 성공")
                     
                     _ = oauthToken
-        
+                    print(oauthToken?.accessToken)
                     self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
                 }
             }
@@ -35,7 +35,7 @@ class LoginViewController: BaseViewController {
 
                     //do something
                     _ = oauthToken
-                    
+                    print(oauthToken?.accessToken)
                     self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
                 }
             }
@@ -81,7 +81,8 @@ extension LoginViewController {
         print(result)
         if result.signup {
             UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            //UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            UserManager.shared.jwt = result.token
             UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             let vc = NicknameInitViewController()
             let navController = UINavigationController(rootViewController: vc)
@@ -90,7 +91,8 @@ extension LoginViewController {
             self.changeRootViewController(navController)
         } else {
             UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            //UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            UserManager.shared.jwt = result.token
             UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             self.changeRootViewController(BaseTabBarController())
         }

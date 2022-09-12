@@ -9,7 +9,8 @@ import Alamofire
 
 class MealDetailDataManager {
     func requestData(_ parameters: MealDetailInput, viewController: MealDetailViewController) {
-        AF.request("\(Constant.BASE_URL)/api/detailrecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/detailrecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: MealDetailResponse.self) { response in
                 switch response.result {

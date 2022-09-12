@@ -9,7 +9,8 @@ import Alamofire
 
 class BookmarkListDataManager {
     func getBookmarkList(viewController: BookmarkViewController) {
-        AF.request("\(Constant.BASE_URL)/api/bookmarklist", method: .get, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/bookmarklist", method: .get, headers: headers)
             .validate()
             .responseDecodable(of: BookmarkListResponse.self) { response in
                 switch response.result {

@@ -100,6 +100,7 @@
 		CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */; };
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
+		CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2937C28CA2ABA00A48467 /* UserManager.swift */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61202284A50120041F5C7 /* RegisterInput.swift */; };
@@ -238,6 +239,7 @@
 		CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		CDA2937C28CA2ABA00A48467 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61202284A50120041F5C7 /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE47F4E28426B86005D8BB3 /* Constant.swift */,
+				CDA2937C28CA2ABA00A48467 /* UserManager.swift */,
 				CDE47F5328426BC1005D8BB3 /* Extensions */,
 				CDE47F5028426B9C005D8BB3 /* Commonclass */,
 				CDE47F5828426F8C005D8BB3 /* Base */,
@@ -1032,6 +1035,7 @@
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
+				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
@@ -1265,11 +1269,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "채삐";
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 허용해주세요";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "일정 장소 기반 음식점 추천 서비스를 제공하기 위해 일정 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단 기록에 사진을 첨부하기 위해 카메라 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단 기록에 사진을 첨부하기 위해 앨범 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1303,11 +1308,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeVeganDiary/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "채삐";
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "캘린더 권한 허용해주세요";
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 권한 허용해주세요";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 허용해주세요";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "일정 장소 기반 음식점 추천 서비스를 제공하기 위해 일정 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단 기록에 사진을 첨부하기 위해 카메라 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "일정의 장소 위치를 이용하여 음식점 추천 서비스를 제공하기 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단 기록에 사진을 첨부하기 위해 앨범 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

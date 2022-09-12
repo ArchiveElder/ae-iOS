@@ -9,7 +9,8 @@ import Alamofire
 
 class SignupDataManager {
     func signUp(_ parameters: SignupInput, viewController: BodyInitViewController) {
-        AF.request("\(Constant.BASE_URL)/api/signup", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/signup", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseData(emptyResponseCodes: [200], completionHandler: { response in
                 switch response.result {

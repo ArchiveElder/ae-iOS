@@ -9,6 +9,7 @@ import Alamofire
 
 class RegisterDataManager {
     func registerMeal(_ parameters: RegisterInput, _ foodImage: UIImage, viewController: FoodRegisterViewController) {
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         let param: [String : Any] = [
                 "image": foodImage,
                 "text" : parameters.text,
@@ -29,7 +30,7 @@ class RegisterDataManager {
             if let image = foodImage.jpegData(compressionQuality: 0.5) {
                 multipartFormData.append(image, withName: "image", fileName: "\(image).jpeg", mimeType: "image/jpeg")
             }
-        }, to: "\(Constant.BASE_URL)/api/record", usingThreshold: UInt64.init(), method: .post, headers: Constant.HEADERS)
+        }, to: "\(Constant.BASE_URL)/api/record", usingThreshold: UInt64.init(), method: .post, headers: headers)
         .validate()
         .responseDecodable(of: RegisterResponse.self) { response in
             switch response.result {

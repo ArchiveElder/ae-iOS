@@ -10,7 +10,8 @@ import Alamofire
 class RestaurantSearchDataManager {
     
     func postRestaurantSearch(_ parameters: RestaurantSearchInput, viewController: LargeCategoryViewController) {
-        AF.request("\(Constant.BASE_URL)/api/categories", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: Constant.HEADERS)
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        AF.request("\(Constant.BASE_URL)/api/categories", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: RestaurantSearchResponse.self) { response in
                 switch response.result {

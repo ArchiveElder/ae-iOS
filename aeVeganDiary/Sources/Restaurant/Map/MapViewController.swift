@@ -53,7 +53,6 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(Constant.HEADERS)
         showIndicator()
         Geocoding().getCoordinates(location, viewController: self)
     }
