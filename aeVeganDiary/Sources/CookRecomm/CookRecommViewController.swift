@@ -28,7 +28,6 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
     //음식 찾기 API 이벤트
     @IBAction func recommResult(_ sender: Any) {
-        
         if ingreArr.count == 0 {
             presentBottomAlert(message: "재료가 선택되지 않았습니다.")
             recommScrollView.isHidden = true
@@ -56,7 +55,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     
     var shownFoods = [String]()
     var disposeBag = DisposeBag()
-    var allFoodsDic : Dictionary = [Int:String]()
+    //var allFoodsDic : Dictionary = [Int:String]()
 
 
     override func viewDidLoad() {
@@ -96,7 +95,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        IngreDataManager().getIngreData(viewController: self)
+        //IngreDataManager().getIngreData(viewController: self)
     }
     
     
@@ -274,7 +273,7 @@ extension CookRecommViewController : UITableViewDataSource{
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            //CookRecommDataManager().requestData(ingreInput, viewController: self)
         }
     }
     
@@ -286,7 +285,7 @@ extension CookRecommViewController : UITableViewDataSource{
             let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
             ingreArr.append(currentCell ?? "")
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            //CookRecommDataManager().requestData(ingreInput, viewController: self)
             ingreTableView.reloadData()
             tableView.isHidden = true
             dismissKeyboard()
@@ -393,54 +392,3 @@ class RecommInnerView : UIView, UIWebViewDelegate {
         }
     
 }
-
-
-/*
-extension RecommInnerView : UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count : Int = 0
-        if tableView == hasTableView {
-            count = test.count
-            print("웅",test.count)
-        } else if tableView == noTableView {
-            count = test.count
-        }
-        return count
-    }
-    
-    //셀 하나하나에 검색 목록 띄워줌
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if tableView == hasTableView {
-            print("아아아ㅏㄱ")
-            let cell = tableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath)
-            cell.textLabel?.text = test[indexPath.row]
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "noTableViewCell", for: indexPath)
-            cell.textLabel?.text = test[indexPath.row]
-            return cell
-        }
-    }
-    
-    func tableView (_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
-        if tableView == hasTableView {
-            
-        } else {
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView == hasTableView {
-            //음식 선택 시
-        } else if tableView == noTableView {
-            
-        }
-
-    }
-}
-
-*/
