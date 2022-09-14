@@ -9,6 +9,7 @@ import UIKit
 
 class noTableViewCell: UITableViewCell {
 
+    @IBOutlet var noIngreLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

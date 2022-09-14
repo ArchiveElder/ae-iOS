@@ -15,6 +15,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     @IBOutlet var ingreImageView: UIImageView!
     @IBOutlet var ingreLabel: UILabel!
     
+    @IBOutlet var tabCollectionView: UICollectionView!
+    @IBOutlet var recommCollectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
     @IBAction func recommAction(_ sender: Any) {
@@ -40,7 +42,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     var ingreArr = [String]()
     var disposeBag = DisposeBag()
     
-    
+    var selected : Int? = 0
     var hasIngre : Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +67,17 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
         ingreTableView.register(UINib(nibName: "ingreTableViewCell", bundle: nil), forCellReuseIdentifier: "ingreTableViewCell")
         
         
+        //collectionView
+        recommCollectionView.delegate = self
+        recommCollectionView.dataSource = self
+        recommCollectionView.register(UINib(nibName: "RecommCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecommCollectionViewCell")
+        recommCollectionView.backgroundColor = .clear
         
+        
+        tabCollectionView.delegate = self
+        tabCollectionView.dataSource = self
+        tabCollectionView.register(UINib(nibName: "RecommTabCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecommTabCollectionViewCell")
+        tabCollectionView.backgroundColor = .clear
     }
 
 
@@ -101,7 +113,67 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     }
 }
 
-extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate{
+extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    // collectionView 크기 설정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == tabCollectionView {
+            return CGSize(width: tabCollectionView.frame.width / 3 - 1.2, height: tabCollectionView.frame.height)
+        } else {
+            return CGSize(width: recommCollectionView.frame.width, height: recommCollectionView.frame.height)
+        }
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == tabCollectionView {
+            let recommList = ["추천1", "추천2", "추천3"]
+            if(cookRecomm.count != 0 && cookRecomm[indexPath.row]!.food.count != 0){
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommTabCollectionViewCell", for: indexPath) as! RecommTabCollectionViewCell
+                //cell.tabLabel.text = recommList[indexPath.row]
+                cell.tabLabel.text = cookRecomm[indexPath.row]?.food
+                
+                if selected == indexPath.row {
+                    cell.recommTabBackgroundView.backgroundColor = .white
+                } else {
+                    cell.recommTabBackgroundView.backgroundColor = .lGray
+                }
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommTabCollectionViewCell", for: indexPath) as! RecommTabCollectionViewCell
+                return cell
+                
+            }
+            
+        } else {
+            //추천 음식 collectionView
+            if(cookRecomm.count != 0 && cookRecomm[indexPath.row]!.food.count != 0){
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommCollectionViewCell", for: indexPath) as! RecommCollectionViewCell
+                cell.cookRecomm = cookRecomm[indexPath.row]
+                cell.hasTableView.reloadData()
+                cell.noTableView.reloadData()
+                
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommCollectionViewCell", for: indexPath) as! RecommCollectionViewCell
+                return cell
+            }
+            
+        }
+        
+    }
+    
+    // 탭 collectionView의 cell들 누르면 실행되는 코드
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == tabCollectionView {
+            recommCollectionView.scrollToItem(at: NSIndexPath(item: indexPath.row, section: 0) as IndexPath, at: .right, animated: false)
+            selected = indexPath.row
+            collectionView.reloadData()
+        }
+    }
     
     func getIngreData(result: IngreResponse){
         dismissIndicator()
@@ -113,6 +185,9 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate{
         dismissIndicator()
         self.cookRecommResponse = result
         self.cookRecomm = result.foodDto
+        self.tabCollectionView.reloadData()
+        self.recommCollectionView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -161,7 +236,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate{
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            //CookRecommDataManager().requestData(ingreInput, viewController: self)
         }
     }
     
@@ -182,5 +257,3 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
 }
-//옆에 사람들이 천주교를 믿는게 아니라 천주교를 믿는 자신에게 흠뻑 빠져있다고 얘기했는데
-//ㅅㅔ례명이 가지고 싶어서 천주교를 믿고싶던 과거의 내가 생각낫어
