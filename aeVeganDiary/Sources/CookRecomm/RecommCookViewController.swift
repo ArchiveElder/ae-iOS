@@ -20,11 +20,10 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
     @IBAction func recommAction(_ sender: Any) {
-        if ingreArr.count == 0 {
-            presentBottomAlert(message: "재료가 선택되지 않았습니다.")
-        } else {
-            
-        }
+        tabCollectionView.isHidden = false
+        recommCollectionView.isHidden = false
+        self.tabCollectionView.reloadData()
+        self.recommCollectionView.reloadData()
         
     }
     @IBOutlet var recommButton: UIButton!
@@ -53,6 +52,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboardWhenTappedAround()
+        
         //Ingre Search
         searchBar.delegate = self
         searchTableView.isHidden = true
@@ -78,6 +79,11 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
         tabCollectionView.dataSource = self
         tabCollectionView.register(UINib(nibName: "RecommTabCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecommTabCollectionViewCell")
         tabCollectionView.backgroundColor = .clear
+        
+        if ingreArr.count == 0 {
+            tabCollectionView.isHidden = true
+            recommCollectionView.isHidden = true
+        }
     }
 
 
@@ -99,7 +105,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     
     //MARK: SearchTable Visible 관련 func
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if(searchText.isEmpty){
+        if(searchText==""){
             searchTableView.isHidden = true
             dismissKeyboardWhenTappedAround()
         } else {
@@ -155,7 +161,6 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 cell.cookRecomm = cookRecomm[indexPath.row]
                 cell.hasTableView.reloadData()
                 cell.noTableView.reloadData()
-                
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommCollectionViewCell", for: indexPath) as! RecommCollectionViewCell
@@ -185,9 +190,6 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
         dismissIndicator()
         self.cookRecommResponse = result
         self.cookRecomm = result.foodDto
-        self.tabCollectionView.reloadData()
-        self.recommCollectionView.reloadData()
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -199,11 +201,16 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             if(ingreArr.count == 0 ){
                 hasIngre = false
                 print("재료 없음")
+                //tabCollectionView.isHidden = true
+                //recommCollectionView.isHidden = true
             } else if (ingreArr.count != 0){
                 hasIngre = true
                 print("재료 있음")
+                //tabCollectionView.isHidden = false
+                //recommCollectionView.isHidden = false
             }
             
+           
             if(hasIngre == true) {
                 recommButton.isHidden = false
                 searchTableView.isHidden = false
@@ -220,11 +227,17 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = searchTableView.dequeueReusableCell(withIdentifier: "CookRecommTableViewCell", for: indexPath)
-        cell.textLabel?.text = shownFoods[indexPath.row]
-        cell.textLabel?.textColor = .darkGray
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-        return cell
+        if tableView == searchTableView {
+            let cell = searchTableView.dequeueReusableCell(withIdentifier: "CookRecommTableViewCell", for: indexPath)
+            cell.textLabel?.text = shownFoods[indexPath.row]
+            return cell
+        } else {
+            let cell = ingreTableView.dequeueReusableCell(withIdentifier: "ingreTableViewCell", for: indexPath) as! ingreTableViewCell
+            cell.ingreLabel?.text = ingreArr[indexPath.row]
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            return cell
+        }
+        
     }
     
     func tableView (_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
@@ -236,7 +249,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
             var ingreInput = IngreInput(ingredients: ingreArr)
-            //CookRecommDataManager().requestData(ingreInput, viewController: self)
+            CookRecommDataManager().requestData(ingreInput, viewController: self)
         }
     }
     
@@ -245,6 +258,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             //음식 선택 시
             searchBar.text = ""
             let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
+            print(currentCell)
             ingreArr.append(currentCell ?? "")
             var ingreInput = IngreInput(ingredients: ingreArr)
             CookRecommDataManager().requestData(ingreInput, viewController: self)
