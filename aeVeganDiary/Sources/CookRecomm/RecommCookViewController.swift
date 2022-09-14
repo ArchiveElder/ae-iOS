@@ -12,9 +12,12 @@ import SafariServices
 
 class RecommCookViewController: BaseViewController, UISearchBarDelegate {
 
+    @IBOutlet var ingreImageView: UIImageView!
+    @IBOutlet var ingreLabel: UILabel!
+    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
-    @IBAction func RecommAction(_ sender: Any) {
+    @IBAction func recommAction(_ sender: Any) {
         if ingreArr.count == 0 {
             presentBottomAlert(message: "재료가 선택되지 않았습니다.")
         } else {
@@ -22,7 +25,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
         }
         
     }
-    @IBOutlet var RecommButton: UIButton!
+    @IBOutlet var recommButton: UIButton!
     @IBOutlet var ingreTableView: UITableView!
     
     
@@ -36,6 +39,9 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     var searchBarFocused = false
     var ingreArr = [String]()
     var disposeBag = DisposeBag()
+    
+    
+    var hasIngre : Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,6 +67,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
         
         
     }
+
 
     //MARK: 검색 tableView func
     func setup() {
@@ -114,6 +121,25 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate{
             count = shownFoods.count
         } else if tableView == ingreTableView {
             count = ingreArr.count
+            if(ingreArr.count == 0 ){
+                hasIngre = false
+                print("재료 없음")
+            } else if (ingreArr.count != 0){
+                hasIngre = true
+                print("재료 있음")
+            }
+            
+            if(hasIngre == true) {
+                recommButton.isHidden = false
+                searchTableView.isHidden = false
+                ingreImageView.isHidden = true
+                ingreLabel.isHidden = true
+            } else {
+                recommButton.isHidden = true
+                searchTableView.isHidden = true
+                ingreImageView.isHidden = false
+                ingreLabel.isHidden = false
+            }
         }
         return count
     }
