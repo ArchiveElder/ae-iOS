@@ -12,12 +12,21 @@ import Alamofire
 class UserManager {
     static let shared = UserManager()
     
-    var jwt: String {
+    /*var jwt: String {
         get {
             return KeychainSwift().get("jwt") ?? ""
         }
         set {
             KeychainSwift().set(newValue, forKey: "jwt")
+        }
+    }*/
+    
+    var jwt: String {
+        get {
+            return UserDefaults.standard.string(forKey: "jwt") ?? ""
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "jwt")
         }
     }
 }

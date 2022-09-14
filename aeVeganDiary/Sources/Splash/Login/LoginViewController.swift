@@ -81,7 +81,7 @@ extension LoginViewController {
         print(result)
         if result.signup {
             UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            //UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            //UserDefaults.standard.setValue(result.token, forKey: "jwt")
             UserManager.shared.jwt = result.token
             UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             let vc = NicknameInitViewController()
@@ -91,7 +91,7 @@ extension LoginViewController {
             self.changeRootViewController(navController)
         } else {
             UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            //UserDefaults.standard.setValue(result.token, forKey: "UserJwt")
+            //UserDefaults.standard.setValue(result.token, forKey: "jwt")
             UserManager.shared.jwt = result.token
             UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             self.changeRootViewController(BaseTabBarController())
