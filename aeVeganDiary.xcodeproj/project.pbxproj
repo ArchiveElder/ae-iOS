@@ -12,6 +12,12 @@
 		8F086E8628BCAFE80083958B /* SearchBookmarkInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8528BCAFE80083958B /* SearchBookmarkInput.swift */; };
 		8F086E8828BCAFF60083958B /* SearchBookmarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8728BCAFF60083958B /* SearchBookmarkResponse.swift */; };
 		8F086E8A28BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */; };
+		8F0FF9D528D08FCE00B870DF /* RecommCookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FF9D328D08FCE00B870DF /* RecommCookViewController.swift */; };
+		8F0FF9D628D08FCE00B870DF /* RecommCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0FF9D428D08FCE00B870DF /* RecommCookViewController.xib */; };
+		8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FF9D728D1BE2E00B870DF /* RecommCollectionViewCell.swift */; };
+		8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0FF9D828D1BE2E00B870DF /* RecommCollectionViewCell.xib */; };
+		8F0FF9DD28D1C91800B870DF /* RecommTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FF9DB28D1C91800B870DF /* RecommTabCollectionViewCell.swift */; };
+		8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0FF9DC28D1C91800B870DF /* RecommTabCollectionViewCell.xib */; };
 		8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */; };
 		8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */; };
 		8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */; };
@@ -148,6 +154,12 @@
 		8F086E8528BCAFE80083958B /* SearchBookmarkInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkInput.swift; sourceTree = "<group>"; };
 		8F086E8728BCAFF60083958B /* SearchBookmarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkResponse.swift; sourceTree = "<group>"; };
 		8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookmarkDeleteDataManager.swift; sourceTree = "<group>"; };
+		8F0FF9D328D08FCE00B870DF /* RecommCookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommCookViewController.swift; sourceTree = "<group>"; };
+		8F0FF9D428D08FCE00B870DF /* RecommCookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommCookViewController.xib; sourceTree = "<group>"; };
+		8F0FF9D728D1BE2E00B870DF /* RecommCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F0FF9D828D1BE2E00B870DF /* RecommCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommCollectionViewCell.xib; sourceTree = "<group>"; };
+		8F0FF9DB28D1C91800B870DF /* RecommTabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommTabCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F0FF9DC28D1C91800B870DF /* RecommTabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommTabCollectionViewCell.xib; sourceTree = "<group>"; };
 		8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		8F13E94A2850AEB300F090C4 /* MealDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealDetailViewController.xib; sourceTree = "<group>"; };
 		8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInitViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +371,8 @@
 				8F1A5F85287C2BBE00B64409 /* Cell */,
 				8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */,
 				8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */,
+				8F0FF9D328D08FCE00B870DF /* RecommCookViewController.swift */,
+				8F0FF9D428D08FCE00B870DF /* RecommCookViewController.xib */,
 			);
 			path = CookRecomm;
 			sourceTree = "<group>";
@@ -375,6 +389,10 @@
 				8F1A5FA32898F68900B64409 /* hasTableViewCell.xib */,
 				8F1A5FA62898F69500B64409 /* noTableViewCell.swift */,
 				8F1A5FA72898F69500B64409 /* noTableViewCell.xib */,
+				8F0FF9D728D1BE2E00B870DF /* RecommCollectionViewCell.swift */,
+				8F0FF9D828D1BE2E00B870DF /* RecommCollectionViewCell.xib */,
+				8F0FF9DB28D1C91800B870DF /* RecommTabCollectionViewCell.swift */,
+				8F0FF9DC28D1C91800B870DF /* RecommTabCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -925,12 +943,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
+				8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				CDDFF9892865EC5800303501 /* NutrientDetailViewController.xib in Resources */,
+				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
@@ -949,6 +969,7 @@
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
 				8F1A5FA12897609200B64409 /* ingreTableViewCell.xib in Resources */,
+				8F0FF9D628D08FCE00B870DF /* RecommCookViewController.xib in Resources */,
 				8F1A5F83287C0E0A00B64409 /* CookRecommViewController.xib in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
@@ -1065,6 +1086,7 @@
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
 				CD00F687286DE0BC00F8A8C0 /* LoginInput.swift in Sources */,
+				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CDDFF9882865EC5800303501 /* NutrientDetailViewController.swift in Sources */,
 				8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */,
@@ -1100,6 +1122,7 @@
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
 				8F086E8428BCA05A0083958B /* SearchBookmarkDataManager.swift in Sources */,
 				CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */,
+				8F0FF9DD28D1C91800B870DF /* RecommTabCollectionViewCell.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
 				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
 				CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */,
@@ -1107,6 +1130,7 @@
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */,
+				8F0FF9D528D08FCE00B870DF /* RecommCookViewController.swift in Sources */,
 				8F1A5FA82898F69500B64409 /* noTableViewCell.swift in Sources */,
 				8F1A5F782870493600B64409 /* MyInfoInput.swift in Sources */,
 				CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */,

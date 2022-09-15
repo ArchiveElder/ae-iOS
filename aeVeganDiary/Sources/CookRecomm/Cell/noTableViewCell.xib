@@ -26,6 +26,9 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="noIngreLabel" destination="qBy-A1-H8E" id="9l0-xN-vdV"/>
+            </connections>
             <point key="canvasLocation" x="139" y="65"/>
         </tableViewCell>
     </objects>
