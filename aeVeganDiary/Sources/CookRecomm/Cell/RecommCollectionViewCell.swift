@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import SafariServices
 
-class RecommCollectionViewCell: UICollectionViewCell {
+protocol RecommCollectionViewCellDelegate : AnyObject {
+    var myUrl : NSURL { get set }
+    func recipeButton(cell:RecommCollectionViewCell)
+}
 
-    @IBOutlet var foodLabel: UILabel!
+class RecommCollectionViewCell: UICollectionViewCell,UIWebViewDelegate {
+
+    var delegate : (RecommCollectionViewCellDelegate)?
+    var viewController : RecommCookViewController!
+    var innerUrl :String = "https://www.naver.com/"
+    var cookRecomm : CookRecomm?
+    
     @IBOutlet var hasTableView: UITableView!
     @IBOutlet var noTableView: UITableView!
     @IBOutlet var cellBackgroundView: UIView!
-    
-    var cookRecomm : CookRecomm?
+    @IBAction func recipeButton(_ sender: Any) {
+        delegate?.recipeButton(cell: self)
+        delegate?.myUrl = NSURL(string: innerUrl)!
+        //let myUrl = NSURL(string: innerUrl)
+        //viewController?.safari(myUrl: myUrl!)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +47,8 @@ class RecommCollectionViewCell: UICollectionViewCell {
         let noNibName = UINib(nibName: "noTableViewCell", bundle: nil)
         noTableView.register(noNibName, forCellReuseIdentifier: "noTableViewCell")
         
+       
+        
     }
 
 }
@@ -49,7 +65,10 @@ extension RecommCollectionViewCell : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (tableView == hasTableView) {
-            //foodLabel.text = cookRecomm?.food
+            
+            innerUrl = cookRecomm?.recipeUrl ?? ""
+            delegate?.myUrl = NSURL(string: innerUrl)!
+            
             let cell = hasTableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath) as! hasTableViewCell
             cell.hasIngreLabel.text = cookRecomm?.has[indexPath.row]
             cell.hasIngreLabel.textColor = .darkGray

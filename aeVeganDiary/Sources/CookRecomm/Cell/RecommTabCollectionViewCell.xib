@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFP-4Q-hy2">
-                                <rect key="frame" x="8" y="25" width="0.0" height="0.0"/>
+                                <rect key="frame" x="10" y="25" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LFP-4Q-hy2" firstAttribute="leading" secondItem="yUr-jf-0YO" secondAttribute="leading" constant="8" id="EWL-q7-Wlu"/>
+                            <constraint firstItem="LFP-4Q-hy2" firstAttribute="leading" secondItem="yUr-jf-0YO" secondAttribute="leading" constant="10" id="EWL-q7-Wlu"/>
                             <constraint firstItem="LFP-4Q-hy2" firstAttribute="centerY" secondItem="yUr-jf-0YO" secondAttribute="centerY" id="aUp-cu-Q98"/>
                         </constraints>
                     </view>
