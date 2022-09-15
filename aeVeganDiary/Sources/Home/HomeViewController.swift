@@ -10,6 +10,7 @@ import FSCalendar
 import EventKit
 import CoreLocation
 import MapKit
+import Alamofire
 
 struct Event {
     var title: String
@@ -64,7 +65,8 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         //var HEADERS: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         //print(Constant.HEADERS)
-
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
+        print(headers)
         setNavigationTitle(title: "기록")
         
         //FSCalendar Custom
@@ -136,8 +138,11 @@ class HomeViewController: BaseViewController {
             //if granted { self.accessGranted() }
         }
         super.viewWillAppear(animated)
-        request(dateText: datePickTextField.text!)
-        
+        if UserManager.shared.jwt == "" {
+            changeRootViewController(LoginViewController())
+        } else {
+            request(dateText: datePickTextField.text!)
+        }
         locationManager.requestWhenInUseAuthorization()
         
         if let recognizers = self.view.gestureRecognizers {

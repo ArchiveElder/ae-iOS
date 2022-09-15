@@ -38,6 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         win.makeKeyAndVisible()
         window = win*/
         
+        print(UserManager.shared.jwt)
+        print(UserDefaults.standard.bool(forKey: "SignUp"))
         if (UserManager.shared.jwt != "") && (UserDefaults.standard.bool(forKey: "SignUp") == false) {
             controller = BaseTabBarController()
             win.rootViewController = controller

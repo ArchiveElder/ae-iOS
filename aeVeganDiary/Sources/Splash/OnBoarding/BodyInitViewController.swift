@@ -74,6 +74,7 @@ class BodyInitViewController: BaseViewController {
 extension BodyInitViewController {
     func getData() {
         dismissIndicator()
+        UserDefaults.standard.setValue(false, forKey: "SignUp")
         self.changeRootViewController(BaseTabBarController())
     }
     
