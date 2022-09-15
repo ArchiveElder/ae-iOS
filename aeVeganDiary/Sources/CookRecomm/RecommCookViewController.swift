@@ -57,6 +57,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     override func viewDidLoad() {
         super.viewDidLoad()
         dismissKeyboardWhenTappedAround()
+        setNavigationTitle(title: "채식 요리 추천")
         
         //Ingre Search
         searchBar.delegate = self
@@ -191,8 +192,23 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 if(cookRecomm[indexPath.row]!.has.count == 0){
                     cell.hasTableView.isHidden = true
                     cell.noTableView.isHidden = true
-                    cell.reci
-                    
+                    cell.recipeButton.isHidden = true
+                    cell.sadLabel.isHidden = false
+                    cell.sadImageView.isHidden = false
+                    cell.noLabel.isHidden = true
+                    cell.noLineView.isHidden = true
+                    cell.hasLabel.isHidden = true
+                    cell.hasLineView.isHidden = true
+                } else {
+                    cell.hasTableView.isHidden = false
+                    cell.noTableView.isHidden = false
+                    cell.recipeButton.isHidden = false
+                    cell.sadLabel.isHidden = true
+                    cell.sadImageView.isHidden = true
+                    cell.noLabel.isHidden = false
+                    cell.noLineView.isHidden = false
+                    cell.hasLabel.isHidden = false
+                    cell.hasLineView.isHidden = false
                 }
                 return cell
             } else {
@@ -234,6 +250,8 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 recommButton.isHidden = true
                 ingreImageView.isHidden = false
                 ingreLabel.isHidden = false
+                recommCollectionView.isHidden = true
+                tabCollectionView.isHidden = true
             }
         }
         return count

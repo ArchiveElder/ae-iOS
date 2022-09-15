@@ -77,18 +77,36 @@
                                     <action selector="recipeButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="p6h-XH-AWV"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천된 음식이 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg0-pb-UZl">
+                                <rect key="frame" x="144.5" y="125.5" width="101" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="4EE-YF-JZu">
+                                <rect key="frame" x="186.5" y="99" width="17" height="17"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="7Wi-7B-NrD"/>
+                                    <constraint firstAttribute="height" constant="17" id="N6V-js-rez"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Sg0-pb-UZl" firstAttribute="top" secondItem="4EE-YF-JZu" secondAttribute="bottom" constant="9.5" id="4ON-aj-wdz"/>
                             <constraint firstItem="WWw-Sv-Nr9" firstAttribute="top" secondItem="KgP-1s-NJw" secondAttribute="top" constant="13" id="7ak-ec-aLq"/>
                             <constraint firstItem="6y4-QI-811" firstAttribute="top" secondItem="KgP-1s-NJw" secondAttribute="top" constant="58" id="Hfj-FG-9Tx"/>
                             <constraint firstAttribute="trailing" secondItem="WWw-Sv-Nr9" secondAttribute="trailing" constant="20" id="Oqz-TY-oj7"/>
+                            <constraint firstItem="Sg0-pb-UZl" firstAttribute="centerX" secondItem="KgP-1s-NJw" secondAttribute="centerX" id="PV2-Zr-TWH"/>
                             <constraint firstItem="ubc-n5-Knz" firstAttribute="leading" secondItem="zCN-ls-uNd" secondAttribute="trailing" constant="36" id="VXl-J4-Kye"/>
                             <constraint firstItem="ubc-n5-Knz" firstAttribute="top" secondItem="1DJ-h4-jbA" secondAttribute="bottom" constant="3.5" id="app-gy-Ug0"/>
                             <constraint firstItem="1DJ-h4-jbA" firstAttribute="leading" secondItem="KgP-1s-NJw" secondAttribute="leading" constant="184" id="d8T-9F-hMm"/>
                             <constraint firstItem="8yy-us-kh7" firstAttribute="leading" secondItem="KgP-1s-NJw" secondAttribute="leading" constant="28" id="ez0-hN-DVg"/>
                             <constraint firstItem="zCN-ls-uNd" firstAttribute="leading" secondItem="KgP-1s-NJw" secondAttribute="leading" constant="13" id="g92-LN-3L3"/>
                             <constraint firstItem="1DJ-h4-jbA" firstAttribute="top" secondItem="OF4-Jy-RYg" secondAttribute="bottom" constant="6" id="i11-dE-zCf"/>
+                            <constraint firstItem="4EE-YF-JZu" firstAttribute="centerX" secondItem="KgP-1s-NJw" secondAttribute="centerX" id="pw1-ui-xyN"/>
+                            <constraint firstItem="4EE-YF-JZu" firstAttribute="centerY" secondItem="KgP-1s-NJw" secondAttribute="centerY" constant="-5" id="rcn-KF-Cne"/>
                             <constraint firstItem="OF4-Jy-RYg" firstAttribute="top" secondItem="KgP-1s-NJw" secondAttribute="top" constant="58" id="u6Z-eR-GYN"/>
                             <constraint firstItem="zCN-ls-uNd" firstAttribute="top" secondItem="8yy-us-kh7" secondAttribute="bottom" constant="3.5" id="wDo-lK-Jzo"/>
                             <constraint firstItem="8yy-us-kh7" firstAttribute="top" secondItem="6y4-QI-811" secondAttribute="bottom" constant="6" id="yfo-2L-Hsz"/>
@@ -108,13 +126,21 @@
             <size key="customSize" width="305" height="237"/>
             <connections>
                 <outlet property="cellBackgroundView" destination="KgP-1s-NJw" id="J4n-mN-l25"/>
+                <outlet property="hasLabel" destination="6y4-QI-811" id="hc3-PQ-Xtw"/>
+                <outlet property="hasLineView" destination="8yy-us-kh7" id="lIC-a3-scm"/>
                 <outlet property="hasTableView" destination="zCN-ls-uNd" id="IvK-XM-bEn"/>
+                <outlet property="noLabel" destination="OF4-Jy-RYg" id="0FW-qS-0uF"/>
+                <outlet property="noLineView" destination="1DJ-h4-jbA" id="BHH-ZD-H1L"/>
                 <outlet property="noTableView" destination="ubc-n5-Knz" id="VWR-MG-6bn"/>
+                <outlet property="recipeButton" destination="WWw-Sv-Nr9" id="K2D-5A-fUK"/>
+                <outlet property="sadImageView" destination="4EE-YF-JZu" id="llu-kL-c7x"/>
+                <outlet property="sadLabel" destination="Sg0-pb-UZl" id="Zlh-NG-HeW"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="129.57589285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="sad" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

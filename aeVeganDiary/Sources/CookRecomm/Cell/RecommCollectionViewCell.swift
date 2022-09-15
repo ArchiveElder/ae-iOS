@@ -20,6 +20,13 @@ class RecommCollectionViewCell: UICollectionViewCell,UIWebViewDelegate {
     var innerUrl :String = "https://www.naver.com/"
     var cookRecomm : CookRecomm?
     
+    @IBOutlet var noLineView: UIView!
+    @IBOutlet var noLabel: UILabel!
+    @IBOutlet var hasLineView: UIView!
+    @IBOutlet var hasLabel: UILabel!
+    @IBOutlet var sadLabel: UILabel!
+    @IBOutlet var sadImageView: UIImageView!
+    @IBOutlet var recipeButton: UIButton!
     @IBOutlet var hasTableView: UITableView!
     @IBOutlet var noTableView: UITableView!
     @IBOutlet var cellBackgroundView: UIView!
