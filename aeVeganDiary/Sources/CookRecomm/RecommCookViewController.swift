@@ -10,8 +10,8 @@ import RxCocoa
 import RxSwift
 import SafariServices
 
-class RecommCookViewController: BaseViewController, UISearchBarDelegate {
-
+class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebViewDelegate, RecommCollectionViewCellDelegate {
+    
     @IBOutlet var ingreImageView: UIImageView!
     @IBOutlet var ingreLabel: UILabel!
     
@@ -29,11 +29,15 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
     @IBOutlet var recommButton: UIButton!
     @IBOutlet var ingreTableView: UITableView!
     
+    //RecommCollectionViewCellDelegate URL 전달
+    func recipeButton(cell: RecommCollectionViewCell) {
+        safari(myUrl: myUrl)
+    }
+    var myUrl: NSURL = NSURL(string: "www.naver.com")!
     
     var ingreResponse: IngreResponse?
     var ingre = [Ingre]()
     var shownFoods = [String]()
-    
     
     var cookRecommResponse: CookRecommResponse?
     var cookRecomm = [CookRecomm?]()
@@ -86,6 +90,12 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
         }
     }
 
+    //MARK: WebView func
+    func safari (myUrl : NSURL) {
+        print(myUrl)
+        let safariView : SFSafariViewController = SFSafariViewController(url: myUrl as! URL)
+        present(safariView, animated: true, completion: nil)
+    }
 
     //MARK: 검색 tableView func
     func setup() {
@@ -121,6 +131,18 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate {
 
 extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    func getIngreData(result: IngreResponse){
+        dismissIndicator()
+        self.ingreResponse = result
+        self.ingre = result.data
+    }
+    
+    func getRecomm(result: CookRecommResponse){
+        dismissIndicator()
+        self.cookRecommResponse = result
+        self.cookRecomm = result.foodDto
+    }
+    
     // collectionView 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == tabCollectionView {
@@ -136,12 +158,15 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == tabCollectionView {
-            let recommList = ["추천1", "추천2", "추천3"]
             if(cookRecomm.count != 0 && cookRecomm[indexPath.row]!.food.count != 0){
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommTabCollectionViewCell", for: indexPath) as! RecommTabCollectionViewCell
                 //cell.tabLabel.text = recommList[indexPath.row]
                 cell.tabLabel.text = cookRecomm[indexPath.row]?.food
                 
+                if(cookRecomm[indexPath.row]!.has.count == 0){
+                    cell.tabLabel.text = ""
+                }
+
                 if selected == indexPath.row {
                     cell.recommTabBackgroundView.backgroundColor = .white
                 } else {
@@ -161,9 +186,18 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 cell.cookRecomm = cookRecomm[indexPath.row]
                 cell.hasTableView.reloadData()
                 cell.noTableView.reloadData()
+                cell.delegate = self
+                
+                if(cookRecomm[indexPath.row]!.has.count == 0){
+                    cell.hasTableView.isHidden = true
+                    cell.noTableView.isHidden = true
+                    cell.reci
+                    
+                }
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommCollectionViewCell", for: indexPath) as! RecommCollectionViewCell
+                cell.delegate = self
                 return cell
             }
             
@@ -180,17 +214,6 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
         }
     }
     
-    func getIngreData(result: IngreResponse){
-        dismissIndicator()
-        self.ingreResponse = result
-        self.ingre = result.data
-    }
-    
-    func getRecomm(result: CookRecommResponse){
-        dismissIndicator()
-        self.cookRecommResponse = result
-        self.cookRecomm = result.foodDto
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count : Int = 0
@@ -200,25 +223,15 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             count = ingreArr.count
             if(ingreArr.count == 0 ){
                 hasIngre = false
-                print("재료 없음")
-                //tabCollectionView.isHidden = true
-                //recommCollectionView.isHidden = true
             } else if (ingreArr.count != 0){
                 hasIngre = true
-                print("재료 있음")
-                //tabCollectionView.isHidden = false
-                //recommCollectionView.isHidden = false
             }
-            
-           
             if(hasIngre == true) {
                 recommButton.isHidden = false
-                searchTableView.isHidden = false
                 ingreImageView.isHidden = true
                 ingreLabel.isHidden = true
             } else {
                 recommButton.isHidden = true
-                searchTableView.isHidden = true
                 ingreImageView.isHidden = false
                 ingreLabel.isHidden = false
             }
