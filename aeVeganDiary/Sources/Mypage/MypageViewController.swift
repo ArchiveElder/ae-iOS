@@ -70,5 +70,8 @@ extension MypageViewController {
         self.myInfoResponse = result
         
         Nickname.text = result.name
+        profileImg.image = UIImage(named: "profile\(result.icon)")
+        profileImg.borderWidth = 1
+        profileImg.borderColor = .lightGray
     }
 }
