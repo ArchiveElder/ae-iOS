@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "plant-based.png",
+      "filename" : "spinach.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "plant-based (1).png",
+      "filename" : "spinach (1).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "plant-based (2).png",
+      "filename" : "spinach (2).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
