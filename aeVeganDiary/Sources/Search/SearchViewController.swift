@@ -48,7 +48,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate {
             .filter{ !$0.isEmpty }
             .subscribe(onNext: { [unowned self] query in
                 self.shownFoods = self.foods.filter {
-                    $0.name.hasPrefix(query) }.map {$0.name}
+                    $0.name.localizedCaseInsensitiveContains(query) }.map {$0.name}
+                    .sorted { ($0.hasPrefix(query) ? 0 : 1) < ($1.hasPrefix(query) ? 0 : 1)}
                 self.tableView.reloadData()
             })
         //.addDisposableTo(disposeBag)

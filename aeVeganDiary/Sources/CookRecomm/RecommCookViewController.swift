@@ -98,7 +98,9 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         present(safariView, animated: true, completion: nil)
     }
 
+    
     //MARK: 검색 tableView func
+    /*
     func setup() {
         searchTableView.dataSource = self
         searchBar
@@ -110,6 +112,23 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             .subscribe(onNext: { [unowned self] query in
                 self.shownFoods = self.ingre.filter {
                     $0.name.hasPrefix(query) }.map {$0.name}
+                self.searchTableView.reloadData()
+            })
+    }
+     */
+    
+    func setup() {
+        searchTableView.dataSource = self
+        searchBar
+            .rx.text
+            .orEmpty
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter{ !$0.isEmpty }
+            .subscribe(onNext: { [unowned self] query in
+                self.shownFoods = self.ingre.filter {
+                    $0.name.localizedCaseInsensitiveContains(query) }.map {$0.name}
+                    .sorted { ($0.hasPrefix(query) ? 0 : 1) < ($1.hasPrefix(query) ? 0 : 1)}
                 self.searchTableView.reloadData()
             })
     }
