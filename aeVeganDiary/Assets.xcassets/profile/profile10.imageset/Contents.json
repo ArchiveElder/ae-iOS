@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "onion.png",
+      "filename" : "plant-based.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "onion (1).png",
+      "filename" : "plant-based (1).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "onion (2).png",
+      "filename" : "plant-based (2).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
