@@ -591,8 +591,8 @@
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				CD2A29A228A3BB5A00A271A6 /* Map */,
 				CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */,
+				CD2A29A228A3BB5A00A271A6 /* Map */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -921,10 +921,10 @@
 			};
 			buildConfigurationList = CDE47F2D28424B44005D8BB3 /* Build configuration list for PBXProject "aeVeganDiary" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = CDE47F2928424B44005D8BB3;

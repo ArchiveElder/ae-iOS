@@ -136,9 +136,9 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     func message(rcal: Double, avg: Double) {
         if rcal - 300 > avg {
-            calMessageLabel.text = "권장 칼로리(\(rcal)kcal)보다 적게 섭취하셨어요"
+            calMessageLabel.text = "권장 칼로리(\(Int(rcal))kcal)보다 적게 섭취하셨어요"
         } else if rcal + 300 < avg {
-            calMessageLabel.text = "권장 칼로리(\(rcal)kcal)보다 많이 섭취하셨어요"
+            calMessageLabel.text = "권장 칼로리(\(Int(rcal))kcal)보다 많이 섭취하셨어요"
         } else {
             calMessageLabel.text = "적절하게 섭취하고 있어요"
         }
@@ -183,6 +183,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     }
     
     func setProgressResult(sender: UIProgressView, data: Float){
+        print(data)
         if data < 0.3 {
             sender.progressTintColor = .barRed
         } else if data < 0.6 {
@@ -204,9 +205,9 @@ extension AnalyzeViewController {
         dismissIndicator()
         self.rcal = Double(response.rcal)
         self.todayLabel.text = response.todayDate
-        self.carbLabel.text = "\(response.totalCarb)/\(response.rcarb)"
-        self.proLabel.text = "\(response.totalPro)/\(response.rpro)"
-        self.fatLabel.text = "\(response.totalFat)/\(response.rfat)"
+        self.carbLabel.text = "\(Int(response.totalCarb) / 7)/\(response.rcarb)"
+        self.proLabel.text = "\(Int(response.totalPro) / 7)/\(response.rpro)"
+        self.fatLabel.text = "\(Int(response.totalFat) / 7)/\(response.rfat)"
         analysis = response.analysisDtos ?? [Analysis]()
         
         if response.status == 1 {
@@ -224,9 +225,9 @@ extension AnalyzeViewController {
             statusView.isHidden = false
         }
         
-        setProgressResult(sender: carbProgressView, data: Float(response.totalCarb) / (Float(response.rcarb) ?? 1))
-        setProgressResult(sender: proProgressView, data: Float(response.totalPro) / (Float(response.rpro) ?? 1))
-        setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / (Float(response.rfat) ?? 1))
+        setProgressResult(sender: carbProgressView, data: Float(response.totalCarb) / 7 / (Float(response.rcarb) ?? 1))
+        setProgressResult(sender: proProgressView, data: Float(response.totalPro) / 7 / (Float(response.rpro) ?? 1))
+        setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / 7 / (Float(response.rfat) ?? 1))
         
     }
 }
