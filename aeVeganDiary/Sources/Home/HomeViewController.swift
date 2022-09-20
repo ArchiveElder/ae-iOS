@@ -127,7 +127,7 @@ class HomeViewController: BaseViewController {
         fatProgressBar.layer.sublayers![1].cornerRadius = 4// 뒤에 있는 회색 track
         fatProgressBar.subviews[1].clipsToBounds = true
         
-        arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
+        //arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
         
         locationManager.delegate = self
     }
@@ -384,7 +384,7 @@ extension HomeViewController {
         setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
         setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
         setProgressResult(sender: fatProgressBar, data: Float(result.totalFat) / Float(result.recommFat))
-        arcProgressBar.setProgressOne(to: Double(result.totalCarb) / Double(result.recommCarb), withAnimation: false, maxSpeed: 45)
+        arcProgressBar.setProgressOne(to: Double(result.totalCalory) / Double(result.recommCalory), withAnimation: false, maxSpeed: 45)
     }
     
     func setProgressResult(sender: UIProgressView, data: Float){
