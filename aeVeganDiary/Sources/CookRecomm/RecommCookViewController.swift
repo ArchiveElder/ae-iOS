@@ -206,7 +206,9 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 cell.cookRecomm = cookRecomm[indexPath.row]
                 cell.hasTableView.reloadData()
                 cell.noTableView.reloadData()
-                cell.delegate = self
+                //cell.innerUrl = cookRecomm[indexPath.row]?.recipeUrl ?? ""
+                //cell.delegate = self
+                cell.recipeButton.addTarget(self, action: #selector(toSafari), for: .touchUpInside)
                 
                 if(cookRecomm[indexPath.row]!.has.count == 0){
                     cell.hasTableView.isHidden = true
@@ -238,6 +240,12 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             
         }
         
+    }
+    
+    @objc func toSafari() {
+        let url = URL(string: cookRecomm[selected ?? 0]?.recipeUrl ?? "")!
+        let safariView : SFSafariViewController = SFSafariViewController(url: url)
+        present(safariView, animated: true, completion: nil)
     }
     
     // 탭 collectionView의 cell들 누르면 실행되는 코드
