@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import EventKit
 
 class RestaurantViewController: UIViewController {
     
-    var location = ""
+    var location = CLLocation()
     let mapVC = MapViewController()
     let largeCategoryVC = LargeCategoryViewController()
     
