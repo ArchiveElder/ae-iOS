@@ -14,7 +14,7 @@ import Alamofire
 
 struct Event {
     var title: String
-    var location: String
+    var location: CLLocation
 }
 
 class HomeViewController: BaseViewController {
@@ -309,10 +309,11 @@ extension HomeViewController: CLLocationManagerDelegate {
         let events: [EKEvent] = store.events(matching: predicate)
         
         eventList = [Event]()
-        for i in events where i.location != nil {
-            let lo = i.location
+        for i in events where i.structuredLocation?.geoLocation != nil {
+            let lo = i.structuredLocation!.geoLocation!
             
-            let ev = Event(title: i.title, location: lo?.components(separatedBy: "대한민국 ").last ?? "")
+            //let ev = Event(title: i.title, location: lo.components(separatedBy: "\n").joined())
+            let ev = Event(title: i.title, location: lo)
             self.eventList.append(ev)
         }
         

@@ -9,10 +9,11 @@ import UIKit
 //import NMapsMap
 import GoogleMaps
 import GoogleMapsUtils
+import EventKit
 
 class MapViewController: BaseViewController, GMSMapViewDelegate {
     
-    var location = ""
+    var location = CLLocation()
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var infoView: UIView!
@@ -54,7 +55,17 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         super.viewWillAppear(animated)
         
         showIndicator()
-        Geocoding().getCoordinates(location, viewController: self)
+        print(location)
+        //Geocoding().getCoordinates(location, viewController: self)
+        
+        let latitude = location.coordinate.latitude
+        let longtitude = location.coordinate.longitude
+        let mapCenter = CLLocationCoordinate2DMake(latitude, longtitude)
+        let marker = GMSMarker(position: mapCenter)
+        marker.icon = UIImage(named: "currentpin")
+        marker.map = mapView
+        mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 15)
+        MapDataManager().requestRestaurant(viewController: self)
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
