@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,6 +23,7 @@
                 <outlet property="eventTableView" destination="htl-ew-qJ1" id="fnH-hP-3ow"/>
                 <outlet property="fatLabel" destination="Zut-Xv-Ofb" id="IkE-Gc-NEi"/>
                 <outlet property="fatProgressBar" destination="C68-6N-FJ8" id="EcC-1a-j2h"/>
+                <outlet property="hideView" destination="pmP-Ro-Lh1" id="7OF-b4-ytw"/>
                 <outlet property="mealCollectionView" destination="8re-C7-Q1h" id="fRO-IR-JJy"/>
                 <outlet property="proteinLabel" destination="waG-ZU-Xn9" id="ijg-a1-vRg"/>
                 <outlet property="proteinProgressBar" destination="w3f-XX-esC" id="Uqr-Of-7ff"/>
@@ -33,11 +35,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-bz-SBM">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-LP-RfN">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="895"/>
@@ -358,6 +360,27 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-Ro-Lh1">
+                                    <rect key="frame" x="15" y="360" width="360" height="505"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미래의 날짜에서는 일정만 확인 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlV-yf-C3y">
+                                            <rect key="frame" x="85" y="245" width="190" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerY" secondItem="pmP-Ro-Lh1" secondAttribute="centerY" id="KjA-Aa-ZVI"/>
+                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerX" secondItem="pmP-Ro-Lh1" secondAttribute="centerX" id="Mng-qW-yab"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="hIl-EJ-sCy" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="0S0-Bk-Udp"/>
@@ -365,6 +388,7 @@
                                 <constraint firstItem="ifb-Sb-h85" firstAttribute="top" secondItem="GHO-FE-4ND" secondAttribute="bottom" constant="10" id="3m5-JE-e2y"/>
                                 <constraint firstItem="1z2-7v-gPB" firstAttribute="top" secondItem="8re-C7-Q1h" secondAttribute="bottom" constant="15" id="4qi-eX-88t"/>
                                 <constraint firstItem="1z2-7v-gPB" firstAttribute="leading" secondItem="hIl-EJ-sCy" secondAttribute="trailing" constant="10" id="KRk-37-qOa"/>
+                                <constraint firstAttribute="trailing" secondItem="pmP-Ro-Lh1" secondAttribute="trailing" constant="15" id="N2Q-HL-fYM"/>
                                 <constraint firstAttribute="trailing" secondItem="ifb-Sb-h85" secondAttribute="trailing" constant="15" id="Nvi-92-My7"/>
                                 <constraint firstItem="ifb-Sb-h85" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="TOj-er-VJC"/>
                                 <constraint firstItem="GHO-FE-4ND" firstAttribute="centerX" secondItem="T5y-LP-RfN" secondAttribute="centerX" id="Uya-wg-xKY"/>
@@ -374,12 +398,15 @@
                                 <constraint firstItem="8re-C7-Q1h" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="dlo-wa-Zia"/>
                                 <constraint firstItem="8re-C7-Q1h" firstAttribute="top" secondItem="8KX-Cv-sIg" secondAttribute="bottom" id="ebe-P4-dFM"/>
                                 <constraint firstItem="1z2-7v-gPB" firstAttribute="width" secondItem="hIl-EJ-sCy" secondAttribute="width" id="g0m-oH-Pg3"/>
+                                <constraint firstItem="pmP-Ro-Lh1" firstAttribute="leading" secondItem="T5y-LP-RfN" secondAttribute="leading" constant="15" id="hC1-dk-Vpy"/>
                                 <constraint firstItem="hIl-EJ-sCy" firstAttribute="top" secondItem="8re-C7-Q1h" secondAttribute="bottom" constant="15" id="hyc-zX-FZi"/>
                                 <constraint firstItem="1z2-7v-gPB" firstAttribute="height" secondItem="hIl-EJ-sCy" secondAttribute="height" id="kdc-Nm-R42"/>
+                                <constraint firstAttribute="bottom" secondItem="pmP-Ro-Lh1" secondAttribute="bottom" constant="30" id="mEj-uE-UTC"/>
                                 <constraint firstItem="GHO-FE-4ND" firstAttribute="top" secondItem="T5y-LP-RfN" secondAttribute="top" constant="15" id="mXN-o6-o99"/>
                                 <constraint firstAttribute="trailing" secondItem="8re-C7-Q1h" secondAttribute="trailing" constant="15" id="pz0-fi-dfl"/>
                                 <constraint firstAttribute="trailing" secondItem="1z2-7v-gPB" secondAttribute="trailing" constant="15" id="rbw-0m-Pcz"/>
                                 <constraint firstItem="1z2-7v-gPB" firstAttribute="centerY" secondItem="hIl-EJ-sCy" secondAttribute="centerY" id="tHE-zT-3oH"/>
+                                <constraint firstItem="pmP-Ro-Lh1" firstAttribute="top" secondItem="ifb-Sb-h85" secondAttribute="bottom" constant="15" id="wPl-ni-yXg"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -406,7 +433,7 @@
         </view>
     </objects>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
