@@ -56,6 +56,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var fatProgressBar: UIProgressView!
     @IBOutlet weak var fatLabel: UILabel!
     
+    @IBOutlet weak var hideView: UIView!
+    
     // MARK: 서버 통신 변수 선언
     var homeResponse: HomeResponse?
     var records = [Records]()
@@ -77,6 +79,8 @@ class HomeViewController: BaseViewController {
         weekCalendarView.headerHeight = 8
         weekCalendarView.appearance.headerMinimumDissolvedAlpha = 0.0
         weekCalendarView.appearance.weekdayTextColor = .darkGray
+        
+        hideView.isHidden = true
         
         //CollectionView
         tabCollectionView.delegate = self
@@ -105,7 +109,7 @@ class HomeViewController: BaseViewController {
         datePicker.sizeToFit()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd."
-        datePicker.maximumDate = Date()
+        //datePicker.maximumDate = Date()
         self.datePickTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
         
         // ProgressView
@@ -154,6 +158,9 @@ class HomeViewController: BaseViewController {
     
     // datePicker에서 Done 누르면 실행
     @objc func tapDone() {
+        let nowDate = Date()
+        let time = datePicker.date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
+        
         if let datePicker = self.datePickTextField.inputView as? UIDatePicker {
             // textField 업데이트
             self.datePickTextField.text = dateFormatter.string(from: datePicker.date)
@@ -162,7 +169,15 @@ class HomeViewController: BaseViewController {
         // textField에서 커서 제거
         self.datePickTextField.resignFirstResponder()
         
-        request(dateText: dateFormatter.string(from: datePicker.date))
+        if time <= 0 {
+            request(dateText: dateFormatter.string(from: datePicker.date))
+            hideView.isHidden = true
+        } else {
+            presentBottomAlert(message: "미래의 날짜에서는 일정만 확인 가능해요")
+            hideView.isHidden = false
+        }
+        
+        
     }
     
 }
@@ -174,13 +189,15 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         let nowDate = Date()
         let time = date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
         print(time)
+        datePickTextField.text = dateFormatter.string(from: date)
+        datePicker.date = date
         if time <= 0 {
-            datePickTextField.text = dateFormatter.string(from: date)
-            datePicker.date = date
             request(dateText: dateFormatter.string(from: date))
-        } else {
             weekCalendarView.select(datePicker.date)
-            presentBottomAlert(message: "미래의 날짜는 선택할 수 없어요")
+            hideView.isHidden = true
+        } else {
+            presentBottomAlert(message: "미래의 날짜에서는 일정만 확인 가능해요")
+            hideView.isHidden = false
         }
     }
     

@@ -120,10 +120,19 @@ extension MapViewController {
     
     func getResList(result: MapResponse) {
         dismissIndicator()
+        for i in markerList {
+            i.map = nil
+        }
+        markerList.removeAll()
         for i in result.data {
             let mapCenter = CLLocationCoordinate2DMake(i.la, i.lo)
             let marker = GMSMarker(position: mapCenter)
-            marker.icon = UIImage(named: "locationpin")
+            if i.isBookmark == 1 {
+                marker.icon = UIImage(named: "locationpinbookmark")
+            } else {
+                marker.icon = UIImage(named: "locationpin")
+            }
+            
             marker.map = mapView
             markerList.append(marker)
         }
@@ -132,12 +141,12 @@ extension MapViewController {
     }
     
     func bookmark() {
-        dismissIndicator()
         bookmarkButton.isSelected = true
+        MapDataManager().requestRestaurant(viewController: self)
     }
     
     func bookmarkDelete() {
-        dismissIndicator()
         bookmarkButton.isSelected = false
+        MapDataManager().requestRestaurant(viewController: self)
     }
 }

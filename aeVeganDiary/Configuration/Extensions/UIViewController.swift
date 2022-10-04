@@ -108,7 +108,7 @@ extension UIViewController {
         }
         
         alertLabel.text = message
-        alertSuperview.alpha = 0.4
+        alertSuperview.alpha = 0.5
         alertSuperview.isHidden = false
         UIView.animate(
             withDuration: 2.0,
