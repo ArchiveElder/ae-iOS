@@ -42,11 +42,11 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
-        cell.name.text = listData?.data?[indexPath.row].name
-        cell.category.text = listData?.data?[indexPath.row].category
-        cell.roadAddr.text = listData?.data?[indexPath.row].roadAddr
-        cell.lnmAddr.text = listData?.data?[indexPath.row].lnmAddr
-        cell.telNo.text = listData?.data?[indexPath.row].telNo
+        cell.nameLabel.text = listData?.data?[indexPath.row].name
+        cell.categoryLabel.text = listData?.data?[indexPath.row].category
+        cell.roadAddrLabel.text = listData?.data?[indexPath.row].roadAddr
+        cell.lnmAddrLabel.text = listData?.data?[indexPath.row].lnmAddr
+        cell.telNoLabel.text = listData?.data?[indexPath.row].telNo
         cell.searchBookmarkButton.isSelected = true
         cell.searchBookmarkButton.tag = indexPath.row
         cell.searchBookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)

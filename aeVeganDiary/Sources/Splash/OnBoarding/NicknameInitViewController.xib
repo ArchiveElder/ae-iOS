@@ -117,7 +117,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="nextButton:" destination="-1" eventType="touchUpInside" id="CI3-DH-MWx"/>
+                        <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="KKw-LY-hT5"/>
                     </connections>
                 </button>
             </subviews>

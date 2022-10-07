@@ -10,7 +10,7 @@ import UIKit
 class NicknameInitViewController: BaseViewController {
 
     @IBOutlet weak var nextButton: UIButton!
-    @IBAction func nextButton(_ sender: Any) {
+    @IBAction func nextButtonAction(_ sender: Any) {
         if (nameTextField.text != "") && (ageTextField.text != "") && (indexOfOneAndOnly != nil) {
             let vc = BodyInitViewController()
             vc.name = nameTextField.text!

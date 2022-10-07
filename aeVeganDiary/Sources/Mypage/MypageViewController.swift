@@ -9,7 +9,7 @@ import UIKit
 
 class MypageViewController: BaseViewController {
     
-    @IBAction func logoutButton(_ sender: Any) {
+    @IBAction func logoutButtonAction(_ sender: Any) {
         UserManager.shared.jwt = ""
         //UserDefaults.standard.setValue("", forKey: "UserJwt")
         let vc = LoginViewController()
@@ -19,15 +19,15 @@ class MypageViewController: BaseViewController {
         self.changeRootViewController(navController)
     }
     
-    @IBAction func bookmarkButton(_ sender: Any) {
+    @IBAction func bookmarkButtonAction(_ sender: Any) {
         let vc = BookmarkViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBOutlet var Nickname: UILabel!
+    @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var myInfoButton: UIButton!
-    @IBOutlet var profileImg: UIImageView!
+    @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
         vc.age = myInfoResponse?.age ?? 0
@@ -48,10 +48,10 @@ class MypageViewController: BaseViewController {
         view.backgroundColor = .white
         setNavigationTitle(title: "마이페이지")
         
-        profileImg.layer.cornerRadius = profileImg.frame.height/2
-        profileImg.layer.borderWidth = 1
-        profileImg.layer.borderColor = UIColor.clear.cgColor
-        profileImg.clipsToBounds=true
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.clear.cgColor
+        profileImageView.clipsToBounds=true
         
     }
     
@@ -69,9 +69,9 @@ extension MypageViewController {
         dismissIndicator()
         self.myInfoResponse = result
         
-        Nickname.text = result.name
-        profileImg.image = UIImage(named: "profile\(result.icon)")
-        profileImg.borderWidth = 1
-        profileImg.borderColor = .lightGray
+        nicknameLabel.text = result.name
+        profileImageView.image = UIImage(named: "profile\(result.icon)")
+        profileImageView.borderWidth = 1
+        profileImageView.borderColor = .lightGray
     }
 }

@@ -87,11 +87,11 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         let cell : RestaurantSearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
         
         
-        cell.name?.text = nameArr[indexPath.row]
-        cell.category?.text = categoryArr[indexPath.row]
-        cell.roadAddr?.text = roadAddrArr[indexPath.row]
-        cell.lnmAddr?.text = lnmAddrArr[indexPath.row]
-        cell.telNo?.text = telNoArr[indexPath.row]
+        cell.nameLabel?.text = nameArr[indexPath.row]
+        cell.categoryLabel?.text = categoryArr[indexPath.row]
+        cell.roadAddrLabel?.text = roadAddrArr[indexPath.row]
+        cell.lnmAddrLabel?.text = lnmAddrArr[indexPath.row]
+        cell.telNoLabel?.text = telNoArr[indexPath.row]
         //즐겨찾기 조회
         if(isBookmarkArr[indexPath.row] == 1) {
             cell.searchBookmarkButton.isSelected=true

@@ -9,10 +9,10 @@ import UIKit
 
 class LargeCategoryTableViewCell: UITableViewCell {
 
-    @IBOutlet var LargeCategoryLabel: UILabel!
+    @IBOutlet var largeCategoryLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

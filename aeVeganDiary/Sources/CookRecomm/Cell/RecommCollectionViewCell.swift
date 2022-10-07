@@ -30,13 +30,7 @@ class RecommCollectionViewCell: UICollectionViewCell,UIWebViewDelegate {
     @IBOutlet var hasTableView: UITableView!
     @IBOutlet var noTableView: UITableView!
     @IBOutlet var cellBackgroundView: UIView!
-    /*@IBAction func recipeButton(_ sender: Any) {
-        delegate?.recipeButton(cell: self)
-        delegate?.myUrl = NSURL(string: innerUrl)!
-        //let myUrl = NSURL(string: innerUrl)
-        //viewController?.safari(myUrl: myUrl!)
-    }*/
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         

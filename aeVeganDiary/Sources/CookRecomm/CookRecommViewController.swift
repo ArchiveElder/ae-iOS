@@ -64,22 +64,10 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         dismissKeyboardWhenTappedAround()
         recommPageControl.isHidden = true
         recommTextLabel.isHidden = true
-        //addContentScrollView()
-        //setPageControl()
-        
+
         searchBar.delegate = self
         recommScrollView.delegate = self
-        
-        /*
-        recommInnerView?.hasDelegate = self
-        recommInnerView?.hasDataSource = self
-        recommInnerView?.hasRegisterClass(cellClass: HasTableViewCell.self, forCellReuseIdentifier: "HasTableViewCell")
-        
-        recommInnerView?.noDelegate = self
-        recommInnerView?.noDataSource = self
-        recommInnerView?.noRegisterClass(cellClass: HasTableViewCell.self, forCellReuseIdentifier: "NoTableViewCell")
-        */
-        
+
         searchTableView.isHidden = true
         searchTableView.dataSource = self
         searchTableView.delegate = self

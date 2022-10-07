@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,10 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyInfoViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="ageField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
-                <outlet property="heightField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
+                <outlet property="ageTextField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
+                <outlet property="heightTextField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="weightField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
+                <outlet property="weightTextField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
                 <outletCollection property="activityButtons" destination="FY3-sH-x0x" collectionClass="NSMutableArray" id="txu-8A-6oP"/>
                 <outletCollection property="activityButtons" destination="TZN-I8-QWK" collectionClass="NSMutableArray" id="VL9-o7-q9W"/>
                 <outletCollection property="activityButtons" destination="WRP-JF-faJ" collectionClass="NSMutableArray" id="ih4-sI-erh"/>
@@ -164,7 +163,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwH-6b-dtI">
-                    <rect key="frame" x="164" y="695" width="86" height="39"/>
+                    <rect key="frame" x="164" y="729" width="86" height="39"/>
                     <color key="backgroundColor" red="0.65802974889999999" green="0.75714803480000004" blue="0.63436278779999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="86" id="WtO-aP-fhi"/>
