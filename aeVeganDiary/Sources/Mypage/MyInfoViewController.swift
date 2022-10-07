@@ -9,18 +9,18 @@ import UIKit
 
 class MyInfoViewController: BaseViewController {
     
-    @IBOutlet var ageField: UITextField!
-    @IBOutlet var heightField: UITextField!
-    @IBOutlet var weightField: UITextField!
+    @IBOutlet var ageTextField: UITextField!
+    @IBOutlet var heightTextField: UITextField!
+    @IBOutlet var weightTextField: UITextField!
     
     var age = 0
     var height = "0"
     var weight = "0"
     var activity = 0
     
-    @IBAction func EditDone(_ sender: Any) {
-        let input = MyInfoInput(age: Int(ageField.text!) ?? 0, height: self.heightField.text!, weight: self.weightField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-        MyInfoDataManager2().updateMyInfo(input, viewController: self)
+    @IBAction func editDoneAction(_ sender: Any) {
+        let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
+        MyInfoDataManager2().putMyInfoData(input, viewController: self)
         // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
     }
     
@@ -72,9 +72,9 @@ class MyInfoViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ageField.text = String(age)
-        heightField.text = String(height)
-        weightField.text = String(weight)
+        ageTextField.text = String(age)
+        heightTextField.text = String(height)
+        weightTextField.text = String(weight)
         indexOfOneAndOnly = activities.firstIndex(of: activity)
         // 버튼 outlet collection 배열에서 indexOfOneAndOnly 인 인덱스를 찾아서 그 인덱스에 해당하는 버튼만 selected로 설정
         for index in activityButtons.indices {

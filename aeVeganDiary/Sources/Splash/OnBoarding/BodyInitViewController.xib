@@ -135,7 +135,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="efj-cX-mMd"/>
+                        <action selector="doneButtonAction:" destination="-1" eventType="touchUpInside" id="Ksl-xI-o92"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2b-cb-O0v">

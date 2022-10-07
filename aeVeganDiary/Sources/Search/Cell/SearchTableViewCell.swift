@@ -10,7 +10,7 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
 
     
-    @IBOutlet var SeaerchResultlbl: UILabel!
+    @IBOutlet var searchResultLabel: UILabel!
     
     
     override func awakeFromNib() {

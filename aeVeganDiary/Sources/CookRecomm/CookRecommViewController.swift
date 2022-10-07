@@ -64,22 +64,10 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         dismissKeyboardWhenTappedAround()
         recommPageControl.isHidden = true
         recommTextLabel.isHidden = true
-        //addContentScrollView()
-        //setPageControl()
-        
+
         searchBar.delegate = self
         recommScrollView.delegate = self
-        
-        /*
-        recommInnerView?.hasDelegate = self
-        recommInnerView?.hasDataSource = self
-        recommInnerView?.hasRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "hasTableViewCell")
-        
-        recommInnerView?.noDelegate = self
-        recommInnerView?.noDataSource = self
-        recommInnerView?.noRegisterClass(cellClass: hasTableViewCell.self, forCellReuseIdentifier: "noTableViewCell")
-        */
-        
+
         searchTableView.isHidden = true
         searchTableView.dataSource = self
         searchTableView.delegate = self
@@ -87,7 +75,7 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
         
         ingreTableView.dataSource = self
         ingreTableView.delegate = self
-        ingreTableView.register(UINib(nibName: "ingreTableViewCell", bundle: nil), forCellReuseIdentifier: "ingreTableViewCell")
+        ingreTableView.register(UINib(nibName: "IngreTableViewCell", bundle: nil), forCellReuseIdentifier: "IngreTableViewCell")
 
         setup()
     }
@@ -151,11 +139,11 @@ class CookRecommViewController: BaseViewController, UITableViewDelegate, UISearc
              
             customView.hasTableView.dataSource = self
             customView.hasTableView.delegate = self
-            customView.hasTableView.register(UINib(nibName: "hasTableViewCell", bundle: nil), forCellReuseIdentifier: "hasTableViewCell")
+            customView.hasTableView.register(UINib(nibName: "HasTableViewCell", bundle: nil), forCellReuseIdentifier: "HasTableViewCell")
             
             
             func tableView(tableView: UITableView, cellForRowAt indexPath : IndexPath) -> UITableViewCell {
-                let cell = customView.hasTableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath)
+                let cell = customView.hasTableView.dequeueReusableCell(withIdentifier: "HasTableViewCell", for: indexPath)
                 cell.textLabel?.text = test[indexPath.row]
                 return cell
             }
@@ -258,7 +246,7 @@ extension CookRecommViewController : UITableViewDataSource{
             cell.textLabel?.text = shownFoods[indexPath.row]
             return cell
         } else {
-            let cell = ingreTableView.dequeueReusableCell(withIdentifier: "ingreTableViewCell", for: indexPath)
+            let cell = ingreTableView.dequeueReusableCell(withIdentifier: "IngreTableViewCell", for: indexPath)
             cell.textLabel?.text = ingreArr[indexPath.row]
             return cell
         }

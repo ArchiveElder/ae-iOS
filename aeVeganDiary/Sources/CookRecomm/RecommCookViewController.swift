@@ -70,7 +70,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         //Ingre Select
         ingreTableView.dataSource = self
         ingreTableView.delegate = self
-        ingreTableView.register(UINib(nibName: "ingreTableViewCell", bundle: nil), forCellReuseIdentifier: "ingreTableViewCell")
+        ingreTableView.register(UINib(nibName: "IngreTableViewCell", bundle: nil), forCellReuseIdentifier: "IngreTableViewCell")
         
         
         //collectionView
@@ -290,7 +290,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             cell.textLabel?.text = shownFoods[indexPath.row]
             return cell
         } else {
-            let cell = ingreTableView.dequeueReusableCell(withIdentifier: "ingreTableViewCell", for: indexPath) as! ingreTableViewCell
+            let cell = ingreTableView.dequeueReusableCell(withIdentifier: "IngreTableViewCell", for: indexPath) as! IngreTableViewCell
             cell.ingreLabel?.text = ingreArr[indexPath.row]
             cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
             return cell
@@ -307,7 +307,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
         }
     }
     
@@ -319,7 +319,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             print(currentCell)
             ingreArr.append(currentCell ?? "")
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
             ingreTableView.reloadData()
             tableView.isHidden = true
             dismissKeyboard()

@@ -10,10 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyInfoViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="ageField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
-                <outlet property="heightField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
+                <outlet property="ageTextField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
+                <outlet property="heightTextField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="weightField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
+                <outlet property="weightTextField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
                 <outletCollection property="activityButtons" destination="FY3-sH-x0x" collectionClass="NSMutableArray" id="txu-8A-6oP"/>
                 <outletCollection property="activityButtons" destination="TZN-I8-QWK" collectionClass="NSMutableArray" id="VL9-o7-q9W"/>
                 <outletCollection property="activityButtons" destination="WRP-JF-faJ" collectionClass="NSMutableArray" id="ih4-sI-erh"/>
@@ -180,7 +180,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="EditDone:" destination="-1" eventType="touchUpInside" id="kla-1k-Kfh"/>
+                        <action selector="editDoneAction:" destination="-1" eventType="touchUpInside" id="7Fd-VU-0ge"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-JF-faJ">

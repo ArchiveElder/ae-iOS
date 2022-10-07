@@ -1,15 +1,15 @@
 //
-//  ingreTableViewCell.swift
+//  hasTableViewCell.swift
 //  aeVeganDiary
 //
-//  Created by 소정의 Mac on 2022/08/01.
+//  Created by 소정의 Mac on 2022/08/02.
 //
 
 import UIKit
 
-class ingreTableViewCell: UITableViewCell {
+class HasTableViewCell: UITableViewCell {
 
-    @IBOutlet var ingreLabel: UILabel!
+    @IBOutlet var hasIngreLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

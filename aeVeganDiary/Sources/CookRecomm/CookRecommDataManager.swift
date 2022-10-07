@@ -8,7 +8,7 @@
 import Alamofire
 
 class CookRecommDataManager {
-    func requestData(_ parameters: IngreInput, viewController: RecommCookViewController) {
+    func postRcommCook(_ parameters: IngreInput, viewController: RecommCookViewController) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         AF.request("http://3.35.123.36:8080/api/foodrecommend", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
