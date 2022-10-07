@@ -318,8 +318,8 @@
 		8F13E94F2851FA3000F090C4 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				CD0F067B286F236F0032D590 /* SignupDataManager.swift */,
 				CD0F0676286F22A80032D590 /* Entity */,
-				CD0F0675286F22A10032D590 /* DataManager */,
 				8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */,
 				8F13E9512851FAB600F090C4 /* NicknameInitViewController.xib */,
 				8F13E9542851FADF00F090C4 /* BodyInitViewController.swift */,
@@ -337,14 +337,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		8F1A5F68286855A100B64409 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8F1A5F692868563000B64409 /* SearchDataManager.swift */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
 		8F1A5F6F28702B1A00B64409 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,20 +346,12 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		8F1A5F7028702B9400B64409 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */,
-				8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
 		8F1A5F7F287C0DC800B64409 /* CookRecomm */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F962892522E00B64409 /* IngreDataManager.swift */,
+				8F1A5F9A2893E3D900B64409 /* CookRecommDataManager.swift */,
 				8F1A5F93289251E700B64409 /* Entity */,
-				8F1A5F92289251DC00B64409 /* DataManager */,
 				8F1A5F85287C2BBE00B64409 /* Cell */,
 				8F1A5F80287C0E0A00B64409 /* CookRecommViewController.swift */,
 				8F1A5F81287C0E0A00B64409 /* CookRecommViewController.xib */,
@@ -397,15 +381,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		8F1A5F92289251DC00B64409 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8F1A5F962892522E00B64409 /* IngreDataManager.swift */,
-				8F1A5F9A2893E3D900B64409 /* CookRecommDataManager.swift */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
 		8F1A5F93289251E700B64409 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +394,7 @@
 		8FA5F31B284A29B300ED3B66 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				8F1A5F68286855A100B64409 /* DataManager */,
+				8F1A5F692868563000B64409 /* SearchDataManager.swift */,
 				8F1A5F652868543C00B64409 /* Entity */,
 				8FD58B6E284DBFBF00B7BDAD /* Cell */,
 				8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */,
@@ -431,7 +406,10 @@
 		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
 			isa = PBXGroup;
 			children = (
-				8FD47FDA28A39ACB002D2B82 /* DataManager */,
+				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
+				8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */,
+				8F086E8328BCA05A0083958B /* SearchBookmarkDataManager.swift */,
+				8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */,
 				8FD47FD928A39ABE002D2B82 /* Entity */,
 				8FD47FD428A39A45002D2B82 /* cell */,
 				8FD47FE328A3A206002D2B82 /* LargeCategoryViewController.swift */,
@@ -466,17 +444,6 @@
 				8F086E8728BCAFF60083958B /* SearchBookmarkResponse.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		8FD47FDA28A39ACB002D2B82 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
-				8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */,
-				8F086E8328BCA05A0083958B /* SearchBookmarkDataManager.swift */,
-				8F086E8928BDD5D20083958B /* SearchBookmarkDeleteDataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		8FD58B6E284DBFBF00B7BDAD /* Cell */ = {
@@ -531,14 +498,6 @@
 				CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */,
 			);
 			path = LoginDataManager;
-			sourceTree = "<group>";
-		};
-		CD0F0675286F22A10032D590 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				CD0F067B286F236F0032D590 /* SignupDataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		CD0F0676286F22A80032D590 /* Entity */ = {
@@ -600,8 +559,9 @@
 		CD7C9FD428B870B900C8635E /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
+				CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */,
+				CDD9499128BCAD0900695E50 /* BookmarkListDeleteDataManager.swift */,
 				CDD9498B28BCA72B00695E50 /* Entity */,
-				CDD9498E28BCA92000695E50 /* DataManager */,
 				CD7C9FD528B870D000C8635E /* BookmarkViewController.swift */,
 				CD7C9FD628B870D000C8635E /* BookmarkViewController.xib */,
 			);
@@ -666,15 +626,6 @@
 				CDD9498C28BCA8BA00695E50 /* BookmarkListResponse.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		CDD9498E28BCA92000695E50 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */,
-				CDD9499128BCAD0900695E50 /* BookmarkListDeleteDataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		CDDFF9852865EC1B00303501 /* NutrientDetail */ = {
@@ -827,8 +778,9 @@
 		CDE47F6928427451005D8BB3 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A5F7328702CB200B64409 /* MyInfoDataManager.swift */,
+				8F1A5F7528703BD700B64409 /* MyInfoDataManager2.swift */,
 				CD7C9FD428B870B900C8635E /* Bookmark */,
-				8F1A5F7028702B9400B64409 /* DataManager */,
 				8F1A5F6F28702B1A00B64409 /* Entity */,
 				CDE47F73284274B0005D8BB3 /* MypageViewController.swift */,
 				CDE47F74284274B0005D8BB3 /* MypageViewController.xib */,
