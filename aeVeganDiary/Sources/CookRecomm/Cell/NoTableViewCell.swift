@@ -1,5 +1,5 @@
 //
-//  hasTableViewCell.swift
+//  noTableViewCell.swift
 //  aeVeganDiary
 //
 //  Created by 소정의 Mac on 2022/08/02.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class hasTableViewCell: UITableViewCell {
+class NoTableViewCell: UITableViewCell {
 
-    @IBOutlet var hasIngreLabel: UILabel!
+    @IBOutlet var noIngreLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

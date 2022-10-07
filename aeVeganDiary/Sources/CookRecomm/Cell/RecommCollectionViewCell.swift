@@ -46,13 +46,13 @@ class RecommCollectionViewCell: UICollectionViewCell,UIWebViewDelegate {
         
         hasTableView.delegate = self
         hasTableView.dataSource = self
-        let hasNibName = UINib(nibName: "hasTableViewCell", bundle: nil)
-        hasTableView.register(hasNibName, forCellReuseIdentifier: "hasTableViewCell")
+        let hasNibName = UINib(nibName: "HasTableViewCell", bundle: nil)
+        hasTableView.register(hasNibName, forCellReuseIdentifier: "HasTableViewCell")
         
         noTableView.delegate = self
         noTableView.dataSource = self
-        let noNibName = UINib(nibName: "noTableViewCell", bundle: nil)
-        noTableView.register(noNibName, forCellReuseIdentifier: "noTableViewCell")
+        let noNibName = UINib(nibName: "NoTableViewCell", bundle: nil)
+        noTableView.register(noNibName, forCellReuseIdentifier: "NoTableViewCell")
         
        
         
@@ -76,13 +76,13 @@ extension RecommCollectionViewCell : UITableViewDelegate, UITableViewDataSource{
             innerUrl = cookRecomm?.recipeUrl ?? ""
             delegate?.myUrl = NSURL(string: innerUrl)!
             
-            let cell = hasTableView.dequeueReusableCell(withIdentifier: "hasTableViewCell", for: indexPath) as! hasTableViewCell
+            let cell = hasTableView.dequeueReusableCell(withIdentifier: "HasTableViewCell", for: indexPath) as! HasTableViewCell
             cell.hasIngreLabel.text = cookRecomm?.has[indexPath.row]
             cell.hasIngreLabel.textColor = .darkGray
             cell.hasIngreLabel.font = UIFont.systemFont(ofSize: 15)
             return cell
         } else {
-            let cell = noTableView.dequeueReusableCell(withIdentifier: "noTableViewCell", for: indexPath) as! noTableViewCell
+            let cell = noTableView.dequeueReusableCell(withIdentifier: "NoTableViewCell", for: indexPath) as! NoTableViewCell
             cell.noIngreLabel.text = cookRecomm?.no[indexPath.row]
             cell.noIngreLabel.textColor = .darkGray
             cell.noIngreLabel.font = UIFont.systemFont(ofSize: 15)
