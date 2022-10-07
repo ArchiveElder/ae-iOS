@@ -13,7 +13,7 @@ class BodyInitViewController: BaseViewController {
         if (heightTextField.text != "") && (weightTextField.text != "") && indexOfOneAndOnly != nil {
             showIndicator()
             let input = SignupInput(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-            SignupDataManager().signUp(input, viewController: self)
+            SignupDataManager().postSignUp(input, viewController: self)
         } else {
             presentBottomAlert(message: "정보를 모두 입력해주세요")
         }

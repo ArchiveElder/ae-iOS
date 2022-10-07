@@ -307,7 +307,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             ingreTableView.deleteRows(at: [indexPath], with: .fade)
             ingreTableView.endUpdates()
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
         }
     }
     
@@ -319,7 +319,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             print(currentCell)
             ingreArr.append(currentCell ?? "")
             var ingreInput = IngreInput(ingredients: ingreArr)
-            CookRecommDataManager().requestData(ingreInput, viewController: self)
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
             ingreTableView.reloadData()
             tableView.isHidden = true
             dismissKeyboard()
