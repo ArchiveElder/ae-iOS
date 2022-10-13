@@ -65,7 +65,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchTableView.register(UINib(nibName: "CookRecommTableViewCell", bundle: nil), forCellReuseIdentifier: "CookRecommTableViewCell")
-        //setup()
+        setup()
         
         //Ingre Select
         ingreTableView.dataSource = self
@@ -117,6 +117,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     
     //최초 SearchBar 클릭 시
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchTableView.dataSource = self
+        //searchTableView.allowsSelection = true
         searchBar.setShowsCancelButton(true, animated:true)
         var searchTerm = searchBar.text
         if(searchTerm!.isEmpty == true){
@@ -342,6 +344,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             ingreTableView.reloadData()
             tableView.isHidden = true
             dismissKeyboard()
+            searchBar.setShowsCancelButton(false, animated: true)
         } else if tableView == ingreTableView {
             
         }
