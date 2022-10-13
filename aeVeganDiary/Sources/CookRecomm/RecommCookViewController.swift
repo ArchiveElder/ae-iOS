@@ -117,6 +117,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     
     //최초 SearchBar 클릭 시
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated:true)
         var searchTerm = searchBar.text
         if(searchTerm!.isEmpty == true){
             searchTableView.isHidden = false
@@ -154,6 +155,14 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
                 })
             
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true);
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        self.searchTableView.isHidden = true
+        dismissKeyboard()
     }
     
     
