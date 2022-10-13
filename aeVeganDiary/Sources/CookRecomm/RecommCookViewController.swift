@@ -65,7 +65,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchTableView.register(UINib(nibName: "CookRecommTableViewCell", bundle: nil), forCellReuseIdentifier: "CookRecommTableViewCell")
-        setup()
+        //setup()
         
         //Ingre Select
         ingreTableView.dataSource = self
@@ -90,32 +90,14 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             recommCollectionView.isHidden = true
         }
     }
-
+    
     //MARK: WebView func
     func safari (myUrl : NSURL) {
         print(myUrl)
         let safariView : SFSafariViewController = SFSafariViewController(url: myUrl as! URL)
         present(safariView, animated: true, completion: nil)
     }
-
     
-    //MARK: 검색 tableView func
-    /*
-    func setup() {
-        searchTableView.dataSource = self
-        searchBar
-            .rx.text
-            .orEmpty
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .filter{ !$0.isEmpty }
-            .subscribe(onNext: { [unowned self] query in
-                self.shownFoods = self.ingre.filter {
-                    $0.name.hasPrefix(query) }.map {$0.name}
-                self.searchTableView.reloadData()
-            })
-    }
-     */
     
     func setup() {
         searchTableView.dataSource = self
@@ -133,10 +115,23 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             })
     }
     
-    //MARK: SearchTable Visible 관련 func
+    //최초 SearchBar 클릭 시
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        var searchTerm = searchBar.text
+        if(searchTerm!.isEmpty == true){
+            searchTableView.isHidden = false
+            self.shownFoods = self.ingre.map{$0.name}
+            self.searchTableView.reloadData()
+            dismissKeyboardWhenTappedAround()
+        }
+    }
+    
+    //SearchBar Text 변경 이벤트
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText==""){
-            searchTableView.isHidden = true
+            self.shownFoods = self.ingre.map{$0.name}
+            self.searchTableView.reloadData()
+            searchTableView.isHidden = false
             dismissKeyboardWhenTappedAround()
         } else {
             searchTableView.isHidden = false
@@ -145,8 +140,23 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
                     self.view.removeGestureRecognizer(recognizer)
                 }
             }
+            searchBar
+                .rx.text
+                .orEmpty
+                .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+                .distinctUntilChanged()
+                .filter{ !$0.isEmpty }
+                .subscribe(onNext: { [unowned self] query in
+                    self.shownFoods = self.ingre.filter {
+                        $0.name.localizedCaseInsensitiveContains(query) }.map {$0.name}
+                        .sorted { ($0.hasPrefix(query) ? 0 : 1) < ($1.hasPrefix(query) ? 0 : 1)}
+                    self.searchTableView.reloadData()
+                })
+            
         }
     }
+    
+    
 }
 
 extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

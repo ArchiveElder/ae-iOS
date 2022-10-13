@@ -8,7 +8,6 @@
 import Alamofire
 
 class RestaurantSearchDataManager {
-    
     func postRestaurantSearch(_ parameters: RestaurantSearchInput, viewController: LargeCategoryViewController) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         AF.request("\(Constant.BASE_URL)/api/categories", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
