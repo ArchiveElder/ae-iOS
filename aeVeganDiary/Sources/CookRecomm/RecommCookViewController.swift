@@ -12,6 +12,10 @@ import SafariServices
 
 class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebViewDelegate, RecommCollectionViewCellDelegate {
     
+    @objc func reset() {
+        print("리셋")
+    }
+    
     @IBOutlet var ingreImageView: UIImageView!
     @IBOutlet var ingreLabel: UILabel!
     
@@ -58,6 +62,10 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         super.viewDidLoad()
         dismissKeyboardWhenTappedAround()
         setNavigationTitle(title: "채식 요리 추천")
+        view.backgroundColor = .white
+        
+        let resetButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(reset))
+        self.navigationItem.setRightBarButton(resetButton, animated: false)
         
         //Ingre Search
         searchBar.delegate = self
