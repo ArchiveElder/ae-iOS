@@ -12,10 +12,6 @@ import SafariServices
 
 class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebViewDelegate, RecommCollectionViewCellDelegate {
     
-    @objc func reset() {
-        print("리셋")
-    }
-    
     @IBOutlet var ingreImageView: UIImageView!
     @IBOutlet var ingreLabel: UILabel!
     
@@ -63,9 +59,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         dismissKeyboardWhenTappedAround()
         setNavigationTitle(title: "채식 요리 추천")
         view.backgroundColor = .white
-        
-        let resetButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(reset))
-        self.navigationItem.setRightBarButton(resetButton, animated: false)
+        setResetButton()
         
         //Ingre Search
         searchBar.delegate = self
@@ -97,6 +91,18 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             tabCollectionView.isHidden = true
             recommCollectionView.isHidden = true
         }
+    }
+    
+    
+    func setResetButton() {
+        let resetButton = UIBarButtonItem(image: UIImage(named:"reset"), style: .plain, target: self, action: #selector(reset))
+        resetButton.tintColor = .darkGreen
+        self.navigationItem.setRightBarButton(resetButton, animated: false)
+    }
+    
+    @objc func reset() {
+        self.ingreArr.removeAll()
+        ingreTableView.reloadData()
     }
     
     //MARK: WebView func
