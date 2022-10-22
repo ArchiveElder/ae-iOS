@@ -10,6 +10,9 @@ import KakaoSDKUser
 import AuthenticationServices
 
 class LoginViewController: BaseViewController {
+    
+    lazy var loginDataManager: LoginDataManagerDelegate = LoginDataManager()
+    lazy var appleLoginDataManager: LoginDataManagerDelegate = AppleLoginDataManager()
 
     @IBAction func kakaoLoginButton(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -22,7 +25,7 @@ class LoginViewController: BaseViewController {
                     
                     _ = oauthToken
                     print(oauthToken?.accessToken)
-                    self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
+                    self.request(accessToken: oauthToken?.accessToken ?? "")
                 }
             }
         } else {
@@ -36,7 +39,7 @@ class LoginViewController: BaseViewController {
                     //do something
                     _ = oauthToken
                     print(oauthToken?.accessToken)
-                    self.request(accessToken: oauthToken?.accessToken ?? "없엉...")
+                    self.request(accessToken: oauthToken?.accessToken ?? "")
                 }
             }
         }
@@ -59,44 +62,39 @@ class LoginViewController: BaseViewController {
        
         navigationController?.navigationBar.isHidden = true
     }
-
-
 }
 
-extension LoginViewController {
+extension LoginViewController: LoginViewDelegate {
     func request(accessToken: String) {
         self.showIndicator()
-        let input = LoginInput(accessToken: accessToken)
-        LoginDataManager().login(input, viewController: self)
+        let input = LoginRequest(accessToken: accessToken)
+        loginDataManager.postLogin(input, delegate: self)
     }
     
     func requestAppleLogin(accessToken: String) {
         self.showIndicator()
-        let input = LoginInput(accessToken: accessToken)
-        AppleLoginDataManager().appleLogin(input, viewController: self)
+        let input = LoginRequest(accessToken: accessToken)
+        appleLoginDataManager.postLogin(input, delegate: self)
     }
     
-    func login(result: LoginResponse) {
+    func didSuccessLogin(_ result: LoginResponse) {
         self.dismissIndicator()
         print(result)
-        if result.signup {
-            UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            //UserDefaults.standard.setValue(result.token, forKey: "jwt")
-            UserManager.shared.jwt = result.token
-            UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
+        let result = result.result
+        
+        UserDefaults.standard.setValue(result?.userId, forKey: "UserId")
+        UserManager.shared.jwt = result?.token ?? ""
+        UserDefaults.standard.setValue(result?.signup, forKey: "SignUp")
+        
+        if result?.signup ?? true {
             let vc = NicknameInitViewController()
             let navController = UINavigationController(rootViewController: vc)
             navController.view.backgroundColor = .white
             navController.navigationBar.isTranslucent = false
             self.changeRootViewController(navController)
         } else {
-            UserDefaults.standard.setValue(result.userId, forKey: "UserId")
-            //UserDefaults.standard.setValue(result.token, forKey: "jwt")
-            UserManager.shared.jwt = result.token
-            UserDefaults.standard.setValue(result.signup, forKey: "SignUp")
             self.changeRootViewController(BaseTabBarController())
         }
-        
     }
     
     func failedToRequest(message: String) {
