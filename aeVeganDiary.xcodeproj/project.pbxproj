@@ -108,6 +108,8 @@
 		CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2937C28CA2ABA00A48467 /* UserManager.swift */; };
 		CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */; };
 		CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8329042EB800C13D3D /* LoginRequest.swift */; };
+		CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8529043ACC00C13D3D /* HomeRequest.swift */; };
+		CDAECC8829043AF300C13D3D /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8729043AF300C13D3D /* HomeProtocol.swift */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61202284A50120041F5C7 /* RegisterInput.swift */; };
@@ -143,7 +145,6 @@
 		CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C38286B238900725D41 /* MealDetailInput.swift */; };
 		CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */; };
 		CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */; };
-		CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB5284A076900217725 /* HomeInput.swift */; };
 		CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB7284A077900217725 /* HomeResponse.swift */; };
 		CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */; };
 		CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9ABB284A351F00217725 /* UITextField.swift */; };
@@ -254,6 +255,8 @@
 		CDA2937C28CA2ABA00A48467 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
 		CDAECC8329042EB800C13D3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		CDAECC8529043ACC00C13D3D /* HomeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
+		CDAECC8729043AF300C13D3D /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61202284A50120041F5C7 /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
@@ -291,7 +294,6 @@
 		CDEB0C38286B238900725D41 /* MealDetailInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInput.swift; sourceTree = "<group>"; };
 		CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
 		CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataManager.swift; sourceTree = "<group>"; };
-		CDFF9AB5284A076900217725 /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
 		CDFF9AB7284A077900217725 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		CDFF9ABB284A351F00217725 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -750,10 +752,11 @@
 			isa = PBXGroup;
 			children = (
 				CDFF9AB3284A074600217725 /* Entity */,
-				CDFF9AB4284A075100217725 /* DataManager */,
 				CD2EFDA02843BC4B005D06A9 /* Cells */,
 				CDE47F642842741E005D8BB3 /* HomeViewController.swift */,
 				CDE47F652842741E005D8BB3 /* HomeViewController.xib */,
+				CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */,
+				CDAECC8729043AF300C13D3D /* HomeProtocol.swift */,
 				CD3E930D284DED9D0057E24F /* ArcProgressView.swift */,
 			);
 			path = Home;
@@ -805,18 +808,10 @@
 		CDFF9AB3284A074600217725 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CDFF9AB5284A076900217725 /* HomeInput.swift */,
+				CDAECC8529043ACC00C13D3D /* HomeRequest.swift */,
 				CDFF9AB7284A077900217725 /* HomeResponse.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		CDFF9AB4284A075100217725 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		F1680EF3741D64B34F0B2D5F /* Pods */ = {
@@ -1009,7 +1004,6 @@
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */,
-				CDFF9AB6284A076900217725 /* HomeInput.swift in Sources */,
 				8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
@@ -1032,6 +1026,7 @@
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
+				CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */,
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
@@ -1042,6 +1037,7 @@
 				8F086E8628BCAFE80083958B /* SearchBookmarkInput.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */,
+				CDAECC8829043AF300C13D3D /* HomeProtocol.swift in Sources */,
 				CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */,
 				CDD9499228BCAD0900695E50 /* BookmarkListDeleteDataManager.swift in Sources */,
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
