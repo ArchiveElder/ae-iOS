@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +29,39 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-ks-pti">
                     <rect key="frame" x="0.0" y="670" width="390" height="174"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw2-Cz-El6">
+                            <rect key="frame" x="20" y="26.000000000000004" width="108" height="34.333333333333343"/>
+                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="수정하기" imagePadding="15">
+                                <imageReference key="image" image="applepencil" catalog="system" symbolScale="medium"/>
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="editButtonAction:" destination="-1" eventType="touchUpInside" id="gmy-iS-nOp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5T-pp-waf">
+                            <rect key="frame" x="20" y="75.333333333333371" width="110" height="35"/>
+                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="삭제하기" imagePadding="15">
+                                <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="deleteButtonAction:" destination="-1" eventType="touchUpInside" id="c6z-pZ-XWj"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="bw2-Cz-El6" firstAttribute="top" secondItem="qyh-ks-pti" secondAttribute="top" constant="26" id="7us-XG-O2T"/>
+                        <constraint firstItem="Q5T-pp-waf" firstAttribute="leading" secondItem="qyh-ks-pti" secondAttribute="leading" constant="20" id="DDX-k5-6MR"/>
+                        <constraint firstItem="Q5T-pp-waf" firstAttribute="top" secondItem="bw2-Cz-El6" secondAttribute="bottom" constant="15" id="NFu-uh-u5Z"/>
+                        <constraint firstItem="bw2-Cz-El6" firstAttribute="leading" secondItem="qyh-ks-pti" secondAttribute="leading" constant="20" id="OE5-Xi-JAy"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -46,6 +79,8 @@
         </view>
     </objects>
     <resources>
+        <image name="applepencil" catalog="system" width="128" height="115"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

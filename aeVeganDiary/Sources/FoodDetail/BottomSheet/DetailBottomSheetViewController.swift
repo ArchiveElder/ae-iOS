@@ -13,7 +13,12 @@ class DetailBottomSheetViewController: UIViewController {
     @IBOutlet weak var bottomSheetView: UIView!
     @IBOutlet weak var bottomSheetTopConstraint: NSLayoutConstraint!
     
-    var defaultHeight: CGFloat = 170
+    var defaultHeight: CGFloat = 120
+    
+    @IBAction func editButtonAction(_ sender: Any) {
+    }
+    @IBAction func deleteButtonAction(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

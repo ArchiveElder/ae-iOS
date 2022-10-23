@@ -119,6 +119,8 @@
 		CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9F2905776B00C13D3D /* SignupRequest.swift */; };
 		CDAECCA42905909C00C13D3D /* DetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECCA22905909C00C13D3D /* DetailBottomSheetViewController.swift */; };
 		CDAECCA52905909C00C13D3D /* DetailBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDAECCA32905909C00C13D3D /* DetailBottomSheetViewController.xib */; };
+		CDAECCA929059A6500C13D3D /* FoodDetailEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECCA729059A6500C13D3D /* FoodDetailEditViewController.swift */; };
+		CDAECCAA29059A6500C13D3D /* FoodDetailEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDAECCA829059A6500C13D3D /* FoodDetailEditViewController.xib */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
@@ -269,6 +271,8 @@
 		CDAECC9F2905776B00C13D3D /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		CDAECCA22905909C00C13D3D /* DetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		CDAECCA32905909C00C13D3D /* DetailBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBottomSheetViewController.xib; sourceTree = "<group>"; };
+		CDAECCA729059A6500C13D3D /* FoodDetailEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditViewController.swift; sourceTree = "<group>"; };
+		CDAECCA829059A6500C13D3D /* FoodDetailEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailEditViewController.xib; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 		8FD58B75284DFBA000B7BDAD /* FoodDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CDAECCA629059A5100C13D3D /* FoodDetailEdit */,
 				CDAECCA12905905D00C13D3D /* BottomSheet */,
 				CDEB0C36286B235E00725D41 /* Entity */,
 				8F13E9492850AEB300F090C4 /* MealDetailViewController.swift */,
@@ -593,6 +598,15 @@
 				CDAECCA32905909C00C13D3D /* DetailBottomSheetViewController.xib */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		CDAECCA629059A5100C13D3D /* FoodDetailEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CDAECCA729059A6500C13D3D /* FoodDetailEditViewController.swift */,
+				CDAECCA829059A6500C13D3D /* FoodDetailEditViewController.xib */,
+			);
+			path = FoodDetailEdit;
 			sourceTree = "<group>";
 		};
 		CDC61201284A4FD20041F5C7 /* Entity */ = {
@@ -887,6 +901,7 @@
 				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */,
+				CDAECCAA29059A6500C13D3D /* FoodDetailEditViewController.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
 				CD7C9FD828B870D000C8635E /* BookmarkViewController.xib in Resources */,
@@ -1037,6 +1052,7 @@
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
+				CDAECCA929059A6500C13D3D /* FoodDetailEditViewController.swift in Sources */,
 				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
