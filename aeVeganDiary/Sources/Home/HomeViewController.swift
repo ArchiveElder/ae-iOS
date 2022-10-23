@@ -19,6 +19,8 @@ struct Event {
 
 class HomeViewController: BaseViewController {
     
+    lazy var homeDataManager: HomeDataManagerDelegate = HomeDataManager()
+    
     var eventList = [Event]()
     
     var store = EKEventStore()
@@ -59,16 +61,12 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var hideView: UIView!
     
     // MARK: 서버 통신 변수 선언
-    var homeResponse: HomeResponse?
+    var homeResult: HomeResult?
     var records = [Records]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //var HEADERS: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        //print(Constant.HEADERS)
-        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        print(headers)
         setNavigationTitle(title: "기록")
         
         //FSCalendar Custom
@@ -188,7 +186,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let nowDate = Date()
         let time = date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
-        print(time)
+        //print(time)
         datePickTextField.text = dateFormatter.string(from: date)
         datePicker.date = date
         if time <= 0 {
@@ -363,46 +361,12 @@ extension HomeViewController: CLLocationManagerDelegate {
 
 
 // MARK: 서버 통신
-extension HomeViewController {
+extension HomeViewController: HomeViewDelegate {
     func request(dateText: String) {
         showIndicator()
-        let input = HomeInput(date: dateText)
-        HomeDataManager().requestData(input, viewController: self)
+        let input = HomeRequest(date: dateText)
+        homeDataManager.getDaterecord(input, delegate: self)
         fetchEvent()
-    }
-    
-    func getData(result: HomeResponse) {
-        dismissIndicator()
-        self.homeResponse = result
-        self.records = result.records
-        
-        let cal = result.recommCalory - result.totalCalory
-        recommKcal.text = "\(String(result.recommCalory)) kcal"
-        consumeKcal.text = "\(String(result.totalCalory)) kcal"
-        
-        if cal < 0 {
-            self.calLabel.text = "0 kcal"
-        } else {
-            self.calLabel.text = "\(String(cal)) kcal"
-        }
-        
-        self.carbLabel.text = "\(result.totalCarb) / \(result.recommCarb)"
-        self.proteinLabel.text = "\(result.totalPro) / \(result.recommPro)"
-        self.fatLabel.text = "\(result.totalFat) / \(result.recommFat)"
-        
-        self.records.sort(by: { $0.meal < $1.meal })
-        
-        self.tabCollectionView.reloadData()
-        self.mealCollectionView.reloadData()
-        let firstIndex = records.firstIndex(where: { $0.mcal == 0 }) ?? 0
-        selected = firstIndex
-        tabCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
-        mealCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
-        
-        setProgressResult(sender: carbProgressBar, data: Float(result.totalCarb) / Float(result.recommCarb))
-        setProgressResult(sender: proteinProgressBar, data: Float(result.totalPro) / Float(result.recommPro))
-        setProgressResult(sender: fatProgressBar, data: Float(result.totalFat) / Float(result.recommFat))
-        arcProgressBar.setProgressOne(to: Double(result.totalCalory) / Double(result.recommCalory), withAnimation: false, maxSpeed: 45)
     }
     
     func setProgressResult(sender: UIProgressView, data: Float){
@@ -421,8 +385,47 @@ extension HomeViewController {
         sender.progress = data
     }
     
-    func failedToRequest(message: String) {
+    func didSuccessGetDaterecord(_ result: HomeResponse) {
+        dismissIndicator()
+        self.homeResult = result.result!
+        self.records = result.result?.records ?? []
+        
+        let cal = (homeResult?.recommCalory ?? 0) - (homeResult?.totalCalory ?? 0)
+        recommKcal.text = "\(homeResult?.recommCalory ?? 0) kcal"
+        consumeKcal.text = "\(homeResult?.totalCalory ?? 0) kcal"
+        
+        if cal < 0 {
+            self.calLabel.text = "0 kcal"
+        } else {
+            self.calLabel.text = "\(String(cal)) kcal"
+        }
+        
+        self.carbLabel.text = "\(homeResult?.totalCarb ?? 0) / \(homeResult?.recommCarb ?? 0)"
+        self.proteinLabel.text = "\(homeResult?.totalPro ?? 0) / \(homeResult?.recommPro ?? 0)"
+        self.fatLabel.text = "\(homeResult?.totalFat ?? 0) / \(homeResult?.recommFat ?? 0)"
+        
+        self.records.sort(by: { $0.meal < $1.meal })
+        
+        self.tabCollectionView.reloadData()
+        self.mealCollectionView.reloadData()
+        let firstIndex = records.firstIndex(where: { $0.mcal == 0 }) ?? 0
+        selected = firstIndex
+        tabCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
+        mealCollectionView.scrollToItem(at: IndexPath(item: firstIndex, section: 0), at: .left, animated: false)
+        
+        setProgressResult(sender: carbProgressBar, data: Float(homeResult?.totalCarb ?? 0) / Float(homeResult?.recommCarb ?? 0))
+        setProgressResult(sender: proteinProgressBar, data: Float(homeResult?.totalPro ?? 0) / Float(homeResult?.recommPro ?? 0))
+        setProgressResult(sender: fatProgressBar, data: Float(homeResult?.totalFat ?? 0) / Float(homeResult?.recommFat ?? 0))
+        arcProgressBar.setProgressOne(to: Double(homeResult?.totalCalory ?? 0) / Double(homeResult?.recommCalory ?? 0), withAnimation: false, maxSpeed: 45)
+    }
+    
+    func failedToRequest(message: String, code: Int) {
         dismissIndicator()
         presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
 }

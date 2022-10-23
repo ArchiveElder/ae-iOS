@@ -1,13 +1,13 @@
 //
-//  RegisterInput.swift
+//  RegisterRequest.swift
 //  aeVeganDiary
 //
-//  Created by 권하은 on 2022/06/03.
+//  Created by 권하은 on 2022/10/23.
 //
 
 import Foundation
 
-struct RegisterInput: Encodable {
+struct RegisterRequest: Encodable {
     var text: String
     var calory: String
     var carb: String
@@ -18,4 +18,3 @@ struct RegisterInput: Encodable {
     var amount: Double
     var meal: Int
 }
-

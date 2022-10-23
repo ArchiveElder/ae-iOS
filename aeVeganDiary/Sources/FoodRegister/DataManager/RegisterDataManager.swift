@@ -7,8 +7,8 @@
 
 import Alamofire
 
-class RegisterDataManager {
-    func registerMeal(_ parameters: RegisterInput, _ foodImage: UIImage, viewController: FoodRegisterViewController) {
+class RegisterDataManager: RegisterDataManagerDelegate {
+    func postRegister(_ parameters: RegisterRequest, foodImage: UIImage, delegate: RegisterViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         let param: [String : Any] = [
                 "image": foodImage,
@@ -35,12 +35,23 @@ class RegisterDataManager {
         .responseDecodable(of: RegisterResponse.self) { response in
             switch response.result {
             case .success(let response):
-                viewController.postMeal()
-                print(response)
+                // 성공했을 때
+                if response.isSuccess {
+                    delegate.didSuccessRegister(response)
+                }
+                // 실패했을 때
+                else {
+                    switch response.code {
+                    case 2001, 2002, 2003: delegate.failedToRequest(message: "로그인 토큰이 만료되었습니다. 다시 로그인 해주세요", code: 403)
+                    case 2112, 2113: delegate.failedToRequest(message: "식사 시간을 입력해주세요", code: 0)
+                    case 2114, 2115: delegate.failedToRequest(message: "식사량을 입력해주세요", code: 0)
+                    default: delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다", code: 0)
+                    }
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다", code: 0)
             }
         }
-
     }
 }
