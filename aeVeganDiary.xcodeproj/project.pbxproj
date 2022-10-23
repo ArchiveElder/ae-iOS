@@ -114,11 +114,12 @@
 		CDAECC8C29052C3500C13D3D /* RegisterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8B29052C3500C13D3D /* RegisterProtocol.swift */; };
 		CDAECC8E2905314100C13D3D /* MealDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8D2905314100C13D3D /* MealDetailProtocol.swift */; };
 		CDAECC902905316800C13D3D /* MealDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8F2905316800C13D3D /* MealDetailRequest.swift */; };
+		CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC912905366700C13D3D /* AnalyzeProtocol.swift */; };
+		CDAECC9429053C9900C13D3D /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9329053C9900C13D3D /* MapProtocol.swift */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
 		CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61207284A50480041F5C7 /* RegisterDataManager.swift */; };
-		CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6B0FF28927C1700E6473D /* Geocoding.swift */; };
 		CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9498C28BCA8BA00695E50 /* BookmarkListResponse.swift */; };
 		CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */; };
 		CDD9499228BCAD0900695E50 /* BookmarkListDeleteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9499128BCAD0900695E50 /* BookmarkListDeleteDataManager.swift */; };
@@ -261,11 +262,12 @@
 		CDAECC8B29052C3500C13D3D /* RegisterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProtocol.swift; sourceTree = "<group>"; };
 		CDAECC8D2905314100C13D3D /* MealDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailProtocol.swift; sourceTree = "<group>"; };
 		CDAECC8F2905316800C13D3D /* MealDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailRequest.swift; sourceTree = "<group>"; };
+		CDAECC912905366700C13D3D /* AnalyzeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeProtocol.swift; sourceTree = "<group>"; };
+		CDAECC9329053C9900C13D3D /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		CDC61207284A50480041F5C7 /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
-		CDD6B0FF28927C1700E6473D /* Geocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoding.swift; sourceTree = "<group>"; };
 		CDD9498C28BCA8BA00695E50 /* BookmarkListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListResponse.swift; sourceTree = "<group>"; };
 		CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListDataManager.swift; sourceTree = "<group>"; };
 		CDD9499128BCAD0900695E50 /* BookmarkListDeleteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListDeleteDataManager.swift; sourceTree = "<group>"; };
@@ -479,14 +481,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		CD00F680286DDB3A00F8A8C0 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
 		CD00F685286DDFD400F8A8C0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +506,7 @@
 				CDD6B0FE28927BF800E6473D /* DataManager */,
 				CD6A455F288E790D004B8B91 /* MapViewController.swift */,
 				CD6A4560288E790D004B8B91 /* MapViewController.xib */,
+				CDAECC9329053C9900C13D3D /* MapProtocol.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -609,7 +604,6 @@
 		CDD6B0FE28927BF800E6473D /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				CDD6B0FF28927C1700E6473D /* Geocoding.swift */,
 				CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */,
 				CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */,
 				CD7C9FD228B865BB00C8635E /* BookmarkDeleteDataManager.swift */,
@@ -758,9 +752,10 @@
 			isa = PBXGroup;
 			children = (
 				CD00F67F286DDB3200F8A8C0 /* Entity */,
-				CD00F680286DDB3A00F8A8C0 /* DataManager */,
 				CDE47F6B2842747D005D8BB3 /* AnalyzeViewController.swift */,
 				CDE47F6C2842747D005D8BB3 /* AnalyzeViewController.xib */,
+				CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */,
+				CDAECC912905366700C13D3D /* AnalyzeProtocol.swift */,
 			);
 			path = Analyze;
 			sourceTree = "<group>";
@@ -984,6 +979,7 @@
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
+				CDAECC9429053C9900C13D3D /* MapProtocol.swift in Sources */,
 				CDAECC8C29052C3500C13D3D /* RegisterProtocol.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
@@ -998,7 +994,6 @@
 				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
-				CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
@@ -1042,6 +1037,7 @@
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
+				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,

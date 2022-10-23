@@ -10,6 +10,8 @@ import Charts
 
 class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
+    lazy var analyzeDataManager: AnalyzeDataManagerDelegate = AnalyzeDataManager()
+    
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var ratioView: UIView!
     @IBOutlet weak var calMessageLabel: UILabel!
@@ -62,7 +64,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
         values = [Double]()
         
         showIndicator()
-        AnalyzeDataManager().requestData(viewController: self)
+        analyzeDataManager.getAnalyze(delegate: self)
     }
     
     // 그래프 설정 코드
@@ -200,17 +202,19 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     }
 }
 
-extension AnalyzeViewController {
-    func getData(response: AnalyzeResponse) {
+extension AnalyzeViewController: AnalyzeViewDelegate {
+    func didSuccessGetAnalyze(_ result: AnalyzeResponse) {
         dismissIndicator()
-        self.rcal = Double(response.rcal)
-        self.todayLabel.text = response.todayDate
-        self.carbLabel.text = "\(Int(response.totalCarb) / 7)/\(response.rcarb)"
-        self.proLabel.text = "\(Int(response.totalPro) / 7)/\(response.rpro)"
-        self.fatLabel.text = "\(Int(response.totalFat) / 7)/\(response.rfat)"
-        analysis = response.analysisDtos ?? [Analysis]()
+        let response = result.result
         
-        if response.status == 1 {
+        self.rcal = Double(response?.rcal ?? "0")
+        self.todayLabel.text = response?.todayDate
+        self.carbLabel.text = "\(Int(response?.totalCarb ?? 0) / 7)/\(response?.rcarb ?? "")"
+        self.proLabel.text = "\(Int(response?.totalPro ?? 0) / 7)/\(response?.rpro ?? "")"
+        self.fatLabel.text = "\(Int(response?.totalFat ?? 0) / 7)/\(response?.rfat ?? "")"
+        analysis = response?.analysisDtos ?? [Analysis]()
+        
+        if response?.status == 1 {
             statusView.isHidden = true
             // 그래프에 들어갈 데이터들
             for i in analysis.reversed() {
@@ -219,15 +223,27 @@ extension AnalyzeViewController {
             }
             
             setLineChart(dataPoints: dates, values: values)
+            let carbPercent = Float(response?.ratioCarb ?? 0) / 100
+            let proPercent = Float(response?.ratioPro ?? 0) / 100
+            let fatPercent = Float(response?.ratioFat ?? 0) / 100
             
-            drawStackedProgress(percentages: [Float(response.ratioCarb) / 100, Float(response.ratioPro) / 100, Float(response.ratioFat) / 100], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
+            drawStackedProgress(percentages: [carbPercent, proPercent, fatPercent], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
         } else {
             statusView.isHidden = false
         }
         
-        setProgressResult(sender: carbProgressView, data: Float(response.totalCarb) / 7 / (Float(response.rcarb) ?? 1))
-        setProgressResult(sender: proProgressView, data: Float(response.totalPro) / 7 / (Float(response.rpro) ?? 1))
-        setProgressResult(sender: fatProgressView, data: Float(response.totalFat) / 7 / (Float(response.rfat) ?? 1))
-        
+        setProgressResult(sender: carbProgressView, data: Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1))
+        setProgressResult(sender: proProgressView, data: Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1))
+        setProgressResult(sender: fatProgressView, data: Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1))
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
 }
