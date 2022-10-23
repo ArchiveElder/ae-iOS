@@ -8,6 +8,13 @@
 import Foundation
 
 struct IngreResponse: Decodable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: IngreResult
+}
+
+struct IngreResult : Decodable {
     var count: Int
     var data: [Ingre]
 }

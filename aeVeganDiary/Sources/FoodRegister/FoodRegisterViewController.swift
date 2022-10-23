@@ -10,6 +10,8 @@ import UIKit
 class FoodRegisterViewController: BaseViewController {
     lazy var registerDataManager: RegisterDataManagerDelegate = RegisterDataManager()
     
+    lazy var foodDetailDataManager : FoodDetailDataManagerDelegate = FoodDetailDataManager()
+    
     // datePicker
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -115,7 +117,9 @@ class FoodRegisterViewController: BaseViewController {
             foodImageView.isHidden = true
             changeView.isHidden = true
             showIndicator()
-            FoodDetailDataManager().requestData(id, viewController: self)
+            //FoodDetailDataManager().requestData(id, viewController: self)
+            
+            foodDetailDataManager.requestData(id, delegate: self)
             
         } else {
             foodImageViewHeight.constant = 320
@@ -168,16 +172,12 @@ class FoodRegisterViewController: BaseViewController {
 
 }
 
-extension FoodRegisterViewController: RegisterViewDelegate {
-    func didSuccessRegister(_ result: RegisterResponse) {
-        dismissIndicator()
-        self.dismiss(animated: true)
-    }
+extension FoodRegisterViewController : FoodDetailViewDelegate {
     
-    func getData(result: FoodDetailResponse){
+    func didSuccessGetFoodDetailData(_ result: FoodDetailResponse) {
         dismissIndicator()
         self.foodDetailResponse = result
-        self.foodDetail = result.data
+        self.foodDetail = result.result.data
         foodNameLabel.text = foodDetail[0].name
         caloryLabel.text = String(foodDetail[0].calory)
         self.cal = foodDetail[0].calory
@@ -187,6 +187,14 @@ extension FoodRegisterViewController: RegisterViewDelegate {
         self.pro = foodDetail[0].pro
         fatLabel.text = String(foodDetail[0].fat)
         self.fat = foodDetail[0].fat
+    }
+    
+}
+
+extension FoodRegisterViewController: RegisterViewDelegate {
+    func didSuccessRegister(_ result: RegisterResponse) {
+        dismissIndicator()
+        self.dismiss(animated: true)
     }
     
     func foodPredict(result: FoodPredictResponse) {

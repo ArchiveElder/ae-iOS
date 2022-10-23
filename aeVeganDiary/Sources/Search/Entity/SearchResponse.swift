@@ -8,6 +8,13 @@
 import Foundation
 
 struct SearchResponse: Decodable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: SearchResult
+}
+
+struct SearchResult : Decodable {
     var count: Int
     var data: [Food]
 }
@@ -16,13 +23,4 @@ struct Food: Decodable {
     var id: Int
     var name: String
 }
-/*
-struct SearchResponse: Codable {
-    let data: Food
-}
 
-struct Food: Codable{
-    let id: CLong
-    let name: String
-}
-*/

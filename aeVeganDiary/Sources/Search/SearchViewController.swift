@@ -13,6 +13,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
+    lazy var searchDataManager : SearchDataManagerDelegate = SearchDataManager()
+    
     //MARK: 서버 통신 변수 선언
     var searchResponse: SearchResponse?
     var foods = [Food]()
@@ -109,20 +111,42 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(rdate)
         showIndicator()
-        SearchDataManager().getSearchData(viewController: self)
-
+        searchDataManager.getSearchData(delegate: self)
     }
 }
 
-extension SearchViewController : UITableViewDataSource {
+
+extension SearchViewController : SearchViewDelegate{
     
+    func didSuccessGetSearchData(_ result: SearchResponse) {
+        dismissIndicator()
+        self.searchResponse = result
+        self.foods = result.result.data
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+                
+            }
+        }
+        
+    }
+    
+}
+
+extension SearchViewController : UITableViewDataSource {
+    /*
     func getData(result: SearchResponse){
         dismissIndicator()
         self.searchResponse = result
-        self.foods = result.data
+        self.foods = result.result.data
     }
+     */
     
     // MARK: 테이블뷰에 띄우기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
