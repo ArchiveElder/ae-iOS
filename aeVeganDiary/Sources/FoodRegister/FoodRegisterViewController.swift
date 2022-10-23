@@ -8,6 +8,8 @@
 import UIKit
 
 class FoodRegisterViewController: BaseViewController {
+    lazy var registerDataManager: RegisterDataManagerDelegate = RegisterDataManager()
+    
     // datePicker
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -160,22 +162,16 @@ class FoodRegisterViewController: BaseViewController {
         showIndicator()
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
-        let input = RegisterInput(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
-        print(input)
-        RegisterDataManager().registerMeal(input, foodImage, viewController: self)
+        let input = RegisterRequest(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
+        registerDataManager.postRegister(input, foodImage: foodImage, delegate: self)
     }
 
 }
 
-extension FoodRegisterViewController {
-    func postMeal() {
+extension FoodRegisterViewController: RegisterViewDelegate {
+    func didSuccessRegister(_ result: RegisterResponse) {
         dismissIndicator()
         self.dismiss(animated: true)
-    }
-    
-    func failedToRequest(message: String) {
-        dismissIndicator()
-        presentAlert(message: message)
     }
     
     func getData(result: FoodDetailResponse){
@@ -213,4 +209,21 @@ extension FoodRegisterViewController {
         
         self.notFoodLabel.text = "\(result.name ?? "")이(가) 아닌가요?"
     }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
+    }
+    
+    
+}
+
+extension FoodRegisterViewController {
+    
+    
 }

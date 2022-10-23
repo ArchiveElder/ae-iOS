@@ -110,9 +110,10 @@
 		CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8329042EB800C13D3D /* LoginRequest.swift */; };
 		CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8529043ACC00C13D3D /* HomeRequest.swift */; };
 		CDAECC8829043AF300C13D3D /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8729043AF300C13D3D /* HomeProtocol.swift */; };
+		CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC892905283F00C13D3D /* RegisterRequest.swift */; };
+		CDAECC8C29052C3500C13D3D /* RegisterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8B29052C3500C13D3D /* RegisterProtocol.swift */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
-		CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61202284A50120041F5C7 /* RegisterInput.swift */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
 		CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61207284A50480041F5C7 /* RegisterDataManager.swift */; };
 		CDD6B10028927C1700E6473D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6B0FF28927C1700E6473D /* Geocoding.swift */; };
@@ -257,9 +258,10 @@
 		CDAECC8329042EB800C13D3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CDAECC8529043ACC00C13D3D /* HomeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
 		CDAECC8729043AF300C13D3D /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
+		CDAECC892905283F00C13D3D /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		CDAECC8B29052C3500C13D3D /* RegisterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProtocol.swift; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
-		CDC61202284A50120041F5C7 /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		CDC61207284A50480041F5C7 /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
 		CDD6B0FF28927C1700E6473D /* Geocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoding.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				CDC61206284A50390041F5C7 /* DataManager */,
 				CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */,
 				CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */,
+				CDAECC8B29052C3500C13D3D /* RegisterProtocol.swift */,
 			);
 			path = FoodRegister;
 			sourceTree = "<group>";
@@ -586,7 +589,7 @@
 		CDC61201284A4FD20041F5C7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CDC61202284A50120041F5C7 /* RegisterInput.swift */,
+				CDAECC892905283F00C13D3D /* RegisterRequest.swift */,
 				CDC61204284A50190041F5C7 /* RegisterResponse.swift */,
 				8F1A5F8E288E63C900B64409 /* FoodDetailResponse.swift */,
 				CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */,
@@ -1001,6 +1004,7 @@
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
+				CDAECC8C29052C3500C13D3D /* RegisterProtocol.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */,
@@ -1021,6 +1025,7 @@
 				CDEB0C39286B238900725D41 /* MealDetailInput.swift in Sources */,
 				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
+				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				CD29AD94289ACF42001C8C51 /* BookmarkInput.swift in Sources */,
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
@@ -1041,7 +1046,6 @@
 				CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */,
 				CDD9499228BCAD0900695E50 /* BookmarkListDeleteDataManager.swift in Sources */,
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
-				CDC61203284A50120041F5C7 /* RegisterInput.swift in Sources */,
 				8F086E8828BCAFF60083958B /* SearchBookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
