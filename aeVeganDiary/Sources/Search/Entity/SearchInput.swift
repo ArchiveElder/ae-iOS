@@ -10,18 +10,3 @@ import Foundation
 struct SearchInput: Encodable {
     var id: CLong
 }
-/*
-struct SearchInput: Encodable {
-    var count: Int
-    var data: [FoodDetail]
-}
-
-struct FoodDetail: Encodable {
-    var name: String
-    var capacity: Int
-    var calory: Double
-    var carb: Double
-    var pro: Double
-    var fat: Double
-}
-*/
