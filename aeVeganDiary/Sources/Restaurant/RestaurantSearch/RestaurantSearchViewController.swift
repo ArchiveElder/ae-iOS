@@ -11,6 +11,8 @@ import RxSwift
 
 class RestaurantSearchViewController: UIViewController {
 
+    lazy var bookmarkDataManager: BookmarkDataManagerDelegate = BookmarkDataManager()
+    lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
     
     @IBOutlet var middleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -49,28 +51,18 @@ class RestaurantSearchViewController: UIViewController {
 }
 
 extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDelegate, RestaurantSearchTableViewCellDelegate {
-    
-    func bookmark() {
-        dismissIndicator()
-    }
-    
-    func bookmarkDelete() {
-        dismissIndicator()
-    }
-    
     func bookmarkButtonAction(cell: RestaurantSearchTableViewCell) {
         var indexPath = tableView.indexPath(for: cell)?[1]
-        let inputBistroId = SearchBookmarkInput(bistroId: bistroIdArr[indexPath!])
+        let inputBistroId = BookmarkRequest(bistroId: bistroIdArr[indexPath!])
         
         //안눌렸으면
         if(cell.searchBookmarkButton.isSelected == false){
-            SearchBookmarkDataManager().postBookmark(inputBistroId, viewController: self)
+            bookmarkDataManager.postBookmark(inputBistroId, delegate: self)
             cell.searchBookmarkButton.isSelected = true
         }
         //눌렸으면
         else if(cell.searchBookmarkButton.isSelected == true){
-            SearchBookmarkDeleteDataManager().deleteBookmark(inputBistroId, viewController: self)
-            //BookmarkDeleteDataManager().deleteBookmark(BookmarkInput(bistroId: bistroIdArr[indexPath!]), viewController: RestaurantSearchViewController)
+            bookmarkDeleteDataManager.deleteBookmark(inputBistroId, delegate: self)
             cell.searchBookmarkButton.isSelected = false
         }
     
@@ -82,10 +74,8 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let vc = RestaurantSearchViewController()
         let cell : RestaurantSearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
-        
         
         cell.nameLabel?.text = nameArr[indexPath.row]
         cell.categoryLabel?.text = categoryArr[indexPath.row]
@@ -101,6 +91,24 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         cell.delegate = self
         return cell
     }
+}
+
+extension RestaurantSearchViewController: BookmarkViewDelegate, BookmarkDeleteViewDelegate {
+    func didSuccessPostBookmark(_ result: BookmarkResponse) {
+        dismissIndicator()
+    }
     
+    func didSuccessDeleteBookmark(_ result: BookmarkResponse) {
+        dismissIndicator()
+    }
     
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
+    }
 }

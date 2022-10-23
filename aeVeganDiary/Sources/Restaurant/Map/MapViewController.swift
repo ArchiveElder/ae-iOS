@@ -14,6 +14,8 @@ import EventKit
 class MapViewController: BaseViewController, GMSMapViewDelegate {
     
     lazy var mapDataManager: MapDataManagerDelegate = MapDataManager()
+    lazy var bookmarkDataManager: BookmarkDataManagerDelegate = BookmarkDataManager()
+    lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
     
     var location = CLLocation()
     
@@ -29,10 +31,10 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         if markerIndex != nil {
             if bookmarkButton.isSelected == false {
                 showIndicator()
-                BookmarkDataManager().postBookmark(BookmarkInput(bistroId: markerIndex!), viewController: self)
+                bookmarkDataManager.postBookmark(BookmarkRequest(bistroId: markerIndex!), delegate: self)
             } else {
                 showIndicator()
-                BookmarkDeleteDataManager().deleteBookmark(BookmarkInput(bistroId: markerIndex!), viewController: self)
+                bookmarkDeleteDataManager.deleteBookmark(BookmarkRequest(bistroId: markerIndex!), delegate: self)
             }
         }
     }
@@ -103,7 +105,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
 
 
 // MARK: 서버 통신
-extension MapViewController: MapViewDelegate {
+extension MapViewController: MapViewDelegate, BookmarkViewDelegate, BookmarkDeleteViewDelegate {
     func didSuccessGetMap(_ result: MapResponse) {
         dismissIndicator()
         for i in markerList {
@@ -140,13 +142,15 @@ extension MapViewController: MapViewDelegate {
         }
     }
     
-    func bookmark() {
+    func didSuccessPostBookmark(_ result: BookmarkResponse) {
         bookmarkButton.isSelected = true
         mapDataManager.getMap(delegate: self)
     }
     
-    func bookmarkDelete() {
+    func didSuccessDeleteBookmark(_ result: BookmarkResponse) {
         bookmarkButton.isSelected = false
         mapDataManager.getMap(delegate: self)
     }
+    
+    
 }
