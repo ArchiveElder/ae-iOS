@@ -1,13 +1,11 @@
 //
-//  SignupInput.swift
+//  SignupRequest.swift
 //  aeVeganDiary
 //
-//  Created by 권하은 on 2022/07/01.
+//  Created by 권하은 on 2022/10/23.
 //
 
-import Foundation
-
-struct SignupInput: Encodable {
+struct SignupRequest: Encodable {
     var name: String
     var age: Int
     var gender: Int

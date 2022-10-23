@@ -8,12 +8,14 @@
 import UIKit
 
 class BodyInitViewController: BaseViewController {
+    
+    lazy var signupDataManager: SignupDataManagerDelegate = SignupDataManager()
 
     @IBAction func doneButtonAction(_ sender: Any) {
         if (heightTextField.text != "") && (weightTextField.text != "") && indexOfOneAndOnly != nil {
             showIndicator()
-            let input = SignupInput(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-            SignupDataManager().postSignUp(input, viewController: self)
+            let input = SignupRequest(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
+            signupDataManager.postSignup(input, delegate: self)
         } else {
             presentBottomAlert(message: "정보를 모두 입력해주세요")
         }
@@ -71,15 +73,20 @@ class BodyInitViewController: BaseViewController {
 
 }
 
-extension BodyInitViewController {
-    func getData() {
+extension BodyInitViewController: SignupViewDelegate {
+    func didSuccessSignup(_ result: SignupResponse) {
         dismissIndicator()
         UserDefaults.standard.setValue(false, forKey: "SignUp")
         self.changeRootViewController(BaseTabBarController())
     }
     
-    func failedToRequest(message: String) {
+    func failedToRequest(message: String, code: Int) {
         dismissIndicator()
         presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
 }
