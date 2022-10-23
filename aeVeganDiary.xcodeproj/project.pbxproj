@@ -74,7 +74,6 @@
 		CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */; };
 		CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */; };
 		CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */; };
-		CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F0677286F22ED0032D590 /* SignupInput.swift */; };
 		CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F0679286F23020032D590 /* SignupResponse.swift */; };
 		CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F067B286F236F0032D590 /* SignupDataManager.swift */; };
 		CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */; };
@@ -116,6 +115,8 @@
 		CDAECC9829053F7B00C13D3D /* BookmarkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9729053F7B00C13D3D /* BookmarkProtocol.swift */; };
 		CDAECC9A29055E2E00C13D3D /* BookmarkDeleteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9929055E2E00C13D3D /* BookmarkDeleteProtocol.swift */; };
 		CDAECC9C2905740B00C13D3D /* BookmarkListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9B2905740B00C13D3D /* BookmarkListProtocol.swift */; };
+		CDAECC9E2905772E00C13D3D /* SignupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9D2905772E00C13D3D /* SignupProtocol.swift */; };
+		CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC9F2905776B00C13D3D /* SignupRequest.swift */; };
 		CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */; };
 		CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */; };
 		CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61204284A50190041F5C7 /* RegisterResponse.swift */; };
@@ -220,7 +221,6 @@
 		CD00F688286DE0C500F8A8C0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		CD00F68B286DE13000F8A8C0 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		CD0E214328C59BFA0041371B /* AppleLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataManager.swift; sourceTree = "<group>"; };
-		CD0F0677286F22ED0032D590 /* SignupInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInput.swift; sourceTree = "<group>"; };
 		CD0F0679286F23020032D590 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		CD0F067B286F236F0032D590 /* SignupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDataManager.swift; sourceTree = "<group>"; };
 		CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkResponse.swift; sourceTree = "<group>"; };
@@ -263,6 +263,8 @@
 		CDAECC9729053F7B00C13D3D /* BookmarkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkProtocol.swift; sourceTree = "<group>"; };
 		CDAECC9929055E2E00C13D3D /* BookmarkDeleteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDeleteProtocol.swift; sourceTree = "<group>"; };
 		CDAECC9B2905740B00C13D3D /* BookmarkListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListProtocol.swift; sourceTree = "<group>"; };
+		CDAECC9D2905772E00C13D3D /* SignupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocol.swift; sourceTree = "<group>"; };
+		CDAECC9F2905776B00C13D3D /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		CDBBF2A4284B87CC003F5EEA /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		CDBBF2A5284B87CC003F5EEA /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		CDC61204284A50190041F5C7 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
@@ -322,12 +324,13 @@
 		8F13E94F2851FA3000F090C4 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				CD0F067B286F236F0032D590 /* SignupDataManager.swift */,
 				CD0F0676286F22A80032D590 /* Entity */,
 				8F13E9502851FAB600F090C4 /* NicknameInitViewController.swift */,
 				8F13E9512851FAB600F090C4 /* NicknameInitViewController.xib */,
 				8F13E9542851FADF00F090C4 /* BodyInitViewController.swift */,
 				8F13E9552851FADF00F090C4 /* BodyInitViewController.xib */,
+				CD0F067B286F236F0032D590 /* SignupDataManager.swift */,
+				CDAECC9D2905772E00C13D3D /* SignupProtocol.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -487,7 +490,7 @@
 		CD0F0676286F22A80032D590 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CD0F0677286F22ED0032D590 /* SignupInput.swift */,
+				CDAECC9F2905776B00C13D3D /* SignupRequest.swift */,
 				CD0F0679286F23020032D590 /* SignupResponse.swift */,
 			);
 			path = Entity;
@@ -984,6 +987,7 @@
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				CDAECC8E2905314100C13D3D /* MealDetailProtocol.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
+				CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
@@ -995,7 +999,6 @@
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
 				CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */,
-				CD0F0678286F22ED0032D590 /* SignupInput.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
@@ -1067,6 +1070,7 @@
 				8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
 				8F1A5F7428702CB200B64409 /* MyInfoDataManager.swift in Sources */,
+				CDAECC9E2905772E00C13D3D /* SignupProtocol.swift in Sources */,
 				CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */,
 				CDE47F5228426BAD005D8BB3 /* IndicatorView.swift in Sources */,
 			);
