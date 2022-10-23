@@ -54,7 +54,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func bookmarkDelete(sender: UIButton) {
-        let input = BookmarkInput(bistroId: listData?.data?[sender.tag].bistroId ?? 0)
+        let input = BookmarkRequest(bistroId: listData?.data?[sender.tag].bistroId ?? 0)
         BookmarkListDeleteDataManager().deleteBookmark(input, viewController: self)
     }
 }
