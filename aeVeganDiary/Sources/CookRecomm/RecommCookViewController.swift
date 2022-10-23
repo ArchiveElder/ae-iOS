@@ -12,6 +12,8 @@ import SafariServices
 
 class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebViewDelegate, RecommCollectionViewCellDelegate {
     
+    lazy var ingreDataManager: IngreDataManagerDelegate = IngreDataManager()
+    
     @IBOutlet var ingreImageView: UIImageView!
     @IBOutlet var ingreLabel: UILabel!
     
@@ -51,7 +53,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        IngreDataManager().getIngreData(viewController: self)
+        ingreDataManager.getIngreData(delegate: self)
     }
     
     override func viewDidLoad() {
@@ -184,14 +186,30 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     
 }
 
+
+extension RecommCookViewController : IngreViewDelegate{
+    
+    func didRetrieveIngreData(_ result: IngreResponse) {
+        dismissIndicator()
+        self.ingreResponse = result
+        self.ingre = result.result.data
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        
+    }
+}
+
+
 extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    /*
     func getIngreData(result: IngreResponse){
         dismissIndicator()
         self.ingreResponse = result
         self.ingre = result.data
     }
-    
+    */
     func getRecomm(result: CookRecommResponse){
         dismissIndicator()
         self.cookRecommResponse = result
