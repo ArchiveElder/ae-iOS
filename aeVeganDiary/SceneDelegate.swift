@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print(UserManager.shared.jwt)
         print(UserDefaults.standard.bool(forKey: "SignUp"))
         if (UserManager.shared.jwt != "") && (UserDefaults.standard.bool(forKey: "SignUp") == false) {
-            controller = BookmarkViewController()
+            controller = BaseTabBarController()
             win.rootViewController = controller
             win.makeKeyAndVisible()
             window = win

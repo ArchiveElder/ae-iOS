@@ -29,6 +29,7 @@ class MealDetailViewController: BaseViewController {
         view.backgroundColor = .white
         setDismissButton()
         setNavigationTitle(title: "상세 정보")
+        setMoreButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,22 @@ class MealDetailViewController: BaseViewController {
         showIndicator()
         let input = MealDetailRequest(record_id: record_id)
         mealDetailDataManager.getMealDetail(input, delegate: self)
+    }
+    
+    func setMoreButton() {
+        let moreButton: UIButton = UIButton()
+        moreButton.setImage(UIImage(named: "morebutton"), for: .normal)
+        moreButton.addTarget(self, action: #selector(showDetailBottomSheet), for: .touchUpInside)
+        moreButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let addMoreButton = UIBarButtonItem(customView: moreButton)
+        
+        self.navigationItem.setRightBarButton(addMoreButton, animated: false)
+    }
+    
+    @objc func showDetailBottomSheet() {
+        let bottomSheetVC = DetailBottomSheetViewController()
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetVC, animated: false, completion: nil)
     }
 }
 
