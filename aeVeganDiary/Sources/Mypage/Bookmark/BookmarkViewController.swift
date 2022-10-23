@@ -9,7 +9,10 @@ import UIKit
 
 class BookmarkViewController: BaseViewController {
     
-    var listData: BookmarkListResponse? = nil
+    lazy var bookmarkListDataManager: BookmarkListDataManagerDelegate = BookmarkListDataManager()
+    lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
+    
+    var listData: BookmarkListResult? = nil
 
     @IBOutlet weak var bookmarkTableView: UITableView!
     
@@ -30,7 +33,7 @@ class BookmarkViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.view.backgroundColor = .white
         showIndicator()
-        BookmarkListDataManager().getBookmarkList(viewController: self)
+        bookmarkListDataManager.getBookmarkList(delegate: self)
     }
 
 }
@@ -55,15 +58,14 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func bookmarkDelete(sender: UIButton) {
         let input = BookmarkRequest(bistroId: listData?.data?[sender.tag].bistroId ?? 0)
-        BookmarkListDeleteDataManager().deleteBookmark(input, viewController: self)
+        bookmarkDeleteDataManager.deleteBookmark(input, delegate: self)
     }
 }
 
-extension BookmarkViewController {
-    func getList(response: BookmarkListResponse) {
+extension BookmarkViewController: BookmarkListViewDelegate, BookmarkDeleteViewDelegate {
+    func didSuccessGetBookmarkList(_ result: BookmarkListResponse) {
         dismissIndicator()
-        print(response)
-        listData = response
+        listData = result.result
         if listData?.data?.count == 0 {
             messageLabel.isHidden = false
             messageImageView.isHidden = false
@@ -76,9 +78,19 @@ extension BookmarkViewController {
         bookmarkTableView.reloadData()
     }
     
-    func bookmarkDelete() {
+    func didSuccessDeleteBookmark(_ result: BookmarkResponse) {
         dismissIndicator()
         showIndicator()
-        BookmarkListDataManager().getBookmarkList(viewController: self)
+        bookmarkListDataManager.getBookmarkList(delegate: self)
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
 }
