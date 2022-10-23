@@ -7,16 +7,17 @@
 
 import Foundation
 
-//struct SearchResponse2: Decodable {
-//    var count: Int
-//    var data: [FoodDetail]
-//}
-
 struct FoodDetailResponse: Decodable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: FoodDetailResult
+}
+
+struct FoodDetailResult : Decodable{
     var count: Int
     var data: [FoodDetail]
 }
-
 
 struct FoodDetail: Decodable {
     var name: String

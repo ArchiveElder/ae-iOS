@@ -126,6 +126,14 @@ extension SearchViewController : SearchViewDelegate{
     }
     
     func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+                
+            }
+        }
         
     }
     
