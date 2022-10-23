@@ -8,6 +8,8 @@
 import UIKit
 
 class MealDetailViewController: BaseViewController {
+    
+    lazy var mealDetailDataManager: MealDetailDataManagerDelegate = MealDetailDataManager()
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,28 +34,38 @@ class MealDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        let input = MealDetailInput(record_id: record_id)
-        MealDetailDataManager().requestData(input, viewController: self)
+        let input = MealDetailRequest(record_id: record_id)
+        mealDetailDataManager.getMealDetail(input, delegate: self)
     }
 }
 
-extension MealDetailViewController {
-    func getData(result: MealDetailResponse) {
+extension MealDetailViewController: MealDetailViewDelegate {
+    func didSuccessGetMealDetail(_ result: MealDetailResponse) {
         dismissIndicator()
-        let data = result.data[0]
-        titleLabel.text = data.text
-        dateLabel.text = "\(data.date) \(data.time)"
-        textLabel.text = data.text
-        calLabel.text = data.cal
-        carbLabel.text = data.carb
-        proLabel.text = data.protein
-        fatLabel.text = data.fat
-        let url = URL(string: data.image_url)
-        foodImageView.load(url: url!)
+        let data = result.result?.data[0]
+        titleLabel.text = data?.text
+        dateLabel.text = "\(data?.date ?? "") \(data?.time ?? "")"
+        textLabel.text = data?.text
+        calLabel.text = data?.cal
+        carbLabel.text = data?.carb
+        proLabel.text = data?.protein
+        fatLabel.text = data?.fat
+        if let url = URL(string: data?.image_url ?? "") {
+            foodImageView.load(url: url)
+        }
     }
     
-    func failedToRequest(message: String) {
+    func failedToRequest(message: String, code: Int) {
         dismissIndicator()
         presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.dismiss(animated: true)
+            }
+        }
     }
 }
