@@ -13,6 +13,8 @@ import EventKit
 
 class MapViewController: BaseViewController, GMSMapViewDelegate {
     
+    lazy var mapDataManager: MapDataManagerDelegate = MapDataManager()
+    
     var location = CLLocation()
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -56,7 +58,6 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         
         showIndicator()
         print(location)
-        //Geocoding().getCoordinates(location, viewController: self)
         
         let latitude = location.coordinate.latitude
         let longtitude = location.coordinate.longitude
@@ -65,7 +66,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         marker.icon = UIImage(named: "currentpin")
         marker.map = mapView
         mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 15)
-        MapDataManager().requestRestaurant(viewController: self)
+        mapDataManager.getMap(delegate: self)
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -102,51 +103,50 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
 
 
 // MARK: 서버 통신
-extension MapViewController {
-    func getCoor(latitude: String, longtitude: String) {
-        
-        if let latitude = Double(latitude), let longtitude = Double(longtitude) {
-            let mapCenter = CLLocationCoordinate2DMake(latitude, longtitude)
-            let marker = GMSMarker(position: mapCenter)
-            marker.icon = UIImage(named: "currentpin")
-            marker.map = mapView
-            mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 15)
-        } else {
-            print("coordinate error")
-        }
-        
-        MapDataManager().requestRestaurant(viewController: self)
-    }
-    
-    func getResList(result: MapResponse) {
+extension MapViewController: MapViewDelegate {
+    func didSuccessGetMap(_ result: MapResponse) {
         dismissIndicator()
         for i in markerList {
             i.map = nil
         }
         markerList.removeAll()
-        for i in result.data {
-            let mapCenter = CLLocationCoordinate2DMake(i.la, i.lo)
-            let marker = GMSMarker(position: mapCenter)
-            if i.isBookmark == 1 {
-                marker.icon = UIImage(named: "locationpinbookmark")
-            } else {
-                marker.icon = UIImage(named: "locationpin")
+        
+        let result = result.result
+        if let data = result?.data {
+            for i in data {
+                let mapCenter = CLLocationCoordinate2DMake(i.la, i.lo)
+                let marker = GMSMarker(position: mapCenter)
+                if i.isBookmark == 1 {
+                    marker.icon = UIImage(named: "locationpinbookmark")
+                } else {
+                    marker.icon = UIImage(named: "locationpin")
+                }
+                
+                marker.map = mapView
+                markerList.append(marker)
             }
             
-            marker.map = mapView
-            markerList.append(marker)
+            restaurantList = data
         }
-        
-        restaurantList = result.data
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
     
     func bookmark() {
         bookmarkButton.isSelected = true
-        MapDataManager().requestRestaurant(viewController: self)
+        mapDataManager.getMap(delegate: self)
     }
     
     func bookmarkDelete() {
         bookmarkButton.isSelected = false
-        MapDataManager().requestRestaurant(viewController: self)
+        mapDataManager.getMap(delegate: self)
     }
 }
