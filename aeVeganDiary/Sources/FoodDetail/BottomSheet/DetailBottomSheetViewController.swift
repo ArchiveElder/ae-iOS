@@ -16,9 +16,21 @@ class DetailBottomSheetViewController: UIViewController {
     var defaultHeight: CGFloat = 120
     
     @IBAction func editButtonAction(_ sender: Any) {
+        let vc = FoodDetailEditViewController()
+        vc.data = self.data
+        vc.record_id = self.record_id
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.modalPresentationStyle = .overFullScreen
+        nvc.view.backgroundColor = .white
+        self.present(nvc, animated: true)
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
+        
     }
+    
+    var data: DetailRecord?
+    var record_id: Int?
+    var meal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
