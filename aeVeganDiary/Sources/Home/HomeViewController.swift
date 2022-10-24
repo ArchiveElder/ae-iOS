@@ -51,12 +51,15 @@ class HomeViewController: BaseViewController {
     // ProgressBar
     @IBOutlet weak var carbProgressBar: UIProgressView!
     @IBOutlet weak var carbLabel: UILabel!
+    @IBOutlet weak var carbPercentLabel: UILabel!
     
     @IBOutlet weak var proteinProgressBar: UIProgressView!
     @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var proteinPercentLabel: UILabel!
     
     @IBOutlet weak var fatProgressBar: UIProgressView!
     @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var fatPercentLabel: UILabel!
     
     @IBOutlet weak var hideView: UIView!
     
@@ -416,6 +419,10 @@ extension HomeViewController: HomeViewDelegate {
         setProgressResult(sender: carbProgressBar, data: Float(homeResult?.totalCarb ?? 0) / Float(homeResult?.recommCarb ?? 0))
         setProgressResult(sender: proteinProgressBar, data: Float(homeResult?.totalPro ?? 0) / Float(homeResult?.recommPro ?? 0))
         setProgressResult(sender: fatProgressBar, data: Float(homeResult?.totalFat ?? 0) / Float(homeResult?.recommFat ?? 0))
+        carbPercentLabel.text = "\(Int(Float(homeResult?.totalCarb ?? 0) / Float(homeResult?.recommCarb ?? 0) * 100))%"
+        proteinPercentLabel.text = "\(Int(Float(homeResult?.totalPro ?? 0) / Float(homeResult?.recommPro ?? 0) * 100))%"
+        fatPercentLabel.text = "\(Int(Float(homeResult?.totalFat ?? 0) / Float(homeResult?.recommFat ?? 0) * 100))%"
+        
         arcProgressBar.setProgressOne(to: Double(homeResult?.totalCalory ?? 0) / Double(homeResult?.recommCalory ?? 0), withAnimation: false, maxSpeed: 45)
     }
     

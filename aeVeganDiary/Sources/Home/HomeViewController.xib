@@ -17,15 +17,18 @@
                 <outlet property="calendarMessageImageView" destination="rPq-Qb-PUt" id="3cz-zu-WBC"/>
                 <outlet property="calendarMessageLabel" destination="kLW-2E-mC9" id="xnf-UY-Q8Y"/>
                 <outlet property="carbLabel" destination="1Ux-F6-2Gd" id="CIE-AN-Hwe"/>
+                <outlet property="carbPercentLabel" destination="D9C-EU-QXn" id="hSs-2V-UdK"/>
                 <outlet property="carbProgressBar" destination="3bH-JH-whL" id="gcJ-Ps-YWU"/>
                 <outlet property="consumeKcal" destination="Wt5-P8-s9K" id="fy0-vN-l6x"/>
                 <outlet property="datePickTextField" destination="Fqs-qr-GOo" id="MSZ-Lc-4Pb"/>
                 <outlet property="eventTableView" destination="htl-ew-qJ1" id="fnH-hP-3ow"/>
                 <outlet property="fatLabel" destination="Zut-Xv-Ofb" id="IkE-Gc-NEi"/>
+                <outlet property="fatPercentLabel" destination="JOu-m9-mGj" id="zQv-qG-U6K"/>
                 <outlet property="fatProgressBar" destination="C68-6N-FJ8" id="EcC-1a-j2h"/>
                 <outlet property="hideView" destination="pmP-Ro-Lh1" id="7OF-b4-ytw"/>
                 <outlet property="mealCollectionView" destination="8re-C7-Q1h" id="fRO-IR-JJy"/>
                 <outlet property="proteinLabel" destination="waG-ZU-Xn9" id="ijg-a1-vRg"/>
+                <outlet property="proteinPercentLabel" destination="cka-A9-w7i" id="Vz7-yp-Tfq"/>
                 <outlet property="proteinProgressBar" destination="w3f-XX-esC" id="Uqr-Of-7ff"/>
                 <outlet property="recommKcal" destination="6t8-pc-W5r" id="28D-M4-GU4"/>
                 <outlet property="tabCollectionView" destination="8KX-Cv-sIg" id="TRK-Bi-8DU"/>
