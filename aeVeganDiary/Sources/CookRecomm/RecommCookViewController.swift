@@ -21,13 +21,17 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     @IBOutlet var recommCollectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
+    
     @IBAction func recommAction(_ sender: Any) {
         tabCollectionView.isHidden = false
         recommCollectionView.isHidden = false
+        selected = 0
+        let indexPath = IndexPath(item: 0, section: 0)
+        recommCollectionView.scrollToItem(at: indexPath as IndexPath, at: .right, animated: false)
         self.tabCollectionView.reloadData()
         self.recommCollectionView.reloadData()
-        
     }
+    
     @IBOutlet var recommButton: UIButton!
     @IBOutlet var ingreTableView: UITableView!
     
@@ -258,7 +262,6 @@ extension RecommCookViewController : IngreViewDelegate{
             if collectionView == tabCollectionView {
                 if(cookRecomm.count != 0 && cookRecomm[indexPath.row]!.food.count != 0){
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommTabCollectionViewCell", for: indexPath) as! RecommTabCollectionViewCell
-                    //cell.tabLabel.text = recommList[indexPath.row]
                     cell.tabLabel.text = cookRecomm[indexPath.row]?.food
                     
                     if(cookRecomm[indexPath.row]!.has.count == 0){
@@ -329,9 +332,10 @@ extension RecommCookViewController : IngreViewDelegate{
         // 탭 collectionView의 cell들 누르면 실행되는 코드
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             if collectionView == tabCollectionView {
-                recommCollectionView.scrollToItem(at: NSIndexPath(item: indexPath.row, section: 0) as IndexPath, at: .right, animated: false)
                 selected = indexPath.row
+                recommCollectionView.scrollToItem(at: NSIndexPath(item: selected!, section: 0) as IndexPath, at: .right, animated: false)
                 collectionView.reloadData()
+                recommCollectionView.reloadData()
             }
         }
         
