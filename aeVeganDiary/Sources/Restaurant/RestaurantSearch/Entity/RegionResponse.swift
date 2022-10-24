@@ -8,6 +8,12 @@
 import Foundation
 
 struct RegionResponse: Decodable {
-    var data: [String]
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: RegionResult
 }
 
+struct RegionResult : Decodable {
+    var data: [String]
+}

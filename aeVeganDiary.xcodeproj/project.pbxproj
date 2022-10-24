@@ -48,6 +48,8 @@
 		8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694641290531C4001C19EA /* IngreProtocol.swift */; };
 		8F69464429053F54001C19EA /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464329053F54001C19EA /* SearchProtocol.swift */; };
 		8F69464629054812001C19EA /* FoodDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464529054812001C19EA /* FoodDetailProtocol.swift */; };
+		8F69464829058835001C19EA /* RegionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464729058835001C19EA /* RegionProtocol.swift */; };
+		8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464929059058001C19EA /* RestaurantSearchProtocol.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
@@ -192,6 +194,8 @@
 		8F694641290531C4001C19EA /* IngreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngreProtocol.swift; sourceTree = "<group>"; };
 		8F69464329053F54001C19EA /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		8F69464529054812001C19EA /* FoodDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailProtocol.swift; sourceTree = "<group>"; };
+		8F69464729058835001C19EA /* RegionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionProtocol.swift; sourceTree = "<group>"; };
+		8F69464929059058001C19EA /* RestaurantSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchProtocol.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -411,7 +415,9 @@
 			isa = PBXGroup;
 			children = (
 				8FD47FED28A3E57D002D2B82 /* RegionCategoryDataManager.swift */,
+				8F69464729058835001C19EA /* RegionProtocol.swift */,
 				8FD47FF328A62D44002D2B82 /* RestaurantSearchDataManager.swift */,
+				8F69464929059058001C19EA /* RestaurantSearchProtocol.swift */,
 				8FD47FD928A39ABE002D2B82 /* Entity */,
 				8FD47FD428A39A45002D2B82 /* cell */,
 				8FD47FE328A3A206002D2B82 /* LargeCategoryViewController.swift */,
@@ -973,6 +979,7 @@
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
+				8F69464829058835001C19EA /* RegionProtocol.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
 				CDAECC9429053C9900C13D3D /* MapProtocol.swift in Sources */,
@@ -1008,7 +1015,6 @@
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
-				8F1A5F82287C0E0A00B64409 /* CookRecommViewController.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
 				8F1A5FA42898F68900B64409 /* HasTableViewCell.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
@@ -1025,6 +1031,7 @@
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
+				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* MyInfoDataManager2.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
