@@ -39,7 +39,7 @@ struct DetailRecord: Decodable {
     var carb: String
     var protein: String
     var fat: String
-    var image_url: String
+    var image_url: String?
     var date: String
     var time: String
     var amount: Double
