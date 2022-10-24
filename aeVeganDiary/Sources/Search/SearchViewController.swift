@@ -21,6 +21,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     var foodDetail = [FoodDetail]()
     var rdate = ""
     var meal = 0
+    var foodImage:UIImage? = nil
     
     var shownFoods = [String]()
     let disposeBag = DisposeBag()
@@ -168,6 +169,7 @@ extension SearchViewController : UITableViewDataSource {
         vc.rdate = self.rdate
         vc.meal = self.meal
         vc.id = SearchInput(id:currentIndex)
+        vc.foodImage = self.foodImage
         navigationController?.pushViewController(vc, animated: true)
     }
 }
