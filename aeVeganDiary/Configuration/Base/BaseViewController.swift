@@ -85,8 +85,7 @@ class BaseViewController: UIViewController {
 
         // ✅ 예를들어, 1.0.0 으로 표현되는 버전을 [1,0,0] 으로 처리.
         let currentVersionArray = currentVersion.split(separator: ".").map { $0 }
-        //let appStoreVersionArray = appStoreVersion.split(separator: ".").map { $0 }
-        let appStoreVersionArray = ["1", "1", "1"]
+        let appStoreVersionArray = appStoreVersion.split(separator: ".").map { $0 }
         
         // ✅ [Major].[Minor].[Patch]
         // ✅ 앞자리(Major)가 낮으면 업데이트
