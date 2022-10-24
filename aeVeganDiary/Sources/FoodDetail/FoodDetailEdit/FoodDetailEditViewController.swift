@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class FoodDetailEditViewController: BaseViewController {
     
@@ -24,12 +25,27 @@ class FoodDetailEditViewController: BaseViewController {
     @IBOutlet weak var foodImageView: UIImageView!
     var data: DetailRecord?
     var record_id: Int?
-    var meal = 0
+    var meal: Int = 0
+    
+    var pickerConfiguration = PHPickerConfiguration()
+    
+    @IBAction func imageEditButtonAction(_ sender: Any) {
+        pickerConfiguration.filter = .images
+        let picker = PHPickerViewController(configuration: pickerConfiguration)
+        picker.delegate = self
+        picker.modalPresentationStyle = .overFullScreen
+        self.present(picker, animated: true)
+    }
+    
+    @IBAction func imageDeleteButtonAction(_ sender: Any) {
+        self.foodImageView.image = nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        dismissKeyboardWhenTappedAround()
+        
         mealLabel.text = data?.text
         dateLabel.text = data?.date
         
@@ -58,6 +74,7 @@ class FoodDetailEditViewController: BaseViewController {
     @objc func done() {
         showIndicator()
         let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: data?.time, amount: data?.amount, meal: self.meal)
+        print(input)
         foodDetailEditDataManager.postFoodDetailEdit(input, foodImage: foodImageView.image, delegate: self)
     }
 
@@ -79,6 +96,26 @@ extension FoodDetailEditViewController: FoodDetailEditViewDelegate {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.changeRootViewController(LoginViewController())
             }
+        }
+    }
+}
+
+extension FoodDetailEditViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // 갤러리에서 사진 선택하면 실행됨
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: false) // 1
+        let itemProvider = results.first?.itemProvider // 2
+
+        if let itemProvider = itemProvider,
+        itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in // 4
+                DispatchQueue.main.async {
+                    self.foodImageView.image = image as? UIImage
+                }
+            }
+        } else {
+            // TODO: Handle empty results or item provider not being able load UIImage
+
         }
     }
 }

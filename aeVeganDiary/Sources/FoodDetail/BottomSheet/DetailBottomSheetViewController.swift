@@ -16,16 +16,24 @@ class DetailBottomSheetViewController: UIViewController {
     @IBOutlet weak var bottomSheetTopConstraint: NSLayoutConstraint!
     
     var defaultHeight: CGFloat = 120
-    
+    var meal: Int = 0
     
     @IBAction func editButtonAction(_ sender: Any) {
-        let vc = FoodDetailEditViewController()
-        vc.data = self.data
-        vc.record_id = self.record_id
-        let nvc = UINavigationController(rootViewController: vc)
-        nvc.modalPresentationStyle = .overFullScreen
-        nvc.view.backgroundColor = .white
-        self.present(nvc, animated: true)
+        guard let pvc = self.presentingViewController else { return }
+
+        self.dismiss(animated: true) {
+            let vc = FoodDetailEditViewController()
+            vc.data = self.data
+            vc.record_id = self.record_id
+            vc.meal = self.meal
+            let nvc = UINavigationController(rootViewController: vc)
+            nvc.modalPresentationStyle = .fullScreen
+            nvc.view.backgroundColor = .white
+            self.present(nvc, animated: true)
+            pvc.present(nvc, animated: true, completion: nil)
+        }
+        
+        
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
         var input = DeleteMealRequest(recordId: self.record_id)
@@ -34,7 +42,6 @@ class DetailBottomSheetViewController: UIViewController {
     
     var data: DetailRecord?
     var record_id = 0
-    var meal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

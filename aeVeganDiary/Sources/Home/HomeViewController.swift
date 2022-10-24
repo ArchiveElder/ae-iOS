@@ -150,6 +150,8 @@ class HomeViewController: BaseViewController {
         }
         locationManager.requestWhenInUseAuthorization()
         
+        fetchEvent()
+        
         if let recognizers = self.view.gestureRecognizers {
             for recognizer in recognizers {
                 self.view.removeGestureRecognizer(recognizer)
@@ -169,6 +171,8 @@ class HomeViewController: BaseViewController {
         }
         // textField에서 커서 제거
         self.datePickTextField.resignFirstResponder()
+        
+        fetchEvent()
         
         if time <= 0 {
             request(dateText: dateFormatter.string(from: datePicker.date))
@@ -192,6 +196,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //print(time)
         datePickTextField.text = dateFormatter.string(from: date)
         datePicker.date = date
+        fetchEvent()
         if time <= 0 {
             request(dateText: dateFormatter.string(from: date))
             weekCalendarView.select(datePicker.date)
@@ -369,7 +374,6 @@ extension HomeViewController: HomeViewDelegate {
         showIndicator()
         let input = HomeRequest(date: dateText)
         homeDataManager.getDaterecord(input, delegate: self)
-        fetchEvent()
     }
     
     func setProgressResult(sender: UIProgressView, data: Float){

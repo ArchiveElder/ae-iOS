@@ -13,15 +13,15 @@ class FoodDetailEditDataManager: FoodDetailEditDataManagerDelegate {
         let param: [String : Any] = [
                 "recordId": parameters.recordId,
                 "image": foodImage,
-                "text" : parameters.text,
-                "calory": parameters.calory,
-                "carb": parameters.carb,
-                "protein": parameters.protein,
-                "fat": parameters.fat,
-                "rdate": parameters.rdate,
-                "rtime": parameters.rtime,
-                "amount": parameters.amount,
-                "meal": parameters.meal
+                "text" : parameters.text ?? "",
+                "calory": parameters.calory ?? "",
+                "carb": parameters.carb ?? "",
+                "protein": parameters.protein ?? "",
+                "fat": parameters.fat ?? "",
+                "rdate": parameters.rdate ?? "",
+                "rtime": parameters.rtime ?? "",
+                "amount": parameters.amount ?? 0,
+                "meal": parameters.meal ?? 0
             ]
         
         AF.upload(multipartFormData: { (multipartFormData) in

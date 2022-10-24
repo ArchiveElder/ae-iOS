@@ -258,27 +258,6 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-Ro-Lh1">
-                                    <rect key="frame" x="15" y="360" width="360" height="505"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미래의 날짜에서는 일정만 확인 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlV-yf-C3y">
-                                            <rect key="frame" x="85" y="245" width="190" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerY" secondItem="pmP-Ro-Lh1" secondAttribute="centerY" id="KjA-Aa-ZVI"/>
-                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerX" secondItem="pmP-Ro-Lh1" secondAttribute="centerX" id="Mng-qW-yab"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="8"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z2-7v-gPB">
                                     <rect key="frame" x="200" y="673" width="175" height="192"/>
                                     <subviews>
@@ -401,6 +380,27 @@
                                         <constraint firstItem="JOu-m9-mGj" firstAttribute="centerY" secondItem="C68-6N-FJ8" secondAttribute="centerY" id="k3d-9P-VtZ"/>
                                         <constraint firstItem="JOu-m9-mGj" firstAttribute="leading" secondItem="C68-6N-FJ8" secondAttribute="trailing" constant="12" id="nNB-9j-Ywj"/>
                                         <constraint firstAttribute="trailing" secondItem="jkt-lu-92w" secondAttribute="trailing" constant="12" id="xBU-L7-rbV"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-Ro-Lh1">
+                                    <rect key="frame" x="15" y="360" width="360" height="505"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미래의 날짜에서는 일정만 확인 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlV-yf-C3y">
+                                            <rect key="frame" x="85" y="245" width="190" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerY" secondItem="pmP-Ro-Lh1" secondAttribute="centerY" id="KjA-Aa-ZVI"/>
+                                        <constraint firstItem="wlV-yf-C3y" firstAttribute="centerX" secondItem="pmP-Ro-Lh1" secondAttribute="centerX" id="Mng-qW-yab"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

@@ -43,4 +43,5 @@ struct DetailRecord: Decodable {
     var date: String
     var time: String
     var amount: Double
+    var meal: Int
 }

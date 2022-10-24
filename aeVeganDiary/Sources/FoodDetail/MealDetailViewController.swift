@@ -14,6 +14,7 @@ class MealDetailViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var calLabel: UILabel!
     @IBOutlet weak var carbLabel: UILabel!
     @IBOutlet weak var proLabel: UILabel!
@@ -22,7 +23,6 @@ class MealDetailViewController: BaseViewController {
     
     var data: DetailRecord?
     var record_id: Int?
-    var meal: Int? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,7 @@ class MealDetailViewController: BaseViewController {
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         bottomSheetVC.data = self.data
         bottomSheetVC.record_id = self.record_id ?? 0
+        bottomSheetVC.meal = self.data?.meal ?? 0
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
 }
@@ -72,6 +73,7 @@ extension MealDetailViewController: MealDetailViewDelegate {
         carbLabel.text = data?.carb
         proLabel.text = data?.protein
         fatLabel.text = data?.fat
+        amountLabel.text = "\(data?.amount ?? 0)"
         if let url = URL(string: data?.image_url ?? "") {
             foodImageView.load(url: url)
         }

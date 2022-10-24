@@ -25,6 +25,7 @@ class FoodRegisterViewController: BaseViewController {
         let vc = SearchViewController()
         vc.rdate = self.rdate
         vc.meal = self.meal ?? 0
+        vc.foodImage = self.foodImage
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBOutlet weak var changeView: UIView!
@@ -36,7 +37,7 @@ class FoodRegisterViewController: BaseViewController {
     // 서버통신 변수
     var rdate = ""
     var meal:Int? = nil
-    var foodImage = UIImage()
+    var foodImage: UIImage? = nil
     var amount: Double = 200
     var cal: Double = 0
     var carb: Double = 0
@@ -112,21 +113,24 @@ class FoodRegisterViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if search == 1 {
-            foodImage = UIImage()
             foodImageViewHeight.constant = 0
             foodImageView.isHidden = true
             changeView.isHidden = true
             showIndicator()
             //FoodDetailDataManager().requestData(id, viewController: self)
-            
             foodDetailDataManager.requestData(id, delegate: self)
-            
         } else {
             foodImageViewHeight.constant = 320
             foodImageView.image = foodImage
             changeView.isHidden = false
             showIndicator()
-            FoodPredictDataManager().foodPredict(foodImage, viewController: self)
+            FoodPredictDataManager().foodPredict(foodImage ?? UIImage(), viewController: self)
+        }
+        
+        if let foodImage = foodImage {
+            foodImageViewHeight.constant = 320
+            foodImageView.image = foodImage
+            foodImageView.isHidden = false
         }
         
         dateLabel.text = rdate
@@ -168,7 +172,7 @@ class FoodRegisterViewController: BaseViewController {
         let time = dateFormatter24.string(from: datePicker.date)
         let input = RegisterRequest(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
         print(input)
-        registerDataManager.postRegister(input, foodImage: foodImage, delegate: self)
+        registerDataManager.postRegister(input, foodImage: foodImage ?? UIImage(), delegate: self)
     }
 
 }
@@ -228,11 +232,6 @@ extension FoodRegisterViewController: RegisterViewDelegate {
             }
         }
     }
-    
-    
-}
-
-extension FoodRegisterViewController {
     
     
 }
