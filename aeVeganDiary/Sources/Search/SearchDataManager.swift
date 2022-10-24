@@ -7,8 +7,7 @@
 
 import Alamofire
 
-class SearchDataManager : SearchDataManagerDelegate{
-    
+class SearchDataManager : SearchDataManagerDelegate {
     func getSearchData(delegate:SearchViewDelegate){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         AF.request("\(Constant.BASE_URL)/api/foodname", method: .get, encoding: JSONEncoding.default, headers: headers)

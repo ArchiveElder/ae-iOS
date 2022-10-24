@@ -9,6 +9,8 @@ import UIKit
 
 class MyInfoViewController: BaseViewController {
     
+    lazy var updateMyInfoDataManager : UpdateMyInfoDataManagerDelegate = UpdateMyInfoDataManager()
+    
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
@@ -19,8 +21,9 @@ class MyInfoViewController: BaseViewController {
     var activity = 0
     
     @IBAction func editDoneAction(_ sender: Any) {
-        let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-        MyInfoDataManager2().putMyInfoData(input, viewController: self)
+        let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 1])
+        //UpdateMyInfoDataManager().putMyInfoData(input, viewController: self)
+        updateMyInfoDataManager.putMyInfoData(input, delegate: self)
         // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
     }
     
@@ -90,6 +93,27 @@ class MyInfoViewController: BaseViewController {
 
 }
 
+
+extension MyInfoViewController : UpdateMyInfoViewDelegate {
+    func didSuccessUpdateMyInfoData(_ result: UpdateMyInfoResponse) {
+        //서버통신 성공하면 view를 pop 해준다
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
+    }
+    
+    
+}
+
+/*
 //MARK: 서버 통신
 extension MyInfoViewController {
     func update() {
@@ -97,3 +121,4 @@ extension MyInfoViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+*/

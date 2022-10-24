@@ -8,6 +8,13 @@
 import Foundation
 
 struct MyInfoResponse: Decodable{
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: MyInfoResult
+}
+
+struct MyInfoResult : Decodable {
     var name: String
     var gender: Int
     var age: Int

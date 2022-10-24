@@ -9,6 +9,17 @@ import UIKit
 
 class MypageViewController: BaseViewController {
     
+    lazy var getMyInfoDataManager : GetMyInfoDataManagerDelegate = GetMyInfoDataManager()
+    
+    lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
+    
+    @IBAction func deleteUerButtonAction(_ sender: Any) {
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        self.changeRootViewController(navController)
+        deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
+    }
+    
     @IBAction func logoutButtonAction(_ sender: Any) {
         UserManager.shared.jwt = ""
         //UserDefaults.standard.setValue("", forKey: "UserJwt")
@@ -30,10 +41,10 @@ class MypageViewController: BaseViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
-        vc.age = myInfoResponse?.age ?? 0
-        vc.height = myInfoResponse?.height ?? "0"
-        vc.weight = myInfoResponse?.weight ?? "0"
-        vc.activity = myInfoResponse?.activity ?? 0
+        vc.age = myInfoResponse?.result.age ?? 0
+        vc.height = myInfoResponse?.result.height ?? "0"
+        vc.weight = myInfoResponse?.result.weight ?? "0"
+        vc.activity = myInfoResponse?.result.activity ?? 0
         // 화면 push 할 때 하단 탭바 가리는 코드
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
@@ -58,20 +69,37 @@ class MypageViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        MyInfoDataManager().getMyInfoData(viewController: self)
+        getMyInfoDataManager.getMyInfoData(delegate: self)
     }
 
 }
 
-//MARK: 서버 통신
-extension MypageViewController {
-    func getData(result: MyInfoResponse){
+
+extension MypageViewController : DeleteUserViewDelegate {
+    func didSuccessDeleteUser(_ result: DeleteUserResponse) {
+        dismissIndicator()
+    }
+}
+
+extension MypageViewController : GetMyInfoViewDelegate {
+    func didSuccessGetMyInfoData(_ result: MyInfoResponse) {
         dismissIndicator()
         self.myInfoResponse = result
-        
-        nicknameLabel.text = result.name
-        profileImageView.image = UIImage(named: "profile\(result.icon)")
+        nicknameLabel.text = result.result.name
+        profileImageView.image = UIImage(named: "profile\(result.result.icon)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray
     }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
+    }
+    
+    
 }
