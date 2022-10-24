@@ -122,7 +122,7 @@ extension SearchViewController : SearchViewDelegate{
     func didSuccessGetSearchData(_ result: SearchResponse) {
         dismissIndicator()
         self.searchResponse = result
-        self.foods = result.result.data
+        self.foods = result.result!.data
     }
     
     func failedToRequest(message: String, code: Int) {

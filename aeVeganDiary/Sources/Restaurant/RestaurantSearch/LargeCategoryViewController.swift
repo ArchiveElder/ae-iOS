@@ -59,8 +59,8 @@ extension LargeCategoryViewController : RestaurantSearchViewDelegate{
     func didSuccessGetRestaurantSearch(_ result: RestaurantSearchResponse) {
         dismissIndicator()
         self.restaurantSearchResponse = result
-        restaurantCount = result.result.size
-        data = result.result.categoryList
+        restaurantCount = result.result!.size
+        data = result.result!.categoryList
         
         let viewController = RestaurantSearchViewController()
         
@@ -77,7 +77,7 @@ extension LargeCategoryViewController : RegionViewDelegate{
     func didSuccessGetMiddleRegion(_ result: RegionResponse) {
         dismissIndicator()
         self.regionResponse = result
-        regionArray = result.result.data ?? [""]
+        regionArray = result.result?.data ?? [""]
         tableState = 2
         chooseLable.text = "시를 선택하세요"
         regionBackButton.isHidden = false
