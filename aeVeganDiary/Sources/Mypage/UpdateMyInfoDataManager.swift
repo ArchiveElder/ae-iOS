@@ -7,7 +7,7 @@
 
 import Alamofire
 
-class MyInfoDataManager2{
+class UpdateMyInfoDataManager{
     func putMyInfoData(_ parameters: MyInfoInput, viewController: MyInfoViewController){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         AF.request("\(Constant.BASE_URL)/api/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)

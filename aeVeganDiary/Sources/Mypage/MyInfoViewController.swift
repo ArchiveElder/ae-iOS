@@ -20,7 +20,7 @@ class MyInfoViewController: BaseViewController {
     
     @IBAction func editDoneAction(_ sender: Any) {
         let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
-        MyInfoDataManager2().putMyInfoData(input, viewController: self)
+        UpdateMyInfoDataManager().putMyInfoData(input, viewController: self)
         // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
     }
     
