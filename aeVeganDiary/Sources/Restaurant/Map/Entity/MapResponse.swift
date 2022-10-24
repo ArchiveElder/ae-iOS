@@ -36,12 +36,13 @@ struct MapResult: Decodable {
 struct MapData: Decodable {
     var isBookmark: Int
     var bistro_id: Int
-    var category: String
+    var category: String?
     var name: String
-    var roadAddr: String
-    var lnmAddr: String
+    var roadAddr: String?
+    var lnmAddr: String?
     var telNo: String?
-    var menuInfo: String
+    var menuInfo: String?
     var la: Double
     var lo: Double
+    var bistroUrl: String?
 }

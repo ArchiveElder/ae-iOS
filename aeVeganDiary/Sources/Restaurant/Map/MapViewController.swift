@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GoogleMapsUtils
 import EventKit
+import SafariServices
 
 class MapViewController: BaseViewController, GMSMapViewDelegate {
     
@@ -26,6 +27,8 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var roadAddrLabel: UILabel!
     @IBOutlet weak var lnmAddrLabel: UILabel!
+    var restaurantUrl = ""
+    
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBAction func bookmark(_ sender: Any) {
         if markerIndex != nil {
@@ -37,6 +40,12 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
                 bookmarkDeleteDataManager.deleteBookmark(BookmarkRequest(bistroId: markerIndex!), delegate: self)
             }
         }
+    }
+    
+    @IBAction func restaurantDetailButtonAction(_ sender: Any) {
+        let url = URL(string: restaurantUrl)!
+        let safariView : SFSafariViewController = SFSafariViewController(url: url)
+        present(safariView, animated: true, completion: nil)
     }
     
     var restaurantList = [MapData]()
@@ -90,6 +99,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
             categoryLabel.text = info.category
             roadAddrLabel.text = info.roadAddr
             lnmAddrLabel.text = info.lnmAddr
+            restaurantUrl = info.bistroUrl ?? ""
             if info.isBookmark == 1 {
                 bookmarkButton.isSelected = true
             } else {

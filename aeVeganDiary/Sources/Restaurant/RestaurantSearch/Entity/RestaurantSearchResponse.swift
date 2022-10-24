@@ -28,4 +28,5 @@ struct CategoryListDto : Decodable {
     var roadAddr : String?
     var lnmAddr : String?
     var telNo : String?
+    var bistroUrl: String?
 }

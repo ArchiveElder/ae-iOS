@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class BookmarkViewController: BaseViewController {
     
@@ -53,7 +54,16 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.searchBookmarkButton.isSelected = true
         cell.searchBookmarkButton.tag = indexPath.row
         cell.searchBookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
+        
+        cell.restaurantDetailButton.tag = indexPath.row
+        cell.restaurantDetailButton.addTarget(self, action: #selector(restaurantWebView(sender:)), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func restaurantWebView(sender: UIButton) {
+        let url = URL(string: listData?.data?[sender.tag].bistroUrl ?? "")!
+        let safariView : SFSafariViewController = SFSafariViewController(url: url)
+        present(safariView, animated: true, completion: nil)
     }
     
     @objc func bookmarkDelete(sender: UIButton) {

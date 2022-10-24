@@ -43,4 +43,5 @@ struct BookmarkListData: Decodable {
     var telNo: String?
     var la: String
     var lo: String
+    var bistroUrl: String?
 }

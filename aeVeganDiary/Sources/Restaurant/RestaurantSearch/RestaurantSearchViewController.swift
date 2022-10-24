@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SafariServices
 
 class RestaurantSearchViewController: UIViewController {
 
@@ -82,6 +83,8 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         cell.roadAddrLabel?.text = roadAddrArr[indexPath.row]
         cell.lnmAddrLabel?.text = lnmAddrArr[indexPath.row]
         cell.telNoLabel?.text = telNoArr[indexPath.row]
+        cell.restaurantDetailButton.tag = indexPath.row
+        cell.restaurantDetailButton.addTarget(self, action: #selector(restaurantWebView(sender:)), for: .touchUpInside)
         //즐겨찾기 조회
         if(isBookmarkArr[indexPath.row] == 1) {
             cell.searchBookmarkButton.isSelected=true
@@ -90,6 +93,12 @@ extension RestaurantSearchViewController : UITableViewDataSource, UITableViewDel
         }
         cell.delegate = self
         return cell
+    }
+    
+    @objc func restaurantWebView(sender: UIButton) {
+        let url = URL(string: data[sender.tag].bistroUrl ?? "")!
+        let safariView : SFSafariViewController = SFSafariViewController(url: url)
+        present(safariView, animated: true, completion: nil)
     }
 }
 
