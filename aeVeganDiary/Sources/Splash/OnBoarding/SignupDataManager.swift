@@ -10,7 +10,7 @@ import Alamofire
 class SignupDataManager: SignupDataManagerDelegate {
     func postSignup(_ parameters: SignupRequest, delegate: SignupViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/signup", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/api/v2/signup", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: SignupResponse.self) { response in
                 switch response.result {
