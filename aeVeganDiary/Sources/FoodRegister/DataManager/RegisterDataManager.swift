@@ -30,7 +30,7 @@ class RegisterDataManager: RegisterDataManagerDelegate {
             if let image = foodImage.jpegData(compressionQuality: 0.5) {
                 multipartFormData.append(image, withName: "image", fileName: "\(image).jpeg", mimeType: "image/jpeg")
             }
-        }, to: "\(Constant.BASE_URL)/api/record", usingThreshold: UInt64.init(), method: .post, headers: headers)
+        }, to: "\(Constant.BASE_URL)/api/v2/record", usingThreshold: UInt64.init(), method: .post, headers: headers)
         .validate()
         .responseDecodable(of: RegisterResponse.self) { response in
             switch response.result {

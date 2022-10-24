@@ -9,7 +9,7 @@ import Alamofire
 
 class LoginDataManager: LoginDataManagerDelegate {
     func postLogin(_ parameters: LoginRequest, delegate: LoginViewDelegate) {
-        AF.request("\(Constant.BASE_URL)/api/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("\(Constant.BASE_URL)/api/v2/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: LoginResponse.self) { response in
                 switch response.result {
