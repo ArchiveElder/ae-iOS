@@ -57,7 +57,7 @@ class FoodDetailEditViewController: BaseViewController {
     @objc func done() {
         showIndicator()
         let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: data?.time, amount: data?.amount, meal: self.meal)
-        foodDetailEditDataManager.postFoodDetailEdit(<#T##parameters: FoodDetailEditRequest##FoodDetailEditRequest#>, foodImage: <#T##UIImage#>, delegate: <#T##FoodDetailEditViewDelegate#>)
+        //foodDetailEditDataManager.postFoodDetailEdit(<#T##parameters: FoodDetailEditRequest##FoodDetailEditRequest#>, foodImage: <#T##UIImage#>, delegate: <#T##FoodDetailEditViewDelegate#>)
     }
 
 }

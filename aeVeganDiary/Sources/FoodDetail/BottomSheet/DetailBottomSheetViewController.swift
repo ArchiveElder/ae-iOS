@@ -25,7 +25,8 @@ class DetailBottomSheetViewController: UIViewController {
         self.present(nvc, animated: true)
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
-        
+        var input = DeleteMealRequest(recordId: self.record_id ?? 0)
+        deleteMealDataManager.deleteMealData(input , delegate: self)
     }
     
     var data: DetailRecord?
