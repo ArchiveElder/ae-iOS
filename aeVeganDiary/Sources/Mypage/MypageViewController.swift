@@ -84,9 +84,10 @@ extension MypageViewController : DeleteUserViewDelegate {
 extension MypageViewController : GetMyInfoViewDelegate {
     func didSuccessGetMyInfoData(_ result: MyInfoResponse) {
         dismissIndicator()
+        print(result)
         self.myInfoResponse = result
         nicknameLabel.text = result.result?.name
-        profileImageView.image = UIImage(named: "profile\(result.result?.icon)")
+        profileImageView.image = UIImage(named: "profile\(result.result?.icon ?? 0)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray
     }
