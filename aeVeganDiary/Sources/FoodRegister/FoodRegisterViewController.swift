@@ -167,6 +167,7 @@ class FoodRegisterViewController: BaseViewController {
         dateFormatter24.dateFormat = "HH:mm"
         let time = dateFormatter24.string(from: datePicker.date)
         let input = RegisterRequest(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
+        print(input)
         registerDataManager.postRegister(input, foodImage: foodImage, delegate: self)
     }
 

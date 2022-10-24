@@ -8,7 +8,7 @@
 import Alamofire
 
 class FoodDetailEditDataManager: FoodDetailEditDataManagerDelegate {
-    func postFoodDetailEdit(_ parameters: FoodDetailEditRequest, foodImage: UIImage, delegate: FoodDetailEditViewDelegate) {
+    func postFoodDetailEdit(_ parameters: FoodDetailEditRequest, foodImage: UIImage?, delegate: FoodDetailEditViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         let param: [String : Any] = [
                 "recordId": parameters.recordId,
@@ -28,7 +28,7 @@ class FoodDetailEditDataManager: FoodDetailEditDataManagerDelegate {
             for (key, value) in param {
                 multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
             }
-            if let image = foodImage.jpegData(compressionQuality: 0.5) {
+            if let image = foodImage?.jpegData(compressionQuality: 0.5) {
                 multipartFormData.append(image, withName: "image", fileName: "\(image).jpeg", mimeType: "image/jpeg")
             }
         }, to: "\(Constant.BASE_URL)/api/record-update", usingThreshold: UInt64.init(), method: .post, headers: headers)
