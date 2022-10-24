@@ -13,6 +13,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
+    
+    
     lazy var searchDataManager : SearchDataManagerDelegate = SearchDataManager()
     
     //MARK: 서버 통신 변수 선언
@@ -38,6 +40,9 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
         
         setDismissButton()
         setup()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     func setup() {
@@ -114,6 +119,25 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
         showIndicator()
         searchDataManager.getSearchData(delegate: self)
     }
+    
+    @objc func handleKeyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+            
+            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            
+            if isKeyboardShowing {
+                dismissKeyboardWhenTappedAround()
+            } else {
+                if let recognizers = self.view.gestureRecognizers {
+                    for recognizer in recognizers {
+                        self.view.removeGestureRecognizer(recognizer)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 
