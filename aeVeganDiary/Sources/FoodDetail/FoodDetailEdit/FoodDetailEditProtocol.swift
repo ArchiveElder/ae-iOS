@@ -13,5 +13,5 @@ protocol FoodDetailEditViewDelegate {
 }
 
 protocol FoodDetailEditDataManagerDelegate {
-    func postFoodDetailEdit(_ parameters: FoodDetailEditRequest, foodImage: UIImage, delegate: FoodDetailEditViewDelegate)
+    func postFoodDetailEdit(_ parameters: FoodDetailEditRequest, foodImage: UIImage?, delegate: FoodDetailEditViewDelegate)
 }

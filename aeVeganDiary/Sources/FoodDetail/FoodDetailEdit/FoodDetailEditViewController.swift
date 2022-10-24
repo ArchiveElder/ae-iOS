@@ -38,7 +38,7 @@ class FoodDetailEditViewController: BaseViewController {
         carbTextField.text = data?.carb
         proTextField.text = data?.protein
         fatTextField.text = data?.fat
-        amountTextField.text = "\(data?.amount)"
+        amountTextField.text = "\(data?.amount ?? 0)"
         
         if let url = URL(string: data?.image_url ?? "") {
             foodImageView.load(url: url)
@@ -46,6 +46,7 @@ class FoodDetailEditViewController: BaseViewController {
         
         setNavigationTitle(title: "수정하기")
         setDismissButton()
+        setDoneButton()
     }
     
     func setDoneButton() {
@@ -57,7 +58,7 @@ class FoodDetailEditViewController: BaseViewController {
     @objc func done() {
         showIndicator()
         let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: data?.time, amount: data?.amount, meal: self.meal)
-        //foodDetailEditDataManager.postFoodDetailEdit(<#T##parameters: FoodDetailEditRequest##FoodDetailEditRequest#>, foodImage: <#T##UIImage#>, delegate: <#T##FoodDetailEditViewDelegate#>)
+        foodDetailEditDataManager.postFoodDetailEdit(input, foodImage: foodImageView.image, delegate: self)
     }
 
 }

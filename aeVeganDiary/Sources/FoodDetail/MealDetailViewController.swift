@@ -55,7 +55,7 @@ class MealDetailViewController: BaseViewController {
         bottomSheetVC.record_id = self.record_id!
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         bottomSheetVC.data = self.data
-        bottomSheetVC.record_id = self.record_id
+        bottomSheetVC.record_id = self.record_id ?? 0
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
 }

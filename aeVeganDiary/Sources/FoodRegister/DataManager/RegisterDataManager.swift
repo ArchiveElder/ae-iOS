@@ -35,6 +35,7 @@ class RegisterDataManager: RegisterDataManagerDelegate {
         .responseDecodable(of: RegisterResponse.self) { response in
             switch response.result {
             case .success(let response):
+                print(response)
                 // 성공했을 때
                 if response.isSuccess {
                     delegate.didSuccessRegister(response)
