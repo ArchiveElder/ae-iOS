@@ -131,7 +131,6 @@ extension SearchViewController : SearchViewDelegate{
         if code == 403 {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.changeRootViewController(LoginViewController())
-                
             }
         }
         

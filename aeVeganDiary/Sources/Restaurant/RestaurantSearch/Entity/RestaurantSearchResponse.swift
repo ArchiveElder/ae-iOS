@@ -8,6 +8,13 @@
 import Foundation
 
 struct RestaurantSearchResponse : Decodable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: RestaurantSearchResult
+}
+
+struct RestaurantSearchResult : Decodable {
     var categories : [String]
     var size : Int
     var categoryList : [CategoryListDto]

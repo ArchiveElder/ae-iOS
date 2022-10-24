@@ -17,6 +17,10 @@ class LargeCategoryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var chooseLable: UILabel!
     @IBOutlet var reselctButton: UIButton!
     
+    lazy var regionDataManager: RegionDataManagerDelegate = RegionCategoryDataManager()
+    
+    lazy var restaurantSearchDataManager: RestaurantSearchDataManagerDelegate = RestaurantSearchDataManager()
+    
     var regionResponse: RegionResponse?
     var regionArray = [""]
     var tableState : Int = 1
@@ -47,6 +51,47 @@ class LargeCategoryViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "LargeCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "LargeCategoryTableViewCell")
+    }
+    
+}
+
+extension LargeCategoryViewController : RestaurantSearchViewDelegate{
+    func didSuccessGetRestaurantSearch(_ result: RestaurantSearchResponse) {
+        dismissIndicator()
+        self.restaurantSearchResponse = result
+        restaurantCount = result.result.size
+        data = result.result.categoryList
+        
+        let viewController = RestaurantSearchViewController()
+        
+        viewController.rowCount = restaurantCount
+        viewController.middle = self.middle
+        viewController.data = self.data
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+}
+
+
+extension LargeCategoryViewController : RegionViewDelegate{
+    func didSuccessGetMiddleRegion(_ result: RegionResponse) {
+        dismissIndicator()
+        self.regionResponse = result
+        regionArray = result.result.data ?? [""]
+        tableState = 2
+        chooseLable.text = "시를 선택하세요"
+        regionBackButton.isHidden = false
+        tableView.reloadData()
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
     }
     
 }
@@ -85,7 +130,8 @@ extension LargeCategoryViewController : UITableViewDataSource {
             let vc = LargeCategoryViewController()
             let largeRegionCell = tableView.cellForRow(at: indexPath)?.textLabel!.text ?? ""
             let inputRegion = RegionInput(wide: largeRegionCell)
-            RegionCategoryDataManager().postRegionCategory(RegionInput(wide: largeRegionCell), viewController: self)
+            
+            regionDataManager.postRegionCategory(RegionInput(wide: largeRegionCell), delegate: self)
             wide = largeRegionCell
             print(wide)
         } else {
@@ -93,29 +139,19 @@ extension LargeCategoryViewController : UITableViewDataSource {
             let middleRegionCell = tableView.cellForRow(at: indexPath)?.textLabel!.text ?? ""
             middle = middleRegionCell
             let inputRestaurantSearch = RestaurantSearchInput(wide: wide, middle: middle)
-            RestaurantSearchDataManager().postRestaurantSearch(inputRestaurantSearch, viewController: self)
+            restaurantSearchDataManager.postRestaurantSearch(inputRestaurantSearch, delegate: self)
             print(middle)
     
         }
         
     }
     
-    func getMiddleRegion(result: RegionResponse){
-        dismissIndicator()
-        self.regionResponse = result
-        regionArray = result.data ?? [""]
-        tableState = 2
-        chooseLable.text = "시를 선택하세요"
-        regionBackButton.isHidden = false
-        tableView.reloadData()
-    }
-    
-    
+        /*
     func getRestaurantSearch(result: RestaurantSearchResponse){
         dismissIndicator()
         self.restaurantSearchResponse = result
         
-        restaurantCount = result.size
+        restaurantCount = result.
         data = result.categoryList
         
         let viewController = RestaurantSearchViewController()
@@ -125,5 +161,6 @@ extension LargeCategoryViewController : UITableViewDataSource {
         viewController.data = self.data
         navigationController?.pushViewController(viewController, animated: true)
     }
+         */
     
 }
