@@ -16,7 +16,7 @@ class DetailBottomSheetViewController: UIViewController {
     @IBOutlet weak var bottomSheetTopConstraint: NSLayoutConstraint!
     
     var defaultHeight: CGFloat = 120
-    var record_id = 0
+    
     
     @IBAction func editButtonAction(_ sender: Any) {
         let vc = FoodDetailEditViewController()
@@ -28,16 +28,12 @@ class DetailBottomSheetViewController: UIViewController {
         self.present(nvc, animated: true)
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
-<<<<<<< HEAD
         var input = DeleteMealRequest(recordId: self.record_id)
-=======
-        var input = DeleteMealRequest(recordId: self.record_id ?? 0)
->>>>>>> Fix
         deleteMealDataManager.deleteMealData(input , delegate: self)
     }
     
     var data: DetailRecord?
-    var record_id: Int?
+    var record_id = 0
     var meal = 0
     
     override func viewDidLoad() {
