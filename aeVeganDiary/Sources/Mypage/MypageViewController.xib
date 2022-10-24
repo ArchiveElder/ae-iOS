@@ -142,7 +142,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="secessionButtonAction:" destination="-1" eventType="touchUpInside" id="ZvB-jK-Iav"/>
+                        <action selector="deleteUerButtonAction:" destination="-1" eventType="touchUpInside" id="AkN-O5-gGy"/>
                     </connections>
                 </button>
             </subviews>

@@ -11,10 +11,13 @@ class MypageViewController: BaseViewController {
     
     lazy var getMyInfoDataManager : GetMyInfoDataManagerDelegate = GetMyInfoDataManager()
     
-    @IBAction func secessionButtonAction(_ sender: Any) {
+    lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
+    
+    @IBAction func deleteUerButtonAction(_ sender: Any) {
         let vc = LoginViewController()
         let navController = UINavigationController(rootViewController: vc)
         self.changeRootViewController(navController)
+        deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
     }
     
     @IBAction func logoutButtonAction(_ sender: Any) {
@@ -71,6 +74,12 @@ class MypageViewController: BaseViewController {
 
 }
 
+
+extension MypageViewController : DeleteUserViewDelegate {
+    func didSuccessDeleteUser(_ result: DeleteUserResponse) {
+        dismissIndicator()
+    }
+}
 
 extension MypageViewController : GetMyInfoViewDelegate {
     func didSuccessGetMyInfoData(_ result: MyInfoResponse) {

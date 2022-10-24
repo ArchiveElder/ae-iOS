@@ -53,7 +53,10 @@
 		8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */; };
 		8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */; };
 		8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465329062333001C19EA /* UpdateMyInfoProtocol.swift */; };
-		8F69465829062C53001C19EA /* SecessionUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465729062C53001C19EA /* SecessionUserResponse.swift */; };
+		8F69465A29062CE0001C19EA /* DeleteUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465929062CE0001C19EA /* DeleteUserResponse.swift */; };
+		8F69465C29062CF3001C19EA /* DeleteUserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465B29062CF3001C19EA /* DeleteUserProtocol.swift */; };
+		8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465D29062CFF001C19EA /* DeleteUserDataManager.swift */; };
+		8F69466229063811001C19EA /* DeleteUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69466129063811001C19EA /* DeleteUserRequest.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
@@ -208,7 +211,10 @@
 		8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyInfoProtocol.swift; sourceTree = "<group>"; };
 		8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyInfoResponse.swift; sourceTree = "<group>"; };
 		8F69465329062333001C19EA /* UpdateMyInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyInfoProtocol.swift; sourceTree = "<group>"; };
-		8F69465729062C53001C19EA /* SecessionUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionUserResponse.swift; sourceTree = "<group>"; };
+		8F69465929062CE0001C19EA /* DeleteUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserResponse.swift; sourceTree = "<group>"; };
+		8F69465B29062CF3001C19EA /* DeleteUserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserProtocol.swift; sourceTree = "<group>"; };
+		8F69465D29062CFF001C19EA /* DeleteUserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserDataManager.swift; sourceTree = "<group>"; };
+		8F69466129063811001C19EA /* DeleteUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserRequest.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -370,7 +376,8 @@
 				8F1A5F772870493600B64409 /* MyInfoInput.swift */,
 				8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */,
 				8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */,
-				8F69465729062C53001C19EA /* SecessionUserResponse.swift */,
+				8F69465929062CE0001C19EA /* DeleteUserResponse.swift */,
+				8F69466129063811001C19EA /* DeleteUserRequest.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -807,6 +814,8 @@
 		CDE47F6928427451005D8BB3 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
+				8F69465D29062CFF001C19EA /* DeleteUserDataManager.swift */,
+				8F69465B29062CF3001C19EA /* DeleteUserProtocol.swift */,
 				8F1A5F7328702CB200B64409 /* GetMyInfoDataManager.swift */,
 				8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */,
 				8F1A5F7528703BD700B64409 /* UpdateMyInfoDataManager.swift */,
@@ -1033,6 +1042,7 @@
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */,
 				8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */,
+				8F69465A29062CE0001C19EA /* DeleteUserResponse.swift in Sources */,
 				8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				CDAECC8E2905314100C13D3D /* MealDetailProtocol.swift in Sources */,
@@ -1053,6 +1063,7 @@
 				8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
+				8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F69464429053F54001C19EA /* SearchProtocol.swift in Sources */,
@@ -1089,7 +1100,6 @@
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
-				8F69465829062C53001C19EA /* SecessionUserResponse.swift in Sources */,
 				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
@@ -1117,12 +1127,14 @@
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				8F69465C29062CF3001C19EA /* DeleteUserProtocol.swift in Sources */,
 				CDAECC9829053F7B00C13D3D /* BookmarkProtocol.swift in Sources */,
 				CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */,
 				8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDAECC9C2905740B00C13D3D /* BookmarkListProtocol.swift in Sources */,
 				CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */,
+				8F69466229063811001C19EA /* DeleteUserRequest.swift in Sources */,
 				8F1A5F88287C2BDE00B64409 /* CookRecommTableViewCell.swift in Sources */,
 				8F1A5F672868544F00B64409 /* SearchResponse.swift in Sources */,
 				8F1A5F7428702CB200B64409 /* GetMyInfoDataManager.swift in Sources */,
