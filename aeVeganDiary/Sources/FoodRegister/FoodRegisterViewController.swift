@@ -130,6 +130,7 @@ class FoodRegisterViewController: BaseViewController {
         if let foodImage = foodImage {
             foodImageViewHeight.constant = 320
             foodImageView.image = foodImage
+            foodImageView.isHidden = false
         }
         
         dateLabel.text = rdate
