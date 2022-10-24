@@ -9,15 +9,20 @@ import UIKit
 
 class DetailBottomSheetViewController: UIViewController {
 
+    lazy var deleteMealDataManager : DeleteMealDataManagerDelegate = DeleteMealDataManager()
+    
     @IBOutlet weak var dimmedView: UIView!
     @IBOutlet weak var bottomSheetView: UIView!
     @IBOutlet weak var bottomSheetTopConstraint: NSLayoutConstraint!
     
     var defaultHeight: CGFloat = 120
+    var record_id = 0
     
     @IBAction func editButtonAction(_ sender: Any) {
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
+        var input = DeleteMealRequest(recordId: self.record_id)
+        deleteMealDataManager.deleteMealData(input , delegate: self)
     }
     
     override func viewDidLoad() {
@@ -72,4 +77,26 @@ class DetailBottomSheetViewController: UIViewController {
         hideBottomSheetAndGoBack()
     }
 
+}
+
+extension DetailBottomSheetViewController : DeleteMealViewDelegate{
+    func didSuccessDeleteMeal(_ result: DeleteMealResponse) {
+        if let first = presentingViewController,
+                let second = first.presentingViewController{
+                  first.view.isHidden = true
+                  second.dismiss(animated: true)
+             }
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+        if code == 403 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.changeRootViewController(LoginViewController())
+            }
+        }
+    }
+    
+    
 }
