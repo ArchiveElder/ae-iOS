@@ -64,6 +64,7 @@ class MealDetailViewController: BaseViewController {
 extension MealDetailViewController: MealDetailViewDelegate {
     func didSuccessGetMealDetail(_ result: MealDetailResponse) {
         dismissIndicator()
+        print(result)
         self.data = result.result?.data[0]
         let data = result.result?.data[0]
         titleLabel.text = data?.text

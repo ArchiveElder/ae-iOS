@@ -71,12 +71,14 @@ extension RecommCollectionViewCell : UITableViewDelegate, UITableViewDataSource{
             delegate?.myUrl = NSURL(string: innerUrl)!
             
             let cell = hasTableView.dequeueReusableCell(withIdentifier: "HasTableViewCell", for: indexPath) as! HasTableViewCell
+            cell.selectionStyle = .none
             cell.hasIngreLabel.text = cookRecomm?.has[indexPath.row]
             cell.hasIngreLabel.textColor = .darkGray
             cell.hasIngreLabel.font = UIFont.systemFont(ofSize: 15)
             return cell
         } else {
             let cell = noTableView.dequeueReusableCell(withIdentifier: "NoTableViewCell", for: indexPath) as! NoTableViewCell
+            cell.selectionStyle = .none
             cell.noIngreLabel.text = cookRecomm?.no[indexPath.row]
             cell.noIngreLabel.textColor = .darkGray
             cell.noIngreLabel.font = UIFont.systemFont(ofSize: 15)

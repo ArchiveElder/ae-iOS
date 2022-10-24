@@ -67,6 +67,7 @@ class HomeViewController: BaseViewController {
     var homeResult: HomeResult?
     var records = [Records]()
     
+    private var observer: NSObjectProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,10 +136,24 @@ class HomeViewController: BaseViewController {
         //arcProgressBar.setProgressOne(to: 1, withAnimation: false, maxSpeed: 45.0)
         
         locationManager.delegate = self
+        
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil,
+                                                          queue: .main) {
+                                                          [unowned self] notification in
+            let checkUpdateAvailable = checkUpdateAvailable()
+            if checkUpdateAvailable {
+                presentUpdateAlertVC()
+            }
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        let checkUpdateAvailable = checkUpdateAvailable()
+        if checkUpdateAvailable {
+            presentUpdateAlertVC()
+        }
+        
         store.requestAccess(to: .event) { granted, error in
             //if granted { self.accessGranted() }
         }
