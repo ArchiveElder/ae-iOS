@@ -395,7 +395,11 @@ extension RecommCookViewController : IngreViewDelegate{
                 searchBar.text = ""
                 let currentCell = tableView.cellForRow(at: indexPath)?.textLabel!.text
                 print(currentCell)
-                ingreArr.append(currentCell ?? "")
+                if(ingreArr.firstIndex(of: currentCell!) == nil) {
+                    ingreArr.append(currentCell ?? "")
+                } else {
+                    presentAlert(message: "재료가 이미 있습니다.")
+                }
                 var ingreInput = IngreInput(ingredients: ingreArr)
                 CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
                 ingreTableView.reloadData()
