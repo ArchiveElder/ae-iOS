@@ -21,8 +21,11 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var proProgressView: UIProgressView!
     @IBOutlet weak var fatProgressView: UIProgressView!
     @IBOutlet weak var carbLabel: UILabel!
+    @IBOutlet weak var carbPercentLabel: UILabel!
     @IBOutlet weak var proLabel: UILabel!
+    @IBOutlet weak var proPercentLabel: UILabel!
     @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var fatPercentLabel: UILabel!
     
     @IBOutlet weak var statusView: UIView!
     var dates: [String]!
@@ -235,6 +238,10 @@ extension AnalyzeViewController: AnalyzeViewDelegate {
         setProgressResult(sender: carbProgressView, data: Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1))
         setProgressResult(sender: proProgressView, data: Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1))
         setProgressResult(sender: fatProgressView, data: Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1))
+        
+        carbPercentLabel.text = "\(Int(Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1) * 100))%"
+        proPercentLabel.text = "\(Int(Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1) * 100))%"
+        fatPercentLabel.text = "\(Int(Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1) * 100))%"
     }
     
     func failedToRequest(message: String, code: Int) {
