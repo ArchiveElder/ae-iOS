@@ -26,6 +26,8 @@ class RestaurantSearchTableViewCell: UITableViewCell {
         delegate?.bookmarkButtonAction(cell: self)
     }
     
+    @IBOutlet weak var restaurantDetailButton: UIButton!
+    
     var phoneNum : Int = 0
     override func awakeFromNib() {
         super.awakeFromNib()

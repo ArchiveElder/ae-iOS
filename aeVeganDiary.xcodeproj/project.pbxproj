@@ -93,6 +93,9 @@
 		CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */; };
 		CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
+		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
+		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
+		CD4778EF29066C49002D8D7C /* FoodDetailEditProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */; };
 		CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */; };
 		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
 		CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */; };
@@ -258,6 +261,9 @@
 		CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CD2D5AE828BF3F4B00F770DC /* aeVeganDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = aeVeganDiary.entitlements; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
+		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
+		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
+		CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditProtocol.swift; sourceTree = "<group>"; };
 		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictResponse.swift; sourceTree = "<group>"; };
@@ -577,6 +583,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CD4778E729066AEB002D8D7C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		CD4FE96828939AD400D2F2E6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,8 +660,11 @@
 		CDAECCA629059A5100C13D3D /* FoodDetailEdit */ = {
 			isa = PBXGroup;
 			children = (
+				CD4778E729066AEB002D8D7C /* Entity */,
 				CDAECCA729059A6500C13D3D /* FoodDetailEditViewController.swift */,
 				CDAECCA829059A6500C13D3D /* FoodDetailEditViewController.xib */,
+				CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */,
+				CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */,
 			);
 			path = FoodDetailEdit;
 			sourceTree = "<group>";
@@ -1050,6 +1067,7 @@
 				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
 				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
+				CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
@@ -1067,6 +1085,7 @@
 				8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
 				CDAECC8E2905314100C13D3D /* MealDetailProtocol.swift in Sources */,
+				CD4778EF29066C49002D8D7C /* FoodDetailEditProtocol.swift in Sources */,
 				CDAECCA42905909C00C13D3D /* DetailBottomSheetViewController.swift in Sources */,
 				8F694664290645AB001C19EA /* DeleteMealRequest.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
@@ -1079,6 +1098,7 @@
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
+				CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */,
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
 				CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */,

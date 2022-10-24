@@ -20,8 +20,9 @@ class MealDetailViewController: BaseViewController {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     
+    var data: DetailRecord?
     var record_id: Int?
-    let meals = ["아침", "점심", "저녁"]
+    var meal: Int? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,8 @@ class MealDetailViewController: BaseViewController {
         let bottomSheetVC = DetailBottomSheetViewController()
         bottomSheetVC.record_id = self.record_id!
         bottomSheetVC.modalPresentationStyle = .overFullScreen
+        bottomSheetVC.data = self.data
+        bottomSheetVC.record_id = self.record_id
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
 }
@@ -60,6 +63,7 @@ class MealDetailViewController: BaseViewController {
 extension MealDetailViewController: MealDetailViewDelegate {
     func didSuccessGetMealDetail(_ result: MealDetailResponse) {
         dismissIndicator()
+        self.data = result.result?.data[0]
         let data = result.result?.data[0]
         titleLabel.text = data?.text
         dateLabel.text = "\(data?.date ?? "") \(data?.time ?? "")"

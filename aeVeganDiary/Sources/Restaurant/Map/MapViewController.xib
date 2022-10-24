@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,12 +88,29 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etJ-UC-kfL">
+                            <rect key="frame" x="284" y="83.5" width="83" height="34"/>
+                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button">
+                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                            </state>
+                            <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="상세 정보">
+                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="13"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="restaurantDetailButtonAction:" destination="-1" eventType="touchUpInside" id="egz-9X-btQ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="etJ-UC-kfL" secondAttribute="bottom" constant="15" id="0ZM-5c-Pen"/>
                         <constraint firstItem="YcX-vN-XTd" firstAttribute="centerY" secondItem="Agi-fP-Lth" secondAttribute="centerY" id="1S5-MU-PbH"/>
                         <constraint firstItem="7TQ-UU-iAv" firstAttribute="top" secondItem="iPL-Zv-i1C" secondAttribute="bottom" constant="12" id="1gX-aK-9aT"/>
                         <constraint firstItem="Agi-fP-Lth" firstAttribute="leading" secondItem="slW-7F-dhP" secondAttribute="leading" constant="20" id="5uG-Sc-CWQ"/>
+                        <constraint firstAttribute="trailing" secondItem="etJ-UC-kfL" secondAttribute="trailing" constant="15" id="72I-ex-q2K"/>
                         <constraint firstItem="fWe-M1-XYu" firstAttribute="top" secondItem="7TQ-UU-iAv" secondAttribute="bottom" constant="10" id="9qy-nL-K2B"/>
                         <constraint firstAttribute="bottom" secondItem="fWe-M1-XYu" secondAttribute="bottom" constant="18" id="KPA-Mr-eql"/>
                         <constraint firstItem="sAt-ea-HQE" firstAttribute="centerY" secondItem="fWe-M1-XYu" secondAttribute="centerY" id="ZCQ-aP-L4k"/>
@@ -126,6 +145,7 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="starselected" width="24" height="24"/>
         <image name="starunselected" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">

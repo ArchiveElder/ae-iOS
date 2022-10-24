@@ -19,11 +19,26 @@ class DetailBottomSheetViewController: UIViewController {
     var record_id = 0
     
     @IBAction func editButtonAction(_ sender: Any) {
+        let vc = FoodDetailEditViewController()
+        vc.data = self.data
+        vc.record_id = self.record_id
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.modalPresentationStyle = .overFullScreen
+        nvc.view.backgroundColor = .white
+        self.present(nvc, animated: true)
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
+<<<<<<< HEAD
         var input = DeleteMealRequest(recordId: self.record_id)
+=======
+        var input = DeleteMealRequest(recordId: self.record_id ?? 0)
+>>>>>>> Fix
         deleteMealDataManager.deleteMealData(input , delegate: self)
     }
+    
+    var data: DetailRecord?
+    var record_id: Int?
+    var meal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
