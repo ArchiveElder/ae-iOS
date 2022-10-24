@@ -58,9 +58,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dismissKeyboardWhenTappedAround()
+        //dismissKeyboardWhenTappedAround()
         setNavigationTitle(title: "채식 요리 추천")
-        view.backgroundColor = .white
         setResetButton()
         
         //Ingre Search
@@ -92,6 +91,27 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         if ingreArr.count == 0 {
             tabCollectionView.isHidden = true
             recommCollectionView.isHidden = true
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func handleKeyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+            
+            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            
+            if isKeyboardShowing {
+                dismissKeyboardWhenTappedAround()
+            } else {
+                if let recognizers = self.view.gestureRecognizers {
+                    for recognizer in recognizers {
+                        self.view.removeGestureRecognizer(recognizer)
+                    }
+                }
+            }
         }
     }
     
@@ -141,7 +161,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             searchTableView.isHidden = false
             self.shownFoods = self.ingre.map{$0.name}
             self.searchTableView.reloadData()
-            dismissKeyboardWhenTappedAround()
+            //dismissKeyboardWhenTappedAround()
         }
     }
     
@@ -151,14 +171,14 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             self.shownFoods = self.ingre.map{$0.name}
             self.searchTableView.reloadData()
             searchTableView.isHidden = false
-            dismissKeyboardWhenTappedAround()
+            //dismissKeyboardWhenTappedAround()
         } else {
             searchTableView.isHidden = false
-            if let recognizers = self.view.gestureRecognizers {
+            /*if let recognizers = self.view.gestureRecognizers {
                 for recognizer in recognizers {
                     self.view.removeGestureRecognizer(recognizer)
                 }
-            }
+            }*/
             searchBar
                 .rx.text
                 .orEmpty
