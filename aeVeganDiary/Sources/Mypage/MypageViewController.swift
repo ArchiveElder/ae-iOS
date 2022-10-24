@@ -11,6 +11,12 @@ class MypageViewController: BaseViewController {
     
     lazy var getMyInfoDataManager : GetMyInfoDataManagerDelegate = GetMyInfoDataManager()
     
+    @IBAction func secessionButtonAction(_ sender: Any) {
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        self.changeRootViewController(navController)
+    }
+    
     @IBAction func logoutButtonAction(_ sender: Any) {
         UserManager.shared.jwt = ""
         //UserDefaults.standard.setValue("", forKey: "UserJwt")

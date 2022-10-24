@@ -53,6 +53,7 @@
 		8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */; };
 		8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */; };
 		8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465329062333001C19EA /* UpdateMyInfoProtocol.swift */; };
+		8F69465829062C53001C19EA /* SecessionUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69465729062C53001C19EA /* SecessionUserResponse.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
@@ -207,6 +208,7 @@
 		8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyInfoProtocol.swift; sourceTree = "<group>"; };
 		8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyInfoResponse.swift; sourceTree = "<group>"; };
 		8F69465329062333001C19EA /* UpdateMyInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyInfoProtocol.swift; sourceTree = "<group>"; };
+		8F69465729062C53001C19EA /* SecessionUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionUserResponse.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				8F1A5F772870493600B64409 /* MyInfoInput.swift */,
 				8F1A5F7128702C0D00B64409 /* MyInfoResponse.swift */,
 				8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */,
+				8F69465729062C53001C19EA /* SecessionUserResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1086,6 +1089,7 @@
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
+				8F69465829062C53001C19EA /* SecessionUserResponse.swift in Sources */,
 				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
