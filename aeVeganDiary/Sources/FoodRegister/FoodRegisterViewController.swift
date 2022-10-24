@@ -177,7 +177,7 @@ extension FoodRegisterViewController : FoodDetailViewDelegate {
     func didSuccessGetFoodDetailData(_ result: FoodDetailResponse) {
         dismissIndicator()
         self.foodDetailResponse = result
-        self.foodDetail = result.result.data
+        self.foodDetail = result.result!.data
         foodNameLabel.text = foodDetail[0].name
         caloryLabel.text = String(foodDetail[0].calory)
         self.cal = foodDetail[0].calory

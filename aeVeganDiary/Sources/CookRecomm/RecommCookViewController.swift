@@ -192,7 +192,7 @@ extension RecommCookViewController : IngreViewDelegate{
     func didRetrieveIngreData(_ result: IngreResponse) {
         dismissIndicator()
         self.ingreResponse = result
-        self.ingre = result.result.data
+        self.ingre = result.result!.data
     }
     
     func failedToRequest(message: String, code: Int) {

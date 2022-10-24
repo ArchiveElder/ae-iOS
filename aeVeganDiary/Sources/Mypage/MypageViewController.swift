@@ -41,10 +41,10 @@ class MypageViewController: BaseViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
-        vc.age = myInfoResponse?.result.age ?? 0
-        vc.height = myInfoResponse?.result.height ?? "0"
-        vc.weight = myInfoResponse?.result.weight ?? "0"
-        vc.activity = myInfoResponse?.result.activity ?? 0
+        vc.age = myInfoResponse?.result?.age ?? 0
+        vc.height = myInfoResponse?.result?.height ?? "0"
+        vc.weight = myInfoResponse?.result?.weight ?? "0"
+        vc.activity = myInfoResponse?.result?.activity ?? 0
         // 화면 push 할 때 하단 탭바 가리는 코드
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
@@ -85,8 +85,8 @@ extension MypageViewController : GetMyInfoViewDelegate {
     func didSuccessGetMyInfoData(_ result: MyInfoResponse) {
         dismissIndicator()
         self.myInfoResponse = result
-        nicknameLabel.text = result.result.name
-        profileImageView.image = UIImage(named: "profile\(result.result.icon)")
+        nicknameLabel.text = result.result?.name
+        profileImageView.image = UIImage(named: "profile\(result.result?.icon)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray
     }
