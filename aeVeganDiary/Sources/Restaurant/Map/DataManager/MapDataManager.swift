@@ -10,7 +10,7 @@ import Alamofire
 class MapDataManager: MapDataManagerDelegate {
     func getMap(delegate: MapViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/allbistro", method: .get, headers: headers)
+        AF.request("\(Constant.BASE_URL)/api/v2/allbistro", method: .get, headers: headers)
             .validate()
             .responseDecodable(of: MapResponse.self) { response in
                 switch response.result {
