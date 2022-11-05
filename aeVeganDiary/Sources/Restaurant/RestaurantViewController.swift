@@ -10,7 +10,7 @@ import EventKit
 
 class RestaurantViewController: UIViewController {
     
-    var location = CLLocation()
+    var location: CLLocation?
     let mapVC = MapViewController()
     let largeCategoryVC = LargeCategoryViewController()
     
@@ -18,12 +18,13 @@ class RestaurantViewController: UIViewController {
         super.viewDidLoad()
 
         mapVC.location = self.location
-        setUp()
         setToggleButton()
+        setUp()
     }
     
+    let toggleButton: UIButton = UIButton()
+    
     func setToggleButton() {
-        let toggleButton: UIButton = UIButton()
         toggleButton.setImage(UIImage(named: "map"), for: .normal)
         toggleButton.setImage(UIImage(named: "apps"), for: .selected)
         toggleButton.addTarget(self, action: #selector(toggle(sender: )), for: .touchUpInside)
@@ -58,8 +59,16 @@ class RestaurantViewController: UIViewController {
         mapVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         largeCategoryVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
-        mapVC.view.isHidden = false
-        largeCategoryVC.view.isHidden = true
+        if location == nil {
+            mapVC.view.isHidden = true
+            largeCategoryVC.view.isHidden = false
+            toggleButton.isSelected = true
+        } else {
+            mapVC.view.isHidden = false
+            largeCategoryVC.view.isHidden = true
+            toggleButton.isSelected = false
+        }
+        
     }
 
 }

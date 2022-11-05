@@ -67,8 +67,10 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func bookmarkDelete(sender: UIButton) {
-        let input = BookmarkRequest(bistroId: listData?.data?[sender.tag].bistroId ?? 0)
-        bookmarkDeleteDataManager.deleteBookmark(input, delegate: self)
+        presentAlert(title: "삭제하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            let input = BookmarkRequest(bistroId: self.listData?.data?[sender.tag].bistroId ?? 0)
+            self.bookmarkDeleteDataManager.deleteBookmark(input, delegate: self)
+        })
     }
 }
 
@@ -76,13 +78,10 @@ extension BookmarkViewController: BookmarkListViewDelegate, BookmarkDeleteViewDe
     func didSuccessGetBookmarkList(_ result: BookmarkListResponse) {
         dismissIndicator()
         listData = result.result
-        if listData?.data?.count == 0 {
-            messageLabel.isHidden = false
-            messageImageView.isHidden = false
+        print(listData)
+        if listData == nil || listData?.data?.count == 0 {
             bookmarkTableView.isHidden = true
         } else {
-            messageLabel.isHidden = true
-            messageImageView.isHidden = true
             bookmarkTableView.isHidden = false
         }
         bookmarkTableView.reloadData()

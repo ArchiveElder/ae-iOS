@@ -27,6 +27,11 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var fatPercentLabel: UILabel!
     
+    @IBOutlet weak var colorInfoView: UIView!
+    @IBAction func colorInfoButtonAction(_ sender: Any) {
+        colorInfoView.isHidden = !colorInfoView.isHidden
+    }
+    
     @IBOutlet weak var statusView: UIView!
     var dates: [String]!
     var values: [Double]!
@@ -35,7 +40,6 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setNavigationTitle(title: "분석")
         
         calChartView.delegate = self
@@ -62,7 +66,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        colorInfoView.isHidden = true
         dates = [String]()
         values = [Double]()
         
