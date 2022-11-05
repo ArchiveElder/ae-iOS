@@ -76,13 +76,10 @@ extension BookmarkViewController: BookmarkListViewDelegate, BookmarkDeleteViewDe
     func didSuccessGetBookmarkList(_ result: BookmarkListResponse) {
         dismissIndicator()
         listData = result.result
-        if listData?.data?.count == 0 {
-            messageLabel.isHidden = false
-            messageImageView.isHidden = false
+        print(listData)
+        if listData == nil || listData?.data?.count == 0 {
             bookmarkTableView.isHidden = true
         } else {
-            messageLabel.isHidden = true
-            messageImageView.isHidden = true
             bookmarkTableView.isHidden = false
         }
         bookmarkTableView.reloadData()
