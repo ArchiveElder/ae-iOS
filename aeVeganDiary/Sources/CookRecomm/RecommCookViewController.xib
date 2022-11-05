@@ -28,17 +28,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21k-sN-chp">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
+                    <rect key="frame" x="0.0" y="56" width="414" height="665"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NN-zG-lR3">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="652"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
                             <subviews>
-                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AYP-DI-hzU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imv-Sb-5lS">
-                                    <rect key="frame" x="15" y="71" width="384" height="263"/>
+                                    <rect key="frame" x="15" y="20" width="384" height="263"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee8-Yo-i63">
                                             <rect key="frame" x="19" y="18" width="78" height="21"/>
@@ -109,7 +105,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oK8-VU-pOg">
-                                    <rect key="frame" x="15" y="349" width="384" height="48"/>
+                                    <rect key="frame" x="15" y="298" width="384" height="48"/>
                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="2fd-cM-Zcy"/>
@@ -122,7 +118,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="pIS-Qn-2ft">
-                                    <rect key="frame" x="15" y="397" width="384" height="225"/>
+                                    <rect key="frame" x="15" y="346" width="384" height="225"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="225" id="NHq-qu-l3a"/>
@@ -143,14 +139,10 @@
                             <color key="backgroundColor" red="0.77647058820000003" green="0.86666666670000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="oK8-VU-pOg" firstAttribute="leading" secondItem="8NN-zG-lR3" secondAttribute="leading" constant="15" id="0UW-tf-Hdh"/>
-                                <constraint firstAttribute="bottom" secondItem="pIS-Qn-2ft" secondAttribute="bottom" constant="30" id="179-bp-i8q"/>
-                                <constraint firstAttribute="trailing" secondItem="AYP-DI-hzU" secondAttribute="trailing" id="3Bg-TZ-3YE"/>
                                 <constraint firstAttribute="trailing" secondItem="oK8-VU-pOg" secondAttribute="trailing" constant="15" id="5Sa-7T-oj1"/>
-                                <constraint firstItem="AYP-DI-hzU" firstAttribute="top" secondItem="8NN-zG-lR3" secondAttribute="top" id="JEI-4a-w2o"/>
+                                <constraint firstItem="imv-Sb-5lS" firstAttribute="top" secondItem="8NN-zG-lR3" secondAttribute="top" constant="20" id="BLr-Ti-BRa"/>
                                 <constraint firstItem="pIS-Qn-2ft" firstAttribute="leading" secondItem="8NN-zG-lR3" secondAttribute="leading" constant="15" id="NtX-bx-862"/>
-                                <constraint firstItem="imv-Sb-5lS" firstAttribute="top" secondItem="AYP-DI-hzU" secondAttribute="bottom" constant="15" id="Ofq-RI-ef7"/>
                                 <constraint firstAttribute="trailing" secondItem="pIS-Qn-2ft" secondAttribute="trailing" constant="15" id="SDx-Vl-M9Q"/>
-                                <constraint firstItem="AYP-DI-hzU" firstAttribute="leading" secondItem="8NN-zG-lR3" secondAttribute="leading" id="WIS-ll-KSU"/>
                                 <constraint firstAttribute="trailing" secondItem="imv-Sb-5lS" secondAttribute="trailing" constant="15" id="Xsk-lz-uHG"/>
                                 <constraint firstItem="pIS-Qn-2ft" firstAttribute="top" secondItem="oK8-VU-pOg" secondAttribute="bottom" id="ZzO-NU-qvY"/>
                                 <constraint firstItem="oK8-VU-pOg" firstAttribute="top" secondItem="imv-Sb-5lS" secondAttribute="bottom" constant="15" id="ybR-SN-tG7"/>
@@ -159,13 +151,19 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="8NN-zG-lR3" firstAttribute="top" secondItem="21k-sN-chp" secondAttribute="top" id="5IX-b2-2LL"/>
                         <constraint firstItem="8NN-zG-lR3" firstAttribute="width" secondItem="21k-sN-chp" secondAttribute="width" id="88h-zj-BIP"/>
                         <constraint firstAttribute="trailing" secondItem="8NN-zG-lR3" secondAttribute="trailing" id="X1c-zR-67h"/>
-                        <constraint firstAttribute="bottom" secondItem="8NN-zG-lR3" secondAttribute="bottom" id="aY9-ln-cHq"/>
+                        <constraint firstAttribute="bottom" secondItem="8NN-zG-lR3" secondAttribute="bottom" constant="-42" id="aY9-ln-cHq"/>
                         <constraint firstItem="8NN-zG-lR3" firstAttribute="top" secondItem="21k-sN-chp" secondAttribute="top" id="izv-yF-yBj"/>
+                        <constraint firstItem="8NN-zG-lR3" firstAttribute="height" secondItem="21k-sN-chp" secondAttribute="height" multiplier="0.980451" constant="55" id="lyE-0Y-ATE"/>
                         <constraint firstItem="8NN-zG-lR3" firstAttribute="leading" secondItem="21k-sN-chp" secondAttribute="leading" id="wjq-9k-faW"/>
                     </constraints>
                 </scrollView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AYP-DI-hzU">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-Pi-def">
                     <rect key="frame" x="0.0" y="56" width="414" height="665"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -175,11 +173,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="21k-sN-chp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0FV-fu-eNu"/>
+                <constraint firstItem="AYP-DI-hzU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Yw-p3-Zdz"/>
+                <constraint firstItem="eIR-Pi-def" firstAttribute="top" secondItem="AYP-DI-hzU" secondAttribute="bottom" id="42V-43-fWm"/>
                 <constraint firstItem="21k-sN-chp" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="BpK-xC-iDh"/>
                 <constraint firstItem="21k-sN-chp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KBj-dD-p8v"/>
                 <constraint firstItem="eIR-Pi-def" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="NvI-BB-riJ"/>
-                <constraint firstItem="21k-sN-chp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UMO-GS-9kl"/>
-                <constraint firstItem="eIR-Pi-def" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="rXp-4i-eFf"/>
+                <constraint firstItem="AYP-DI-hzU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TBC-eS-ms9"/>
+                <constraint firstItem="21k-sN-chp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="UMO-GS-9kl"/>
+                <constraint firstItem="AYP-DI-hzU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oeR-Rb-4u1"/>
                 <constraint firstItem="eIR-Pi-def" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uHW-GV-Od4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eIR-Pi-def" secondAttribute="bottom" id="w2A-el-PCr"/>
             </constraints>

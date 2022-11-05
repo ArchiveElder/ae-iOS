@@ -67,7 +67,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         super.viewDidLoad()
         //dismissKeyboardWhenTappedAround()
         setNavigationTitle(title: "채식 요리 추천")
-        setResetButton()
+        //setResetButton()
         self.searchTableView.keyboardDismissMode = .onDrag
         
         ingreArr = UserDefaults.standard.array(forKey: "UserIngre") as! [String]
