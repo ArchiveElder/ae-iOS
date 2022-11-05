@@ -36,8 +36,10 @@ class DetailBottomSheetViewController: UIViewController {
         
     }
     @IBAction func deleteButtonAction(_ sender: Any) {
-        var input = DeleteMealRequest(recordId: self.record_id)
-        deleteMealDataManager.deleteMealData(input , delegate: self)
+        presentAlert(title: "정말 삭제하시겠어요?", message: "삭제는 취소할 수 없습니다", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            var input = DeleteMealRequest(recordId: self.record_id)
+            self.deleteMealDataManager.deleteMealData(input, delegate: self)
+        })
     }
     
     var data: DetailRecord?

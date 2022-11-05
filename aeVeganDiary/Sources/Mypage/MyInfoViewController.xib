@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,7 +77,7 @@
                     <rect key="frame" x="15" y="235" width="384" height="40"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRQ-fr-EUv">
-                            <rect key="frame" x="8" y="11" width="340.5" height="18.5"/>
+                            <rect key="frame" x="8" y="10.5" width="340.5" height="19"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
@@ -202,10 +203,22 @@
                         <action selector="activityButtonAction:" destination="-1" eventType="touchUpInside" id="FoN-tJ-9dM"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mc-F6-w0l">
+                    <rect key="frame" x="349" y="666" width="45" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="탈퇴하기">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteUerButtonAction:" destination="-1" eventType="touchUpInside" id="gjd-PP-0Nu"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Mc-F6-w0l" secondAttribute="trailing" constant="20" id="16q-Z3-dO8"/>
                 <constraint firstItem="cGV-iP-p43" firstAttribute="top" secondItem="o7b-rB-C4R" secondAttribute="bottom" constant="20" id="2Ix-Fh-Xwb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zy6-lT-5Xl" secondAttribute="trailing" constant="15" id="3Zo-yy-o2O"/>
                 <constraint firstItem="Qwr-W6-Kcb" firstAttribute="leading" secondItem="G8K-Y5-s3E" secondAttribute="leading" id="7E4-zq-K8G"/>
@@ -213,6 +226,7 @@
                 <constraint firstItem="TZN-I8-QWK" firstAttribute="top" secondItem="FY3-sH-x0x" secondAttribute="bottom" constant="15" id="CcM-PI-Qwp"/>
                 <constraint firstItem="WRP-JF-faJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="FYo-dA-ADQ"/>
                 <constraint firstItem="o7b-rB-C4R" firstAttribute="top" secondItem="zy6-lT-5Xl" secondAttribute="bottom" constant="10" id="GoI-Ad-Io4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Mc-F6-w0l" secondAttribute="bottom" constant="80" id="Ibn-ti-hJ8"/>
                 <constraint firstItem="cGV-iP-p43" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="JrZ-gi-9vE"/>
                 <constraint firstItem="WRP-JF-faJ" firstAttribute="top" secondItem="TZN-I8-QWK" secondAttribute="bottom" constant="15" id="KSI-y7-Mdx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dwH-6b-dtI" secondAttribute="bottom" constant="40" id="OKV-d6-BPt"/>

@@ -10,6 +10,7 @@ import UIKit
 class MyInfoViewController: BaseViewController {
     
     lazy var updateMyInfoDataManager : UpdateMyInfoDataManagerDelegate = UpdateMyInfoDataManager()
+    lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
     
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
@@ -27,6 +28,11 @@ class MyInfoViewController: BaseViewController {
         // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
     }
     
+    @IBAction func deleteUerButtonAction(_ sender: Any) {
+        presentAlert(title: "정말 탈퇴하시겠어요?", message: "탈퇴하면 모든 정보가 삭제됩니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            self.deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
+        })
+    }
     
     var indexOfOneAndOnly: Int?
     var activities = [25, 33, 40]
@@ -113,12 +119,12 @@ extension MyInfoViewController : UpdateMyInfoViewDelegate {
     
 }
 
-/*
-//MARK: 서버 통신
-extension MyInfoViewController {
-    func update() {
-        //서버통신 성공하면 view를 pop 해준다
-        navigationController?.popViewController(animated: true)
+extension MyInfoViewController : DeleteUserViewDelegate {
+    func didSuccessDeleteUser(_ result: DeleteUserResponse) {
+        dismissIndicator()
+        
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        self.changeRootViewController(navController)
     }
 }
-*/
