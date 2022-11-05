@@ -50,6 +50,7 @@ class FoodRegisterViewController: BaseViewController {
     var name: String = ""
     var calory: Double = 0.0
     
+    var toMore = false
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet var foodImageViewHeight: NSLayoutConstraint!
@@ -167,12 +168,32 @@ class FoodRegisterViewController: BaseViewController {
     }
     
     @objc func done() {
-        showIndicator()
-        dateFormatter24.dateFormat = "HH:mm"
-        let time = dateFormatter24.string(from: datePicker.date)
-        let input = RegisterRequest(text: foodNameLabel.text!, calory: caloryLabel.text!, carb: carbLabel.text!, protein: proteinLabel.text!, fat: fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(amountTextField.text!) ?? 0, meal: self.meal ?? 0)
+        let alert = UIAlertController(title: "등록을 완료하시겠어요?", message: nil, preferredStyle: .alert)
+        let actionDone = UIAlertAction(title: "완료", style: .default, handler: {_ in
+            self.toMore = false
+            self.register()
+        })
+        alert.addAction(actionDone)
+        
+        let actionMore = UIAlertAction(title: "완료하고 더 등록하기", style: .default, handler: {_ in
+            self.toMore = true
+            self.register()
+            
+        })
+        alert.addAction(actionMore)
+        
+        let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(actionCancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func register() {
+        self.showIndicator()
+        self.dateFormatter24.dateFormat = "HH:mm"
+        let time = self.dateFormatter24.string(from: self.datePicker.date)
+        let input = RegisterRequest(text: self.foodNameLabel.text!, calory: self.caloryLabel.text!, carb: self.carbLabel.text!, protein: self.proteinLabel.text!, fat: self.fatLabel.text!, rdate: self.rdate, rtime: time, amount: Double(self.amountTextField.text!) ?? 0, meal: self.meal ?? 0)
         print(input)
-        registerDataManager.postRegister(input, foodImage: foodImage ?? UIImage(), delegate: self)
+        self.registerDataManager.postRegister(input, foodImage: self.foodImage ?? UIImage(), delegate: self)
     }
 
 }
@@ -199,7 +220,20 @@ extension FoodRegisterViewController : FoodDetailViewDelegate {
 extension FoodRegisterViewController: RegisterViewDelegate {
     func didSuccessRegister(_ result: RegisterResponse) {
         dismissIndicator()
-        self.dismiss(animated: true)
+        if self.toMore {
+            guard let pvc = self.presentingViewController else { return }
+
+            self.dismiss(animated: true) {
+                let vc = SelectTypeViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                vc.rdate = self.rdate
+                vc.meal = self.meal
+                pvc.present(vc, animated: false)
+            }
+        } else {
+            self.dismiss(animated: true)
+        }
     }
     
     func foodPredict(result: FoodPredictResponse) {
