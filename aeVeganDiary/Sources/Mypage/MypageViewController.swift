@@ -14,10 +14,9 @@ class MypageViewController: BaseViewController {
     lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
     
     @IBAction func deleteUerButtonAction(_ sender: Any) {
-        let vc = LoginViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        self.changeRootViewController(navController)
-        deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
+        presentAlert(title: "정말 탈퇴하시겠어요?", message: "탈퇴하면 모든 정보가 삭제됩니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            self.deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
+        })
     }
     
     @IBAction func logoutButtonAction(_ sender: Any) {
@@ -78,6 +77,10 @@ class MypageViewController: BaseViewController {
 extension MypageViewController : DeleteUserViewDelegate {
     func didSuccessDeleteUser(_ result: DeleteUserResponse) {
         dismissIndicator()
+        
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        self.changeRootViewController(navController)
     }
 }
 
