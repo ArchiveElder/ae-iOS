@@ -51,14 +51,37 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Sb-h85" customClass="FSCalendar">
                                     <rect key="frame" x="15" y="65" width="360" height="280"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrK-7Z-yGO">
+                                            <rect key="frame" x="248" y="95" width="100" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="0J9-JC-irz"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="음식점 검색" image="chevron.right" catalog="system">
+                                                <color key="titleColor" red="0.047058823530000002" green="0.38823529410000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="음식점 검색" imagePadding="2">
+                                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="baseForegroundColor" red="0.047058823530000002" green="0.38823529410000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </buttonConfiguration>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="restaurantSearchButtonAction:" destination="-1" eventType="touchUpInside" id="KFU-ps-ZUd"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="캘린더 앱에서 일정과 장소를 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-2E-mC9">
-                                            <rect key="frame" x="68.666666666666671" y="185.66666666666669" width="200.66666666666663" height="14.333333333333343"/>
+                                            <rect key="frame" x="70.666666666666671" y="193.66666666666669" width="200.66666666666663" height="14.333333333333343"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPq-Qb-PUt">
-                                            <rect key="frame" x="168" y="153.33333333333334" width="25.333333333333329" height="22.666666666666657"/>
+                                            <rect key="frame" x="168" y="161.33333333333334" width="25.333333333333329" height="22.666666666666657"/>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="sXp-mM-N57"/>
@@ -66,8 +89,8 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tP-lj-vVm">
-                                            <rect key="frame" x="273" y="182" width="20" height="22"/>
-                                            <color key="tintColor" red="0.047058823530000002" green="0.38823529410000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="275" y="190" width="20" height="22"/>
+                                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="info.circle" catalog="system"/>
                                             <connections>
@@ -75,7 +98,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfR-I6-4x3">
-                                            <rect key="frame" x="36.666666666666657" y="208" width="287" height="48.666666666666686"/>
+                                            <rect key="frame" x="36.666666666666657" y="216" width="287" height="48.666666666666686"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klx-fv-1GY">
                                                     <rect key="frame" x="10" y="10.000000000000002" width="267" height="28.666666666666671"/>
@@ -86,7 +109,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="klx-fv-1GY" secondAttribute="trailing" constant="10" id="ff8-ve-hWx"/>
                                                 <constraint firstItem="klx-fv-1GY" firstAttribute="top" secondItem="YfR-I6-4x3" secondAttribute="top" constant="10" id="iB9-kO-PnJ"/>
@@ -117,6 +140,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="htl-ew-qJ1" secondAttribute="trailing" constant="15" id="1Cs-gm-m3B"/>
                                         <constraint firstItem="5tP-lj-vVm" firstAttribute="leading" secondItem="kLW-2E-mC9" secondAttribute="trailing" constant="3.6666666666666856" id="2tN-bJ-0Ny"/>
+                                        <constraint firstItem="5tP-lj-vVm" firstAttribute="top" secondItem="zrK-7Z-yGO" secondAttribute="bottom" constant="60" id="5Ha-cF-83Q"/>
                                         <constraint firstItem="YfR-I6-4x3" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" id="7bI-Wf-hzi"/>
                                         <constraint firstItem="kLW-2E-mC9" firstAttribute="top" secondItem="rPq-Qb-PUt" secondAttribute="bottom" constant="10" id="CED-J6-EgX"/>
                                         <constraint firstAttribute="height" constant="280" id="IFt-l9-hdx"/>
@@ -124,9 +148,10 @@
                                         <constraint firstItem="htl-ew-qJ1" firstAttribute="leading" secondItem="ifb-Sb-h85" secondAttribute="leading" constant="15" id="Jfj-5T-Tm0"/>
                                         <constraint firstItem="YfR-I6-4x3" firstAttribute="top" secondItem="5tP-lj-vVm" secondAttribute="bottom" constant="4" id="QZl-OO-orY"/>
                                         <constraint firstAttribute="bottom" secondItem="htl-ew-qJ1" secondAttribute="bottom" constant="15" id="RiZ-AA-KJb"/>
-                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" constant="-11" id="SoZ-qg-caV"/>
+                                        <constraint firstItem="kLW-2E-mC9" firstAttribute="centerX" secondItem="ifb-Sb-h85" secondAttribute="centerX" constant="-9" id="SoZ-qg-caV"/>
                                         <constraint firstItem="5tP-lj-vVm" firstAttribute="centerY" secondItem="kLW-2E-mC9" secondAttribute="centerY" id="eT5-Xs-nQl"/>
-                                        <constraint firstAttribute="bottom" secondItem="kLW-2E-mC9" secondAttribute="bottom" constant="80" id="po5-6a-O1m"/>
+                                        <constraint firstAttribute="trailing" secondItem="zrK-7Z-yGO" secondAttribute="trailing" constant="12" id="pfT-AQ-aYQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="kLW-2E-mC9" secondAttribute="bottom" constant="72" id="po5-6a-O1m"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -507,6 +532,7 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
