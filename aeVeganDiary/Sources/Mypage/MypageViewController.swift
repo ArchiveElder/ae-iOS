@@ -11,14 +11,6 @@ class MypageViewController: BaseViewController {
     
     lazy var getMyInfoDataManager : GetMyInfoDataManagerDelegate = GetMyInfoDataManager()
     
-    lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
-    
-    @IBAction func deleteUerButtonAction(_ sender: Any) {
-        presentAlert(title: "정말 탈퇴하시겠어요?", message: "탈퇴하면 모든 정보가 삭제됩니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
-            self.deleteUserDataManager.deleteUserData(DeleteUserRequest(), delegate: self)
-        })
-    }
-    
     @IBAction func logoutButtonAction(_ sender: Any) {
         presentAlert(title: "로그아웃 하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
             UserManager.shared.jwt = ""
@@ -51,7 +43,6 @@ class MypageViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK: 서버 통신 변수 선언
     var myInfoResponse : MyInfoResponse?
     
     override func viewDidLoad() {
@@ -73,17 +64,6 @@ class MypageViewController: BaseViewController {
         getMyInfoDataManager.getMyInfoData(delegate: self)
     }
 
-}
-
-
-extension MypageViewController : DeleteUserViewDelegate {
-    func didSuccessDeleteUser(_ result: DeleteUserResponse) {
-        dismissIndicator()
-        
-        let vc = LoginViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        self.changeRootViewController(navController)
-    }
 }
 
 extension MypageViewController : GetMyInfoViewDelegate {
