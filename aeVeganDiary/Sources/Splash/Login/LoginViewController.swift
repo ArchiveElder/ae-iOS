@@ -13,8 +13,6 @@ class LoginViewController: BaseViewController {
     
     lazy var loginDataManager: LoginDataManagerDelegate = LoginDataManager()
     lazy var appleLoginDataManager: LoginDataManagerDelegate = AppleLoginDataManager()
-    
-    private var observer: NSObjectProtocol?
 
     @IBAction func kakaoLoginButton(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -63,18 +61,18 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
        
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let checkUpdateAvailable = checkUpdateAvailable()
-        if checkUpdateAvailable {
-            presentUpdateAlertVC()
-        }
-        
-        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil,
-                                                          queue: .main) {
-                                                          [unowned self] notification in
-            let checkUpdateAvailable = self.checkUpdateAvailable()
-            if checkUpdateAvailable {
-                presentUpdateAlertVC()
+        _ = try? isUpdateAvailable { (update, error) in
+            if let error = error {
+                print(error)
+            } else if update != nil {
+                if update! {
+                    self.presentUpdateAlertVC()
+                }
             }
         }
     }
