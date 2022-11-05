@@ -35,6 +35,11 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var calendarMessageLabel: UILabel!
     @IBOutlet weak var calendarMessageImageView: UIImageView!
     
+    @IBOutlet weak var calendarInfoView: UIView!
+    @IBAction func calendarInfoButtonAction(_ sender: Any) {
+        calendarInfoView.isHidden = !calendarInfoView.isHidden
+    }
+    
     @IBOutlet weak var arcProgressBar: ArcProgressView!
     @IBOutlet weak var recommKcal: UILabel!
     @IBOutlet weak var consumeKcal: UILabel!
@@ -70,6 +75,8 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationTitle(title: "기록")
+        
+        calendarInfoView.isHidden = true
         
         //FSCalendar Custom
         weekCalendarView.delegate = self
