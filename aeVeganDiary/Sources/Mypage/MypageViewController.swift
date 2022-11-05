@@ -20,13 +20,15 @@ class MypageViewController: BaseViewController {
     }
     
     @IBAction func logoutButtonAction(_ sender: Any) {
-        UserManager.shared.jwt = ""
-        //UserDefaults.standard.setValue("", forKey: "UserJwt")
-        let vc = LoginViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        //navController.view.backgroundColor = .white
-        //navController.navigationBar.isTranslucent = false
-        self.changeRootViewController(navController)
+        presentAlert(title: "로그아웃 하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            UserManager.shared.jwt = ""
+            //UserDefaults.standard.setValue("", forKey: "UserJwt")
+            let vc = LoginViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            //navController.view.backgroundColor = .white
+            //navController.navigationBar.isTranslucent = false
+            self.changeRootViewController(navController)
+        })
     }
     
     @IBAction func bookmarkButtonAction(_ sender: Any) {
