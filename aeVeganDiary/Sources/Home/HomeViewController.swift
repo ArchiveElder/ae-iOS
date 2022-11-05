@@ -68,6 +68,13 @@ class HomeViewController: BaseViewController {
     
     @IBOutlet weak var hideView: UIView!
     
+    @IBAction func restaurantSearchButtonAction(_ sender: Any) {
+        let vc = RestaurantViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.location = nil
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: 서버 통신 변수 선언
     var homeResult: HomeResult?
     var records = [Records]()
@@ -75,8 +82,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationTitle(title: "기록")
-        
-        calendarInfoView.isHidden = true
         
         //FSCalendar Custom
         weekCalendarView.delegate = self
@@ -145,6 +150,8 @@ class HomeViewController: BaseViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        calendarInfoView.isHidden = true
         _ = try? isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
@@ -158,7 +165,7 @@ class HomeViewController: BaseViewController {
         store.requestAccess(to: .event) { granted, error in
             //if granted { self.accessGranted() }
         }
-        super.viewWillAppear(animated)
+        
         if UserManager.shared.jwt == "" {
             changeRootViewController(LoginViewController())
         } else {
@@ -177,6 +184,7 @@ class HomeViewController: BaseViewController {
     
     // datePicker에서 Done 누르면 실행
     @objc func tapDone() {
+        calendarInfoView.isHidden = true
         let nowDate = Date()
         let time = datePicker.date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
         
@@ -207,6 +215,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        calendarInfoView.isHidden = true
         let nowDate = Date()
         let time = date.timeIntervalSinceReferenceDate - nowDate.timeIntervalSinceReferenceDate
         //print(time)

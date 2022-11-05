@@ -40,8 +40,6 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorInfoView.isHidden = true
-
         setNavigationTitle(title: "분석")
         
         calChartView.delegate = self
@@ -68,7 +66,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        colorInfoView.isHidden = true
         dates = [String]()
         values = [Double]()
         

@@ -18,7 +18,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     lazy var bookmarkDataManager: BookmarkDataManagerDelegate = BookmarkDataManager()
     lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
     
-    var location = CLLocation()
+    var location: CLLocation?
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var infoView: UIView!
@@ -70,13 +70,18 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         showIndicator()
         print(location)
         
-        let latitude = location.coordinate.latitude
-        let longtitude = location.coordinate.longitude
-        let mapCenter = CLLocationCoordinate2DMake(latitude, longtitude)
-        let marker = GMSMarker(position: mapCenter)
-        marker.icon = UIImage(named: "currentpin")
-        marker.map = mapView
-        mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 15)
+        if location != nil {
+            let latitude = location?.coordinate.latitude
+            let longtitude = location?.coordinate.longitude
+            let mapCenter = CLLocationCoordinate2DMake(latitude ?? 37.5666805, longtitude ?? 126.9784147)
+            let marker = GMSMarker(position: mapCenter)
+            marker.icon = UIImage(named: "currentpin")
+            marker.map = mapView
+            mapView.camera = GMSCameraPosition.camera(withLatitude: latitude ?? 37.5666805, longitude: longtitude ?? 126.9784147, zoom: 15)
+        } else {
+            mapView.camera = GMSCameraPosition.camera(withLatitude: 37.5666805, longitude: 126.9784147, zoom: 15)
+        }
+        
         mapDataManager.getMap(delegate: self)
     }
     
