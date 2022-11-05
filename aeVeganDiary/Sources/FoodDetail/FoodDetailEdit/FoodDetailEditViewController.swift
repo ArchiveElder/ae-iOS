@@ -15,6 +15,11 @@ class FoodDetailEditViewController: BaseViewController {
     @IBOutlet weak var mealLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var timeTextField: UITextField!
+    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
+    let dateFormatter = DateFormatter()
+    let timeFormatter = DateFormatter()
+    
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var caloryTextField: UITextField!
@@ -60,9 +65,34 @@ class FoodDetailEditViewController: BaseViewController {
             foodImageView.load(url: url)
         }
         
+        dateFormatter.dateFormat = "a hh:mm"
+        dateFormatter.locale = Locale(identifier:"ko_KR")
+        
+        let time = data?.time ?? ""
+        timeFormatter.dateFormat = "HH:mm"
+        if let convertTimeStr = timeFormatter.date(from: time) {
+            timeTextField.text = dateFormatter.string(from: convertTimeStr)
+            print(dateFormatter.string(from: convertTimeStr))
+        }
+        
+        datePicker.datePickerMode = .time
+        // iOS 14 and above
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.sizeToFit()
+        self.timeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), datePicker: datePicker, dateFormatter: dateFormatter)
+        
         setNavigationTitle(title: "수정하기")
         setDismissButton()
         setDoneButton()
+    }
+    
+    @objc func tapDone() {
+        if let datePicker = self.timeTextField.inputView as? UIDatePicker {
+            // textField 업데이트
+            self.timeTextField.text = dateFormatter.string(from: datePicker.date)
+        }
+        // textField에서 커서 제거
+        self.timeTextField.resignFirstResponder()
     }
     
     func setDoneButton() {
@@ -73,7 +103,8 @@ class FoodDetailEditViewController: BaseViewController {
     
     @objc func done() {
         showIndicator()
-        let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: data?.time, amount: data?.amount, meal: self.meal)
+        let time = timeFormatter.string(from: datePicker.date)
+        let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: time, amount: data?.amount, meal: self.meal)
         print(input)
         foodDetailEditDataManager.postFoodDetailEdit(input, foodImage: foodImageView.image, delegate: self)
     }
