@@ -40,33 +40,16 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imv-Sb-5lS">
                                     <rect key="frame" x="15" y="71" width="384" height="263"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 재료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee8-Yo-i63">
-                                            <rect key="frame" x="19" y="18" width="64" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee8-Yo-i63">
+                                            <rect key="frame" x="19" y="18" width="78" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oBj-Ek-c37">
-                                            <rect key="frame" x="10" y="66" width="344" height="131"/>
+                                            <rect key="frame" x="4" y="66" width="361" height="177"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </tableView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-Gy-ulQ">
-                                            <rect key="frame" x="154" y="211" width="76" height="32"/>
-                                            <color key="backgroundColor" red="0.2196078431372549" green="0.51764705882352935" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="추천받기">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                                <color key="baseForegroundColor" red="0.9415715939" green="0.9415715939" blue="0.9415715939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </buttonConfiguration>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="recommAction:" destination="-1" eventType="touchUpInside" id="DzH-h8-YgC"/>
-                                            </connections>
-                                        </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-qq-4l2">
                                             <rect key="frame" x="19" y="47" width="346" height="1"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,14 +64,29 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-Gy-ulQ">
+                                            <rect key="frame" x="289" y="12" width="76" height="32"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="추천받기">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="recommAction:" destination="-1" eventType="touchUpInside" id="DzH-h8-YgC"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="oBj-Ek-c37" secondAttribute="trailing" constant="30" id="1fm-bU-dk0"/>
-                                        <constraint firstItem="oBj-Ek-c37" firstAttribute="leading" secondItem="imv-Sb-5lS" secondAttribute="leading" constant="10" id="5mJ-1a-UEp"/>
-                                        <constraint firstAttribute="bottom" secondItem="0Kt-Gy-ulQ" secondAttribute="bottom" constant="20" id="7BC-Co-XkH"/>
                                         <constraint firstItem="7aJ-Qi-TXd" firstAttribute="top" secondItem="qbR-iT-TjD" secondAttribute="bottom" constant="15" id="BrA-h0-YMn"/>
                                         <constraint firstItem="ee8-Yo-i63" firstAttribute="leading" secondItem="imv-Sb-5lS" secondAttribute="leading" constant="19" id="IMm-uO-WJm"/>
+                                        <constraint firstItem="oBj-Ek-c37" firstAttribute="trailing" secondItem="1OW-qq-4l2" secondAttribute="trailing" id="Izk-IS-T7f"/>
                                         <constraint firstItem="qbR-iT-TjD" firstAttribute="centerX" secondItem="imv-Sb-5lS" secondAttribute="centerX" id="OxV-aC-dJF"/>
                                         <constraint firstItem="1OW-qq-4l2" firstAttribute="leading" secondItem="ee8-Yo-i63" secondAttribute="leading" id="SNr-Rb-lcl"/>
                                         <constraint firstItem="oBj-Ek-c37" firstAttribute="top" secondItem="1OW-qq-4l2" secondAttribute="bottom" constant="18" id="TdO-iE-Jyq"/>
@@ -98,8 +96,10 @@
                                         <constraint firstItem="ee8-Yo-i63" firstAttribute="top" secondItem="imv-Sb-5lS" secondAttribute="top" constant="18" id="cWg-fG-pdM"/>
                                         <constraint firstItem="7aJ-Qi-TXd" firstAttribute="centerX" secondItem="imv-Sb-5lS" secondAttribute="centerX" id="gsG-Zp-6aS"/>
                                         <constraint firstItem="oBj-Ek-c37" firstAttribute="top" secondItem="ee8-Yo-i63" secondAttribute="bottom" constant="27" id="hab-t4-SoF"/>
-                                        <constraint firstItem="0Kt-Gy-ulQ" firstAttribute="top" secondItem="oBj-Ek-c37" secondAttribute="bottom" constant="14" id="sFa-Th-HYG"/>
-                                        <constraint firstItem="0Kt-Gy-ulQ" firstAttribute="centerX" secondItem="imv-Sb-5lS" secondAttribute="centerX" id="y3h-S2-XKD"/>
+                                        <constraint firstAttribute="bottom" secondItem="oBj-Ek-c37" secondAttribute="bottom" constant="20" id="o1w-Ej-Tn2"/>
+                                        <constraint firstItem="oBj-Ek-c37" firstAttribute="leading" secondItem="1OW-qq-4l2" secondAttribute="leading" constant="-15" id="odB-1f-UGU"/>
+                                        <constraint firstItem="1OW-qq-4l2" firstAttribute="top" secondItem="0Kt-Gy-ulQ" secondAttribute="bottom" constant="3" id="p5H-T2-FOf"/>
+                                        <constraint firstItem="0Kt-Gy-ulQ" firstAttribute="trailing" secondItem="1OW-qq-4l2" secondAttribute="trailing" id="v6q-0R-jko"/>
                                         <constraint firstAttribute="height" constant="263" id="yIq-oC-OMJ"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
