@@ -13,8 +13,6 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
-    
-    
     lazy var searchDataManager : SearchDataManagerDelegate = SearchDataManager()
     
     //MARK: 서버 통신 변수 선언
@@ -38,7 +36,7 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
-        
+        self.tableView.keyboardDismissMode = .onDrag
         setDismissButton()
         setup()
         

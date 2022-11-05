@@ -67,6 +67,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         //dismissKeyboardWhenTappedAround()
         setNavigationTitle(title: "채식 요리 추천")
         setResetButton()
+        self.searchTableView.keyboardDismissMode = .onDrag
         
         ingreArr = UserDefaults.standard.array(forKey: "UserIngre") as! [String]
         
@@ -242,8 +243,11 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                         recommIngreArr.remove(at: index)
                     }
                 }
-                print(recommIngreArr)
             }
+            var ingreInput = IngreInput(ingredients: recommIngreArr)
+            print(ingreInput)
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
+            
             UserDefaults.standard.set(ingreArr, forKey: "UserIngre")
             ingreTableView.reloadData()
         }
@@ -268,8 +272,8 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             recommButton.isHidden = true
         }
         var ingreInput = IngreInput(ingredients: recommIngreArr)
+        print(ingreInput)
         CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
-        
     }
     
     func getRecomm(result: CookRecommResponse){
