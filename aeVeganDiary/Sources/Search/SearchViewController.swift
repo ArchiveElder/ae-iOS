@@ -139,7 +139,6 @@ class SearchViewController: BaseViewController, UITableViewDelegate , UISearchBa
     
 }
 
-
 extension SearchViewController : SearchViewDelegate{
     
     func didSuccessGetSearchData(_ result: SearchResponse) {

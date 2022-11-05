@@ -12,7 +12,7 @@ import SafariServices
 
 class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebViewDelegate, RecommCollectionViewCellDelegate {
     
-    lazy var selectedBox: [Int:Int] = [:]
+    lazy var ingreSelectedArr: [Int] = []
     lazy var ingreDataManager: IngreDataManagerDelegate = IngreDataManager()
     
     @IBOutlet var ingreImageView: UIImageView!
@@ -62,6 +62,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         ingreDataManager.getIngreData(delegate: self)
     }
     
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         //dismissKeyboardWhenTappedAround()
@@ -70,6 +71,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         self.searchTableView.keyboardDismissMode = .onDrag
         
         ingreArr = UserDefaults.standard.array(forKey: "UserIngre") as! [String]
+        ingreSelectedArr = Array<Int>(repeating: 0, count: ingreArr.count)
+        print(ingreSelectedArr)
         
         //Ingre Search
         searchBar.delegate = self
@@ -213,7 +216,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     
 }
 
-
+//MARK: 서버 통신 extension
 extension RecommCookViewController : IngreViewDelegate{
     
     func didRetrieveIngreData(_ result: IngreResponse) {
@@ -232,12 +235,16 @@ extension RecommCookViewController : IngreViewDelegate{
         }
     }}
     
-    
+  
 extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IngreTableviewCellDelegate{
+    
+    //MARK: Delegate extensions
     func didTapIngreDeleteButton(with ingreLabel: String) {
         if(ingreArr.firstIndex(of: ingreLabel) != nil){
             if let index = ingreArr.firstIndex(of: ingreLabel) {
                 ingreArr.remove(at: index)
+                ingreSelectedArr.remove(at: index)
+                print(ingreSelectedArr)
                 if(recommIngreArr.firstIndex(of: ingreLabel) != nil){
                     if let index = recommIngreArr.firstIndex(of: ingreLabel) {
                         recommIngreArr.remove(at: index)
@@ -247,7 +254,6 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             var ingreInput = IngreInput(ingredients: recommIngreArr)
             print(ingreInput)
             CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
-            
             UserDefaults.standard.set(ingreArr, forKey: "UserIngre")
             ingreTableView.reloadData()
         }
@@ -258,11 +264,19 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
         if(ingreSelected == true){
             if(recommIngreArr.firstIndex(of: ingreLabel) == nil){
                 recommIngreArr.append(ingreLabel)
+                if let index = ingreArr.firstIndex(of: ingreLabel) {
+                    ingreSelectedArr[index]=1
+                    print(ingreSelectedArr)
+                }
             }
         } else {
             if(recommIngreArr.firstIndex(of: ingreLabel) != nil){
                 if let index = recommIngreArr.firstIndex(of: ingreLabel) {
                     recommIngreArr.remove(at: index)
+                    if let index = ingreArr.firstIndex(of: ingreLabel) {
+                        ingreSelectedArr[index]=0
+                        print(ingreSelectedArr)
+                    }
                 }
             }
         }
@@ -281,7 +295,8 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             self.cookRecommResponse = result
             self.cookRecomm = result.foodDto
         }
-        
+      
+    //MARK: 컬렉션뷰 extentions
     // collectionView 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             if collectionView == tabCollectionView {
@@ -376,7 +391,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             }
         }
         
-        
+      //MARK: 테이블뷰 extensions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             var count : Int = 0
             if tableView == searchTableView {
@@ -429,7 +444,12 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 cell.ingreLabel?.text = ingreArr[indexPath.row]
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
                 cell.selectionStyle = .none
-
+                if(ingreSelectedArr[indexPath.row]==1){
+                    cell.ingreCheckButton.isSelected = true
+                } else {
+                    cell.ingreCheckButton.isSelected = false
+                }
+                
                 cell.delegate = self
                 return cell
             }
@@ -446,6 +466,8 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 if(ingreArr.firstIndex(of: currentCell!) == nil) {
                     ingreArr.append(currentCell ?? "")
                     UserDefaults.standard.set(ingreArr, forKey: "UserIngre")
+                    ingreSelectedArr.append(0)
+                    print(ingreSelectedArr)
                 } else {
                     presentAlert(message: "재료가 이미 있습니다.")
                 }
