@@ -23,12 +23,20 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
     
-    @IBAction func recommAction(_ sender: Any) {
+    var ingreInput = IngreInput()
+    
+    @IBAction func recommAction(_ sender: UIButton) {
         tabCollectionView.isHidden = false
         recommCollectionView.isHidden = false
         selected = 0
         let indexPath = IndexPath(item: 0, section: 0)
         recommCollectionView.scrollToItem(at: indexPath as IndexPath, at: .right, animated: false)
+    
+        if(recommIngreArr.count == 0){
+            ingreInput = IngreInput(ingredients: [])
+            CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
+        }
+        
         self.tabCollectionView.reloadData()
         self.recommCollectionView.reloadData()
     }
@@ -50,7 +58,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     var cookRecomm = [CookRecomm?]()
     var searchBarFocused = false
     var ingreArr = [String]()
-    var recommIngreArr = [String]()
+    var recommIngreArr:[String] = []
     var disposeBag = DisposeBag()
     
     var selected : Int? = 0
@@ -59,6 +67,21 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
+        
+        recommButton.imageView?.contentMode = .scaleAspectFit
+        if(recommIngreArr.count==0){
+            //recommButton.isHidden = true
+            recommButton.setTitle("", for: .normal)
+            recommButton.setImage(UIImage(named: "gift"), for: .normal)
+            //체크된 음식이 있으면
+        } else if(recommIngreArr.count != 0){
+            //recommButton.isHidden = false
+            recommButton.setTitleColor(.darkGray, for: .normal)
+            recommButton.setTitle("추천받기", for: .normal)
+            recommButton.setImage(UIImage(), for: .normal)
+        }
+        
+        
         ingreDataManager.getIngreData(delegate: self)
     }
     
@@ -70,9 +93,13 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
         //setResetButton()
         self.searchTableView.keyboardDismissMode = .onDrag
         
-        ingreArr = UserDefaults.standard.array(forKey: "UserIngre") as! [String]
+        ingreArr = UserDefaults.standard.array(forKey: "UserIngre") as? [String] ?? []
         ingreSelectedArr = Array<Int>(repeating: 0, count: ingreArr.count)
         print(ingreSelectedArr)
+        
+        var ingreInput1 = IngreInput(ingredients: [])
+        print(ingreInput1)
+        CookRecommDataManager().postRcommCook(ingreInput1, viewController: self)
         
         //Ingre Search
         searchBar.delegate = self
@@ -104,6 +131,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             recommCollectionView.isHidden = true
         }
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -125,6 +153,7 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             }
         }
     }
+    
     
     
     func setResetButton() {
@@ -257,6 +286,18 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             UserDefaults.standard.set(ingreArr, forKey: "UserIngre")
             ingreTableView.reloadData()
         }
+        
+        if(recommIngreArr.count==0){
+            //recommButton.isHidden = true
+            recommButton.setTitle("", for: .normal)
+            recommButton.setImage(UIImage(named: "gift"), for: .normal)
+            //체크된 음식이 있으면
+        } else if(recommIngreArr.count != 0){
+            //recommButton.isHidden = false
+            recommButton.setTitleColor(.darkGray, for: .normal)
+            recommButton.setTitle("추천받기", for: .normal)
+            recommButton.setImage(UIImage(), for: .normal)
+        }
     }
     
     
@@ -280,20 +321,38 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 }
             }
         }
-        if(recommIngreArr.count != 0){
-            recommButton.isHidden = false
-        } else {
-            recommButton.isHidden = true
+        
+        if(recommIngreArr.count==0){
+            //recommButton.isHidden = true
+            recommButton.setTitle("", for: .normal)
+            recommButton.setImage(UIImage(named: "gift"), for: .normal)
+            //체크된 음식이 있으면
+        } else if(recommIngreArr.count != 0){
+            //recommButton.isHidden = false
+            recommButton.setTitleColor(.darkGray, for: .normal)
+            recommButton.setTitle("추천받기", for: .normal)
+            recommButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+            recommButton.setImage(UIImage(), for: .normal)
         }
-        var ingreInput = IngreInput(ingredients: recommIngreArr)
-        print(ingreInput)
+        
+        //재료 체크 되어 있으면 선물이미지X 타이틀O
+        if(recommIngreArr.count != 0){
+            ingreInput = IngreInput(ingredients: recommIngreArr)
+        } else {
+            //재료 체크 되어있지 않으면 선물이미지O 타이틀X
+            ingreInput = IngreInput(ingredients: [])
+        }
         CookRecommDataManager().postRcommCook(ingreInput, viewController: self)
+        //self.tabCollectionView.reloadData()
+        //self.recommCollectionView.reloadData()
+        
     }
     
     func getRecomm(result: CookRecommResponse){
             dismissIndicator()
             self.cookRecommResponse = result
             self.cookRecomm = result.foodDto
+            print(result)
         }
       
     //MARK: 컬렉션뷰 extentions
@@ -315,10 +374,9 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                 if(cookRecomm.count != 0 && cookRecomm[indexPath.row]!.food.count != 0){
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommTabCollectionViewCell", for: indexPath) as! RecommTabCollectionViewCell
                     cell.tabLabel.text = cookRecomm[indexPath.row]?.food
-                    
-                    if(cookRecomm[indexPath.row]!.has.count == 0){
-                        cell.tabLabel.text = ""
-                    }
+                    //if(cookRecomm[indexPath.row]!.has.count == 0){
+                        //cell.tabLabel.text = ""
+                    //}
                     
                     if selected == indexPath.row {
                         cell.recommTabBackgroundView.backgroundColor = .white
@@ -343,17 +401,18 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                     //cell.delegate = self
                     cell.recipeButton.addTarget(self, action: #selector(toSafari), for: .touchUpInside)
                     
-                    if(cookRecomm[indexPath.row]!.has.count == 0){
-                        cell.hasTableView.isHidden = true
-                        cell.noTableView.isHidden = true
-                        cell.recipeButton.isHidden = true
-                        cell.sadLabel.isHidden = false
-                        cell.sadImageView.isHidden = false
-                        cell.noLabel.isHidden = true
-                        cell.noLineView.isHidden = true
-                        cell.hasLabel.isHidden = true
-                        cell.hasLineView.isHidden = true
-                    } else {
+                    /*if(cookRecomm[indexPath.row]!.has.count == 0){
+                    cell.hasTableView.isHidden = true
+                    cell.noTableView.isHidden = true
+                    cell.recipeButton.isHidden = true
+                    cell.sadLabel.isHidden = false
+                    cell.sadImageView.isHidden = false
+                    cell.noLabel.isHidden = true
+                    cell.noLineView.isHidden = true
+                    cell.hasLabel.isHidden = true
+                    cell.hasLineView.isHidden = true
+                    
+                }*/ //else {
                         cell.hasTableView.isHidden = false
                         cell.noTableView.isHidden = false
                         cell.recipeButton.isHidden = false
@@ -363,7 +422,7 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
                         cell.noLineView.isHidden = false
                         cell.hasLabel.isHidden = false
                         cell.hasLineView.isHidden = false
-                    }
+                    //}
                     return cell
                 } else {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommCollectionViewCell", for: indexPath) as! RecommCollectionViewCell
@@ -396,39 +455,53 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             var count : Int = 0
             if tableView == searchTableView {
                 count = shownFoods.count
+                //재료 테이블뷰
             } else if tableView == ingreTableView {
+                //냉장고재료
                 count = ingreArr.count
+                //냉장고에 재료 없음
                 if(ingreArr.count == 0 ){
                     hasIngre = false
+                    //냉장고에 재료 있음
                 } else if (ingreArr.count != 0){
                     hasIngre = true
                 }
+                
+                //냉장고에 재료 있을 때
                 if(hasIngre == true) {
-                    recommButton.isHidden = false
+                    //recommButton.isHidden = false
                     ingreImageView.isHidden = true
                     ingreLabel.isHidden = true
+                    //체크된 음식이 없으면
                     if(recommIngreArr.count==0){
-                        recommButton.isHidden = true
+                        //recommButton.isHidden = true
+                        //recommButton.setTitle("", for: .normal)
+                        //recommButton.setImage(UIImage(named: "gift"), for: .normal)
                         ingreImageView.isHidden = true
                         ingreLabel.isHidden = true
                         recommCollectionView.isHidden = true
                         tabCollectionView.isHidden = true
+                        //체크된 음식이 있으면
                     } else if(recommIngreArr.count != 0){
+                        //recommButton.isHidden = false
+                        //recommButton.setTitle("추천받기", for: .normal)
+                        //recommButton.setImage(nil, for: .normal)
                         ingreImageView.isHidden = true
                         ingreLabel.isHidden = true
-                        recommButton.isHidden = false
                         recommCollectionView.isHidden = true
                         tabCollectionView.isHidden = true
                     }
                 }
+                /*
                 //냉장고에 재료 없을 때
                 else {
-                    recommButton.isHidden = true
+                    //recommButton.isHidden = true
                     ingreImageView.isHidden = false
                     ingreLabel.isHidden = false
                     recommCollectionView.isHidden = true
                     tabCollectionView.isHidden = true
                 }
+                 */
                 
             }
             return count

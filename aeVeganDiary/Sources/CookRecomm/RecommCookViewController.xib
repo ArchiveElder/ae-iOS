@@ -27,6 +27,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-Pi-def">
+                    <rect key="frame" x="0.0" y="56" width="414" height="665"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21k-sN-chp">
                     <rect key="frame" x="0.0" y="56" width="414" height="665"/>
                     <subviews>
@@ -60,14 +64,16 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-Gy-ulQ">
-                                            <rect key="frame" x="289" y="12" width="76" height="32"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-Gy-ulQ">
+                                            <rect key="frame" x="349" y="20.5" width="16" height="16"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="추천받기">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                                <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </buttonConfiguration>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                            <state key="normal" image="gift">
+                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="8"/>
@@ -92,9 +98,9 @@
                                         <constraint firstItem="ee8-Yo-i63" firstAttribute="top" secondItem="imv-Sb-5lS" secondAttribute="top" constant="18" id="cWg-fG-pdM"/>
                                         <constraint firstItem="7aJ-Qi-TXd" firstAttribute="centerX" secondItem="imv-Sb-5lS" secondAttribute="centerX" id="gsG-Zp-6aS"/>
                                         <constraint firstItem="oBj-Ek-c37" firstAttribute="top" secondItem="ee8-Yo-i63" secondAttribute="bottom" constant="27" id="hab-t4-SoF"/>
+                                        <constraint firstItem="0Kt-Gy-ulQ" firstAttribute="centerY" secondItem="ee8-Yo-i63" secondAttribute="centerY" id="kDb-RY-PUx"/>
                                         <constraint firstAttribute="bottom" secondItem="oBj-Ek-c37" secondAttribute="bottom" constant="20" id="o1w-Ej-Tn2"/>
                                         <constraint firstItem="oBj-Ek-c37" firstAttribute="leading" secondItem="1OW-qq-4l2" secondAttribute="leading" constant="-15" id="odB-1f-UGU"/>
-                                        <constraint firstItem="1OW-qq-4l2" firstAttribute="top" secondItem="0Kt-Gy-ulQ" secondAttribute="bottom" constant="3" id="p5H-T2-FOf"/>
                                         <constraint firstItem="0Kt-Gy-ulQ" firstAttribute="trailing" secondItem="1OW-qq-4l2" secondAttribute="trailing" id="v6q-0R-jko"/>
                                         <constraint firstAttribute="height" constant="263" id="yIq-oC-OMJ"/>
                                     </constraints>
@@ -164,10 +170,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-Pi-def">
-                    <rect key="frame" x="0.0" y="56" width="414" height="665"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -190,9 +192,13 @@
         </view>
     </objects>
     <resources>
+        <image name="gift" width="16" height="16"/>
         <image name="ingre" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
