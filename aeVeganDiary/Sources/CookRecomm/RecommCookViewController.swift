@@ -331,7 +331,6 @@ extension RecommCookViewController : UITableViewDataSource, UITableViewDelegate,
             //recommButton.isHidden = false
             recommButton.setTitleColor(.darkGray, for: .normal)
             recommButton.setTitle("추천받기", for: .normal)
-            recommButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium)
             recommButton.setImage(UIImage(), for: .normal)
         }
         
