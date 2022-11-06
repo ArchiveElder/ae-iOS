@@ -27,10 +27,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-Pi-def">
-                    <rect key="frame" x="0.0" y="56" width="414" height="665"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21k-sN-chp">
                     <rect key="frame" x="0.0" y="56" width="414" height="665"/>
                     <subviews>
@@ -65,9 +61,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-Gy-ulQ">
-                                            <rect key="frame" x="349" y="20.5" width="16" height="16"/>
+                                            <rect key="frame" x="340" y="16" width="25" height="25"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="tintColor" systemColor="systemRedColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                             <state key="normal" image="gift">
@@ -166,6 +162,10 @@
                         <constraint firstItem="8NN-zG-lR3" firstAttribute="leading" secondItem="21k-sN-chp" secondAttribute="leading" id="wjq-9k-faW"/>
                     </constraints>
                 </scrollView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-Pi-def">
+                    <rect key="frame" x="0.0" y="56" width="414" height="665"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AYP-DI-hzU">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                     <textInputTraits key="textInputTraits"/>
@@ -192,7 +192,7 @@
         </view>
     </objects>
     <resources>
-        <image name="gift" width="16" height="16"/>
+        <image name="gift" width="25" height="25"/>
         <image name="ingre" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
