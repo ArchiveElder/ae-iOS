@@ -70,32 +70,9 @@ class BaseViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    enum VersionError: Error {
-        case invalidResponse, invalidBundleInfo
-    }
-    
-    func isUpdateAvailable(completion: @escaping (Bool?, Error?) -> Void) throws -> URLSessionDataTask {
-        guard let info = Bundle.main.infoDictionary,
-            let currentVersion = info["CFBundleShortVersionString"] as? String,
-            let identifier = info["CFBundleIdentifier"] as? String,
-            let url = URL(string: "https://itunes.apple.com/lookup?bundleId=\(identifier)") else {
-                throw VersionError.invalidBundleInfo
-        }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            do {
-                if let error = error { throw error }
-                guard let data = data else { throw VersionError.invalidResponse }
-                let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
-                guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String else {
-                    throw VersionError.invalidResponse
-                }
-                completion(version != currentVersion, nil)
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-        return task
+    enum AppstoreOpenError: Error {
+        case invalidAppStoreURL
+        case cantOpenAppStoreURL
     }
     
     /*func checkUpdateAvailable() -> Bool {
@@ -141,6 +118,31 @@ class BaseViewController: UIViewController {
             present(alertVC, animated: true)
         }
         
+    }
+    
+    func openAppStore() -> Result<Void, AppstoreOpenError> {
+        let urlStr = "itms-apps://itunes.apple.com/app/1643485964"
+        
+        guard let url = URL(string: urlStr) else {
+            print("invalid app store url")
+            return .failure(.invalidAppStoreURL)
+        }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            let alertVC = UIAlertController(title: "업데이트", message: "업데이트가 필요합니다.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "업데이트", style: .default) { _ in
+                UIApplication.shared.open(url)
+            }
+            alertVC.addAction(alertAction)
+
+            DispatchQueue.main.sync {
+                present(alertVC, animated: true)
+            }
+            
+            return .success(())
+        } else {
+            return .failure(.cantOpenAppStoreURL)
+        }
     }
     
 }

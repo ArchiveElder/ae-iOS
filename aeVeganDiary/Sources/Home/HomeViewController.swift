@@ -152,7 +152,7 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         calendarInfoView.isHidden = true
-        _ = try? isUpdateAvailable { (update, error) in
+        /*_ = try? isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
             } else if update != nil {
@@ -160,7 +160,7 @@ class HomeViewController: BaseViewController {
                     self.presentUpdateAlertVC()
                 }
             }
-        }
+        }*/
         
         store.requestAccess(to: .event) { granted, error in
             //if granted { self.accessGranted() }
