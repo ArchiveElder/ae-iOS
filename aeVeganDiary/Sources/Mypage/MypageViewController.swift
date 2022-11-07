@@ -80,7 +80,7 @@ extension MypageViewController : GetMyInfoViewDelegate {
         dismissIndicator()
         print(result)
         self.myInfoResponse = result
-        nicknameLabel.text = result.result?.name
+        nicknameLabel.text = result.result?.nickname
         profileImageView.image = UIImage(named: "profile\(result.result?.icon ?? 0)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray

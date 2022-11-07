@@ -15,6 +15,7 @@ class MyInfoViewController: BaseViewController {
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
+    @IBOutlet weak var editDoneButton: UIButton!
     
     var age = 0
     var height = "0"
@@ -42,7 +43,7 @@ class MyInfoViewController: BaseViewController {
             if !sender.isSelected {
                 for index in activityButtons.indices {
                     activityButtons[index].isSelected = false
-                    activityButtons[index].backgroundColor = .lightGray
+                    activityButtons[index].backgroundColor = .systemGray5
                 }
                 sender.isSelected = true
                 sender.backgroundColor = .mainGreen
@@ -50,7 +51,7 @@ class MyInfoViewController: BaseViewController {
             }
             else {
                 sender.isSelected = false
-                sender.backgroundColor = .lightGray
+                sender.backgroundColor = .systemGray5
                 indexOfOneAndOnly = nil
             }
         }
@@ -60,12 +61,6 @@ class MyInfoViewController: BaseViewController {
             indexOfOneAndOnly = activityButtons.firstIndex(of: sender)
         }
         
-        /*if indexOfOneAndOnly != nil && ageTextField.text != "" {
-            nextButton.isEnabled = true
-        }
-        else {
-            nextButton.isEnabled = falfse
-        }*/
     }
      
     
@@ -75,6 +70,8 @@ class MyInfoViewController: BaseViewController {
         setBackButton()
         setNavigationTitle(title: "내 정보 수정")
         
+        
+        editDoneButton.backgroundColor = .middleGreen
         view.backgroundColor = .white
         dismissKeyboardWhenTappedAround()
     }
@@ -92,7 +89,7 @@ class MyInfoViewController: BaseViewController {
                 activityButtons[index].backgroundColor = .mainGreen
             } else {
                 activityButtons[index].isSelected = false
-                activityButtons[index].backgroundColor = .lightGray
+                activityButtons[index].backgroundColor = .systemGray5
             }
         }
     }
@@ -122,7 +119,6 @@ extension MyInfoViewController : UpdateMyInfoViewDelegate {
 extension MyInfoViewController : DeleteUserViewDelegate {
     func didSuccessDeleteUser(_ result: DeleteUserResponse) {
         dismissIndicator()
-        
         let vc = LoginViewController()
         let navController = UINavigationController(rootViewController: vc)
         self.changeRootViewController(navController)

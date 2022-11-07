@@ -30,7 +30,7 @@ struct MyInfoResponse: Decodable{
 }
 
 struct MyInfoResult : Decodable {
-    var name: String
+    var nickname: String
     var gender: Int
     var age: Int
     var height: String
