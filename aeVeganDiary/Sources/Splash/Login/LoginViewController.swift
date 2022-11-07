@@ -8,8 +8,6 @@
 import UIKit
 import KakaoSDKUser
 import AuthenticationServices
-import RxSwift
-import RxCocoa
 
 class LoginViewController: BaseViewController {
     
@@ -68,7 +66,7 @@ class LoginViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        /*_ = try? isUpdateAvailable { (update, error) in
+        _ = try? isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
             } else if update != nil {
@@ -76,16 +74,10 @@ class LoginViewController: BaseViewController {
                     self.presentUpdateAlertVC()
                 }
             }
-        }*/
+        }
+        
+        
     }
-    
-    /*private func registerNotification() {
-        NotificationCenter.default.rx.notification(UIApplication.willEnterForegroundNotification)
-            .asDriverOnErrorNever()
-            .drive(onNext: { [weak self] _ in
-                self?.processPostTask()
-            }).disposed(by: DisposeBag)
-    }*/
 }
 
 extension LoginViewController: LoginViewDelegate {
