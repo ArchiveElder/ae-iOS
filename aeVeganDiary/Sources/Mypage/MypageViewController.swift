@@ -29,6 +29,14 @@ class MypageViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func postingButtonAction(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func scrapButtonAction(_ sender: Any) {
+        
+    }
     @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImageView: UIImageView!
