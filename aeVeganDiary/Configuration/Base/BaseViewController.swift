@@ -102,7 +102,7 @@ class BaseViewController: UIViewController {
         let alertVC = UIAlertController(title: "업데이트", message: "업데이트가 필요합니다.", preferredStyle: .alert)
         let alertAtion = UIAlertAction(title: "업데이트", style: .default) { _ in
             // ✅ App store connet 앱의 일반 정보의 Apple ID 입력.
-            let appleID = "..."
+            let appleID = "1643485964"
             // ✅ URL Scheme 방식을 이용해서 앱스토어를 연결.
             guard let url = URL(string: "itms-apps://itunes.apple.com/app/\(appleID)") else { return }
             // ✅ canOpenURL(_:) - 앱이 URL Scheme 처리할 수 있는지 여부를 나타내는 Boolean 값을 리턴한다.
@@ -112,7 +112,9 @@ class BaseViewController: UIViewController {
         }
         alertVC.addAction(alertAtion)
 
-        present(alertVC, animated: true)
+        DispatchQueue.main.sync {
+            present(alertVC, animated: true)
+        }
     }
     
 }
