@@ -20,8 +20,8 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
     let cookRecommViewController = RecommCookViewController()
     let cookRecommTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "cookRecomm"), tag:2)
     
-    let mypageViewController = MypageViewController()
-    let mypageTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), tag: 3)
+    let boardViewController = BoardViewController()
+    let boardTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "board"), tag: 3)
 
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         let homeNavController = UINavigationController(rootViewController: homeViewController)
         let analyzeNavController = UINavigationController(rootViewController: analyzeViewController)
         let cookRecommNavController = UINavigationController(rootViewController: cookRecommViewController)
-        let mypageNavController = UINavigationController(rootViewController: mypageViewController)
+        let boardNavController = UINavigationController(rootViewController: boardViewController)
         
         homeNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         homeNavController.navigationController?.navigationBar.shadowImage = UIImage()
@@ -56,17 +56,17 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate  {
         cookRecommNavController.navigationController?.navigationBar.shadowImage = UIImage()
         cookRecommNavController.navigationController?.navigationBar.layoutIfNeeded()
         
-        mypageNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        mypageNavController.navigationController?.navigationBar.shadowImage = UIImage()
-        mypageNavController.navigationController?.navigationBar.layoutIfNeeded()
+        boardNavController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        boardNavController.navigationController?.navigationBar.shadowImage = UIImage()
+        boardNavController.navigationController?.navigationBar.layoutIfNeeded()
         
         homeNavController.tabBarItem = homeTabBarItem
         analyzeNavController.tabBarItem = analyzeTabBarItem
         cookRecommNavController.tabBarItem = cookRecommTabBarItem
-        mypageNavController.tabBarItem = mypageTabBarItem
+        boardNavController.tabBarItem = boardTabBarItem
         
         
-        self.viewControllers = [homeNavController, analyzeNavController, cookRecommNavController, mypageNavController]
+        self.viewControllers = [homeNavController, analyzeNavController, cookRecommNavController, boardNavController]
         
         self.delegate = self
     }

@@ -82,6 +82,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationTitle(title: "기록")
+        setMypageButton()
         
         //FSCalendar Custom
         weekCalendarView.delegate = self
@@ -180,6 +181,23 @@ class HomeViewController: BaseViewController {
                 self.view.removeGestureRecognizer(recognizer)
             }
         }
+    }
+    
+    func setMypageButton() {
+        let mypageButton: UIButton = UIButton()
+        mypageButton.setImage(UIImage(named: "mypage"), for: .normal)
+        mypageButton.tintColor = .darkGreen
+        mypageButton.addTarget(self, action: #selector(toMypage), for: .touchUpInside)
+        mypageButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addMypageButton = UIBarButtonItem(customView: mypageButton)
+        
+        self.navigationItem.setRightBarButton(addMypageButton, animated: false)
+    }
+    
+    @objc func toMypage() {
+        let vc = MypageViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // datePicker에서 Done 누르면 실행

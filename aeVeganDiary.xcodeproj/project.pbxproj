@@ -166,6 +166,10 @@
 		CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE47F74284274B0005D8BB3 /* MypageViewController.xib */; };
 		CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */; };
 		CDEB0C3D286B23A900725D41 /* MealDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */; };
+		CDED42332917DA1D002A4B49 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED42312917DA1D002A4B49 /* BoardViewController.swift */; };
+		CDED42342917DA1D002A4B49 /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDED42322917DA1D002A4B49 /* BoardViewController.xib */; };
+		CDED42382917DECF002A4B49 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED42362917DECF002A4B49 /* BoardTableViewCell.swift */; };
+		CDED42392917DECF002A4B49 /* BoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDED42372917DECF002A4B49 /* BoardTableViewCell.xib */; };
 		CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB7284A077900217725 /* HomeResponse.swift */; };
 		CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */; };
 		CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFF9ABB284A351F00217725 /* UITextField.swift */; };
@@ -336,6 +340,10 @@
 		CDE47F74284274B0005D8BB3 /* MypageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MypageViewController.xib; sourceTree = "<group>"; };
 		CDEB0C3A286B239800725D41 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
 		CDEB0C3C286B23A900725D41 /* MealDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataManager.swift; sourceTree = "<group>"; };
+		CDED42312917DA1D002A4B49 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		CDED42322917DA1D002A4B49 /* BoardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
+		CDED42362917DECF002A4B49 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		CDED42372917DECF002A4B49 /* BoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardTableViewCell.xib; sourceTree = "<group>"; };
 		CDFF9AB7284A077900217725 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		CDFF9AB9284A09AE00217725 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		CDFF9ABB284A351F00217725 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -767,6 +775,7 @@
 				8FD58B75284DFBA000B7BDAD /* FoodDetail */,
 				8F1A5F7F287C0DC800B64409 /* CookRecomm */,
 				CDE47F6928427451005D8BB3 /* Mypage */,
+				CDED422C2917C1E6002A4B49 /* Board */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -876,6 +885,25 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CDED422C2917C1E6002A4B49 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				CDED42352917DE2E002A4B49 /* Cell */,
+				CDED42312917DA1D002A4B49 /* BoardViewController.swift */,
+				CDED42322917DA1D002A4B49 /* BoardViewController.xib */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		CDED42352917DE2E002A4B49 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CDED42362917DECF002A4B49 /* BoardTableViewCell.swift */,
+				CDED42372917DECF002A4B49 /* BoardTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CDFF9AB3284A074600217725 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,6 +1005,7 @@
 				8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */,
 				8F1A5FA52898F68900B64409 /* HasTableViewCell.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
+				CDED42392917DECF002A4B49 /* BoardTableViewCell.xib in Resources */,
 				8FD47FE628A3A206002D2B82 /* LargeCategoryViewController.xib in Resources */,
 				CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
@@ -989,6 +1018,7 @@
 				CDAECCA52905909C00C13D3D /* DetailBottomSheetViewController.xib in Resources */,
 				8FD4800028A6437C002D2B82 /* RestaurantSearchTableViewCell.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
+				CDED42342917DA1D002A4B49 /* BoardViewController.xib in Resources */,
 				8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */,
 				8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */,
 			);
@@ -1170,9 +1200,11 @@
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				CDED42332917DA1D002A4B49 /* BoardViewController.swift in Sources */,
 				8F69465C29062CF3001C19EA /* DeleteUserProtocol.swift in Sources */,
 				CDAECC9829053F7B00C13D3D /* BookmarkProtocol.swift in Sources */,
 				CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */,
+				CDED42382917DECF002A4B49 /* BoardTableViewCell.swift in Sources */,
 				8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */,
 				8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
