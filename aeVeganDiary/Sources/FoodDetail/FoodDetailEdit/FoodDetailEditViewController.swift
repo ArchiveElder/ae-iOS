@@ -104,7 +104,8 @@ class FoodDetailEditViewController: BaseViewController {
     @objc func done() {
         showIndicator()
         let time = timeFormatter.string(from: datePicker.date)
-        let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: time, amount: data?.amount, meal: self.meal)
+        let amount = Double(amountTextField.text ?? "\(data?.amount)")
+        let input = FoodDetailEditRequest(recordId: self.record_id ?? 0, text: nameTextField.text, calory: caloryTextField.text, carb: carbTextField.text, protein: proTextField.text, fat: fatTextField.text, rdate: data?.date, rtime: time, amount: amount, meal: self.meal)
         print(input)
         foodDetailEditDataManager.postFoodDetailEdit(input, foodImage: foodImageView.image, delegate: self)
     }
