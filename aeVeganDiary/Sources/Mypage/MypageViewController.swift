@@ -56,6 +56,7 @@ class MypageViewController: BaseViewController {
         profileImageView.layer.borderColor = UIColor.clear.cgColor
         profileImageView.clipsToBounds=true
         
+        setBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
