@@ -10,7 +10,7 @@ import Alamofire
 class UpdateMyInfoDataManager : UpdateMyInfoDataManagerDelegate{
     func putMyInfoData(_ parameters: MyInfoInput, delegate: UpdateMyInfoViewDelegate){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/v3/userupdate", method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: UpdateMyInfoResponse.self) { response in
                 //.responseData(emptyResponseCodes: [200], completionHandler: { response in

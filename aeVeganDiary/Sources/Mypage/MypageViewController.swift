@@ -42,6 +42,7 @@ class MypageViewController: BaseViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
+        vc.nickname = myInfoResponse?.result?.nickname ?? ""
         vc.age = myInfoResponse?.result?.age ?? 0
         vc.height = myInfoResponse?.result?.height ?? "0"
         vc.weight = myInfoResponse?.result?.weight ?? "0"
@@ -80,7 +81,7 @@ extension MypageViewController : GetMyInfoViewDelegate {
         dismissIndicator()
         print(result)
         self.myInfoResponse = result
-        nicknameLabel.text = result.result?.name
+        nicknameLabel.text = result.result?.nickname
         profileImageView.image = UIImage(named: "profile\(result.result?.icon ?? 0)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray

@@ -1,17 +1,17 @@
 //
-//  MyInfoResponse.swift
+//  CheckNicknameResponse.swift
 //  aeVeganDiary
 //
-//  Created by 소정의 Mac on 2022/07/02.
+//  Created by 소정의 Mac on 2022/11/07.
 //
 
 import Foundation
 
-struct MyInfoResponse: Decodable{
+struct CheckNicknameResponse: Decodable{
     var isSuccess: Bool
     var code: Int
     var message: String
-    var result: MyInfoResult?
+    var result: CheckNicknameResult?
     
     private enum CodingKeys: String, CodingKey {
         case isSuccess
@@ -25,16 +25,11 @@ struct MyInfoResponse: Decodable{
         isSuccess = try! values.decode(Bool.self, forKey: .isSuccess)
         code = try! values.decode(Int.self, forKey: .code)
         message = try! values.decode(String.self, forKey: .message)
-        result = try? values.decode(MyInfoResult.self, forKey: .result)
+        result = try? values.decode(CheckNicknameResult.self, forKey: .result)
     }
 }
 
-struct MyInfoResult : Decodable {
-    var nickname: String
-    var gender: Int
-    var age: Int
-    var height: String
-    var weight: String
-    var icon: Int
-    var activity: Int
+struct CheckNicknameResult : Decodable {
+    var note : String
+    var exist : Bool
 }
