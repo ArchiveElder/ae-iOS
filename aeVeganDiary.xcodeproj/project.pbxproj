@@ -67,6 +67,10 @@
 		8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */; };
 		8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */; };
 		8FC969F129193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */; };
+		8FC969F6291A16B1006C0C8B /* PostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969F4291A16B1006C0C8B /* PostingViewController.swift */; };
+		8FC969F7291A16B1006C0C8B /* PostingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969F5291A16B1006C0C8B /* PostingViewController.xib */; };
+		8FC969FA291A16BE006C0C8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */; };
+		8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
 		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */; };
@@ -240,6 +244,10 @@
 		8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameDataManager.swift; sourceTree = "<group>"; };
 		8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
 		8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameDataManagerProtocol.swift; sourceTree = "<group>"; };
+		8FC969F4291A16B1006C0C8B /* PostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewController.swift; sourceTree = "<group>"; };
+		8FC969F5291A16B1006C0C8B /* PostingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingViewController.xib; sourceTree = "<group>"; };
+		8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
+		8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrapViewController.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -478,6 +486,24 @@
 				8F69464329053F54001C19EA /* SearchProtocol.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		8FC969F2291A167A006C0C8B /* Posting */ = {
+			isa = PBXGroup;
+			children = (
+				8FC969F4291A16B1006C0C8B /* PostingViewController.swift */,
+				8FC969F5291A16B1006C0C8B /* PostingViewController.xib */,
+			);
+			path = Posting;
+			sourceTree = "<group>";
+		};
+		8FC969F3291A1683006C0C8B /* Scrap */ = {
+			isa = PBXGroup;
+			children = (
+				8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */,
+				8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */,
+			);
+			path = Scrap;
 			sourceTree = "<group>";
 		};
 		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
@@ -879,6 +905,8 @@
 				8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */,
 				8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */,
 				CD7C9FD428B870B900C8635E /* Bookmark */,
+				8FC969F2291A167A006C0C8B /* Posting */,
+				8FC969F3291A1683006C0C8B /* Scrap */,
 				8F1A5F6F28702B1A00B64409 /* Entity */,
 				CDE47F73284274B0005D8BB3 /* MypageViewController.swift */,
 				CDE47F74284274B0005D8BB3 /* MypageViewController.xib */,
@@ -995,6 +1023,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC969F7291A16B1006C0C8B /* PostingViewController.xib in Resources */,
 				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
 				8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
@@ -1002,6 +1031,7 @@
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
+				8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */,
 				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
 				8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */,
@@ -1197,6 +1227,7 @@
 				CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */,
 				8F0FF9DD28D1C91800B870DF /* RecommTabCollectionViewCell.swift in Sources */,
 				CDFF9AB8284A077900217725 /* HomeResponse.swift in Sources */,
+				8FC969FA291A16BE006C0C8B /* ScrapViewController.swift in Sources */,
 				CDBBF2A6284B87CC003F5EEA /* MealTableViewCell.swift in Sources */,
 				CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */,
 				CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */,
@@ -1215,6 +1246,7 @@
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
+				8FC969F6291A16B1006C0C8B /* PostingViewController.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
 				CDED42332917DA1D002A4B49 /* BoardViewController.swift in Sources */,
 				8F69465C29062CF3001C19EA /* DeleteUserProtocol.swift in Sources */,

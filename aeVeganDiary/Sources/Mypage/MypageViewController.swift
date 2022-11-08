@@ -30,11 +30,14 @@ class MypageViewController: BaseViewController {
     }
     
     @IBAction func postingButtonAction(_ sender: Any) {
-        
+        let vc = PostingViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
     @IBAction func scrapButtonAction(_ sender: Any) {
+        let vc = ScrapViewController()
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBOutlet var nicknameLabel: UILabel!
