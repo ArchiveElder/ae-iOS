@@ -55,7 +55,7 @@ class MyInfoViewController: BaseViewController {
         
         //중복 확인 안눌렀을 때 or 중복 확인 된 후에 값 변경했을 때
         if(changeState == true){
-            self.showToast(message: "닉네임을 중복 확인 해주세요.", font: UIFont.systemFont(ofSize: 14.0))
+            presentBottomAlert(message: "닉네임을 중복 확인 해주세요.")
         } else if(changeState == false && approvedNickname == inputNickname && approvedNickname != ""){
             let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 1], nickname: approvedNickname)
             updateMyInfoDataManager.putMyInfoData(input, delegate: self)
@@ -200,13 +200,13 @@ extension MyInfoViewController : CheckNicknameViewDelegate {
         dismissIndicator()
         print(result)
         if(result.result?.exist == false) {
-            self.showToast(message: "닉네임 사용이 가능합니다.", font: UIFont.systemFont(ofSize: 14.0))
+            presentBottomAlert(message:"닉네임 사용이 가능합니다.")
             changeState = false
             approvedNickname = inputNickname
             //print("상태: ",changeState)
             //print("승인된 닉네임", approvedNickname)
         } else if(result.result?.exist == true) {
-            self.showToast(message: "닉네임이 이미 존재합니다.", font: UIFont.systemFont(ofSize: 14.0))
+            presentBottomAlert(message:"닉네임이 이미 존재합니다.")
             approvedNickname = ""
         }
     }
