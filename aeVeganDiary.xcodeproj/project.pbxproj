@@ -63,6 +63,10 @@
 		8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69466A29064619001C19EA /* DeleteMealDataManager.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
+		8FC969E929192E34006C0C8B /* CheckNicknameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969E829192E34006C0C8B /* CheckNicknameInput.swift */; };
+		8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */; };
+		8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */; };
+		8FC969F129193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
 		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */; };
@@ -232,6 +236,10 @@
 		8F69466A29064619001C19EA /* DeleteMealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMealDataManager.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		8FC969E829192E34006C0C8B /* CheckNicknameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameInput.swift; sourceTree = "<group>"; };
+		8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameDataManager.swift; sourceTree = "<group>"; };
+		8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
+		8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameDataManagerProtocol.swift; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -400,6 +408,8 @@
 				8F694651290622F5001C19EA /* UpdateMyInfoResponse.swift */,
 				8F69465929062CE0001C19EA /* DeleteUserResponse.swift */,
 				8F69466129063811001C19EA /* DeleteUserRequest.swift */,
+				8FC969E829192E34006C0C8B /* CheckNicknameInput.swift */,
+				8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -866,6 +876,8 @@
 				8F69464D290614F5001C19EA /* GetMyInfoProtocol.swift */,
 				8F1A5F7528703BD700B64409 /* UpdateMyInfoDataManager.swift */,
 				8F69465329062333001C19EA /* UpdateMyInfoProtocol.swift */,
+				8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */,
+				8FC969F029193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift */,
 				CD7C9FD428B870B900C8635E /* Bookmark */,
 				8F1A5F6F28702B1A00B64409 /* Entity */,
 				CDE47F73284274B0005D8BB3 /* MypageViewController.swift */,
@@ -1097,11 +1109,13 @@
 				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
 				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
+				8FC969E929192E34006C0C8B /* CheckNicknameInput.swift in Sources */,
 				CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				8F69464829058835001C19EA /* RegionProtocol.swift in Sources */,
+				8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
 				CDAECC9429053C9900C13D3D /* MapProtocol.swift in Sources */,
@@ -1128,9 +1142,11 @@
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
+				8FC969F129193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift in Sources */,
 				CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */,
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
+				8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */,
 				CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */,
 				8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
