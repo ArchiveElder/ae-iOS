@@ -42,6 +42,7 @@ class MypageViewController: BaseViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
+        vc.nickname = myInfoResponse?.result?.nickname ?? ""
         vc.age = myInfoResponse?.result?.age ?? 0
         vc.height = myInfoResponse?.result?.height ?? "0"
         vc.weight = myInfoResponse?.result?.weight ?? "0"

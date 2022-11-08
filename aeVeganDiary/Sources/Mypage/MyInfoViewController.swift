@@ -11,17 +11,37 @@ class MyInfoViewController: BaseViewController {
     
     lazy var updateMyInfoDataManager : UpdateMyInfoDataManagerDelegate = UpdateMyInfoDataManager()
     lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
+    lazy var checkNicknameDataManager : CheckNicknameDataManagerDelegate = CheckNicknameDataManager()
     
+    @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet weak var editDoneButton: UIButton!
     
+    var nickname = ""
     var age = 0
     var height = "0"
     var weight = "0"
     var activity = 0
     
+   // var checkNicknameResponse = CheckNicknameResponse?
+    //var checkNickname = [MyInfoResult]
+    
+    @IBOutlet weak var checkNicknameButton: UIButton!
+    
+    @IBAction func checkNickname(_ sender: Any) {
+        
+        dismissKeyboard()
+        var inputNickname = nicknameTextField.text
+        
+        var checkNicknameInput = CheckNicknameInput(nickname: inputNickname ?? "")
+        
+        checkNicknameDataManager.postNickname(checkNicknameInput, delegate: self)
+        
+        //viewdidload에서 입력된 닉네임이 현재 닉네임과 같으면 중복확인 버튼 비활성화하기
+        
+    }
     @IBAction func editDoneAction(_ sender: Any) {
         let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 1])
         //UpdateMyInfoDataManager().putMyInfoData(input, viewController: self)
@@ -70,14 +90,17 @@ class MyInfoViewController: BaseViewController {
         setBackButton()
         setNavigationTitle(title: "내 정보 수정")
         
-        
         editDoneButton.backgroundColor = .middleGreen
+        
+        
         view.backgroundColor = .white
         dismissKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        nicknameTextField.text = nickname
         ageTextField.text = String(age)
         heightTextField.text = String(height)
         weightTextField.text = String(weight)
@@ -92,7 +115,26 @@ class MyInfoViewController: BaseViewController {
                 activityButtons[index].backgroundColor = .systemGray5
             }
         }
+
     }
+    
+    func showToast(message : String, font: UIFont) {
+            let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+            toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            toastLabel.textColor = UIColor.white
+            toastLabel.font = font
+            toastLabel.textAlignment = .center;
+            toastLabel.text = message
+            toastLabel.alpha = 1.0
+            toastLabel.layer.cornerRadius = 8;
+            toastLabel.clipsToBounds  =  true
+            self.view.addSubview(toastLabel)
+            UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+                 toastLabel.alpha = 0.0
+            }, completion: {(isCompleted) in
+                toastLabel.removeFromSuperview()
+            })
+        }
 
 }
 
@@ -112,8 +154,6 @@ extension MyInfoViewController : UpdateMyInfoViewDelegate {
             }
         }
     }
-    
-    
 }
 
 extension MyInfoViewController : DeleteUserViewDelegate {
@@ -122,5 +162,18 @@ extension MyInfoViewController : DeleteUserViewDelegate {
         let vc = LoginViewController()
         let navController = UINavigationController(rootViewController: vc)
         self.changeRootViewController(navController)
+    }
+}
+
+extension MyInfoViewController : CheckNicknameViewDelegate {
+    func didSuccessCheckNickname(_ result: CheckNicknameResponse) {
+        dismissIndicator()
+        print(result)
+        
+        if(result.result?.exist == false) {
+            self.showToast(message: "닉네임 사용이 가능합니다.", font: UIFont.systemFont(ofSize: 14.0))
+        } else if(result.result?.exist == true) {
+            self.showToast(message: "닉네임이 이미 존재합니다.", font: UIFont.systemFont(ofSize: 14.0))
+        }
     }
 }

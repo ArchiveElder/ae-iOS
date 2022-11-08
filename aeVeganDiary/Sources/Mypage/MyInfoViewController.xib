@@ -12,8 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyInfoViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
                 <outlet property="ageTextField" destination="xfP-xx-15A" id="vfa-MP-Tdg"/>
+                <outlet property="checkNicknameButton" destination="Cl9-5f-xlo" id="4i4-k7-JwN"/>
                 <outlet property="editDoneButton" destination="dwH-6b-dtI" id="nkM-RN-CR1"/>
                 <outlet property="heightTextField" destination="wAY-ch-tRa" id="7Of-Te-ETA"/>
+                <outlet property="nicknameTextField" destination="LOt-lg-hSl" id="K25-ga-Gw0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weightTextField" destination="oRQ-fr-EUv" id="de0-wo-5cI"/>
                 <outletCollection property="activityButtons" destination="FY3-sH-x0x" collectionClass="NSMutableArray" id="txu-8A-6oP"/>
@@ -242,6 +244,9 @@
                             <real key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkNickname:" destination="-1" eventType="touchUpInside" id="yU1-ka-ycY"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
