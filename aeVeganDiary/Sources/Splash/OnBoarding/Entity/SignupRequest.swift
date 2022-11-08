@@ -6,7 +6,7 @@
 //
 
 struct SignupRequest: Encodable {
-    var name: String
+    var nickname: String
     var age: Int
     var gender: Int
     var height: String
