@@ -51,6 +51,7 @@ class BaseViewController: UIViewController {
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        backButton.tintColor = .darkGreen
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
@@ -61,6 +62,7 @@ class BaseViewController: UIViewController {
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(popToVC), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        backButton.tintColor = .darkGreen
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)

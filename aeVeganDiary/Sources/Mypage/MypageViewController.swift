@@ -30,7 +30,9 @@ class MypageViewController: BaseViewController {
     }
     
     @IBAction func postingButtonAction(_ sender: Any) {
-        let vc = PostingViewController()
+        //임시로 게시물 상세 페이지로 넘어가도록
+        let vc = PostingDetailViewController()
+        //let vc = PostingViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

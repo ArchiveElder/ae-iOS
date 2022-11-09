@@ -71,6 +71,10 @@
 		8FC969F7291A16B1006C0C8B /* PostingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969F5291A16B1006C0C8B /* PostingViewController.xib */; };
 		8FC969FA291A16BE006C0C8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */; };
 		8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */; };
+		8FC969FF291BD6C7006C0C8B /* PostingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969FD291BD6C7006C0C8B /* PostingDetailViewController.swift */; };
+		8FC96A00291BD6C7006C0C8B /* PostingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */; };
+		8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */; };
+		8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
 		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */; };
@@ -248,6 +252,10 @@
 		8FC969F5291A16B1006C0C8B /* PostingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingViewController.xib; sourceTree = "<group>"; };
 		8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrapViewController.xib; sourceTree = "<group>"; };
+		8FC969FD291BD6C7006C0C8B /* PostingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailViewController.swift; sourceTree = "<group>"; };
+		8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailViewController.xib; sourceTree = "<group>"; };
+		8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailBottomSheetViewController.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -504,6 +512,25 @@
 				8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */,
 			);
 			path = Scrap;
+			sourceTree = "<group>";
+		};
+		8FC969FC291BD685006C0C8B /* PostingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8FC96A06291BDC3E006C0C8B /* PostingDetailBottomSheet */,
+				8FC969FD291BD6C7006C0C8B /* PostingDetailViewController.swift */,
+				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
+			);
+			path = PostingDetail;
+			sourceTree = "<group>";
+		};
+		8FC96A06291BDC3E006C0C8B /* PostingDetailBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */,
+				8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */,
+			);
+			path = PostingDetailBottomSheet;
 			sourceTree = "<group>";
 		};
 		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
@@ -928,6 +955,7 @@
 		CDED422C2917C1E6002A4B49 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				8FC969FC291BD685006C0C8B /* PostingDetail */,
 				CDED42352917DE2E002A4B49 /* Cell */,
 				CDED42312917DA1D002A4B49 /* BoardViewController.swift */,
 				CDED42322917DA1D002A4B49 /* BoardViewController.xib */,
@@ -1041,6 +1069,7 @@
 				CD7C9FD828B870D000C8635E /* BookmarkViewController.xib in Resources */,
 				8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */,
 				8FD47FFC28A63282002D2B82 /* RestaurantSearchViewController.xib in Resources */,
+				8FC96A00291BD6C7006C0C8B /* PostingDetailViewController.xib in Resources */,
 				8F1A5FA92898F69500B64409 /* NoTableViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				8FD47FE228A3A16C002D2B82 /* MiddleCategoryTableViewCell.xib in Resources */,
@@ -1053,6 +1082,7 @@
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
 				8F1A5FA12897609200B64409 /* IngreTableViewCell.xib in Resources */,
+				8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */,
 				8F0FF9D628D08FCE00B870DF /* RecommCookViewController.xib in Resources */,
 				CDE47F4228424B45005D8BB3 /* Assets.xcassets in Resources */,
 				CDE47F6228427062005D8BB3 /* LoginViewController.xib in Resources */,
@@ -1207,6 +1237,7 @@
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
+				8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* UpdateMyInfoDataManager.swift in Sources */,
@@ -1218,6 +1249,7 @@
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				8F694667290645C0001C19EA /* DeleteMealResponse.swift in Sources */,
 				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
+				8FC969FF291BD6C7006C0C8B /* PostingDetailViewController.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
 				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
