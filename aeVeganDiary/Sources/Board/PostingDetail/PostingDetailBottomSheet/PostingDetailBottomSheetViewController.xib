@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingDetailBottomSheetViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="bottomSheetView" destination="PfC-Td-CM3" id="axu-Xf-wjs"/>
+                <outlet property="dimmedView" destination="rp3-KT-kYs" id="Lqk-Ta-kp1"/>
+                <outlet property="postingBottomSheetTopConstraint" destination="une-Yi-ygM" id="mHy-Kg-cqL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,59 +25,55 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-KT-kYs">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-Td-CM3">
-                            <rect key="frame" x="0.0" y="670" width="390" height="174"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiM-qx-Edd">
-                                    <rect key="frame" x="20" y="26.000000000000004" width="108" height="34.333333333333343"/>
-                                    <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="수정하기" imagePadding="15">
-                                        <imageReference key="image" image="applepencil" catalog="system" symbolScale="medium"/>
-                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                    </buttonConfiguration>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ww-Uh-Wgm">
-                                    <rect key="frame" x="20" y="75.333333333333371" width="110" height="35"/>
-                                    <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="삭제하기" imagePadding="15">
-                                        <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
-                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                    </buttonConfiguration>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="top" secondItem="kiM-qx-Edd" secondAttribute="bottom" constant="15" id="Ul0-dA-wHt"/>
-                                <constraint firstItem="kiM-qx-Edd" firstAttribute="top" secondItem="PfC-Td-CM3" secondAttribute="top" constant="26" id="Yhf-WR-nKG"/>
-                                <constraint firstItem="kiM-qx-Edd" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="hr9-H1-91g"/>
-                                <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="rKT-7B-ffP"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="15"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69642187499999997" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-Td-CM3">
+                    <rect key="frame" x="0.0" y="670" width="390" height="174"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiM-qx-Edd">
+                            <rect key="frame" x="20" y="26.000000000000004" width="108" height="34.333333333333343"/>
+                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="수정하기" imagePadding="15">
+                                <imageReference key="image" image="applepencil" catalog="system" symbolScale="medium"/>
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ww-Uh-Wgm">
+                            <rect key="frame" x="20" y="75.333333333333371" width="110" height="35"/>
+                            <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="삭제하기" imagePadding="15">
+                                <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="PfC-Td-CM3" firstAttribute="top" secondItem="rp3-KT-kYs" secondAttribute="top" constant="670" id="NR1-lB-Zs9"/>
-                        <constraint firstAttribute="bottom" secondItem="PfC-Td-CM3" secondAttribute="bottom" id="oMs-Sk-2MH"/>
+                        <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="top" secondItem="kiM-qx-Edd" secondAttribute="bottom" constant="15" id="Ul0-dA-wHt"/>
+                        <constraint firstItem="kiM-qx-Edd" firstAttribute="top" secondItem="PfC-Td-CM3" secondAttribute="top" constant="26" id="Yhf-WR-nKG"/>
+                        <constraint firstItem="kiM-qx-Edd" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="hr9-H1-91g"/>
+                        <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="rKT-7B-ffP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PfC-Td-CM3" secondAttribute="trailing" id="VUi-FO-dYf"/>
-                <constraint firstAttribute="bottom" secondItem="rp3-KT-kYs" secondAttribute="bottom" id="bh4-kl-QR3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rp3-KT-kYs" secondAttribute="trailing" id="f3O-OW-5DX"/>
-                <constraint firstItem="rp3-KT-kYs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gdG-xm-DR4"/>
-                <constraint firstItem="PfC-Td-CM3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="j5X-71-9FD"/>
-                <constraint firstItem="rp3-KT-kYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="udi-Qq-1Rk"/>
+                <constraint firstItem="PfC-Td-CM3" firstAttribute="bottom" secondItem="rp3-KT-kYs" secondAttribute="bottom" id="9sR-wp-4hU"/>
+                <constraint firstItem="rp3-KT-kYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FlJ-4v-bMI"/>
+                <constraint firstItem="rp3-KT-kYs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GT3-3J-Bd4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rp3-KT-kYs" secondAttribute="trailing" id="HAf-bb-FnT"/>
+                <constraint firstItem="PfC-Td-CM3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xnj-aq-x1Y"/>
+                <constraint firstAttribute="bottom" secondItem="rp3-KT-kYs" secondAttribute="bottom" id="rXM-uT-FVq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PfC-Td-CM3" secondAttribute="trailing" id="sZ1-zy-QVN"/>
+                <constraint firstItem="PfC-Td-CM3" firstAttribute="top" secondItem="rp3-KT-kYs" secondAttribute="top" constant="670" id="une-Yi-ygM"/>
             </constraints>
             <point key="canvasLocation" x="136.92307692307691" y="20.616113744075829"/>
         </view>
