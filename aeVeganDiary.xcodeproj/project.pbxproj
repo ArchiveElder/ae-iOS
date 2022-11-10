@@ -75,6 +75,8 @@
 		8FC96A00291BD6C7006C0C8B /* PostingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */; };
 		8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */; };
 		8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */; };
+		8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */; };
+		8FC96A0B291CC13F006C0C8B /* PostingDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
 		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */; };
@@ -256,6 +258,8 @@
 		8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailViewController.xib; sourceTree = "<group>"; };
 		8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailBottomSheetViewController.xib; sourceTree = "<group>"; };
+		8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailRequest.swift; sourceTree = "<group>"; };
+		8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailResponse.swift; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 		8FC969FC291BD685006C0C8B /* PostingDetail */ = {
 			isa = PBXGroup;
 			children = (
+				8FC96A07291CC11E006C0C8B /* Entity */,
 				8FC96A06291BDC3E006C0C8B /* PostingDetailBottomSheet */,
 				8FC969FD291BD6C7006C0C8B /* PostingDetailViewController.swift */,
 				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
@@ -531,6 +536,15 @@
 				8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */,
 			);
 			path = PostingDetailBottomSheet;
+			sourceTree = "<group>";
+		};
+		8FC96A07291CC11E006C0C8B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */,
+				8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
@@ -1231,10 +1245,12 @@
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
+				8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
 				CDAECCA929059A6500C13D3D /* FoodDetailEditViewController.swift in Sources */,
 				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
+				8FC96A0B291CC13F006C0C8B /* PostingDetailResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */,
