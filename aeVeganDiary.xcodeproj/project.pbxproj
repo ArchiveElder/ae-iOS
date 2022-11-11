@@ -108,6 +108,7 @@
 		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
 		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
 		CD4778EF29066C49002D8D7C /* FoodDetailEditProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */; };
+		CD482AFF291B90CE006682FA /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482AFE291B90CE006682FA /* BoardViewModel.swift */; };
 		CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */; };
 		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
 		CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */; };
@@ -155,6 +156,8 @@
 		CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC61207284A50480041F5C7 /* RegisterDataManager.swift */; };
 		CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9498C28BCA8BA00695E50 /* BookmarkListResponse.swift */; };
 		CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */; };
+		CDD9DCEA291E0D5700FEBF32 /* BoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DCE9291E0D5700FEBF32 /* BoardResponse.swift */; };
+		CDD9DCEC291E0EC000FEBF32 /* BoardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DCEB291E0EC000FEBF32 /* BoardDataManager.swift */; };
 		CDE2488E28475C2F00FE35E3 /* SelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */; };
 		CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */; };
 		CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE47F3528424B44005D8BB3 /* AppDelegate.swift */; };
@@ -292,6 +295,7 @@
 		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
 		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
 		CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditProtocol.swift; sourceTree = "<group>"; };
+		CD482AFE291B90CE006682FA /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		CD4FE96B28939AF400D2F2E6 /* MapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResponse.swift; sourceTree = "<group>"; };
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictResponse.swift; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 		CDC61207284A50480041F5C7 /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
 		CDD9498C28BCA8BA00695E50 /* BookmarkListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListResponse.swift; sourceTree = "<group>"; };
 		CDD9498F28BCA93000695E50 /* BookmarkListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListDataManager.swift; sourceTree = "<group>"; };
+		CDD9DCE9291E0D5700FEBF32 /* BoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResponse.swift; sourceTree = "<group>"; };
+		CDD9DCEB291E0EC000FEBF32 /* BoardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataManager.swift; sourceTree = "<group>"; };
 		CDE2488C28475C2F00FE35E3 /* SelectTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypeViewController.swift; sourceTree = "<group>"; };
 		CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
 		CDE47F3228424B44005D8BB3 /* aeVeganDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeVeganDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -779,6 +785,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CDD9DCE8291E0D4100FEBF32 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DCE9291E0D5700FEBF32 /* BoardResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		CDE47F2928424B44005D8BB3 = {
 			isa = PBXGroup;
 			children = (
@@ -956,9 +970,12 @@
 			isa = PBXGroup;
 			children = (
 				8FC969FC291BD685006C0C8B /* PostingDetail */,
+				CDD9DCE8291E0D4100FEBF32 /* Entity */,
 				CDED42352917DE2E002A4B49 /* Cell */,
 				CDED42312917DA1D002A4B49 /* BoardViewController.swift */,
 				CDED42322917DA1D002A4B49 /* BoardViewController.xib */,
+				CD482AFE291B90CE006682FA /* BoardViewModel.swift */,
+				CDD9DCEB291E0EC000FEBF32 /* BoardDataManager.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -1194,6 +1211,7 @@
 				8F694664290645AB001C19EA /* DeleteMealRequest.swift in Sources */,
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
 				CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */,
+				CDD9DCEC291E0EC000FEBF32 /* BoardDataManager.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
@@ -1218,6 +1236,7 @@
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
 				8F69464629054812001C19EA /* FoodDetailProtocol.swift in Sources */,
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
+				CDD9DCEA291E0D5700FEBF32 /* BoardResponse.swift in Sources */,
 				CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */,
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
@@ -1268,6 +1287,7 @@
 				8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				CDAECC902905316800C13D3D /* MealDetailRequest.swift in Sources */,
+				CD482AFF291B90CE006682FA /* BoardViewModel.swift in Sources */,
 				8F13E9522851FAB600F090C4 /* NicknameInitViewController.swift in Sources */,
 				8F0FF9D528D08FCE00B870DF /* RecommCookViewController.swift in Sources */,
 				8F1A5FA82898F69500B64409 /* NoTableViewCell.swift in Sources */,
