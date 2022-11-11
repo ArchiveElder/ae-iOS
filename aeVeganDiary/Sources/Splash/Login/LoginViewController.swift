@@ -102,6 +102,8 @@ extension LoginViewController: LoginViewDelegate {
         UserManager.shared.jwt = result?.token ?? ""
         UserDefaults.standard.setValue(result?.signup, forKey: "SignUp")
         
+        print("토큰: ", result?.token)
+        
         if result?.signup ?? true {
             let vc = NicknameInitViewController()
             let navController = UINavigationController(rootViewController: vc)

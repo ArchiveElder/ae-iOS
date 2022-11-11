@@ -8,12 +8,22 @@
 import UIKit
 
 class PostingDetailViewController: BaseViewController {
-
+    
+    @IBOutlet weak var postingDetailTableView: UITableView?
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var postCommentButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setBackButton()
         setMoreButton()
+        
+        postingDetailTableView?.delegate = self
+        postingDetailTableView?.dataSource = self
+        postingDetailTableView?.register(UINib(nibName: "PostingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PostingDetailTableViewCell")
+        let headerNib = UINib(nibName: "PostingDetailHeaderView", bundle: nil)
+        postingDetailTableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: "PostingDetailHeaderView")
         
     }
 
@@ -35,4 +45,27 @@ class PostingDetailViewController: BaseViewController {
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
 
+}
+
+
+extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = (postingDetailTableView?.dequeueReusableCell(withIdentifier: "PostingDetailTableViewCell", for: indexPath))!
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 50
+        }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PostingDetailHeaderView") as! PostingDetailHeaderView
+        return header
+        }
+    
 }
