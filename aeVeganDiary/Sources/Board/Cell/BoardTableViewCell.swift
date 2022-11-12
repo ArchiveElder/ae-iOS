@@ -31,9 +31,14 @@ class BoardTableViewCell: UITableViewCell {
     }
     
     func updateUI(post: Post) {
-        categoryLabel.text = post.groupName
+        categoryLabel.text = post.boardName
+        profileImageView.image = UIImage(named: "profile\(post.icon)")
         nicknameLabel.text = post.nickname
         titleLabel.text = post.title
         bookmarkButton.isSelected = post.isScraped == 1 ? true : false
+        isPhotoImageView.isHidden = post.hasImg == 1 ? false : true
+        likeCountLabel.text = "\(post.likeCnt)"
+        commentCountLabel.text = "\(post.commentCnt)"
+        
     }
 }
