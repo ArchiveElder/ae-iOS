@@ -38,7 +38,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="UyS-GZ-2A1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" red="0.062745098039215685" green="0.32156862745098036" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,25 +64,31 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yEu-yr-Kge">
-                                <rect key="frame" x="15" y="47" width="36" height="36"/>
+                                <rect key="frame" x="15" y="49" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="4yR-Me-F28"/>
                                     <constraint firstAttribute="width" constant="36" id="9wU-j4-Anr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGray5Color"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdd-F5-UgO">
-                                <rect key="frame" x="59" y="56.666666666666657" width="36" height="17"/>
+                                <rect key="frame" x="59" y="58.666666666666657" width="36" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-AW-vjK">
-                                <rect key="frame" x="275" y="49.666666666666664" width="25" height="30.666666666666664"/>
+                                <rect key="frame" x="275" y="51.666666666666664" width="25" height="30.666666666666664"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="TwG-pg-241"/>
                                     <constraint firstAttribute="width" secondItem="rwV-AW-vjK" secondAttribute="height" multiplier="9:11" id="vTX-Vw-jW7"/>
@@ -90,12 +96,12 @@
                                 <color key="tintColor" red="0.062745098040000002" green="0.32156862749999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="bookmark" symbolScale="large"/>
                                 </state>
                                 <state key="selected" image="bookmark.fill" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yY-sE-Nfm">
-                                <rect key="frame" x="15" y="98" width="290" height="16.666666666666671"/>
+                                <rect key="frame" x="15" y="100" width="290" height="14.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,7 +185,7 @@
                             <constraint firstItem="1f7-l2-WxZ" firstAttribute="leading" secondItem="1oo-Ko-c4J" secondAttribute="leading" id="agp-zt-sUI"/>
                             <constraint firstItem="wdd-F5-UgO" firstAttribute="centerY" secondItem="yEu-yr-Kge" secondAttribute="centerY" id="dwe-Cp-lWL"/>
                             <constraint firstAttribute="trailing" secondItem="rwV-AW-vjK" secondAttribute="trailing" constant="20" id="g2B-Hc-bz9"/>
-                            <constraint firstItem="yEu-yr-Kge" firstAttribute="top" secondItem="yqw-pw-CUS" secondAttribute="bottom" constant="8" id="gzq-6j-leg"/>
+                            <constraint firstItem="yEu-yr-Kge" firstAttribute="top" secondItem="yqw-pw-CUS" secondAttribute="bottom" constant="10" id="gzq-6j-leg"/>
                             <constraint firstAttribute="trailing" secondItem="1f7-l2-WxZ" secondAttribute="trailing" id="mh0-B2-n1h"/>
                             <constraint firstItem="yqw-pw-CUS" firstAttribute="leading" secondItem="1oo-Ko-c4J" secondAttribute="leading" constant="15" id="oY3-z0-gt3"/>
                             <constraint firstAttribute="trailing" secondItem="Uxb-yi-Skz" secondAttribute="trailing" constant="15" id="tEA-jx-e9u"/>
@@ -209,7 +215,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="bookmark" width="25" height="25"/>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="heart" catalog="system" width="128" height="107"/>
@@ -219,6 +225,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
