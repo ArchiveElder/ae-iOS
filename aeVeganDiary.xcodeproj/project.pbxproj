@@ -130,6 +130,8 @@
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2937C28CA2ABA00A48467 /* UserManager.swift */; };
+		CDA99C8D291F4A2600E01342 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA99C8B291F4A2600E01342 /* PostViewController.swift */; };
+		CDA99C8E291F4A2600E01342 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA99C8C291F4A2600E01342 /* PostViewController.xib */; };
 		CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */; };
 		CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8329042EB800C13D3D /* LoginRequest.swift */; };
 		CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8529043ACC00C13D3D /* HomeRequest.swift */; };
@@ -317,6 +319,8 @@
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDA2937C28CA2ABA00A48467 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CDA99C8B291F4A2600E01342 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		CDA99C8C291F4A2600E01342 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
 		CDAECC8329042EB800C13D3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CDAECC8529043ACC00C13D3D /* HomeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
@@ -722,6 +726,15 @@
 			path = SelectType;
 			sourceTree = "<group>";
 		};
+		CDA99C8A291F4A1200E01342 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				CDA99C8B291F4A2600E01342 /* PostViewController.swift */,
+				CDA99C8C291F4A2600E01342 /* PostViewController.xib */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		CDAECCA12905905D00C13D3D /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,6 +982,7 @@
 		CDED422C2917C1E6002A4B49 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				CDA99C8A291F4A1200E01342 /* Post */,
 				8FC969FC291BD685006C0C8B /* PostingDetail */,
 				CDD9DCE8291E0D4100FEBF32 /* Entity */,
 				CDED42352917DE2E002A4B49 /* Cell */,
@@ -1075,6 +1089,7 @@
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
+				CDA99C8E291F4A2600E01342 /* PostViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */,
 				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
@@ -1242,6 +1257,7 @@
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
+				CDA99C8D291F4A2600E01342 /* PostViewController.swift in Sources */,
 				8F1A5FA42898F68900B64409 /* HasTableViewCell.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */,
