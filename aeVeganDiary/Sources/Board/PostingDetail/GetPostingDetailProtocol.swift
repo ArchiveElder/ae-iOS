@@ -13,5 +13,5 @@ protocol GetPostingDetailViewDelegate{
 }
 
 protocol GetPostingDetailDataManagerDelegate{
-    func getPostingDetailData (_ userIdx:CLong, postIdx:CLong, delegate:GetPostingDetailViewDelegate)
+    func getPostingDetailData (_ userIdx:Int, postIdx:Int, delegate:GetPostingDetailViewDelegate)
 }
