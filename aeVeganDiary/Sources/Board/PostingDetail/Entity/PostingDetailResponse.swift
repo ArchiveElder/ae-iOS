@@ -7,32 +7,34 @@
 
 import Foundation
 
-struct PostingDeatilResponse : Decodable {
-    var postIdx : CLong
-    var title : String
-    var content : String
-    var icon : Int
-    var nickname : String
-    var createdAt : String
-    var imagesCount : Int
-    var imagesLists : [ImageLists]
-    var thumbupCount : CLong
-    var commentCount : Int
-    var isLiked : Int
-    var isScraped : Int
-    var commentLists : [CommentLists]
+struct PostingDetailResponse : Decodable {
+    var postIdx : Int?
+    var title : String?
+    var content : String?
+    var icon : Int?
+    var userIdx : Int?
+    var nickname : String?
+    var createdAt : String?
+    var imagesCount : Int?
+    var imagesLists : [ImageLists]?
+    var thumbupCount : Int?
+    var commentCount : Int?
+    var isLiked : Int?
+    var isScraped : Int?
+    var commentsLists : [CommentsLists]?
 }
 
 struct ImageLists : Decodable {
-    var imageUrl : String
-    var imgRank : Int
+    var imageUrl : String?
+    var imgRank : Int?
 }
 
-struct CommentLists : Decodable {
-    var commentIdx : CLong
-    var icon : Int
-    var nickname : String
-    var date : String
-    var content : String
+struct CommentsLists : Decodable {
+    var commentIdx : Int?
+    var icon : Int?
+    var userIdx : Int?
+    var nickname : String?
+    var date : String?
+    var content : String?
 }
 
