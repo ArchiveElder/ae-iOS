@@ -13,6 +13,12 @@ class PostingDetailViewController: BaseViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postCommentButton: UIButton!
     
+    var postingDetailResponse : PostingDetailResponse?
+    
+    lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
+    
+    
+    var nickname : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +30,16 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.register(UINib(nibName: "PostingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PostingDetailTableViewCell")
         let headerNib = UINib(nibName: "PostingDetailHeaderView", bundle: nil)
         postingDetailTableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: "PostingDetailHeaderView")
+        postingDetailTableView?.sectionHeaderHeight = UITableView.automaticDimension
         
+        postingDetailTableView?.rowHeight = UITableView.automaticDimension
+        
+        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
     }
 
     func setMoreButton() {
@@ -56,16 +71,44 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (postingDetailTableView?.dequeueReusableCell(withIdentifier: "PostingDetailTableViewCell", for: indexPath))!
         
+        print("테이블뷰:", postingDetailResponse)
         return cell
     }
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 50
+        //return UITableView.automaticDimension
+        return 200
         }
 
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PostingDetailHeaderView") as! PostingDetailHeaderView
+        
+        
         return header
+        
         }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        //(view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.red.withAlphaComponent(0.4)
+    }
+    
+}
+
+extension PostingDetailViewController : GetPostingDetailViewDelegate {
+    func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
+        dismissIndicator()
+        self.postingDetailResponse = result
+        
+    }
+    
+    func failedToRequest(message: String, code: Int) {
+        
+    }
+    
     
 }

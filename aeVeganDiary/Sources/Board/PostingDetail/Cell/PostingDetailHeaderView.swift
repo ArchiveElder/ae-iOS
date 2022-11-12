@@ -8,11 +8,18 @@
 import UIKit
 
 class PostingDetailHeaderView: UITableViewHeaderFooterView {
-
+    
+    @IBOutlet weak var postingIconImageView: UIImageView!
+    @IBOutlet weak var postingNicknameLabel: UILabel!
+    @IBOutlet weak var postingTitleLabel: UILabel!
+    @IBOutlet weak var postingContentsLabel: UILabel!
+    @IBOutlet weak var postingLikeButton: UIButton!
+    @IBOutlet weak var postingScrapButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-  
-    }
+        
+            }
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -23,5 +30,5 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
         super.init(coder: coder)
     }
 
-}
 
+}

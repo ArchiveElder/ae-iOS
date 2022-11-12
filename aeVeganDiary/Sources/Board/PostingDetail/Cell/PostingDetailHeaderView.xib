@@ -4,37 +4,105 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostingDetailHeaderView" customModule="aeVeganDiary" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="409"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="PostingDetailHeaderView" customModule="aeVeganDiary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="헤더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-D3-Qaw">
-                    <rect key="frame" x="180.33333333333334" y="194" width="29.666666666666657" height="21"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currentpin" translatesAutoresizingMaskIntoConstraints="NO" id="Q1U-i0-4za">
+                    <rect key="frame" x="15" y="15" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="Fhj-Jf-g6y"/>
+                        <constraint firstAttribute="width" constant="37" id="Mzo-Ul-bbb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-m6-1g4">
+                    <rect key="frame" x="57" y="24.666666666666671" width="38" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYb-Mi-kcB">
+                    <rect key="frame" x="15" y="62.000000000000007" width="345" height="20.333333333333336"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2X-wx-g8T">
+                    <rect key="frame" x="15" y="92.333333333333329" width="345" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aL1-x0-uFt">
+                    <rect key="frame" x="14.999999999999996" y="124.33333333333331" width="34.666666666666657" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="rL6-uk-6TD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                    <state key="normal" title="nn" image="heart" catalog="system">
+                        <color key="titleColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKn-Vs-OUQ">
+                    <rect key="frame" x="64.666666666666671" y="123.66666666666667" width="41" height="19.333333333333329"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19.333333333333329" id="I2u-sV-je8"/>
+                        <constraint firstAttribute="width" constant="41" id="RJi-jl-YrQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                    <state key="normal" title="nn" image="text.bubble" catalog="system">
+                        <color key="titleColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemYellowColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Zcd-D3-Qaw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TTf-bY-vf7"/>
-                <constraint firstItem="Zcd-D3-Qaw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Xkx-g0-U9g"/>
+                <constraint firstItem="skQ-m6-1g4" firstAttribute="leading" secondItem="Q1U-i0-4za" secondAttribute="trailing" constant="5" id="2za-fI-Mcz"/>
+                <constraint firstItem="aL1-x0-uFt" firstAttribute="leading" secondItem="x2X-wx-g8T" secondAttribute="leading" id="DXm-cj-Zpb"/>
+                <constraint firstItem="gKn-Vs-OUQ" firstAttribute="centerY" secondItem="aL1-x0-uFt" secondAttribute="centerY" id="RNy-uT-MPw"/>
+                <constraint firstItem="gKn-Vs-OUQ" firstAttribute="leading" secondItem="aL1-x0-uFt" secondAttribute="trailing" constant="15.000000000000014" id="UvB-bF-afn"/>
+                <constraint firstItem="x2X-wx-g8T" firstAttribute="leading" secondItem="nYb-Mi-kcB" secondAttribute="leading" id="Y9e-xh-ZI0"/>
+                <constraint firstItem="nYb-Mi-kcB" firstAttribute="leading" secondItem="Q1U-i0-4za" secondAttribute="leading" id="YHW-Xh-fHd"/>
+                <constraint firstItem="x2X-wx-g8T" firstAttribute="top" secondItem="nYb-Mi-kcB" secondAttribute="bottom" constant="10" id="apH-dR-D33"/>
+                <constraint firstItem="Q1U-i0-4za" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="i5x-Ly-ztk"/>
+                <constraint firstItem="aL1-x0-uFt" firstAttribute="top" secondItem="x2X-wx-g8T" secondAttribute="bottom" constant="15" id="iIN-sD-2Ax"/>
+                <constraint firstItem="nYb-Mi-kcB" firstAttribute="top" secondItem="Q1U-i0-4za" secondAttribute="bottom" constant="10" id="ioC-Mm-H0F"/>
+                <constraint firstAttribute="trailing" secondItem="x2X-wx-g8T" secondAttribute="trailing" constant="15" id="k7B-de-qBZ"/>
+                <constraint firstItem="skQ-m6-1g4" firstAttribute="centerY" secondItem="Q1U-i0-4za" secondAttribute="centerY" id="kYv-Ko-CaN"/>
+                <constraint firstAttribute="trailing" secondItem="nYb-Mi-kcB" secondAttribute="trailing" constant="15" id="rBu-bw-UV2"/>
+                <constraint firstItem="Q1U-i0-4za" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="vw7-2x-cq1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="100" y="175.23696682464455"/>
+            <connections>
+                <outlet property="postingContentsLabel" destination="x2X-wx-g8T" id="SQm-E8-Nkc"/>
+                <outlet property="postingIconImageView" destination="Q1U-i0-4za" id="QKp-qU-gbz"/>
+                <outlet property="postingLikeButton" destination="aL1-x0-uFt" id="vjs-lt-h4D"/>
+                <outlet property="postingNicknameLabel" destination="skQ-m6-1g4" id="BCZ-ta-Neh"/>
+                <outlet property="postingScrapButton" destination="gKn-Vs-OUQ" id="EVc-ce-yxF"/>
+                <outlet property="postingTitleLabel" destination="nYb-Mi-kcB" id="Fej-4J-dxl"/>
+            </connections>
+            <point key="canvasLocation" x="37.692307692307693" y="127.25118483412322"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="currentpin" width="20" height="20"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
