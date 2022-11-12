@@ -63,6 +63,10 @@
 		8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69466A29064619001C19EA /* DeleteMealDataManager.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
+		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
+		8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */; };
+		8FB829D8291E8B5500A13842 /* GetPostingDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */; };
+		8FB829DA291E8B5D00A13842 /* GetPostingDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */; };
 		8FC969E929192E34006C0C8B /* CheckNicknameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969E829192E34006C0C8B /* CheckNicknameInput.swift */; };
 		8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */; };
 		8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */; };
@@ -75,6 +79,10 @@
 		8FC96A00291BD6C7006C0C8B /* PostingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */; };
 		8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */; };
 		8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */; };
+		8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */; };
+		8FC96A0B291CC13F006C0C8B /* PostingDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */; };
+		8FC96A17291E319B006C0C8B /* PostingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC96A15291E319B006C0C8B /* PostingDetailTableViewCell.swift */; };
+		8FC96A18291E319B006C0C8B /* PostingDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC96A16291E319B006C0C8B /* PostingDetailTableViewCell.xib */; };
 		8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */; };
 		8FD47FD828A39A5E002D2B82 /* LargeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */; };
 		8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */; };
@@ -247,6 +255,10 @@
 		8F69466A29064619001C19EA /* DeleteMealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMealDataManager.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
+		8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailHeaderView.xib; sourceTree = "<group>"; };
+		8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostingDetailDataManager.swift; sourceTree = "<group>"; };
+		8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostingDetailProtocol.swift; sourceTree = "<group>"; };
 		8FC969E829192E34006C0C8B /* CheckNicknameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameInput.swift; sourceTree = "<group>"; };
 		8FC969EA29192EB3006C0C8B /* CheckNicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameDataManager.swift; sourceTree = "<group>"; };
 		8FC969EE291938F5006C0C8B /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
@@ -259,6 +271,10 @@
 		8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailViewController.xib; sourceTree = "<group>"; };
 		8FC96A02291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailBottomSheetViewController.xib; sourceTree = "<group>"; };
+		8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailRequest.swift; sourceTree = "<group>"; };
+		8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailResponse.swift; sourceTree = "<group>"; };
+		8FC96A15291E319B006C0C8B /* PostingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		8FC96A16291E319B006C0C8B /* PostingDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FD528A39A5E002D2B82 /* LargeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FD47FD628A39A5E002D2B82 /* LargeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FD47FDF28A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -523,9 +539,13 @@
 		8FC969FC291BD685006C0C8B /* PostingDetail */ = {
 			isa = PBXGroup;
 			children = (
+				8FC96A0C291CDA44006C0C8B /* Cell */,
 				8FC96A06291BDC3E006C0C8B /* PostingDetailBottomSheet */,
+				8FC96A07291CC11E006C0C8B /* Entity */,
 				8FC969FD291BD6C7006C0C8B /* PostingDetailViewController.swift */,
 				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
+				8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */,
+				8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -537,6 +557,26 @@
 				8FC96A03291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib */,
 			);
 			path = PostingDetailBottomSheet;
+			sourceTree = "<group>";
+		};
+		8FC96A07291CC11E006C0C8B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */,
+				8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8FC96A0C291CDA44006C0C8B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */,
+				8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */,
+				8FC96A15291E319B006C0C8B /* PostingDetailTableViewCell.swift */,
+				8FC96A16291E319B006C0C8B /* PostingDetailTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8FD47FCF28A398CB002D2B82 /* RestaurantSearch */ = {
@@ -1071,6 +1111,7 @@
 				8FC969F7291A16B1006C0C8B /* PostingViewController.xib in Resources */,
 				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
 				8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */,
+				8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
@@ -1088,6 +1129,7 @@
 				8FD47FFC28A63282002D2B82 /* RestaurantSearchViewController.xib in Resources */,
 				8FC96A00291BD6C7006C0C8B /* PostingDetailViewController.xib in Resources */,
 				8F1A5FA92898F69500B64409 /* NoTableViewCell.xib in Resources */,
+				8FC96A18291E319B006C0C8B /* PostingDetailTableViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				8FD47FE228A3A16C002D2B82 /* MiddleCategoryTableViewCell.xib in Resources */,
 				8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */,
@@ -1216,8 +1258,10 @@
 				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
 				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
+				8FB829D8291E8B5500A13842 /* GetPostingDetailDataManager.swift in Sources */,
 				8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */,
 				8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */,
+				8FB829DA291E8B5D00A13842 /* GetPostingDetailProtocol.swift in Sources */,
 				CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */,
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
 				8FC969F129193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift in Sources */,
@@ -1250,10 +1294,12 @@
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
+				8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
 				CDAECCA929059A6500C13D3D /* FoodDetailEditViewController.swift in Sources */,
 				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
+				8FC96A0B291CC13F006C0C8B /* PostingDetailResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */,
@@ -1273,6 +1319,7 @@
 				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
+				8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
 				CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */,
@@ -1306,6 +1353,7 @@
 				CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */,
 				CDED42382917DECF002A4B49 /* BoardTableViewCell.swift in Sources */,
 				8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */,
+				8FC96A17291E319B006C0C8B /* PostingDetailTableViewCell.swift in Sources */,
 				8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */,
 				CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */,
 				CDAECC9C2905740B00C13D3D /* BookmarkListProtocol.swift in Sources */,
