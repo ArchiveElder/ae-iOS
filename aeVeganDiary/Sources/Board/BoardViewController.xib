@@ -22,15 +22,41 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-p4-fWH">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" red="0.77647058820000003" green="0.86666666670000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vke-KV-7Hf">
+                    <rect key="frame" x="157" y="655" width="100" height="46"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.32156862749999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="RJZ-zE-6y9"/>
+                        <constraint firstAttribute="width" constant="100" id="dqt-Ny-IGU"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="글쓰기" image="pencil.circle" catalog="system">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="23"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.77647058820000003" green="0.86666666670000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vke-KV-7Hf" secondAttribute="bottom" constant="20" id="0IL-c8-4rR"/>
                 <constraint firstItem="O8Y-p4-fWH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="34l-p4-amw"/>
                 <constraint firstItem="O8Y-p4-fWH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IT2-rg-4La"/>
                 <constraint firstItem="O8Y-p4-fWH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZcF-91-o41"/>
+                <constraint firstItem="vke-KV-7Hf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hBM-Cl-7Sl"/>
                 <constraint firstItem="O8Y-p4-fWH" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="vRc-hE-Y8G"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -39,6 +65,7 @@
         </view>
     </objects>
     <resources>
+        <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
