@@ -12,30 +12,82 @@ import RxCocoa
 class BoardViewModel {
     static let shared = BoardViewModel()
     
-    var posts = BehaviorSubject<[Post]>(value: [])
+    var posts = BehaviorRelay<[Post]>(value: [])
+    let disposeBag = DisposeBag()
+    
+    let fetchMoreDatas = PublishSubject<Void>()
+    let refreshControlAction = PublishSubject<Void>()
+    let refreshControlCompleted = PublishSubject<Void>()
+    let isLoadingSpinnerAvaliable = PublishSubject<Bool>()
+    private var isPaginationRequestStillResume = false
+    private var isRefreshRequstStillResume = false
+    
+    private var pageCounter = 0
     
     init() {
-        reloadData()
+        bind()
+        self.fetchData(caetgory: "all", page: self.pageCounter, isRefreshControl: false)
     }
     
-    func reloadData() {
-        // Observable<Data> --> subscribe --> members
-        /*_ = BoardDataManager.fetchData(url: APIManager.MEMBER_LIST_URL)
-            .map { data -> [Member] in
-                let members = try! JSONDecoder().decode([Member].self, from: data)
-                return members
-            }
-            .take(1) // 버튼 누를 경우에도 호출되므로, 1번만 수행하게끔 함
-            .subscribe(onNext: { self.members.onNext($0) })*/
+    func bind() {
+        fetchMoreDatas.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            //self.fetchDummyData(page: self.pageCounter, isRefreshControl: false)
+            self.fetchData(caetgory: "all", page: self.pageCounter, isRefreshControl: false)
+        }
+        .disposed(by: disposeBag)
+        
+        refreshControlAction.subscribe { [weak self] _ in
+            self?.refreshControlTriggered()
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    func fetchData(caetgory: String, page: Int, isRefreshControl: Bool) {
+        if isPaginationRequestStillResume || isRefreshRequstStillResume { return }
+        self.isRefreshRequstStillResume = isRefreshControl
+        
+        if pageCounter == -1  {
+            isPaginationRequestStillResume = false
+            return
+        }
+        
+        isPaginationRequestStillResume = true
+        isLoadingSpinnerAvaliable.onNext(true)
+        
+        if pageCounter == 0  || isRefreshControl {
+            isLoadingSpinnerAvaliable.onNext(false)
+        }
         
         let userId = UserDefaults.standard.integer(forKey: "UserId")
         print("userId \(userId)")
-        _ = BoardDataManager.getPosts(userIdx: userId, page: 1, size: 5)
+        print("pageCounter \(pageCounter)")
+        _ = BoardDataManager.getPosts(userIdx: userId, category: "all", page: pageCounter)
             .map { data -> [Post] in
                 //let posts = data.postLists
+                self.isLoadingSpinnerAvaliable.onNext(false)
+                self.isPaginationRequestStillResume = false
+                self.isRefreshRequstStillResume = false
+                self.refreshControlCompleted.onNext(())
                 return data
             }
             .take(1)
-            .subscribe(onNext: { self.posts.onNext($0) })
+            .subscribe(onNext: {
+                let oldDatas = self.posts.value
+                self.posts.accept(oldDatas + $0)
+                
+                if $0.count == 0 {
+                    self.pageCounter = -1
+                } else {
+                    self.pageCounter += 1
+                }
+            })
+    }
+    
+    @objc func refreshControlTriggered() {
+        isPaginationRequestStillResume = false
+        pageCounter = 0
+        posts.accept([])
+        fetchData(caetgory: "all", page: 0, isRefreshControl: true)
     }
 }

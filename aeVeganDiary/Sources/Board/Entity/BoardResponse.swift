@@ -8,12 +8,12 @@
 import Foundation
 
 struct BoardResponse: Decodable {
-    var postLists: [Post]?
+    var postsList: [Post]?
 }
 
 struct Post: Decodable {
     var postIdx: Int
-    var groupName: String
+    var boardName: String
     var title: String
     var userIdx: Int
     var icon: Int
