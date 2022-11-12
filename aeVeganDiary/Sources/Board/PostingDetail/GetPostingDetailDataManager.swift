@@ -8,7 +8,7 @@
 import Alamofire
 
 class GetPostingDetailDataManager : GetPostingDetailDataManagerDelegate {
-    func getPostingDetailData(_ userIdx:CLong, postIdx:CLong, delegate:GetPostingDetailViewDelegate){
+    func getPostingDetailData(_ userIdx:Int, postIdx:Int, delegate:GetPostingDetailViewDelegate){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         AF.request("http://15.164.40.10:8080/posting/post/\(userIdx)/\(postIdx)", method: .get, encoding: JSONEncoding.default, headers: headers)
             .validate()

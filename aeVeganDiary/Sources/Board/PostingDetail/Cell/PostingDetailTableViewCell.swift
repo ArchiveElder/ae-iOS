@@ -9,6 +9,7 @@ import UIKit
 
 class PostingDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var commentNickname: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
