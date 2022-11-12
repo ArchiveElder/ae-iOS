@@ -17,22 +17,34 @@ class BoardViewController: BaseViewController {
     let disposeBag = DisposeBag()
     let cellId = "BoardTableViewCell"
     
+    let refreshControl = UIRefreshControl()
+    
+    private lazy var viewSpinner: UIView = {
+        let view = UIView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: view.frame.size.width,
+            height: 100)
+        )
+        let spinner = UIActivityIndicatorView()
+        spinner.center = view.center
+        view.addSubview(spinner)
+        spinner.startAnimating()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationTitle(title: "커뮤니티")
-        view.backgroundColor = .white
-        //boardTableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: "BoardTableViewCell")
+        
+        boardTableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: "BoardTableViewCell")
+        refreshControl.endRefreshing()
+        boardTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlTriggered), for: .valueChanged)
         
         setBinding()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.reloadData()
-    }
-    
     
     private func setBinding() {
         //boardTableView.rx.setDelegate(self).disposed(by: bag)
@@ -53,6 +65,30 @@ class BoardViewController: BaseViewController {
                 self?.presentDetail(of: post)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.refreshControlCompleted.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            self.refreshControl.endRefreshing()
+        }
+        .disposed(by: disposeBag)
+        
+        viewModel.isLoadingSpinnerAvaliable.subscribe { [weak self] isAvaliable in
+            guard let isAvaliable = isAvaliable.element,
+                  let self = self else { return }
+            self.boardTableView.tableFooterView = isAvaliable ? self.viewSpinner : UIView(frame: .zero)
+        }
+        .disposed(by: disposeBag)
+        
+        boardTableView.rx.didScroll.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            let offSetY = self.boardTableView.contentOffset.y
+            let contentHeight = self.boardTableView.contentSize.height
+
+            if offSetY > (contentHeight - self.boardTableView.frame.size.height - 100) {
+                self.viewModel.fetchMoreDatas.onNext(())
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
     private func presentDetail(of post: Post) {
@@ -62,5 +98,9 @@ class BoardViewController: BaseViewController {
         viewModel.selectedMember = member
         present(detailVC, animated: true, completion: nil)*/
     }
+    
+    @objc private func refreshControlTriggered() {
+        viewModel.refreshControlAction.onNext(())
+      }
 
 }
