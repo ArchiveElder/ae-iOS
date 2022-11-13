@@ -65,6 +65,8 @@
 		8F9203802920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */; };
 		8F9203822920DF17009679EC /* ThumbUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203812920DF17009679EC /* ThumbUpRequest.swift */; };
 		8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203852920DF3E009679EC /* ThumbUpResponse.swift */; };
+		8F92038829213DDB009679EC /* PostThumbUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */; };
+		8F92038A29213DF4009679EC /* PostThumbUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
@@ -269,6 +271,8 @@
 		8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		8F9203812920DF17009679EC /* ThumbUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpRequest.swift; sourceTree = "<group>"; };
 		8F9203852920DF3E009679EC /* ThumbUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpResponse.swift; sourceTree = "<group>"; };
+		8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbUpDataManager.swift; sourceTree = "<group>"; };
+		8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbUpProtocol.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -570,6 +574,8 @@
 				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
 				8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */,
 				8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */,
+				8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */,
+				8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -1305,6 +1311,7 @@
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */,
+				8F92038829213DDB009679EC /* PostThumbUpDataManager.swift in Sources */,
 				8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */,
 				8F69465A29062CE0001C19EA /* DeleteUserResponse.swift in Sources */,
 				8F6946692906460E001C19EA /* DeleteMealProtocol.swift in Sources */,
@@ -1372,6 +1379,7 @@
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */,
+				8F92038A29213DF4009679EC /* PostThumbUpProtocol.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* UpdateMyInfoDataManager.swift in Sources */,

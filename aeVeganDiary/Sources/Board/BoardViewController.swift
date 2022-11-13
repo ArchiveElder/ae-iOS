@@ -102,6 +102,10 @@ class BoardViewController: BaseViewController {
         }
         viewModel.selectedMember = member
         present(detailVC, animated: true, completion: nil)*/
+        
+        let vc = PostingDetailViewController()
+        vc.postIdx = post.postIdx ?? 0
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func refreshControlTriggered() {

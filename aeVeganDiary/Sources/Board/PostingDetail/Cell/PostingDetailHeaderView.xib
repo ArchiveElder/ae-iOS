@@ -50,10 +50,15 @@
                         <constraint firstAttribute="height" constant="18" id="rL6-uk-6TD"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <color key="tintColor" systemColor="systemPinkColor"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
                     <state key="normal" title="nn" image="heart" catalog="system">
                         <color key="titleColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" image="heart.fill" catalog="system"/>
+                    <connections>
+                        <action selector="ThumbUpButton:" destination="-1" eventType="touchUpInside" id="Sfl-kj-LL8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKn-Vs-OUQ">
                     <rect key="frame" x="64.666666666666671" y="257.33333333333331" width="41" height="19.333333333333314"/>
@@ -106,9 +111,9 @@
                 <outlet property="postingContentImageCollectionView" destination="kQ1-qR-lpU" id="vGJ-tx-D2n"/>
                 <outlet property="postingContentsLabel" destination="x2X-wx-g8T" id="SQm-E8-Nkc"/>
                 <outlet property="postingIconImageView" destination="Q1U-i0-4za" id="QKp-qU-gbz"/>
-                <outlet property="postingLikeButton" destination="aL1-x0-uFt" id="vjs-lt-h4D"/>
                 <outlet property="postingNicknameLabel" destination="skQ-m6-1g4" id="BCZ-ta-Neh"/>
                 <outlet property="postingScrapButton" destination="gKn-Vs-OUQ" id="EVc-ce-yxF"/>
+                <outlet property="postingThumbUpButton" destination="aL1-x0-uFt" id="3p2-ex-0CP"/>
                 <outlet property="postingTitleLabel" destination="nYb-Mi-kcB" id="Fej-4J-dxl"/>
             </connections>
             <point key="canvasLocation" x="37.692307692307693" y="171.6824644549763"/>
@@ -117,9 +122,13 @@
     <resources>
         <image name="currentpin" width="20" height="20"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

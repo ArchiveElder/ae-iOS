@@ -18,6 +18,8 @@ class PostingDetailViewController: BaseViewController {
     var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
     
+    var userId = UserDefaults.standard.integer(forKey: "UserId")
+    var postIdx : Int = 0
     
     var nickname : String = ""
     override func viewDidLoad() {
@@ -36,12 +38,14 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.rowHeight = 110
         
         
+        
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 113, delegate: self)
+        print(userId, postIdx)
+        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
     }
 
     func setMoreButton() {
@@ -100,8 +104,15 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.postingTitleLabel.text = postingDetailResponse?.title
         header.postingContentsLabel.text = postingDetailResponse?.content
         header.postingIconImageView.image = UIImage(named: "profile\(postingDetailResponse?.icon ?? 0)")
-        header.postingLikeButton.setTitle(String(likeButtonCount), for: .normal)
+        header.postingThumbUpButton.setTitle(String(likeButtonCount), for: .normal)
         header.postingScrapButton.setTitle(String(commentButtonCount), for: .normal)
+        if(postingDetailResponse?.isLiked == 0){
+            header.postingThumbUpButton.isSelected = false
+        } else if((postingDetailResponse?.isLiked! ?? 0) >= 1){
+            header.postingThumbUpButton.isSelected = true
+        }
+        header.postIdx = postIdx
+        header.isLiked = postingDetailResponse?.isLiked ?? 0
         header.imageArray = imageLists ?? []
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false

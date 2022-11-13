@@ -42,23 +42,15 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-dn-yEC">
-                        <rect key="frame" x="58" y="81" width="33" height="15.666666666666671"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="FCz-M7-Qfv" firstAttribute="top" secondItem="giw-YJ-4Zw" secondAttribute="bottom" constant="15" id="0SU-1W-tRu"/>
                     <constraint firstItem="giw-YJ-4Zw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0gv-Gv-ixE"/>
                     <constraint firstItem="vqE-LH-LN4" firstAttribute="leading" secondItem="FCz-M7-Qfv" secondAttribute="leading" id="9Xr-KY-pZz"/>
-                    <constraint firstItem="6zo-dn-yEC" firstAttribute="centerY" secondItem="vqE-LH-LN4" secondAttribute="centerY" id="Dcu-cU-uYr"/>
                     <constraint firstItem="FCz-M7-Qfv" firstAttribute="leading" secondItem="giw-YJ-4Zw" secondAttribute="leading" id="Udk-3s-qCa"/>
                     <constraint firstItem="pnq-4x-6kz" firstAttribute="leading" secondItem="giw-YJ-4Zw" secondAttribute="trailing" constant="5" id="Ywk-rW-uJH"/>
                     <constraint firstItem="pnq-4x-6kz" firstAttribute="centerY" secondItem="giw-YJ-4Zw" secondAttribute="centerY" id="Znr-P4-giG"/>
                     <constraint firstItem="giw-YJ-4Zw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ccd-Y9-rOe"/>
-                    <constraint firstItem="6zo-dn-yEC" firstAttribute="leading" secondItem="vqE-LH-LN4" secondAttribute="trailing" constant="10" id="neh-C6-rBM"/>
                     <constraint firstItem="vqE-LH-LN4" firstAttribute="top" secondItem="FCz-M7-Qfv" secondAttribute="bottom" constant="10" id="vRG-el-4Nu"/>
                 </constraints>
             </tableViewCellContentView>
