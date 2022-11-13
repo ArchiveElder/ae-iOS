@@ -11,6 +11,9 @@ class PostViewController: BaseViewController {
     
     lazy var postDataManager: PostDataManagerDelegate = PostDataManager()
     
+    let categories = ["일상", "레시피", "공지", "질문", "꿀팁"]
+    var pickerView = UIPickerView()
+    
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
@@ -32,15 +35,21 @@ class PostViewController: BaseViewController {
         self.view.backgroundColor = .white
         dismissButton()
         setDoneButton()
-        keyboardDismissButton.isHidden = true
         setNavigationTitle(title: "글쓰기")
         doneButton.isEnabled = false
+        categoryTextField.text = categories[0]
+        editingStatusChanged()
+        contentTextView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         titleTextField.addTarget(self, action: #selector(editingStatusChanged), for: .editingChanged)
         categoryTextField.addTarget(self, action: #selector(editingStatusChanged), for: .editingChanged)
+        categoryTextField.addTarget(self, action: #selector(hideDismissButton), for: .editingDidBegin)
+        
+        pickerView.delegate = self
+        categoryTextField.inputView = pickerView
     }
     
     @objc func editingStatusChanged() {
@@ -49,6 +58,10 @@ class PostViewController: BaseViewController {
         } else {
             doneButton.isEnabled = false
         }
+    }
+    
+    @objc func hideDismissButton() {
+        keyboardDismissButton.isHidden = true
     }
 
     // 뒤로가기/중간이탈 버튼 추가
@@ -102,8 +115,9 @@ class PostViewController: BaseViewController {
     func isPostingAvailable() -> Bool {
         if titleTextField.text != "" && contentTextView.text != "" && categoryTextField.text != "" {
             return true
+        } else {
+            return false
         }
-        return false
     }
     
     @objc func handleKeyboardNotification(notification: NSNotification) {
@@ -126,6 +140,11 @@ class PostViewController: BaseViewController {
         }
     }
     
+    @objc func tapDone() {
+        self.keyboardDismissButton.isHidden = false
+        self.categoryTextField.resignFirstResponder()
+    }
+    
     deinit {
         NotificationCenter().removeObserver(self)
     }
@@ -135,6 +154,24 @@ extension PostViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         editingStatusChanged()
         return true
+    }
+}
+
+extension PostViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = categories[row]
     }
 }
 
