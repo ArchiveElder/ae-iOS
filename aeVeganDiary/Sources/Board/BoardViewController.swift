@@ -17,10 +17,14 @@ class BoardViewController: BaseViewController {
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    var categoryPickerView = UIPickerView()
     
     let viewModel = BoardViewModel.shared
     let disposeBag = DisposeBag()
     let cellId = "BoardTableViewCell"
+    
+    let categories = ["전체", "일상", "레시피", "공지", "질문", "꿀팁"]
+    var categoryIndex = 0
     
     let refreshControl = UIRefreshControl()
     
@@ -42,8 +46,13 @@ class BoardViewController: BaseViewController {
         super.viewDidLoad()
 
         setNavigationTitle(title: "커뮤니티")
+        categoryPickerView.delegate = self
+        
+        boardTableView.delegate = self
         
         boardTableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: "BoardTableViewCell")
+        let headerNib = UINib(nibName: "BoardHeaderView", bundle: nil)
+        boardTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "BoardHeaderView")
         refreshControl.endRefreshing()
         boardTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshControlTriggered), for: .valueChanged)
@@ -106,6 +115,49 @@ class BoardViewController: BaseViewController {
     
     @objc private func refreshControlTriggered() {
         viewModel.refreshControlAction.onNext(())
-      }
+    }
 
+    @objc func changeCategory() {
+        dismissKeyboard()
+        self.viewModel.category = categories[categoryIndex]
+        refreshControlTriggered()
+    }
+}
+
+extension BoardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(changeCategory))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([flexSpace, button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "BoardHeaderView") as! BoardHeaderView
+        header.categoryTextField.inputView = categoryPickerView
+        header.categoryTextField.inputAccessoryView = toolBar
+        header.categoryTextField.text = self.viewModel.category
+        
+        return header
+    }
+}
+
+extension BoardViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.categoryIndex = row
+        //self.viewModel.category = categories[row]
+        //refreshControlTriggered()
+    }
 }

@@ -13,6 +13,7 @@ class BoardViewModel {
     static let shared = BoardViewModel()
     
     var posts = BehaviorRelay<[Post]>(value: [])
+    var category = "전체"
     let disposeBag = DisposeBag()
     
     let fetchMoreDatas = PublishSubject<Void>()
@@ -26,14 +27,14 @@ class BoardViewModel {
     
     init() {
         bind()
-        self.fetchData(caetgory: "all", page: self.pageCounter, isRefreshControl: false)
+        self.fetchData(category: self.categoryToEng(category: self.category), page: self.pageCounter, isRefreshControl: false)
     }
     
     func bind() {
         fetchMoreDatas.subscribe { [weak self] _ in
             guard let self = self else { return }
             //self.fetchDummyData(page: self.pageCounter, isRefreshControl: false)
-            self.fetchData(caetgory: "all", page: self.pageCounter, isRefreshControl: false)
+            self.fetchData(category: self.categoryToEng(category: self.category), page: self.pageCounter, isRefreshControl: false)
         }
         .disposed(by: disposeBag)
         
@@ -43,7 +44,7 @@ class BoardViewModel {
         .disposed(by: disposeBag)
     }
     
-    func fetchData(caetgory: String, page: Int, isRefreshControl: Bool) {
+    func fetchData(category: String, page: Int, isRefreshControl: Bool) {
         if isPaginationRequestStillResume || isRefreshRequstStillResume { return }
         self.isRefreshRequstStillResume = isRefreshControl
         
@@ -62,7 +63,7 @@ class BoardViewModel {
         let userId = UserDefaults.standard.integer(forKey: "UserId")
         print("userId \(userId)")
         print("pageCounter \(pageCounter)")
-        _ = BoardDataManager.getPosts(userIdx: userId, category: "all", page: pageCounter)
+        _ = BoardDataManager.getPosts(userIdx: userId, category: categoryToEng(category: self.category), page: pageCounter)
             .map { data -> [Post] in
                 //let posts = data.postLists
                 self.isLoadingSpinnerAvaliable.onNext(false)
@@ -88,6 +89,23 @@ class BoardViewModel {
         isPaginationRequestStillResume = false
         pageCounter = 0
         posts.accept([])
-        fetchData(caetgory: "all", page: 0, isRefreshControl: true)
+        fetchData(category: "all", page: 0, isRefreshControl: true)
+    }
+    
+    func categoryToEng(category: String) -> String {
+        switch category {
+        case "일상":
+            return "daily"
+        case "레시피":
+            return "recipe"
+        case "공지":
+            return "notice"
+        case "질문":
+            return "question"
+        case "꿀팁":
+            return "honeytip"
+        default:
+            return "all"
+        }
     }
 }
