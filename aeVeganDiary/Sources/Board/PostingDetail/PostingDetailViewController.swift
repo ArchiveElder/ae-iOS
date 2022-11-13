@@ -37,17 +37,34 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.estimatedRowHeight = 110
         postingDetailTableView?.rowHeight = 110
         
-        
-        
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(userId, postIdx)
+        //print(userId, postIdx)
         getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
     }
+    
+    /*
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
+        if let headerView = postingDetailTableView!.tableHeaderView {
+            print("프레임:", headerView.frame)
+            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+
+            //Comparison necessary to avoid infinite loop
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                postingDetailTableView!.tableHeaderView = headerView
+            }
+        }
+    }
+*/
+    
     func setMoreButton() {
         let moreButton: UIButton = UIButton()
         let moreButtonImage = UIImage(systemName: "ellipsis.circle")?.withRenderingMode(.alwaysTemplate)
@@ -88,8 +105,8 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
         //return UITableView.automaticDimension
+        return UITableView.automaticDimension
         }
 
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
@@ -105,22 +122,31 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.postingContentsLabel.text = postingDetailResponse?.content
         header.postingIconImageView.image = UIImage(named: "profile\(postingDetailResponse?.icon ?? 0)")
         header.postingThumbUpButton.setTitle(String(likeButtonCount), for: .normal)
-        header.postingScrapButton.setTitle(String(commentButtonCount), for: .normal)
+        header.postingCommentButton.setTitle(String(commentButtonCount), for: .normal)
         if(postingDetailResponse?.isLiked == 0){
             header.postingThumbUpButton.isSelected = false
         } else if((postingDetailResponse?.isLiked! ?? 0) >= 1){
             header.postingThumbUpButton.isSelected = true
+        }
+        
+        if(postingDetailResponse?.isScraped == 0){
+            header.postingScrapButton.isSelected = false
+        } else if(postingDetailResponse?.isScraped! ?? 0 >= 1){
+            header.postingScrapButton.isSelected = true
         }
         header.postIdx = postIdx
         header.isLiked = postingDetailResponse?.isLiked ?? 0
         header.imageArray = imageLists ?? []
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false
+            header.imageCollectionViewHeight.constant = 110
             header.postingContentImageCollectionView.reloadData()
         } else {
-            header.postingContentImageCollectionView.isHidden = true
+            //header.postingContentImageCollectionView.isHidden = true
+            header.imageCollectionViewHeight.constant = 0
         }
         
+        header.reloadInputViews()
         return header
         
         
@@ -135,16 +161,16 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension PostingDetailViewController : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
         dismissIndicator()
-        print(result)
+        //print(result)
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
         self.imageLists = result.imagesLists
+        
         postingDetailTableView?.reloadData()
     }
     
     func failedToRequest(message: String, code: Int) {
         
     }
-    
     
 }
