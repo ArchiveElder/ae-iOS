@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class PostViewController: BaseViewController {
     
@@ -14,6 +15,9 @@ class PostViewController: BaseViewController {
     let categories = ["일상", "레시피", "공지", "질문", "꿀팁"]
     var pickerView = UIPickerView()
     
+    var photoList:[UIImage] = []
+    var pickerConfiguration = PHPickerConfiguration()
+    
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
@@ -21,6 +25,16 @@ class PostViewController: BaseViewController {
     @IBOutlet weak var keyboardToolbarView: UIView!
     @IBOutlet weak var keyboardToolbarViewBottomConstraint: NSLayoutConstraint!
     @IBAction func photoButtonAction(_ sender: Any) {
+        if photoList.count > 10 {
+            presentAlert(message: "사진은 10개까지만 선택할 수 있어요")
+        } else {
+            pickerConfiguration.filter = .images
+            pickerConfiguration.selectionLimit = 10 - photoList.count
+            let picker = PHPickerViewController(configuration: pickerConfiguration)
+            picker.delegate = self
+            picker.modalPresentationStyle = .overFullScreen
+            self.present(picker, animated: true)
+        }
     }
     @IBOutlet weak var keyboardDismissButton: UIButton!
     @IBAction func keyboardDismissButtonAction(_ sender: Any) {
@@ -41,6 +55,9 @@ class PostViewController: BaseViewController {
         editingStatusChanged()
         contentTextView.delegate = self
         
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -50,6 +67,8 @@ class PostViewController: BaseViewController {
         
         pickerView.delegate = self
         categoryTextField.inputView = pickerView
+        
+        photoCollectionView.register(UINib(nibName: "PostPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostPhotoCollectionViewCell")
     }
     
     @objc func editingStatusChanged() {
@@ -105,11 +124,11 @@ class PostViewController: BaseViewController {
         showIndicator()
         let title = titleTextField.text ?? ""
         let content = contentTextView.text ?? ""
-        let groupName = categoryTextField.text ?? ""
-        let postingInput = PostRequest(title: title, content: content, groupName: groupName)
+        let boardName = categoryTextField.text ?? ""
+        let postingInput = PostRequest(title: title, content: content, boardName: boardName)
         let userId = UserDefaults.standard.integer(forKey: "UserId")
         
-        postDataManager.postPosting(postingInput, multipartFileList: nil, userIdx: userId, delegate: self)
+        postDataManager.postPosting(postingInput, multipartFileList: photoList, userIdx: userId, delegate: self)
     }
     
     func isPostingAvailable() -> Bool {
@@ -145,8 +164,54 @@ class PostViewController: BaseViewController {
         self.categoryTextField.resignFirstResponder()
     }
     
+    @objc func deletePhoto(sender: UIButton) {
+        photoList.remove(at: sender.tag)
+        photoCollectionView.reloadData()
+    }
+    
     deinit {
         NotificationCenter().removeObserver(self)
+    }
+}
+
+extension PostViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostPhotoCollectionViewCell", for: indexPath) as! PostPhotoCollectionViewCell
+        cell.photoImageView.image = photoList[indexPath.row]
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deletePhoto(sender:)), for: .touchUpInside)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 128, height: 128)
+    }
+}
+
+extension PostViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        if !(results.isEmpty)  {
+            for result in results {
+                let itemProvider = result.itemProvider
+                if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                        DispatchQueue.main.async {
+                            if let image = image as? UIImage {
+                                self.photoList.append(image) // 5
+                            }
+                            self.photoCollectionView.reloadData()
+                        }
+                        
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -176,9 +241,9 @@ extension PostViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension PostViewController: PostViewDelegate {
-    func didSuccessPost(_ result: PostResponse) {
+    func didSuccessPost() {
         dismissIndicator()
-        self.dismiss(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func failedToPost(message: String, code: Int) {

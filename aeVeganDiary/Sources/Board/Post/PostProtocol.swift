@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PostViewDelegate {
-    func didSuccessPost(_ result: PostResponse)
+    func didSuccessPost()
     func failedToPost(message: String, code: Int)
 }
 
