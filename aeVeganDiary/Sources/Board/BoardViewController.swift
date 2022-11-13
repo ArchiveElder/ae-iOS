@@ -12,6 +12,11 @@ import RxCocoa
 class BoardViewController: BaseViewController {
 
     @IBOutlet weak var boardTableView: UITableView!
+    @IBAction func postButtonAction(_ sender: Any) {
+        let vc = PostViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     let viewModel = BoardViewModel.shared
     let disposeBag = DisposeBag()
