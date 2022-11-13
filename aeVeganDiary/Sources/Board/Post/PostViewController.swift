@@ -12,7 +12,7 @@ class PostViewController: BaseViewController {
     
     lazy var postDataManager: PostDataManagerDelegate = PostDataManager()
     
-    let categories = ["일상", "레시피", "공지", "질문", "꿀팁"]
+    let categories = ["일상", "레시피", "질문", "꿀팁"]
     var pickerView = UIPickerView()
     
     var photoList:[UIImage] = []
