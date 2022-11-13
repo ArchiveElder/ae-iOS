@@ -108,6 +108,8 @@
 		CD3D1CBE29208AFD0075BC17 /* PostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */; };
 		CD3D1CC029208B250075BC17 /* PostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CBF29208B250075BC17 /* PostProtocol.swift */; };
 		CD3D1CC229208B470075BC17 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC129208B470075BC17 /* PostResponse.swift */; };
+		CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */; };
+		CD3D1CC72920C5E30075BC17 /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
 		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
@@ -301,6 +303,8 @@
 		CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataManager.swift; sourceTree = "<group>"; };
 		CD3D1CBF29208B250075BC17 /* PostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProtocol.swift; sourceTree = "<group>"; };
 		CD3D1CC129208B470075BC17 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
 		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
@@ -681,6 +685,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CD3D1CC32920C5BD0075BC17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */,
+				CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CD4778E729066AEB002D8D7C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +759,7 @@
 		CDA99C8A291F4A1200E01342 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				CD3D1CC32920C5BD0075BC17 /* Cell */,
 				CD3D1CBA2920899E0075BC17 /* Entity */,
 				CDA99C8B291F4A2600E01342 /* PostViewController.swift */,
 				CDA99C8C291F4A2600E01342 /* PostViewController.xib */,
@@ -1133,6 +1147,7 @@
 				CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
+				CD3D1CC72920C5E30075BC17 /* PostPhotoCollectionViewCell.xib in Resources */,
 				8F1A5FA12897609200B64409 /* IngreTableViewCell.xib in Resources */,
 				8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */,
 				8F0FF9D628D08FCE00B870DF /* RecommCookViewController.xib in Resources */,
@@ -1303,6 +1318,7 @@
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
 				CDAECC9A29055E2E00C13D3D /* BookmarkDeleteProtocol.swift in Sources */,
+				CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				8F694667290645C0001C19EA /* DeleteMealResponse.swift in Sources */,
