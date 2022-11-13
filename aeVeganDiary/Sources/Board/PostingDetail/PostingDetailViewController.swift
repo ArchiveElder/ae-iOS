@@ -15,6 +15,7 @@ class PostingDetailViewController: BaseViewController {
     
     var postingDetailResponse : PostingDetailResponse?
     var commentLists : [CommentsLists]?
+    var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
     
     
@@ -30,16 +31,17 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.register(UINib(nibName: "PostingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PostingDetailTableViewCell")
         let headerNib = UINib(nibName: "PostingDetailHeaderView", bundle: nil)
         postingDetailTableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: "PostingDetailHeaderView")
-        postingDetailTableView?.sectionHeaderHeight = UITableView.automaticDimension
+        //postingDetailTableView?.sectionHeaderHeight = UITableView.automaticDimension
+        postingDetailTableView?.estimatedRowHeight = 110
+        postingDetailTableView?.rowHeight = 110
         
-        postingDetailTableView?.rowHeight = UITableView.automaticDimension
         
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 1, delegate: self)
+        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 113, delegate: self)
     }
 
     func setMoreButton() {
@@ -72,24 +74,26 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = (postingDetailTableView?.dequeueReusableCell(withIdentifier: "PostingDetailTableViewCell", for: indexPath)) as! PostingDetailTableViewCell
         
         
-        cell.commentNickname.text = commentLists?[indexPath.row].nickname
+        cell.commentNicknameLabel.text = commentLists?[indexPath.row].nickname
+        cell.commentIconImageView.image = UIImage(named: "profile\(commentLists?[indexPath.row].icon ?? 0)")
+        cell.commentContentLabel.text = commentLists?[indexPath.row].content
+        cell.commentDateLabel.text = commentLists?[indexPath.row].date
         print("테이블뷰:", postingDetailResponse)
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 300
         //return UITableView.automaticDimension
-        return 200
         }
 
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 300
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PostingDetailHeaderView") as! PostingDetailHeaderView
-        
         var likeButtonCount : Int = postingDetailResponse?.thumbupCount ?? 0
         var commentButtonCount : Int = postingDetailResponse?.commentCount ?? 0
         header.postingNicknameLabel.text = postingDetailResponse?.nickname
@@ -98,9 +102,16 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.postingIconImageView.image = UIImage(named: "profile\(postingDetailResponse?.icon ?? 0)")
         header.postingLikeButton.setTitle(String(likeButtonCount), for: .normal)
         header.postingScrapButton.setTitle(String(commentButtonCount), for: .normal)
-        header.reloadInputViews()
+        header.imageArray = imageLists ?? []
+        if(imageLists?.isEmpty == false) {
+            header.postingContentImageCollectionView.isHidden = false
+            header.postingContentImageCollectionView.reloadData()
+        } else {
+            header.postingContentImageCollectionView.isHidden = true
+        }
         
         return header
+        
         
         }
     
@@ -113,8 +124,10 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension PostingDetailViewController : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
         dismissIndicator()
+        print(result)
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
+        self.imageLists = result.imagesLists
         postingDetailTableView?.reloadData()
     }
     

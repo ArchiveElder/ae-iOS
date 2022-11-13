@@ -9,7 +9,10 @@ import UIKit
 
 class PostingDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var commentNickname: UILabel!
+    @IBOutlet weak var commentNicknameLabel: UILabel!
+    @IBOutlet weak var commentIconImageView: UIImageView!
+    @IBOutlet weak var commentContentLabel: UILabel!
+    @IBOutlet weak var commentDateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,3 +25,4 @@ class PostingDetailTableViewCell: UITableViewCell {
     }
     
 }
+

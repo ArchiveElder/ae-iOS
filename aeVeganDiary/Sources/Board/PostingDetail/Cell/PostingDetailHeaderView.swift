@@ -9,6 +9,7 @@ import UIKit
 
 class PostingDetailHeaderView: UITableViewHeaderFooterView {
     
+    @IBOutlet weak var postingContentImageCollectionView: UICollectionView!
     @IBOutlet weak var postingIconImageView: UIImageView!
     @IBOutlet weak var postingNicknameLabel: UILabel!
     @IBOutlet weak var postingTitleLabel: UILabel!
@@ -16,10 +17,14 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var postingLikeButton: UIButton!
     @IBOutlet weak var postingScrapButton: UIButton!
     
+    var imagecount : Int = 0
+    var imageArray = [ImageLists]()
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-            }
+        postingContentImageCollectionView.delegate = self
+        postingContentImageCollectionView.dataSource = self
+        postingContentImageCollectionView.register(UINib(nibName: "PostingDetailImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostingDetailImageCollectionViewCell")
+        }
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -30,5 +35,19 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
         super.init(coder: coder)
     }
 
+}
 
+extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(imageArray)
+        return imageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostingDetailImageCollectionViewCell", for: indexPath) as! PostingDetailImageCollectionViewCell
+        cell.imageView.load(url: URL(string: imageArray[indexPath.row].imageUrl!)!)
+        
+        return cell
+    }
 }
