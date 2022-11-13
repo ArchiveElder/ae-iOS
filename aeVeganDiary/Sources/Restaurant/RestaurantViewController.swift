@@ -10,63 +10,61 @@ import EventKit
 
 class RestaurantViewController: UIViewController {
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var regionView: UIView!
+    @IBOutlet weak var categoryView: UIView!
+    
+    @IBOutlet weak var dismissButton: UIButton!
+    @IBAction func dismissButtonAction(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
+        mapVC.view.isHidden = true
+        listVC.view.isHidden = true
+        if sender.selectedSegmentIndex == 0 {
+            mapVC.view.isHidden = false
+        } else {
+            listVC.view.isHidden = false
+        }
+    }
+    
     var location: CLLocation?
     let mapVC = MapViewController()
-    let largeCategoryVC = LargeCategoryViewController()
+    let listVC = RestaurantListViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapVC.location = self.location
-        setToggleButton()
         setUp()
-    }
-    
-    let toggleButton: UIButton = UIButton()
-    
-    func setToggleButton() {
-        toggleButton.setImage(UIImage(named: "map"), for: .normal)
-        toggleButton.setImage(UIImage(named: "apps"), for: .selected)
-        toggleButton.addTarget(self, action: #selector(toggle(sender: )), for: .touchUpInside)
-        toggleButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
-        let addToggleButton = UIBarButtonItem(customView: toggleButton)
-        
-        self.navigationItem.setRightBarButton(addToggleButton, animated: false)
-    }
-    
-    @objc func toggle(sender: UIButton) {
-        mapVC.view.isHidden = true
-        largeCategoryVC.view.isHidden = true
-        if sender.isSelected {
-            sender.isSelected = false
-            mapVC.view.isHidden = false
-        } else {
-            sender.isSelected = true
-            largeCategoryVC.view.isHidden = false
-        }
     }
     
     func setUp() {
         addChild(mapVC)
-        addChild(largeCategoryVC)
+        addChild(listVC)
         
         self.view.addSubview(mapVC.view)
-        self.view.addSubview(largeCategoryVC.view)
+        self.view.addSubview(listVC.view)
+        
+        self.view.bringSubviewToFront(regionView)
+        self.view.bringSubviewToFront(categoryView)
+        self.view.bringSubviewToFront(segmentedControl)
+        self.view.bringSubviewToFront(dismissButton)
         
         mapVC.didMove(toParent: self)
-        largeCategoryVC.didMove(toParent: self)
+        listVC.didMove(toParent: self)
         
         mapVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        largeCategoryVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        listVC.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
         if location == nil {
             mapVC.view.isHidden = true
-            largeCategoryVC.view.isHidden = false
-            toggleButton.isSelected = true
+            listVC.view.isHidden = false
+            segmentedControl.selectedSegmentIndex = 1
         } else {
             mapVC.view.isHidden = false
-            largeCategoryVC.view.isHidden = true
-            toggleButton.isSelected = false
+            listVC.view.isHidden = true
+            segmentedControl.selectedSegmentIndex = 0
         }
         
     }
