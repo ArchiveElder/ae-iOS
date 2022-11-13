@@ -112,6 +112,12 @@
 		CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */; };
 		CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */; };
 		CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */; };
+		CD3D1CBC29208A1A0075BC17 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CBB29208A1A0075BC17 /* PostRequest.swift */; };
+		CD3D1CBE29208AFD0075BC17 /* PostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */; };
+		CD3D1CC029208B250075BC17 /* PostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CBF29208B250075BC17 /* PostProtocol.swift */; };
+		CD3D1CC229208B470075BC17 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC129208B470075BC17 /* PostResponse.swift */; };
+		CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */; };
+		CD3D1CC72920C5E30075BC17 /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
 		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
@@ -138,6 +144,8 @@
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2937C28CA2ABA00A48467 /* UserManager.swift */; };
+		CDA99C8D291F4A2600E01342 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA99C8B291F4A2600E01342 /* PostViewController.swift */; };
+		CDA99C8E291F4A2600E01342 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA99C8C291F4A2600E01342 /* PostViewController.xib */; };
 		CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */; };
 		CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8329042EB800C13D3D /* LoginRequest.swift */; };
 		CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAECC8529043ACC00C13D3D /* HomeRequest.swift */; };
@@ -307,6 +315,12 @@
 		CD29AD97289ACF75001C8C51 /* BookmarkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDataManager.swift; sourceTree = "<group>"; };
 		CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CD2D5AE828BF3F4B00F770DC /* aeVeganDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = aeVeganDiary.entitlements; sourceTree = "<group>"; };
+		CD3D1CBB29208A1A0075BC17 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataManager.swift; sourceTree = "<group>"; };
+		CD3D1CBF29208B250075BC17 /* PostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProtocol.swift; sourceTree = "<group>"; };
+		CD3D1CC129208B470075BC17 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
 		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
@@ -333,6 +347,8 @@
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDA2937C28CA2ABA00A48467 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CDA99C8B291F4A2600E01342 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		CDA99C8C291F4A2600E01342 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		CDAECC8129018A8D00C13D3D /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
 		CDAECC8329042EB800C13D3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CDAECC8529043ACC00C13D3D /* HomeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
@@ -700,6 +716,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CD3D1CBA2920899E0075BC17 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CD3D1CBB29208A1A0075BC17 /* PostRequest.swift */,
+				CD3D1CC129208B470075BC17 /* PostResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CD3D1CC32920C5BD0075BC17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */,
+				CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CD4778E729066AEB002D8D7C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,6 +794,19 @@
 				CDE2488D28475C2F00FE35E3 /* SelectTypeViewController.xib */,
 			);
 			path = SelectType;
+			sourceTree = "<group>";
+		};
+		CDA99C8A291F4A1200E01342 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				CD3D1CC32920C5BD0075BC17 /* Cell */,
+				CD3D1CBA2920899E0075BC17 /* Entity */,
+				CDA99C8B291F4A2600E01342 /* PostViewController.swift */,
+				CDA99C8C291F4A2600E01342 /* PostViewController.xib */,
+				CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */,
+				CD3D1CBF29208B250075BC17 /* PostProtocol.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		CDAECCA12905905D00C13D3D /* BottomSheet */ = {
@@ -1009,6 +1056,7 @@
 		CDED422C2917C1E6002A4B49 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				CDA99C8A291F4A1200E01342 /* Post */,
 				8FC969FC291BD685006C0C8B /* PostingDetail */,
 				CDD9DCE8291E0D4100FEBF32 /* Entity */,
 				CDED42352917DE2E002A4B49 /* Cell */,
@@ -1116,6 +1164,7 @@
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
+				CDA99C8E291F4A2600E01342 /* PostViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
 				8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */,
 				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
@@ -1140,6 +1189,7 @@
 				CD6A4562288E790D004B8B91 /* MapViewController.xib in Resources */,
 				CDE47F4528424B45005D8BB3 /* LaunchScreen.storyboard in Resources */,
 				CDE47F6E2842747D005D8BB3 /* AnalyzeViewController.xib in Resources */,
+				CD3D1CC72920C5E30075BC17 /* PostPhotoCollectionViewCell.xib in Resources */,
 				8F1A5FA12897609200B64409 /* IngreTableViewCell.xib in Resources */,
 				8FC96A05291BDC31006C0C8B /* PostingDetailBottomSheetViewController.xib in Resources */,
 				8F0FF9D628D08FCE00B870DF /* RecommCookViewController.xib in Resources */,
@@ -1254,6 +1304,7 @@
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
 				CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */,
 				CDD9DCEC291E0EC000FEBF32 /* BoardDataManager.swift in Sources */,
+				CD3D1CC029208B250075BC17 /* PostProtocol.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
@@ -1286,10 +1337,12 @@
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
+				CDA99C8D291F4A2600E01342 /* PostViewController.swift in Sources */,
 				8F1A5FA42898F68900B64409 /* HasTableViewCell.swift in Sources */,
 				CDC61208284A50480041F5C7 /* RegisterDataManager.swift in Sources */,
 				8FD47FE128A3A16C002D2B82 /* MiddleCategoryTableViewCell.swift in Sources */,
 				CDAECC8829043AF300C13D3D /* HomeProtocol.swift in Sources */,
+				CD3D1CC229208B470075BC17 /* PostResponse.swift in Sources */,
 				CD4FE96C28939AF400D2F2E6 /* MapResponse.swift in Sources */,
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
@@ -1306,10 +1359,12 @@
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* UpdateMyInfoDataManager.swift in Sources */,
+				CD3D1CBE29208AFD0075BC17 /* PostDataManager.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
 				CDAECC9A29055E2E00C13D3D /* BookmarkDeleteProtocol.swift in Sources */,
+				CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				8F694667290645C0001C19EA /* DeleteMealResponse.swift in Sources */,
@@ -1352,6 +1407,7 @@
 				CDAECC9829053F7B00C13D3D /* BookmarkProtocol.swift in Sources */,
 				CD7C9FD328B865BB00C8635E /* BookmarkDeleteDataManager.swift in Sources */,
 				CDED42382917DECF002A4B49 /* BoardTableViewCell.swift in Sources */,
+				CD3D1CBC29208A1A0075BC17 /* PostRequest.swift in Sources */,
 				8F69464E290614F5001C19EA /* GetMyInfoProtocol.swift in Sources */,
 				8FC96A17291E319B006C0C8B /* PostingDetailTableViewCell.swift in Sources */,
 				8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */,
