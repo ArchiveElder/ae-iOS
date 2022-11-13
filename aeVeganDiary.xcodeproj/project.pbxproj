@@ -118,6 +118,8 @@
 		CD3D1CC229208B470075BC17 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC129208B470075BC17 /* PostResponse.swift */; };
 		CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */; };
 		CD3D1CC72920C5E30075BC17 /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */; };
+		CD3D1CC92920DDDA0075BC17 /* BoardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC82920DDDA0075BC17 /* BoardHeaderView.swift */; };
+		CD3D1CCB2920DDE60075BC17 /* BoardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3D1CCA2920DDE60075BC17 /* BoardHeaderView.xib */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
 		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
 		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
@@ -321,6 +323,8 @@
 		CD3D1CC129208B470075BC17 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		CD3D1CC42920C5E30075BC17 /* PostPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD3D1CC52920C5E30075BC17 /* PostPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		CD3D1CC82920DDDA0075BC17 /* BoardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderView.swift; sourceTree = "<group>"; };
+		CD3D1CCA2920DDE60075BC17 /* BoardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderView.xib; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
 		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
@@ -1071,6 +1075,8 @@
 		CDED42352917DE2E002A4B49 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CD3D1CC82920DDDA0075BC17 /* BoardHeaderView.swift */,
+				CD3D1CCA2920DDE60075BC17 /* BoardHeaderView.xib */,
 				CDED42362917DECF002A4B49 /* BoardTableViewCell.swift */,
 				CDED42372917DECF002A4B49 /* BoardTableViewCell.xib */,
 			);
@@ -1200,6 +1206,7 @@
 				8FD4800028A6437C002D2B82 /* RestaurantSearchTableViewCell.xib in Resources */,
 				CDE47F672842741E005D8BB3 /* HomeViewController.xib in Resources */,
 				CDED42342917DA1D002A4B49 /* BoardViewController.xib in Resources */,
+				CD3D1CCB2920DDE60075BC17 /* BoardHeaderView.xib in Resources */,
 				8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */,
 				8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */,
 			);
@@ -1385,6 +1392,7 @@
 				CDAECC8429042EB800C13D3D /* LoginRequest.swift in Sources */,
 				CD00F689286DE0C500F8A8C0 /* LoginResponse.swift in Sources */,
 				8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */,
+				CD3D1CC92920DDDA0075BC17 /* BoardHeaderView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
