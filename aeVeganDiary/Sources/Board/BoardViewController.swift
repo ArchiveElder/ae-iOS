@@ -44,6 +44,7 @@ class BoardViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
 
         setNavigationTitle(title: "커뮤니티")
         categoryPickerView.delegate = self
