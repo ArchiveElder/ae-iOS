@@ -61,6 +61,10 @@
 		8F694667290645C0001C19EA /* DeleteMealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694666290645C0001C19EA /* DeleteMealResponse.swift */; };
 		8F6946692906460E001C19EA /* DeleteMealProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6946682906460E001C19EA /* DeleteMealProtocol.swift */; };
 		8F69466B29064619001C19EA /* DeleteMealDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69466A29064619001C19EA /* DeleteMealDataManager.swift */; };
+		8F92037F2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92037D2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift */; };
+		8F9203802920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */; };
+		8F9203822920DF17009679EC /* ThumbUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203812920DF17009679EC /* ThumbUpRequest.swift */; };
+		8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203852920DF3E009679EC /* ThumbUpResponse.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
@@ -253,6 +257,10 @@
 		8F694666290645C0001C19EA /* DeleteMealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMealResponse.swift; sourceTree = "<group>"; };
 		8F6946682906460E001C19EA /* DeleteMealProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMealProtocol.swift; sourceTree = "<group>"; };
 		8F69466A29064619001C19EA /* DeleteMealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMealDataManager.swift; sourceTree = "<group>"; };
+		8F92037D2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8F9203812920DF17009679EC /* ThumbUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpRequest.swift; sourceTree = "<group>"; };
+		8F9203852920DF3E009679EC /* ThumbUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpResponse.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -564,6 +572,8 @@
 			children = (
 				8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */,
 				8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */,
+				8F9203812920DF17009679EC /* ThumbUpRequest.swift */,
+				8F9203852920DF3E009679EC /* ThumbUpResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -575,6 +585,8 @@
 				8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */,
 				8FC96A15291E319B006C0C8B /* PostingDetailTableViewCell.swift */,
 				8FC96A16291E319B006C0C8B /* PostingDetailTableViewCell.xib */,
+				8F92037D2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift */,
+				8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1117,6 +1129,7 @@
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
 				8F13E9572851FADF00F090C4 /* BodyInitViewController.xib in Resources */,
 				CDE2488F28475C2F00FE35E3 /* SelectTypeViewController.xib in Resources */,
+				8F9203802920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib in Resources */,
 				8FC969FB291A16BE006C0C8B /* ScrapViewController.xib in Resources */,
 				8F0FF9DA28D1BE2E00B870DF /* RecommCollectionViewCell.xib in Resources */,
 				CDE47F76284274B0005D8BB3 /* MypageViewController.xib in Resources */,
@@ -1255,6 +1268,7 @@
 				CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */,
 				CDD9DCEC291E0EC000FEBF32 /* BoardDataManager.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
+				8F92037F2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift in Sources */,
 				8FD47FF028A3E655002D2B82 /* RegionInput.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
 				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
@@ -1269,11 +1283,13 @@
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
 				8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */,
+				8F9203822920DF17009679EC /* ThumbUpRequest.swift in Sources */,
 				CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */,
 				8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
 				8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */,
+				8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F69464429053F54001C19EA /* SearchProtocol.swift in Sources */,
