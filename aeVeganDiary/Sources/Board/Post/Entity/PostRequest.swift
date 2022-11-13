@@ -10,5 +10,5 @@ import Foundation
 struct PostRequest: Encodable {
     var title: String
     var content: String
-    var groupName: String
+    var boardName: String
 }

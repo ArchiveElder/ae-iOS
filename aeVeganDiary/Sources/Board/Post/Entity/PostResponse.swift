@@ -8,5 +8,5 @@
 import Foundation
 
 struct PostResponse: Decodable {
-    var userIdx: Int?
+    
 }
