@@ -29,6 +29,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nr-U9-khb">
                     <rect key="frame" x="17" y="17" width="96" height="30"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-6R-3Ig">
+                            <rect key="frame" x="78" y="11" width="10" height="8.5"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="UlO-6R-3Ig" secondAttribute="height" multiplier="4:5" id="Dq4-PZ-HG6"/>
+                                <constraint firstAttribute="width" constant="10" id="dPl-Qc-4Rf"/>
+                            </constraints>
+                        </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="일상" placeholder="게시판을 선택해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COH-ty-wjB">
                             <rect key="frame" x="8" y="5" width="80" height="20"/>
                             <constraints>
@@ -39,14 +47,6 @@
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-6R-3Ig">
-                            <rect key="frame" x="78" y="11" width="10" height="8.5"/>
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="UlO-6R-3Ig" secondAttribute="height" multiplier="4:5" id="Dq4-PZ-HG6"/>
-                                <constraint firstAttribute="width" constant="10" id="dPl-Qc-4Rf"/>
-                            </constraints>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
