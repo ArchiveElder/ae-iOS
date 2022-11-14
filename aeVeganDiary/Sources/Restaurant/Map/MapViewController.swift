@@ -49,8 +49,12 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     }
     
     var restaurantList = [MapData]()
+    var filteredRestaurantList = [MapData]()
     var markerList = [GMSMarker]()
     var markerIndex: Int? = nil
+    
+    var mainCategory = ""
+    var middleCategory = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,28 +100,76 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
           mapView.animate(toZoom: mapView.camera.zoom + 1)
           return true
         }
-        
-        if let firstIndex = markerList.firstIndex(of: marker) {
-            let info = restaurantList[firstIndex]
-            markerIndex = info.bistro_id
-            nameLabel.text = info.name
-            categoryLabel.text = info.category
-            roadAddrLabel.text = info.roadAddr
-            lnmAddrLabel.text = info.lnmAddr
-            restaurantUrl = info.bistroUrl ?? ""
-            if info.isBookmark == 1 {
-                bookmarkButton.isSelected = true
+        if !filteredRestaurantList.isEmpty {
+            if let firstIndex = markerList.firstIndex(of: marker) {
+                let info = filteredRestaurantList[firstIndex]
+                markerIndex = info.bistro_id
+                nameLabel.text = info.name
+                categoryLabel.text = info.category
+                roadAddrLabel.text = info.roadAddr
+                lnmAddrLabel.text = info.lnmAddr
+                restaurantUrl = info.bistroUrl ?? ""
+                if info.isBookmark == 1 {
+                    bookmarkButton.isSelected = true
+                } else {
+                    bookmarkButton.isSelected = false
+                }
             } else {
-                bookmarkButton.isSelected = false
+                markerIndex = nil
             }
         } else {
-            markerIndex = nil
+            if let firstIndex = markerList.firstIndex(of: marker) {
+                let info = restaurantList[firstIndex]
+                markerIndex = info.bistro_id
+                nameLabel.text = info.name
+                categoryLabel.text = info.category
+                roadAddrLabel.text = info.roadAddr
+                lnmAddrLabel.text = info.lnmAddr
+                restaurantUrl = info.bistroUrl ?? ""
+                if info.isBookmark == 1 {
+                    bookmarkButton.isSelected = true
+                } else {
+                    bookmarkButton.isSelected = false
+                }
+            } else {
+                markerIndex = nil
+            }
         }
-
+        
         return false
     }
+    
+    func loadMap(mainCategory: String, middleCategory: String) {
+        if mainCategory == "" || middleCategory == "" {
+            return
+        }
+        
+        self.mainCategory = mainCategory
+        self.middleCategory = middleCategory
+        
+        for i in markerList {
+            i.map = nil
+        }
+        markerList.removeAll()
+        
+        filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        print("mainCategory \(mainCategory)")
+        print("middleCategory \(middleCategory)")
+        print(filteredRestaurantList)
+        for i in filteredRestaurantList {
+            let mapCenter = CLLocationCoordinate2DMake(i.la, i.lo)
+            let marker = GMSMarker(position: mapCenter)
+            if i.isBookmark == 1 {
+                marker.icon = UIImage(named: "locationpinbookmark")
+            } else {
+                marker.icon = UIImage(named: "locationpin")
+            }
+            
+            marker.map = mapView
+            markerList.append(marker)
+        }
+    }
 }
-
 
 // MARK: 서버 통신
 extension MapViewController: MapViewDelegate, BookmarkViewDelegate, BookmarkDeleteViewDelegate {
@@ -145,6 +197,8 @@ extension MapViewController: MapViewDelegate, BookmarkViewDelegate, BookmarkDele
             
             restaurantList = data
         }
+        
+        self.loadMap(mainCategory: self.mainCategory, middleCategory: self.middleCategory)
     }
     
     func failedToRequest(message: String, code: Int) {

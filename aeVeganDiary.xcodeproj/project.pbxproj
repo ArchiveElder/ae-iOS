@@ -141,6 +141,10 @@
 		CD3D1CC92920DDDA0075BC17 /* BoardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D1CC82920DDDA0075BC17 /* BoardHeaderView.swift */; };
 		CD3D1CCD292114DD0075BC17 /* BoardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3D1CCC292114DD0075BC17 /* BoardHeaderView.xib */; };
 		CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E930D284DED9D0057E24F /* ArcProgressView.swift */; };
+		CD464F6B2921348100BC7FA7 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD464F692921348100BC7FA7 /* RestaurantListViewController.swift */; };
+		CD464F6C2921348100BC7FA7 /* RestaurantListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD464F6A2921348100BC7FA7 /* RestaurantListViewController.xib */; };
+		CD464F702921357700BC7FA7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD464F6E2921357700BC7FA7 /* CategoryCollectionViewCell.swift */; };
+		CD464F712921357700BC7FA7 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD464F6F2921357700BC7FA7 /* CategoryCollectionViewCell.xib */; };
 		CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */; };
 		CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */; };
 		CD4778EF29066C49002D8D7C /* FoodDetailEditProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */; };
@@ -164,6 +168,7 @@
 		CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38202844678700D15356 /* TabCollectionViewCell.xib */; };
 		CD7F38262844AE9800D15356 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */; };
 		CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */; };
+		CD8810DE2921295D00AF7D2D /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8810DD2921295D00AF7D2D /* RestaurantViewController.xib */; };
 		CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA125DF2843A0C500ECBED6 /* UIView.swift */; };
 		CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2937C28CA2ABA00A48467 /* UserManager.swift */; };
 		CDA99C8D291F4A2600E01342 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA99C8B291F4A2600E01342 /* PostViewController.swift */; };
@@ -366,6 +371,10 @@
 		CD3D1CC82920DDDA0075BC17 /* BoardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderView.swift; sourceTree = "<group>"; };
 		CD3D1CCC292114DD0075BC17 /* BoardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderView.xib; sourceTree = "<group>"; };
 		CD3E930D284DED9D0057E24F /* ArcProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
+		CD464F692921348100BC7FA7 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
+		CD464F6A2921348100BC7FA7 /* RestaurantListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantListViewController.xib; sourceTree = "<group>"; };
+		CD464F6E2921357700BC7FA7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD464F6F2921357700BC7FA7 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD4778E829066BBC002D8D7C /* FoodDetailEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditRequest.swift; sourceTree = "<group>"; };
 		CD4778EC29066C3C002D8D7C /* FoodDetailEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditDataManager.swift; sourceTree = "<group>"; };
 		CD4778EE29066C49002D8D7C /* FoodDetailEditProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEditProtocol.swift; sourceTree = "<group>"; };
@@ -389,6 +398,7 @@
 		CD7F38202844678700D15356 /* TabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD7F38242844AE9800D15356 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		CD7F38252844AE9800D15356 /* FoodRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRegisterViewController.xib; sourceTree = "<group>"; };
+		CD8810DD2921295D00AF7D2D /* RestaurantViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
 		CDA125DF2843A0C500ECBED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CDA2937C28CA2ABA00A48467 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CDA99C8B291F4A2600E01342 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -798,6 +808,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CD464F682921346900BC7FA7 /* RestaurantList */ = {
+			isa = PBXGroup;
+			children = (
+				CD464F692921348100BC7FA7 /* RestaurantListViewController.swift */,
+				CD464F6A2921348100BC7FA7 /* RestaurantListViewController.xib */,
+			);
+			path = RestaurantList;
+			sourceTree = "<group>";
+		};
+		CD464F6D2921355A00BC7FA7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD464F6E2921357700BC7FA7 /* CategoryCollectionViewCell.swift */,
+				CD464F6F2921357700BC7FA7 /* CategoryCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CD4778E729066AEB002D8D7C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,8 +847,11 @@
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				CD464F6D2921355A00BC7FA7 /* Cell */,
 				CD2A29A328A3BC7A00A271A6 /* RestaurantViewController.swift */,
+				CD8810DD2921295D00AF7D2D /* RestaurantViewController.xib */,
 				CD2A29A228A3BB5A00A271A6 /* Map */,
+				CD464F682921346900BC7FA7 /* RestaurantList */,
 				8FD47FCF28A398CB002D2B82 /* RestaurantSearch */,
 			);
 			path = Restaurant;
@@ -1226,6 +1257,7 @@
 				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
 				8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */,
 				8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */,
+				CD464F6C2921348100BC7FA7 /* RestaurantListViewController.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
 				8F13E94C2850AEB300F090C4 /* MealDetailViewController.xib in Resources */,
@@ -1269,7 +1301,9 @@
 				CDED42342917DA1D002A4B49 /* BoardViewController.xib in Resources */,
 				CD3D1CCD292114DD0075BC17 /* BoardHeaderView.xib in Resources */,
 				8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */,
+				CD464F712921357700BC7FA7 /* CategoryCollectionViewCell.xib in Resources */,
 				8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */,
+				CD8810DE2921295D00AF7D2D /* RestaurantViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1395,6 +1429,7 @@
 				8F1A5F952892520F00B64409 /* IngreResponse.swift in Sources */,
 				8FC969F129193B11006C0C8B /* CheckNicknameDataManagerProtocol.swift in Sources */,
 				CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */,
+				CD464F6B2921348100BC7FA7 /* RestaurantListViewController.swift in Sources */,
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
 				8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */,
@@ -1490,6 +1525,7 @@
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				8FC969F6291A16B1006C0C8B /* PostingViewController.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
+				CD464F702921357700BC7FA7 /* CategoryCollectionViewCell.swift in Sources */,
 				CDED42332917DA1D002A4B49 /* BoardViewController.swift in Sources */,
 				8F69465C29062CF3001C19EA /* DeleteUserProtocol.swift in Sources */,
 				CDAECC9829053F7B00C13D3D /* BookmarkProtocol.swift in Sources */,

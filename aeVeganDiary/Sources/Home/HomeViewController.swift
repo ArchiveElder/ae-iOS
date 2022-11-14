@@ -70,9 +70,9 @@ class HomeViewController: BaseViewController {
     
     @IBAction func restaurantSearchButtonAction(_ sender: Any) {
         let vc = RestaurantViewController()
-        vc.hidesBottomBarWhenPushed = true
         vc.location = nil
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
     }
     
     // MARK: 서버 통신 변수 선언
@@ -348,9 +348,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = RestaurantViewController()
-        vc.hidesBottomBarWhenPushed = true
         vc.location = eventList[indexPath.row].location
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
     }
     
 }

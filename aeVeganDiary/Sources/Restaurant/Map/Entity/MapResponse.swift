@@ -45,4 +45,8 @@ struct MapData: Decodable {
     var la: Double
     var lo: Double
     var bistroUrl: String?
+    var mainCategory: String?
+    var middleCategory: String?
+    var siteWide: String?
+    var siteMiddle: String?
 }
