@@ -165,6 +165,7 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
         self.imageLists = result.imagesLists
+        self.setNavigationTitle(title: result.boardName ?? "")
         
         postingDetailTableView?.reloadData()
     }
