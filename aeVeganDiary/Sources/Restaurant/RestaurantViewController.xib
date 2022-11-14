@@ -125,7 +125,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSF-UY-dsn">
-                    <rect key="frame" x="0.0" y="108" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="163" width="414" height="50"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-2M-daM">
                             <rect key="frame" x="8" y="9.5" width="105" height="32"/>
@@ -192,7 +192,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="kSF-UY-dsn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="3Cg-df-IxF"/>
+                <constraint firstItem="kSF-UY-dsn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="115" id="3Cg-df-IxF"/>
                 <constraint firstItem="d37-Sw-Ro1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="9dH-hg-xyK"/>
                 <constraint firstItem="kSF-UY-dsn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Bnh-nf-nWL"/>
                 <constraint firstItem="q77-8m-DQB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="CAi-7k-DlM"/>

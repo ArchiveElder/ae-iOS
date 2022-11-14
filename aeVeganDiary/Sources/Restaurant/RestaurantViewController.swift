@@ -145,10 +145,19 @@ extension RestaurantViewController: UICollectionViewDelegate, UICollectionViewDa
         categoryCafeSelectedIndex = -1
         if categoryList == categoryBistro {
             categoryBistroSelectedIndex = indexPath.row
-            mapVC.loadMap(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+            if mapVC.view.isHidden {
+                listVC.loadList(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+            } else {
+                mapVC.loadMap(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+            }
+            
         } else {
             categoryCafeSelectedIndex = indexPath.row
-            mapVC.loadMap(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+            if mapVC.view.isHidden {
+                listVC.loadList(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+            } else {
+                mapVC.loadMap(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+            }
         }
         categoryCollectionView.reloadData()
     }
