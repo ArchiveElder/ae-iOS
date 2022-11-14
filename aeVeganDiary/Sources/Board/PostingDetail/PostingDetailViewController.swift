@@ -25,7 +25,7 @@ class PostingDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setBackButton()
+        setDismissButton()
         
         postingDetailTableView?.delegate = self
         postingDetailTableView?.dataSource = self
@@ -77,7 +77,8 @@ class PostingDetailViewController: BaseViewController {
     }
     
     @objc func showDetailBottomSheet() {
-        let bottomSheetVC = PostingDetailBottomSheetViewController()
+        let bottomSheetVC = PostingDetailMoreSheetViewController()
+        bottomSheetVC.postIdx = self.postIdx
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetVC, animated: false, completion: nil)
     }

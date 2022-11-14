@@ -115,7 +115,10 @@ class BoardViewController: BaseViewController {
         
         let vc = PostingDetailViewController()
         vc.postIdx = post.postIdx ?? 0
-        navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.view.backgroundColor = .white
+        self.present(nav, animated: true)
     }
     
     @objc private func refreshControlTriggered() {
