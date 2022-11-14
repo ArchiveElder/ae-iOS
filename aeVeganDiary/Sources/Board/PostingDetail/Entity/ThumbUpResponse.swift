@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ThumbUpResponse : Decodable {
+    var thumbupIdx : Int
+}

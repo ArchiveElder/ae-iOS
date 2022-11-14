@@ -65,6 +65,18 @@
 		8F9203802920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */; };
 		8F9203822920DF17009679EC /* ThumbUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203812920DF17009679EC /* ThumbUpRequest.swift */; };
 		8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9203852920DF3E009679EC /* ThumbUpResponse.swift */; };
+		8F92038829213DDB009679EC /* PostThumbUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */; };
+		8F92038A29213DF4009679EC /* PostThumbUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */; };
+		8F92038C29214939009679EC /* ThumbUpDeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038B29214939009679EC /* ThumbUpDeleteResponse.swift */; };
+		8F92038E29214964009679EC /* DeleteThumbUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038D29214964009679EC /* DeleteThumbUpDataManager.swift */; };
+		8F92039029214970009679EC /* DeleteThumbUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92038F29214970009679EC /* DeleteThumbUpProtocol.swift */; };
+		8F92039229214E95009679EC /* ScrapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039129214E95009679EC /* ScrapRequest.swift */; };
+		8F92039429214EB1009679EC /* ScrapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039329214EB1009679EC /* ScrapResponse.swift */; };
+		8F92039629214EBF009679EC /* ScrapDeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039529214EBF009679EC /* ScrapDeleteResponse.swift */; };
+		8F92039829214FCB009679EC /* PostScrapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039729214FCB009679EC /* PostScrapDataManager.swift */; };
+		8F92039A29214FDD009679EC /* PostScrapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039929214FDD009679EC /* PostScrapProtocol.swift */; };
+		8F92039C29215120009679EC /* DeleteScrapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039B29215120009679EC /* DeleteScrapDataManager.swift */; };
+		8F92039E2921512D009679EC /* DeleteScrapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92039D2921512D009679EC /* DeleteScrapProtocol.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
@@ -271,6 +283,18 @@
 		8F92037E2920D0D6009679EC /* PostingDetailImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		8F9203812920DF17009679EC /* ThumbUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpRequest.swift; sourceTree = "<group>"; };
 		8F9203852920DF3E009679EC /* ThumbUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpResponse.swift; sourceTree = "<group>"; };
+		8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbUpDataManager.swift; sourceTree = "<group>"; };
+		8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbUpProtocol.swift; sourceTree = "<group>"; };
+		8F92038B29214939009679EC /* ThumbUpDeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbUpDeleteResponse.swift; sourceTree = "<group>"; };
+		8F92038D29214964009679EC /* DeleteThumbUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteThumbUpDataManager.swift; sourceTree = "<group>"; };
+		8F92038F29214970009679EC /* DeleteThumbUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteThumbUpProtocol.swift; sourceTree = "<group>"; };
+		8F92039129214E95009679EC /* ScrapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapRequest.swift; sourceTree = "<group>"; };
+		8F92039329214EB1009679EC /* ScrapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapResponse.swift; sourceTree = "<group>"; };
+		8F92039529214EBF009679EC /* ScrapDeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapDeleteResponse.swift; sourceTree = "<group>"; };
+		8F92039729214FCB009679EC /* PostScrapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScrapDataManager.swift; sourceTree = "<group>"; };
+		8F92039929214FDD009679EC /* PostScrapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScrapProtocol.swift; sourceTree = "<group>"; };
+		8F92039B29215120009679EC /* DeleteScrapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteScrapDataManager.swift; sourceTree = "<group>"; };
+		8F92039D2921512D009679EC /* DeleteScrapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteScrapProtocol.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -574,6 +598,14 @@
 				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
 				8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */,
 				8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */,
+				8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */,
+				8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */,
+				8F92038D29214964009679EC /* DeleteThumbUpDataManager.swift */,
+				8F92038F29214970009679EC /* DeleteThumbUpProtocol.swift */,
+				8F92039729214FCB009679EC /* PostScrapDataManager.swift */,
+				8F92039929214FDD009679EC /* PostScrapProtocol.swift */,
+				8F92039B29215120009679EC /* DeleteScrapDataManager.swift */,
+				8F92039D2921512D009679EC /* DeleteScrapProtocol.swift */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -594,6 +626,10 @@
 				8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */,
 				8F9203812920DF17009679EC /* ThumbUpRequest.swift */,
 				8F9203852920DF3E009679EC /* ThumbUpResponse.swift */,
+				8F92038B29214939009679EC /* ThumbUpDeleteResponse.swift */,
+				8F92039129214E95009679EC /* ScrapRequest.swift */,
+				8F92039329214EB1009679EC /* ScrapResponse.swift */,
+				8F92039529214EBF009679EC /* ScrapDeleteResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1291,10 +1327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F92039C29215120009679EC /* DeleteScrapDataManager.swift in Sources */,
 				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
+				8F92039029214970009679EC /* DeleteThumbUpProtocol.swift in Sources */,
 				CD6A4561288E790D004B8B91 /* MapViewController.swift in Sources */,
 				8F1A5FA02897609200B64409 /* IngreTableViewCell.swift in Sources */,
+				8F92039229214E95009679EC /* ScrapRequest.swift in Sources */,
 				CDEB0C3B286B239800725D41 /* MealDetailResponse.swift in Sources */,
 				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
@@ -1304,14 +1343,18 @@
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				8F69464829058835001C19EA /* RegionProtocol.swift in Sources */,
+				8F92039629214EBF009679EC /* ScrapDeleteResponse.swift in Sources */,
 				8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */,
+				8F92038E29214964009679EC /* DeleteThumbUpDataManager.swift in Sources */,
 				CD2A29A428A3BC7A00A271A6 /* RestaurantViewController.swift in Sources */,
 				8FD47FEE28A3E57D002D2B82 /* RegionCategoryDataManager.swift in Sources */,
 				CDAECC9429053C9900C13D3D /* MapProtocol.swift in Sources */,
 				CDAECC8C29052C3500C13D3D /* RegisterProtocol.swift in Sources */,
 				8F1A5F7A2872BD4C00B64409 /* SearchInput.swift in Sources */,
+				8F92039429214EB1009679EC /* ScrapResponse.swift in Sources */,
 				CDE47F5528426BCB005D8BB3 /* UIColor.swift in Sources */,
 				CDAECC8229018A8D00C13D3D /* LoginProtocol.swift in Sources */,
+				8F92038829213DDB009679EC /* PostThumbUpDataManager.swift in Sources */,
 				8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */,
 				8F69465A29062CE0001C19EA /* DeleteUserResponse.swift in Sources */,
 				8F6946692906460E001C19EA /* DeleteMealProtocol.swift in Sources */,
@@ -1348,10 +1391,12 @@
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
 				8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */,
 				8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */,
+				8F92039A29214FDD009679EC /* PostScrapProtocol.swift in Sources */,
 				CDE47F3628424B44005D8BB3 /* AppDelegate.swift in Sources */,
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F69464429053F54001C19EA /* SearchProtocol.swift in Sources */,
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
+				8F92039829214FCB009679EC /* PostScrapDataManager.swift in Sources */,
 				8F69464629054812001C19EA /* FoodDetailProtocol.swift in Sources */,
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
 				CDD9DCEA291E0D5700FEBF32 /* BoardResponse.swift in Sources */,
@@ -1379,6 +1424,7 @@
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8FC96A04291BDC31006C0C8B /* PostingDetailBottomSheetViewController.swift in Sources */,
+				8F92038A29213DF4009679EC /* PostThumbUpProtocol.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* UpdateMyInfoDataManager.swift in Sources */,
@@ -1386,11 +1432,13 @@
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
 				CDFF9ABA284A09AE00217725 /* HomeDataManager.swift in Sources */,
+				8F92038C29214939009679EC /* ThumbUpDeleteResponse.swift in Sources */,
 				CDAECC9A29055E2E00C13D3D /* BookmarkDeleteProtocol.swift in Sources */,
 				CD3D1CC62920C5E30075BC17 /* PostPhotoCollectionViewCell.swift in Sources */,
 				CDE47F3828424B44005D8BB3 /* SceneDelegate.swift in Sources */,
 				8FD47FFB28A63282002D2B82 /* RestaurantSearchViewController.swift in Sources */,
 				8F694667290645C0001C19EA /* DeleteMealResponse.swift in Sources */,
+				8F92039E2921512D009679EC /* DeleteScrapProtocol.swift in Sources */,
 				CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */,
 				8FC969FF291BD6C7006C0C8B /* PostingDetailViewController.swift in Sources */,
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,

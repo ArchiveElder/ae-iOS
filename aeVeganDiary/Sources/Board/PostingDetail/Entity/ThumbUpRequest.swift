@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ThumbUpRequest: Encodable {
+    var postIdx: Int
+}

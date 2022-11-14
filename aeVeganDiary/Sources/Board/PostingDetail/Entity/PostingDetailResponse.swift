@@ -19,8 +19,9 @@ struct PostingDetailResponse : Decodable {
     var imagesLists : [ImageLists]?
     var thumbupCount : Int?
     var commentCount : Int?
-    var isLiked : Int?
-    var isScraped : Int?
+    var liked : Bool?
+    var scraped : Bool?
+    var boardName : String?
     var commentsLists : [CommentsLists]?
 }
 

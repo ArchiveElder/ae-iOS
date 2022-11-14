@@ -11,48 +11,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingDetailViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="commentTextField" destination="BxK-5m-UFi" id="r17-fe-gbC"/>
-                <outlet property="postCommentButton" destination="yZY-Ae-gap" id="x7x-Yd-NuP"/>
                 <outlet property="postingDetailTableView" destination="TNE-bl-v7g" id="IWJ-iV-64y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="753"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxK-5m-UFi">
-                    <rect key="frame" x="15" y="685" width="280" height="34"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNE-bl-v7g">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="606"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bay-zj-5SC">
+                    <rect key="frame" x="15" y="621" width="275" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="200" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNE-bl-v7g">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-Ae-gap">
-                    <rect key="frame" x="300" y="685" width="75" height="34.333333333333371"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP4-gO-1dY">
+                    <rect key="frame" x="300" y="620.66666666666663" width="75" height="35"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="yZY-Ae-gap" firstAttribute="leading" secondItem="BxK-5m-UFi" secondAttribute="trailing" constant="5" id="6sQ-Ks-Mtb"/>
-                <constraint firstItem="BxK-5m-UFi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="7zh-2a-tvm"/>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FHm-LO-De5"/>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LB8-9D-hZu"/>
-                <constraint firstItem="BxK-5m-UFi" firstAttribute="centerY" secondItem="yZY-Ae-gap" secondAttribute="centerY" id="Ocz-ns-DQy"/>
-                <constraint firstItem="BxK-5m-UFi" firstAttribute="top" secondItem="TNE-bl-v7g" secondAttribute="bottom" constant="15" id="Udl-1Q-5ai"/>
+                <constraint firstItem="wP4-gO-1dY" firstAttribute="centerY" secondItem="Bay-zj-5SC" secondAttribute="centerY" id="Lfw-9C-J5D"/>
+                <constraint firstItem="Bay-zj-5SC" firstAttribute="top" secondItem="TNE-bl-v7g" secondAttribute="bottom" constant="15" id="PyC-yG-sah"/>
+                <constraint firstItem="Bay-zj-5SC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="RwJ-t7-odR"/>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XJ6-hl-GcA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bay-zj-5SC" secondAttribute="bottom" constant="15" id="dqC-sU-94x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TNE-bl-v7g" secondAttribute="trailing" id="e78-a6-EgL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yZY-Ae-gap" secondAttribute="trailing" constant="15" id="eBe-Za-Vkj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yZY-Ae-gap" secondAttribute="trailing" constant="15" id="hMn-gs-iz0"/>
-                <constraint firstItem="BxK-5m-UFi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="sVt-kb-WNL"/>
+                <constraint firstItem="wP4-gO-1dY" firstAttribute="leading" secondItem="Bay-zj-5SC" secondAttribute="trailing" constant="10" id="nF7-BG-gQZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wP4-gO-1dY" secondAttribute="trailing" constant="15" id="z92-xu-NC4"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
             <point key="canvasLocation" x="83.07692307692308" y="20.616113744075829"/>
         </view>
     </objects>

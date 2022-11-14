@@ -18,6 +18,8 @@ class PostingDetailViewController: BaseViewController {
     var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
     
+    var userId = UserDefaults.standard.integer(forKey: "UserId")
+    var postIdx : Int = 0
     
     var nickname : String = ""
     override func viewDidLoad() {
@@ -35,15 +37,34 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.estimatedRowHeight = 110
         postingDetailTableView?.rowHeight = 110
         
-        
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getPostingDetailDataManager.getPostingDetailData(137, postIdx: 113, delegate: self)
+        //print(userId, postIdx)
+        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
     }
+    
+    /*
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
+        if let headerView = postingDetailTableView!.tableHeaderView {
+            print("프레임:", headerView.frame)
+            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+
+            //Comparison necessary to avoid infinite loop
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                postingDetailTableView!.tableHeaderView = headerView
+            }
+        }
+    }
+*/
+    
     func setMoreButton() {
         let moreButton: UIButton = UIButton()
         let moreButtonImage = UIImage(systemName: "ellipsis.circle")?.withRenderingMode(.alwaysTemplate)
@@ -84,8 +105,8 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
         //return UITableView.automaticDimension
+        return UITableView.automaticDimension
         }
 
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
@@ -100,16 +121,32 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.postingTitleLabel.text = postingDetailResponse?.title
         header.postingContentsLabel.text = postingDetailResponse?.content
         header.postingIconImageView.image = UIImage(named: "profile\(postingDetailResponse?.icon ?? 0)")
-        header.postingLikeButton.setTitle(String(likeButtonCount), for: .normal)
-        header.postingScrapButton.setTitle(String(commentButtonCount), for: .normal)
+        header.postingThumbUpButton.setTitle(String(likeButtonCount), for: .normal)
+        header.postingCommentButton.setTitle(String(commentButtonCount), for: .normal)
+        if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
+            header.postingThumbUpButton.isSelected = false
+        } else {
+            header.postingThumbUpButton.isSelected = true
+        }
+        
+        if(postingDetailResponse?.scraped == false || postingDetailResponse?.scraped == nil){
+            header.postingScrapButton.isSelected = false
+        } else if(postingDetailResponse?.scraped == true){
+            header.postingScrapButton.isSelected = true
+        }
+        header.postIdx = postIdx
+        header.isLiked = ((postingDetailResponse?.liked) != nil)
         header.imageArray = imageLists ?? []
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false
+            header.imageCollectionViewHeight.constant = 110
             header.postingContentImageCollectionView.reloadData()
         } else {
-            header.postingContentImageCollectionView.isHidden = true
+            //header.postingContentImageCollectionView.isHidden = true
+            header.imageCollectionViewHeight.constant = 0
         }
         
+        header.reloadInputViews()
         return header
         
         
@@ -128,12 +165,12 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
         self.imageLists = result.imagesLists
+        
         postingDetailTableView?.reloadData()
     }
     
     func failedToRequest(message: String, code: Int) {
         
     }
-    
     
 }
