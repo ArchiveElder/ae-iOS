@@ -123,19 +123,19 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.postingIconImageView.image = UIImage(named: "profile\(postingDetailResponse?.icon ?? 0)")
         header.postingThumbUpButton.setTitle(String(likeButtonCount), for: .normal)
         header.postingCommentButton.setTitle(String(commentButtonCount), for: .normal)
-        if(postingDetailResponse?.isLiked == 0){
+        if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
             header.postingThumbUpButton.isSelected = false
-        } else if((postingDetailResponse?.isLiked! ?? 0) >= 1){
+        } else {
             header.postingThumbUpButton.isSelected = true
         }
         
-        if(postingDetailResponse?.isScraped == 0){
+        if(postingDetailResponse?.scraped == false || postingDetailResponse?.scraped == nil){
             header.postingScrapButton.isSelected = false
-        } else if(postingDetailResponse?.isScraped! ?? 0 >= 1){
+        } else if(postingDetailResponse?.scraped == true){
             header.postingScrapButton.isSelected = true
         }
         header.postIdx = postIdx
-        header.isLiked = postingDetailResponse?.isLiked ?? 0
+        header.isLiked = ((postingDetailResponse?.liked) != nil)
         header.imageArray = imageLists ?? []
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false
@@ -161,7 +161,7 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension PostingDetailViewController : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
         dismissIndicator()
-        //print(result)
+        print(result)
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
         self.imageLists = result.imagesLists

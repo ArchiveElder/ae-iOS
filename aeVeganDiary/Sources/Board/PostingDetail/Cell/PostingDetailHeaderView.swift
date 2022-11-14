@@ -50,7 +50,7 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
     }
     
     
-    var isLiked : Int = 0
+    var isLiked : Bool = false
     var postIdx = 0
     var userIdx = UserDefaults.standard.integer(forKey: "UserId")
     var imagecount : Int = 0
@@ -94,17 +94,18 @@ extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDa
 
 extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
-       // print("헤더뷰:" ,result)
+        print("헤더뷰:" ,result)
         self.postingDetailResponse = result
         postingThumbUpButton.setTitle(String(postingDetailResponse?.thumbupCount ?? 0), for: .normal)
-        if(postingDetailResponse?.isLiked == 0){
+        if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
             postingThumbUpButton.isSelected = false
-        } else if(postingDetailResponse?.isLiked == 1){
+        } else if(postingDetailResponse?.liked == true){
             postingThumbUpButton.isSelected = true
         }
-        if(postingDetailResponse?.isScraped == 0){
+        
+        if(postingDetailResponse?.scraped == false || postingDetailResponse?.scraped == nil){
             postingScrapButton.isSelected = false
-        } else if(postingDetailResponse?.isScraped == 1){
+        } else if(postingDetailResponse?.scraped == true){
             postingScrapButton.isSelected = true
         }
     }
@@ -123,7 +124,7 @@ extension PostingDetailHeaderView : PostThumbUpViewDelegate {
 
 extension PostingDetailHeaderView : DeleteThumbUpViewDelegate {
     func didSuccessDeleteThumbUp(_ result: ThumbUpDeleteResponse) {
-        //print(result)
+        print(result)
 
     }
 }
