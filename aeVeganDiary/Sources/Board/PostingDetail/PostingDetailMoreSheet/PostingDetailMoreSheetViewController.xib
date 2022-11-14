@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingDetailBottomSheetViewController" customModule="aeVeganDiary" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingDetailMoreSheetViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="bottomSheetView" destination="PfC-Td-CM3" id="axu-Xf-wjs"/>
-                <outlet property="dimmedView" destination="rp3-KT-kYs" id="Lqk-Ta-kp1"/>
-                <outlet property="postingBottomSheetTopConstraint" destination="une-Yi-ygM" id="mHy-Kg-cqL"/>
+                <outlet property="dimmedView" destination="Rrz-xl-FM3" id="t5C-Nf-Njw"/>
+                <outlet property="heightConstraint" destination="6jZ-oT-G6b" id="zwt-4i-lN6"/>
+                <outlet property="moreSheetView" destination="lkK-qh-7iO" id="JOb-j7-cKu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,14 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-KT-kYs">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrz-xl-FM3">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69642187499999997" colorSpace="custom" customColorSpace="displayP3"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-Td-CM3">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkK-qh-7iO">
                     <rect key="frame" x="0.0" y="670" width="390" height="174"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiM-qx-Edd">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsn-UB-13p">
                             <rect key="frame" x="20" y="26.000000000000004" width="108" height="34.333333333333343"/>
                             <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
@@ -38,8 +38,11 @@
                                 <imageReference key="image" image="applepencil" catalog="system" symbolScale="medium"/>
                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="editPostingButton:" destination="-1" eventType="touchUpInside" id="Y82-Q8-2nq"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ww-Uh-Wgm">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6K-y6-RBB">
                             <rect key="frame" x="20" y="75.333333333333371" width="110" height="35"/>
                             <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
@@ -47,14 +50,17 @@
                                 <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="deletePostingButton:" destination="-1" eventType="touchUpInside" id="55d-cm-c8o"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="top" secondItem="kiM-qx-Edd" secondAttribute="bottom" constant="15" id="Ul0-dA-wHt"/>
-                        <constraint firstItem="kiM-qx-Edd" firstAttribute="top" secondItem="PfC-Td-CM3" secondAttribute="top" constant="26" id="Yhf-WR-nKG"/>
-                        <constraint firstItem="kiM-qx-Edd" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="hr9-H1-91g"/>
-                        <constraint firstItem="6Ww-Uh-Wgm" firstAttribute="leading" secondItem="PfC-Td-CM3" secondAttribute="leading" constant="20" id="rKT-7B-ffP"/>
+                        <constraint firstItem="d6K-y6-RBB" firstAttribute="top" secondItem="Dsn-UB-13p" secondAttribute="bottom" constant="15" id="XyC-gL-MaC"/>
+                        <constraint firstItem="d6K-y6-RBB" firstAttribute="leading" secondItem="lkK-qh-7iO" secondAttribute="leading" constant="20" id="l31-PB-OeH"/>
+                        <constraint firstItem="Dsn-UB-13p" firstAttribute="leading" secondItem="lkK-qh-7iO" secondAttribute="leading" constant="20" id="rJi-EA-IzK"/>
+                        <constraint firstItem="Dsn-UB-13p" firstAttribute="top" secondItem="lkK-qh-7iO" secondAttribute="top" constant="26" id="z6B-zl-Y8g"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -64,18 +70,17 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="PfC-Td-CM3" firstAttribute="bottom" secondItem="rp3-KT-kYs" secondAttribute="bottom" id="9sR-wp-4hU"/>
-                <constraint firstItem="rp3-KT-kYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FlJ-4v-bMI"/>
-                <constraint firstItem="rp3-KT-kYs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GT3-3J-Bd4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rp3-KT-kYs" secondAttribute="trailing" id="HAf-bb-FnT"/>
-                <constraint firstItem="PfC-Td-CM3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xnj-aq-x1Y"/>
-                <constraint firstAttribute="bottom" secondItem="rp3-KT-kYs" secondAttribute="bottom" id="rXM-uT-FVq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PfC-Td-CM3" secondAttribute="trailing" id="sZ1-zy-QVN"/>
-                <constraint firstItem="PfC-Td-CM3" firstAttribute="top" secondItem="rp3-KT-kYs" secondAttribute="top" constant="670" id="une-Yi-ygM"/>
+                <constraint firstItem="lkK-qh-7iO" firstAttribute="top" secondItem="Rrz-xl-FM3" secondAttribute="top" constant="670" id="6jZ-oT-G6b"/>
+                <constraint firstItem="lkK-qh-7iO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9LT-os-Ay1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rrz-xl-FM3" secondAttribute="trailing" id="DlS-WN-aru"/>
+                <constraint firstItem="lkK-qh-7iO" firstAttribute="bottom" secondItem="Rrz-xl-FM3" secondAttribute="bottom" id="aEr-hn-CHP"/>
+                <constraint firstItem="Rrz-xl-FM3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="boS-bn-WBk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lkK-qh-7iO" secondAttribute="trailing" id="cuZ-bH-Hgb"/>
+                <constraint firstAttribute="bottom" secondItem="Rrz-xl-FM3" secondAttribute="bottom" id="oYh-FM-1xX"/>
+                <constraint firstItem="Rrz-xl-FM3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="q2H-m2-TOw"/>
             </constraints>
-            <point key="canvasLocation" x="136.92307692307691" y="20.616113744075829"/>
+            <point key="canvasLocation" x="61.538461538461533" y="20.616113744075829"/>
         </view>
     </objects>
     <resources>

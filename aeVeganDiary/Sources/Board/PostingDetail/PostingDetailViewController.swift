@@ -25,8 +25,7 @@ class PostingDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setBackButton()
-        setMoreButton()
+        setDismissButton()
         
         postingDetailTableView?.delegate = self
         postingDetailTableView?.dataSource = self
@@ -78,7 +77,8 @@ class PostingDetailViewController: BaseViewController {
     }
     
     @objc func showDetailBottomSheet() {
-        let bottomSheetVC = PostingDetailBottomSheetViewController()
+        let bottomSheetVC = PostingDetailMoreSheetViewController()
+        bottomSheetVC.postIdx = self.postIdx
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
@@ -140,9 +140,11 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false
             header.imageCollectionViewHeight.constant = 110
+            header.labelToCollectionViewHeight.constant = 15
             header.postingContentImageCollectionView.reloadData()
         } else {
             //header.postingContentImageCollectionView.isHidden = true
+            header.labelToCollectionViewHeight.constant = 0
             header.imageCollectionViewHeight.constant = 0
         }
         
@@ -165,6 +167,12 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         self.postingDetailResponse = result
         self.commentLists = result.commentsLists
         self.imageLists = result.imagesLists
+        self.setNavigationTitle(title: result.boardName ?? "")
+        
+        //자신의 글일 때만 더보기 버튼 보이도록
+        if(result.userIdx == self.userId){
+            setMoreButton()
+        }
         
         postingDetailTableView?.reloadData()
     }
