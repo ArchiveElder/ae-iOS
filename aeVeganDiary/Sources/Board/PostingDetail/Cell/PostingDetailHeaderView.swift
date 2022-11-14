@@ -17,6 +17,7 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
     
     
 
+    @IBOutlet weak var labelToCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageCollectionViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var postingContentImageCollectionView: UICollectionView!

@@ -141,6 +141,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageCollectionViewHeight" destination="nFK-oc-9Jx" id="JGq-6X-QrK"/>
+                <outlet property="labelToCollectionViewHeight" destination="kUj-n1-K66" id="x6c-XX-QVK"/>
                 <outlet property="postingCommentButton" destination="gKn-Vs-OUQ" id="HAW-3t-dzU"/>
                 <outlet property="postingContentImageCollectionView" destination="kQ1-qR-lpU" id="vGJ-tx-D2n"/>
                 <outlet property="postingContentsLabel" destination="x2X-wx-g8T" id="SQm-E8-Nkc"/>
