@@ -12,7 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="categoryCollectionView" destination="S0d-ce-EQK" id="r0w-JJ-1Oe"/>
+                <outlet property="categorySegmentedControl" destination="F1I-2M-daM" id="CCY-ai-zUq"/>
                 <outlet property="categoryView" destination="kSF-UY-dsn" id="fy8-GV-wPK"/>
+                <outlet property="categoryViewTopConstraint" destination="3Cg-df-IxF" id="aEk-bc-aZk"/>
                 <outlet property="dismissButton" destination="BSc-eP-nvq" id="HDE-0B-FFI"/>
                 <outlet property="regionView" destination="q77-8m-DQB" id="N9Q-OB-SdB"/>
                 <outlet property="segmentedControl" destination="d37-Sw-Ro1" id="2cz-p2-uJX"/>
@@ -122,25 +125,29 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSF-UY-dsn">
-                    <rect key="frame" x="0.0" y="163" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="108" width="414" height="50"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-2M-daM">
                             <rect key="frame" x="8" y="9.5" width="105" height="32"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <segments>
                                 <segment title="음식점"/>
                                 <segment title="카페"/>
                             </segments>
+                            <connections>
+                                <action selector="categorySegmentedControlAction:" destination="-1" eventType="valueChanged" id="6Hn-FP-Ydq"/>
+                            </connections>
                         </segmentedControl>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S0d-ce-EQK">
-                            <rect key="frame" x="118" y="5" width="296" height="40"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S0d-ce-EQK">
+                            <rect key="frame" x="113" y="7" width="301" height="36"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="bj8-Ei-8J7"/>
+                                <constraint firstAttribute="height" constant="36" id="bj8-Ei-8J7"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aus-rJ-3OZ">
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="Aus-rJ-3OZ">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="sectionInset" minX="3" minY="0.0" maxX="3" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
                     </subviews>
@@ -149,7 +156,7 @@
                         <constraint firstAttribute="height" constant="50" id="5D7-EX-YK4"/>
                         <constraint firstItem="S0d-ce-EQK" firstAttribute="centerY" secondItem="kSF-UY-dsn" secondAttribute="centerY" id="dqF-EE-bxw"/>
                         <constraint firstItem="F1I-2M-daM" firstAttribute="leading" secondItem="kSF-UY-dsn" secondAttribute="leading" constant="8" id="feO-Hq-K1C"/>
-                        <constraint firstItem="S0d-ce-EQK" firstAttribute="leading" secondItem="F1I-2M-daM" secondAttribute="trailing" constant="5" id="lky-Dm-uAD"/>
+                        <constraint firstItem="S0d-ce-EQK" firstAttribute="leading" secondItem="F1I-2M-daM" secondAttribute="trailing" id="lky-Dm-uAD"/>
                         <constraint firstItem="F1I-2M-daM" firstAttribute="centerY" secondItem="kSF-UY-dsn" secondAttribute="centerY" id="ysd-IZ-ikm"/>
                     </constraints>
                 </view>
@@ -185,7 +192,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="kSF-UY-dsn" firstAttribute="top" secondItem="q77-8m-DQB" secondAttribute="bottom" constant="5" id="3Cg-df-IxF"/>
+                <constraint firstItem="kSF-UY-dsn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="3Cg-df-IxF"/>
                 <constraint firstItem="d37-Sw-Ro1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="9dH-hg-xyK"/>
                 <constraint firstItem="kSF-UY-dsn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Bnh-nf-nWL"/>
                 <constraint firstItem="q77-8m-DQB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="CAi-7k-DlM"/>
