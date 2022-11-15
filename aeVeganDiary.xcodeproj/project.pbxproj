@@ -85,6 +85,10 @@
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FADEBC629225A4100420C14 /* PostingDetailMoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */; };
 		8FADEBC729225A4100420C14 /* PostingDetailMoreSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FADEBC529225A4100420C14 /* PostingDetailMoreSheetViewController.xib */; };
+		8FADEBC92923457D00420C14 /* PostCommentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBC82923457D00420C14 /* PostCommentDataManager.swift */; };
+		8FADEBCB2923458800420C14 /* PostCommentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */; };
+		8FADEBCF292345CB00420C14 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBCE292345CB00420C14 /* CommentRequest.swift */; };
+		8FADEBD1292345D500420C14 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD0292345D500420C14 /* CommentResponse.swift */; };
 		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
 		8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */; };
 		8FB829D8291E8B5500A13842 /* GetPostingDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */; };
@@ -307,6 +311,10 @@
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailMoreSheetViewController.swift; sourceTree = "<group>"; };
 		8FADEBC529225A4100420C14 /* PostingDetailMoreSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailMoreSheetViewController.xib; sourceTree = "<group>"; };
+		8FADEBC82923457D00420C14 /* PostCommentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentDataManager.swift; sourceTree = "<group>"; };
+		8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentProtocol.swift; sourceTree = "<group>"; };
+		8FADEBCE292345CB00420C14 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
+		8FADEBD0292345D500420C14 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
 		8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailHeaderView.xib; sourceTree = "<group>"; };
 		8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostingDetailDataManager.swift; sourceTree = "<group>"; };
@@ -625,6 +633,8 @@
 				8F92039D2921512D009679EC /* DeleteScrapProtocol.swift */,
 				8F92039F292215B7009679EC /* DeletePostingDataManager.swift */,
 				8F9203A1292215C6009679EC /* DeletePostingProtocol.swift */,
+				8FADEBC82923457D00420C14 /* PostCommentDataManager.swift */,
+				8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -642,6 +652,8 @@
 				8F92039529214EBF009679EC /* ScrapDeleteResponse.swift */,
 				8F9203A3292233D0009679EC /* DeletePostingResponse.swift */,
 				8F9203A529223464009679EC /* DeletePostingRequest.swift */,
+				8FADEBCE292345CB00420C14 /* CommentRequest.swift */,
+				8FADEBD0292345D500420C14 /* CommentResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1397,11 +1409,13 @@
 				CD4778E929066BBC002D8D7C /* FoodDetailEditRequest.swift in Sources */,
 				CDAECC9629053F1200C13D3D /* BookmarkRequest.swift in Sources */,
 				8FD47FD728A39A5E002D2B82 /* LargeCategoryTableViewCell.swift in Sources */,
+				8FADEBD1292345D500420C14 /* CommentResponse.swift in Sources */,
 				8FC969EB29192EB3006C0C8B /* CheckNicknameDataManager.swift in Sources */,
 				8F9203822920DF17009679EC /* ThumbUpRequest.swift in Sources */,
 				CDD9499028BCA93000695E50 /* BookmarkListDataManager.swift in Sources */,
 				8F69465429062333001C19EA /* UpdateMyInfoProtocol.swift in Sources */,
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
+				8FADEBCB2923458800420C14 /* PostCommentProtocol.swift in Sources */,
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
 				8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */,
 				8F9203A2292215C6009679EC /* DeletePostingProtocol.swift in Sources */,
@@ -1430,6 +1444,7 @@
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
+				8FADEBC92923457D00420C14 /* PostCommentDataManager.swift in Sources */,
 				8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
 				CDAECCA929059A6500C13D3D /* FoodDetailEditViewController.swift in Sources */,
@@ -1474,6 +1489,7 @@
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
+				8FADEBCF292345CB00420C14 /* CommentRequest.swift in Sources */,
 				CDAECC902905316800C13D3D /* MealDetailRequest.swift in Sources */,
 				CD482AFF291B90CE006682FA /* BoardViewModel.swift in Sources */,
 				8F9203A629223464009679EC /* DeletePostingRequest.swift in Sources */,

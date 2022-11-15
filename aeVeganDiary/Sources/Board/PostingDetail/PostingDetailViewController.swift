@@ -15,10 +15,18 @@ class PostingDetailViewController: BaseViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postCommentButton: UIButton!
     
+    @IBAction func postCommentButtonAction(_ sender: Any) {
+        var commentText = commentTextField.text
+        var commentRequest = CommentRequest(postIdx: postIdx, content: commentText ?? "")
+        postCommentDataManager.postComment(userId, parameters: commentRequest, delegate: self)
+        dismissKeyboard()
+        commentTextField.text = ""
+    }
     var postingDetailResponse : PostingDetailResponse?
     var commentLists : [CommentsLists]?
     var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
+    lazy var postCommentDataManager : PostCommentDataManager = PostCommentDataManager()
     
     var userId = UserDefaults.standard.integer(forKey: "UserId")
     var postIdx : Int = 0
@@ -229,4 +237,12 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         
     }
     
+}
+
+extension PostingDetailViewController : PostCommentViewDelegate{
+    func didSuccessPostComment(_ result: CommentResponse) {
+        print("댓글 등록 성공")
+        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
+        postingDetailTableView?.reloadData()
+    }
 }
