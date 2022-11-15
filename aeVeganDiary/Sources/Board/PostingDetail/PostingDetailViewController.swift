@@ -9,6 +9,8 @@ import UIKit
 
 class PostingDetailViewController: BaseViewController {
     
+    @IBOutlet weak var keyBoardToolBarConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keyBoardToolBarView: UIView!
     @IBOutlet weak var postingDetailTableView: UITableView?
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postCommentButton: UIButton!
@@ -37,8 +39,54 @@ class PostingDetailViewController: BaseViewController {
         postingDetailTableView?.rowHeight = 110
         
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+           let keyboardRectangle = keyboardFrame.cgRectValue
+            UIView.animate(
+                withDuration: 0.3
+                , animations: {
+                    self.keyBoardToolBarView.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height+40)
+                }
+            )
+        }
+    }
+    
+    @objc func keyboardDown() {
+        self.keyBoardToolBarView.transform = .identity
+    }
+    
+    /*
+    @objc func handleKeyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+            
+            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            
+            if isKeyboardShowing {
+                //keyboardDismissButton.isHidden = false
+            } else {
+                //keyboardDismissButton.isHidden = true
+            }
+            
+            keyBoardToolBarConstraint.constant = isKeyboardShowing ? keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom : 0
+            
+            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+    }
+    */
     
     override func viewDidAppear(_ animated: Bool) {
         //print(userId, postIdx)

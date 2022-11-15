@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingDetailViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="commentTextField" destination="WyJ-g6-EIK" id="adl-YM-EYN"/>
+                <outlet property="keyBoardToolBarConstraint" destination="zRh-pg-5uL" id="NpB-fO-kiF"/>
+                <outlet property="keyBoardToolBarView" destination="fxs-h7-U4r" id="jTe-0i-i0Q"/>
+                <outlet property="postCommentButton" destination="FQo-4Z-3He" id="82l-lD-cg5"/>
                 <outlet property="postingDetailTableView" destination="TNE-bl-v7g" id="IWJ-iV-64y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,34 +24,46 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNE-bl-v7g">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="606"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNE-bl-v7g">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="610"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bay-zj-5SC">
-                    <rect key="frame" x="15" y="621" width="275" height="34"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP4-gO-1dY">
-                    <rect key="frame" x="300" y="620.66666666666663" width="75" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxs-h7-U4r">
+                    <rect key="frame" x="0.0" y="610" width="390" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WyJ-g6-EIK">
+                            <rect key="frame" x="15" y="13" width="299" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQo-4Z-3He">
+                            <rect key="frame" x="329" y="15" width="46" height="30"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="2vy-yY-RzX"/>
+                        <constraint firstItem="WyJ-g6-EIK" firstAttribute="leading" secondItem="fxs-h7-U4r" secondAttribute="leading" constant="15" id="4I7-qE-Jrz"/>
+                        <constraint firstAttribute="trailing" secondItem="FQo-4Z-3He" secondAttribute="trailing" constant="15" id="7EO-cG-mNK"/>
+                        <constraint firstItem="FQo-4Z-3He" firstAttribute="leading" secondItem="WyJ-g6-EIK" secondAttribute="trailing" constant="15" id="8BZ-2x-O0E"/>
+                        <constraint firstItem="WyJ-g6-EIK" firstAttribute="centerY" secondItem="fxs-h7-U4r" secondAttribute="centerY" id="FZ6-7y-ojK"/>
+                        <constraint firstItem="FQo-4Z-3He" firstAttribute="centerY" secondItem="WyJ-g6-EIK" secondAttribute="centerY" id="ZUt-6h-MqW"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FHm-LO-De5"/>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LB8-9D-hZu"/>
-                <constraint firstItem="wP4-gO-1dY" firstAttribute="centerY" secondItem="Bay-zj-5SC" secondAttribute="centerY" id="Lfw-9C-J5D"/>
-                <constraint firstItem="Bay-zj-5SC" firstAttribute="top" secondItem="TNE-bl-v7g" secondAttribute="bottom" constant="15" id="PyC-yG-sah"/>
-                <constraint firstItem="Bay-zj-5SC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="RwJ-t7-odR"/>
                 <constraint firstItem="TNE-bl-v7g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XJ6-hl-GcA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bay-zj-5SC" secondAttribute="bottom" constant="15" id="dqC-sU-94x"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fxs-h7-U4r" secondAttribute="trailing" id="XcZ-qb-c0c"/>
+                <constraint firstItem="fxs-h7-U4r" firstAttribute="top" secondItem="TNE-bl-v7g" secondAttribute="bottom" id="aqA-MQ-uzQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TNE-bl-v7g" secondAttribute="trailing" id="e78-a6-EgL"/>
-                <constraint firstItem="wP4-gO-1dY" firstAttribute="leading" secondItem="Bay-zj-5SC" secondAttribute="trailing" constant="10" id="nF7-BG-gQZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wP4-gO-1dY" secondAttribute="trailing" constant="15" id="z92-xu-NC4"/>
+                <constraint firstItem="fxs-h7-U4r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xMY-cI-mwg"/>
+                <constraint firstItem="fxs-h7-U4r" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="zRh-pg-5uL"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -57,6 +73,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
