@@ -43,8 +43,8 @@ class PostingDetailViewController: BaseViewController {
         let headerNib = UINib(nibName: "PostingDetailHeaderView", bundle: nil)
         postingDetailTableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: "PostingDetailHeaderView")
         //postingDetailTableView?.sectionHeaderHeight = UITableView.automaticDimension
-        postingDetailTableView?.estimatedRowHeight = 110
-        postingDetailTableView?.rowHeight = 110
+        postingDetailTableView?.estimatedRowHeight = UITableView.automaticDimension
+        postingDetailTableView?.rowHeight = UITableView.automaticDimension
         
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
 
@@ -74,51 +74,11 @@ class PostingDetailViewController: BaseViewController {
         self.keyBoardToolBarView.transform = .identity
     }
     
-    /*
-    @objc func handleKeyboardNotification(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
-            
-            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
-            
-            if isKeyboardShowing {
-                //keyboardDismissButton.isHidden = false
-            } else {
-                //keyboardDismissButton.isHidden = true
-            }
-            
-            keyBoardToolBarConstraint.constant = isKeyboardShowing ? keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom : 0
-            
-            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-    */
-    
     override func viewDidAppear(_ animated: Bool) {
         //print(userId, postIdx)
         getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
     }
     
-    /*
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        if let headerView = postingDetailTableView!.tableHeaderView {
-            print("프레임:", headerView.frame)
-            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-            var headerFrame = headerView.frame
-
-            //Comparison necessary to avoid infinite loop
-            if height != headerFrame.size.height {
-                headerFrame.size.height = height
-                headerView.frame = headerFrame
-                postingDetailTableView!.tableHeaderView = headerView
-            }
-        }
-    }
-*/
     
     func setMoreButton() {
         let moreButton: UIButton = UIButton()
@@ -159,7 +119,13 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
 
-    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+
+  }
+
+
+    //Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         //return UITableView.automaticDimension
         return UITableView.automaticDimension
