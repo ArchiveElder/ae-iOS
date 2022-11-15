@@ -7,12 +7,17 @@
 
 import UIKit
 
-class PostingDetailTableViewCell: UITableViewCell {
+protocol PostingDetailTableViewCellDelegate{
+    func commentDeleteButtonAction(commentIndex:Int)
+}
 
-    @IBAction func commentMoreButtonAction(_ sender: Any) {
-        
+class PostingDetailTableViewCell: UITableViewCell {
+    var commentIndex: Int = 0
+    var delegate : PostingDetailTableViewCellDelegate?
+    @IBAction func commentDeleteButtonAction(_ sender: Any) {
+        self.delegate?.commentDeleteButtonAction(commentIndex: commentIndex)
     }
-    @IBOutlet weak var commentMoreButton: UIButton!
+    @IBOutlet weak var commentDeleteButton: UIButton!
     @IBOutlet weak var commentNicknameLabel: UILabel!
     @IBOutlet weak var commentIconImageView: UIImageView!
     @IBOutlet weak var commentContentLabel: UILabel!

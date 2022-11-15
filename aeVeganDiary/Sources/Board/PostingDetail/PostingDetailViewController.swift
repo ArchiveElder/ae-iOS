@@ -27,6 +27,7 @@ class PostingDetailViewController: BaseViewController {
     var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
     lazy var postCommentDataManager : PostCommentDataManager = PostCommentDataManager()
+    lazy var deleteCommentDataManager : DeleteCommentDataManager = DeleteCommentDataManager()
     
     var userIdx = UserDefaults.standard.integer(forKey: "UserId")
     var postIdx : Int = 0
@@ -115,11 +116,14 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         cell.commentIconImageView.image = UIImage(named: "profile\(commentLists?[indexPath.row].icon ?? 0)")
         cell.commentContentLabel.text = commentLists?[indexPath.row].content
         cell.commentDateLabel.text = commentLists?[indexPath.row].date
+        cell.commentIndex = commentLists?[indexPath.row].commentIdx ?? 0
+        
+        cell.delegate = self
         
         if(commentLists?[indexPath.row].userIdx==self.userIdx){
-            cell.commentMoreButton.isHidden = false
+            cell.commentDeleteButton.isHidden = false
         } else{
-            cell.commentMoreButton.isHidden = true
+            cell.commentDeleteButton.isHidden = true
         }
         
             //print("테이블뷰:", postingDetailResponse)
@@ -217,5 +221,24 @@ extension PostingDetailViewController : PostCommentViewDelegate{
         print("댓글 등록 성공")
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
         postingDetailTableView?.reloadData()
+    }
+}
+
+extension PostingDetailViewController : DeleteCommentViewDelegate{
+    func didSuccessDeleteComment(_ result: DeleteCommentResponse) {
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
+        postingDetailTableView?.reloadData()
+        presentBottomAlert(message: "삭제가 완료되었습니다.")    }
+}
+
+
+extension PostingDetailViewController : PostingDetailTableViewCellDelegate{
+    func commentDeleteButtonAction(commentIndex: Int) {
+        presentAlert(title: "정말 삭제하시겠어요?", message: "삭제는 취소할 수 없습니다", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            
+            var deleteCommentRequest = DeleteCommentRequest(commentIdx: commentIndex)
+            self.deleteCommentDataManager.deleteComment(self.userIdx, parameters: deleteCommentRequest, delegate: self)
+
+        })
     }
 }

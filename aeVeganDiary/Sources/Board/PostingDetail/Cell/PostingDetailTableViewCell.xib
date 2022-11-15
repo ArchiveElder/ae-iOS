@@ -62,9 +62,9 @@
                         </constraints>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Button" image="ellipsis.circle" catalog="system"/>
+                        <state key="normal" title="Button" image="xmark.circle" catalog="system"/>
                         <connections>
-                            <action selector="commentMoreButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JzY-TD-Kt2"/>
+                            <action selector="commentDeleteButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BTS-Av-NuY"/>
                         </connections>
                     </button>
                 </subviews>
@@ -87,8 +87,8 @@
             <connections>
                 <outlet property="commentContentLabel" destination="FCz-M7-Qfv" id="0gf-ft-jNV"/>
                 <outlet property="commentDateLabel" destination="vqE-LH-LN4" id="XHT-St-svK"/>
+                <outlet property="commentDeleteButton" destination="Zpk-5Q-NTa" id="j5B-XK-S0V"/>
                 <outlet property="commentIconImageView" destination="giw-YJ-4Zw" id="1Tn-FZ-Rvv"/>
-                <outlet property="commentMoreButton" destination="Zpk-5Q-NTa" id="U6v-a3-wB4"/>
                 <outlet property="commentNicknameLabel" destination="pnq-4x-6kz" id="8ln-xk-iiu"/>
             </connections>
             <point key="canvasLocation" x="87.692307692307693" y="49.763033175355446"/>
@@ -96,7 +96,7 @@
     </objects>
     <resources>
         <image name="currentpin" width="20" height="20"/>
-        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

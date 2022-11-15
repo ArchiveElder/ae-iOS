@@ -89,6 +89,10 @@
 		8FADEBCB2923458800420C14 /* PostCommentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */; };
 		8FADEBCF292345CB00420C14 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBCE292345CB00420C14 /* CommentRequest.swift */; };
 		8FADEBD1292345D500420C14 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD0292345D500420C14 /* CommentResponse.swift */; };
+		8FADEBD42923582900420C14 /* DeleteCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD32923582900420C14 /* DeleteCommentRequest.swift */; };
+		8FADEBD62923583300420C14 /* DeleteCommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD52923583300420C14 /* DeleteCommentResponse.swift */; };
+		8FADEBD8292358F900420C14 /* DeleteCommentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD7292358F900420C14 /* DeleteCommentDataManager.swift */; };
+		8FADEBDA2923590700420C14 /* DeleteCommentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBD92923590700420C14 /* DeleteCommentProtocol.swift */; };
 		8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */; };
 		8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */; };
 		8FB829D8291E8B5500A13842 /* GetPostingDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */; };
@@ -315,6 +319,10 @@
 		8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentProtocol.swift; sourceTree = "<group>"; };
 		8FADEBCE292345CB00420C14 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		8FADEBD0292345D500420C14 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		8FADEBD32923582900420C14 /* DeleteCommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentRequest.swift; sourceTree = "<group>"; };
+		8FADEBD52923583300420C14 /* DeleteCommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentResponse.swift; sourceTree = "<group>"; };
+		8FADEBD7292358F900420C14 /* DeleteCommentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentDataManager.swift; sourceTree = "<group>"; };
+		8FADEBD92923590700420C14 /* DeleteCommentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentProtocol.swift; sourceTree = "<group>"; };
 		8FB829D3291E49CA00A13842 /* PostingDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailHeaderView.swift; sourceTree = "<group>"; };
 		8FB829D5291E4A2600A13842 /* PostingDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingDetailHeaderView.xib; sourceTree = "<group>"; };
 		8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostingDetailDataManager.swift; sourceTree = "<group>"; };
@@ -635,6 +643,8 @@
 				8F9203A1292215C6009679EC /* DeletePostingProtocol.swift */,
 				8FADEBC82923457D00420C14 /* PostCommentDataManager.swift */,
 				8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */,
+				8FADEBD7292358F900420C14 /* DeleteCommentDataManager.swift */,
+				8FADEBD92923590700420C14 /* DeleteCommentProtocol.swift */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -654,6 +664,8 @@
 				8F9203A529223464009679EC /* DeletePostingRequest.swift */,
 				8FADEBCE292345CB00420C14 /* CommentRequest.swift */,
 				8FADEBD0292345D500420C14 /* CommentResponse.swift */,
+				8FADEBD32923582900420C14 /* DeleteCommentRequest.swift */,
+				8FADEBD52923583300420C14 /* DeleteCommentResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1381,9 +1393,11 @@
 				8F92038829213DDB009679EC /* PostThumbUpDataManager.swift in Sources */,
 				8F694652290622F5001C19EA /* UpdateMyInfoResponse.swift in Sources */,
 				8F69465A29062CE0001C19EA /* DeleteUserResponse.swift in Sources */,
+				8FADEBDA2923590700420C14 /* DeleteCommentProtocol.swift in Sources */,
 				8F6946692906460E001C19EA /* DeleteMealProtocol.swift in Sources */,
 				8FD47FF828A62D7C002D2B82 /* RestaurantSearchResponse.swift in Sources */,
 				8F13E9562851FADF00F090C4 /* BodyInitViewController.swift in Sources */,
+				8FADEBD42923582900420C14 /* DeleteCommentRequest.swift in Sources */,
 				CDAECC8E2905314100C13D3D /* MealDetailProtocol.swift in Sources */,
 				CD4778EF29066C49002D8D7C /* FoodDetailEditProtocol.swift in Sources */,
 				CDAECCA42905909C00C13D3D /* DetailBottomSheetViewController.swift in Sources */,
@@ -1425,6 +1439,7 @@
 				8FD47FF228A3E7B4002D2B82 /* RegionResponse.swift in Sources */,
 				8F69464429053F54001C19EA /* SearchProtocol.swift in Sources */,
 				8F1A5F7228702C0D00B64409 /* MyInfoResponse.swift in Sources */,
+				8FADEBD62923583300420C14 /* DeleteCommentResponse.swift in Sources */,
 				8F92039829214FCB009679EC /* PostScrapDataManager.swift in Sources */,
 				8F69464629054812001C19EA /* FoodDetailProtocol.swift in Sources */,
 				8F1A5F992893E21400B64409 /* CookRecommResponse.swift in Sources */,
@@ -1444,6 +1459,7 @@
 				CD29AD96289ACF4A001C8C51 /* BookmarkResponse.swift in Sources */,
 				8FD47FFF28A6437C002D2B82 /* RestaurantSearchTableViewCell.swift in Sources */,
 				8F1A5F8F288E63C900B64409 /* FoodDetailResponse.swift in Sources */,
+				8FADEBD8292358F900420C14 /* DeleteCommentDataManager.swift in Sources */,
 				8FADEBC92923457D00420C14 /* PostCommentDataManager.swift in Sources */,
 				8FC96A09291CC135006C0C8B /* PostingDetailRequest.swift in Sources */,
 				CD29AD98289ACF75001C8C51 /* BookmarkDataManager.swift in Sources */,
