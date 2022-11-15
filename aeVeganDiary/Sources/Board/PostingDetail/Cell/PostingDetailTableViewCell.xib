@@ -54,8 +54,22 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpk-5Q-NTa">
+                        <rect key="frame" x="283" y="14" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="H31-aA-6ho"/>
+                            <constraint firstAttribute="height" constant="22" id="K39-Qq-AVl"/>
+                        </constraints>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Button" image="ellipsis.circle" catalog="system"/>
+                        <connections>
+                            <action selector="commentMoreButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JzY-TD-Kt2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Zpk-5Q-NTa" secondAttribute="trailing" constant="15" id="04s-kA-dfB"/>
                     <constraint firstItem="FCz-M7-Qfv" firstAttribute="top" secondItem="giw-YJ-4Zw" secondAttribute="bottom" constant="10" id="0SU-1W-tRu"/>
                     <constraint firstItem="giw-YJ-4Zw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0gv-Gv-ixE"/>
                     <constraint firstItem="vqE-LH-LN4" firstAttribute="leading" secondItem="FCz-M7-Qfv" secondAttribute="leading" id="Ify-ki-beJ"/>
@@ -64,6 +78,7 @@
                     <constraint firstItem="pnq-4x-6kz" firstAttribute="centerY" secondItem="giw-YJ-4Zw" secondAttribute="centerY" id="Znr-P4-giG"/>
                     <constraint firstItem="giw-YJ-4Zw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ccd-Y9-rOe"/>
                     <constraint firstItem="vqE-LH-LN4" firstAttribute="top" secondItem="FCz-M7-Qfv" secondAttribute="bottom" constant="10" id="vRG-el-4Nu"/>
+                    <constraint firstItem="Zpk-5Q-NTa" firstAttribute="centerY" secondItem="pnq-4x-6kz" secondAttribute="centerY" id="vyh-YP-nea"/>
                     <constraint firstAttribute="bottom" secondItem="vqE-LH-LN4" secondAttribute="bottom" constant="15" id="x8I-f6-nnd"/>
                     <constraint firstAttribute="trailing" secondItem="FCz-M7-Qfv" secondAttribute="trailing" constant="15" id="zS8-EX-dw5"/>
                 </constraints>
@@ -73,6 +88,7 @@
                 <outlet property="commentContentLabel" destination="FCz-M7-Qfv" id="0gf-ft-jNV"/>
                 <outlet property="commentDateLabel" destination="vqE-LH-LN4" id="XHT-St-svK"/>
                 <outlet property="commentIconImageView" destination="giw-YJ-4Zw" id="1Tn-FZ-Rvv"/>
+                <outlet property="commentMoreButton" destination="Zpk-5Q-NTa" id="U6v-a3-wB4"/>
                 <outlet property="commentNicknameLabel" destination="pnq-4x-6kz" id="8ln-xk-iiu"/>
             </connections>
             <point key="canvasLocation" x="87.692307692307693" y="49.763033175355446"/>
@@ -80,6 +96,7 @@
     </objects>
     <resources>
         <image name="currentpin" width="20" height="20"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

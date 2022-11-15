@@ -9,6 +9,10 @@ import UIKit
 
 class PostingDetailTableViewCell: UITableViewCell {
 
+    @IBAction func commentMoreButtonAction(_ sender: Any) {
+        
+    }
+    @IBOutlet weak var commentMoreButton: UIButton!
     @IBOutlet weak var commentNicknameLabel: UILabel!
     @IBOutlet weak var commentIconImageView: UIImageView!
     @IBOutlet weak var commentContentLabel: UILabel!

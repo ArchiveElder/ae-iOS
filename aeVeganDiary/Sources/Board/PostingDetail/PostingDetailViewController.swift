@@ -18,7 +18,7 @@ class PostingDetailViewController: BaseViewController {
     @IBAction func postCommentButtonAction(_ sender: Any) {
         var commentText = commentTextField.text
         var commentRequest = CommentRequest(postIdx: postIdx, content: commentText ?? "")
-        postCommentDataManager.postComment(userId, parameters: commentRequest, delegate: self)
+        postCommentDataManager.postComment(userIdx, parameters: commentRequest, delegate: self)
         dismissKeyboard()
         commentTextField.text = ""
     }
@@ -28,7 +28,7 @@ class PostingDetailViewController: BaseViewController {
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
     lazy var postCommentDataManager : PostCommentDataManager = PostCommentDataManager()
     
-    var userId = UserDefaults.standard.integer(forKey: "UserId")
+    var userIdx = UserDefaults.standard.integer(forKey: "UserId")
     var postIdx : Int = 0
     
     var nickname : String = ""
@@ -75,8 +75,8 @@ class PostingDetailViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //print(userId, postIdx)
-        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
+        //print(userIdx, postIdx)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
     
     
@@ -115,7 +115,14 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         cell.commentIconImageView.image = UIImage(named: "profile\(commentLists?[indexPath.row].icon ?? 0)")
         cell.commentContentLabel.text = commentLists?[indexPath.row].content
         cell.commentDateLabel.text = commentLists?[indexPath.row].date
-        print("테이블뷰:", postingDetailResponse)
+        
+        if(commentLists?[indexPath.row].userIdx==self.userIdx){
+            cell.commentMoreButton.isHidden = false
+        } else{
+            cell.commentMoreButton.isHidden = true
+        }
+        
+            //print("테이블뷰:", postingDetailResponse)
         return cell
     }
 
@@ -192,7 +199,7 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         self.setNavigationTitle(title: result.boardName ?? "")
         
         //자신의 글일 때만 더보기 버튼 보이도록
-        if(result.userIdx == self.userId){
+        if(result.userIdx == self.userIdx){
             setMoreButton()
         }
         
@@ -208,7 +215,7 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
 extension PostingDetailViewController : PostCommentViewDelegate{
     func didSuccessPostComment(_ result: CommentResponse) {
         print("댓글 등록 성공")
-        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
         postingDetailTableView?.reloadData()
     }
 }
