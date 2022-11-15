@@ -9,16 +9,27 @@ import UIKit
 
 class PostingDetailViewController: BaseViewController {
     
+    @IBOutlet weak var keyBoardToolBarConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keyBoardToolBarView: UIView!
     @IBOutlet weak var postingDetailTableView: UITableView?
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postCommentButton: UIButton!
     
+    @IBAction func postCommentButtonAction(_ sender: Any) {
+        var commentText = commentTextField.text
+        var commentRequest = CommentRequest(postIdx: postIdx, content: commentText ?? "")
+        postCommentDataManager.postComment(userIdx, parameters: commentRequest, delegate: self)
+        dismissKeyboard()
+        commentTextField.text = ""
+    }
     var postingDetailResponse : PostingDetailResponse?
     var commentLists : [CommentsLists]?
     var imageLists : [ImageLists]?
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
+    lazy var postCommentDataManager : PostCommentDataManager = PostCommentDataManager()
+    lazy var deleteCommentDataManager : DeleteCommentDataManager = DeleteCommentDataManager()
     
-    var userId = UserDefaults.standard.integer(forKey: "UserId")
+    var userIdx = UserDefaults.standard.integer(forKey: "UserId")
     var postIdx : Int = 0
     
     var nickname : String = ""
@@ -33,36 +44,42 @@ class PostingDetailViewController: BaseViewController {
         let headerNib = UINib(nibName: "PostingDetailHeaderView", bundle: nil)
         postingDetailTableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: "PostingDetailHeaderView")
         //postingDetailTableView?.sectionHeaderHeight = UITableView.automaticDimension
-        postingDetailTableView?.estimatedRowHeight = 110
-        postingDetailTableView?.rowHeight = 110
+        postingDetailTableView?.estimatedRowHeight = UITableView.automaticDimension
+        postingDetailTableView?.rowHeight = UITableView.automaticDimension
         
         //getPostingDetailDataManager.getPostingDetailData(137, postIdx: 54, delegate: self)
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+           let keyboardRectangle = keyboardFrame.cgRectValue
+            UIView.animate(
+                withDuration: 0.3
+                , animations: {
+                    self.keyBoardToolBarView.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height+40)
+                }
+            )
+        }
+    }
+    
+    @objc func keyboardDown() {
+        self.keyBoardToolBarView.transform = .identity
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //print(userId, postIdx)
-        getPostingDetailDataManager.getPostingDetailData(userId, postIdx: postIdx, delegate: self)
+        //print(userIdx, postIdx)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
     
-    /*
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        if let headerView = postingDetailTableView!.tableHeaderView {
-            print("프레임:", headerView.frame)
-            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-            var headerFrame = headerView.frame
-
-            //Comparison necessary to avoid infinite loop
-            if height != headerFrame.size.height {
-                headerFrame.size.height = height
-                headerView.frame = headerFrame
-                postingDetailTableView!.tableHeaderView = headerView
-            }
-        }
-    }
-*/
     
     func setMoreButton() {
         let moreButton: UIButton = UIButton()
@@ -99,11 +116,27 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         cell.commentIconImageView.image = UIImage(named: "profile\(commentLists?[indexPath.row].icon ?? 0)")
         cell.commentContentLabel.text = commentLists?[indexPath.row].content
         cell.commentDateLabel.text = commentLists?[indexPath.row].date
-        print("테이블뷰:", postingDetailResponse)
+        cell.commentIndex = commentLists?[indexPath.row].commentIdx ?? 0
+        
+        cell.delegate = self
+        
+        if(commentLists?[indexPath.row].userIdx==self.userIdx){
+            cell.commentDeleteButton.isHidden = false
+        } else{
+            cell.commentDeleteButton.isHidden = true
+        }
+        
+            //print("테이블뷰:", postingDetailResponse)
         return cell
     }
 
-    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+
+  }
+
+
+    //Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         //return UITableView.automaticDimension
         return UITableView.automaticDimension
@@ -170,7 +203,7 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         self.setNavigationTitle(title: result.boardName ?? "")
         
         //자신의 글일 때만 더보기 버튼 보이도록
-        if(result.userIdx == self.userId){
+        if(result.userIdx == self.userIdx){
             setMoreButton()
         }
         
@@ -181,4 +214,31 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         
     }
     
+}
+
+extension PostingDetailViewController : PostCommentViewDelegate{
+    func didSuccessPostComment(_ result: CommentResponse) {
+        print("댓글 등록 성공")
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
+        postingDetailTableView?.reloadData()
+    }
+}
+
+extension PostingDetailViewController : DeleteCommentViewDelegate{
+    func didSuccessDeleteComment(_ result: DeleteCommentResponse) {
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
+        postingDetailTableView?.reloadData()
+        presentBottomAlert(message: "삭제가 완료되었습니다.")    }
+}
+
+
+extension PostingDetailViewController : PostingDetailTableViewCellDelegate{
+    func commentDeleteButtonAction(commentIndex: Int) {
+        presentAlert(title: "정말 삭제하시겠어요?", message: "삭제는 취소할 수 없습니다", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+            
+            var deleteCommentRequest = DeleteCommentRequest(commentIdx: commentIndex)
+            self.deleteCommentDataManager.deleteComment(self.userIdx, parameters: deleteCommentRequest, delegate: self)
+
+        })
+    }
 }
