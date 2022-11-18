@@ -1,5 +1,5 @@
 //
-//  PostingTableViewCell.swift
+//  MyScrapTableViewCell.swift
 //  aeVeganDiary
 //
 //  Created by 소정의 Mac on 2022/11/18.
@@ -7,11 +7,9 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
-class PostingTableViewCell: UITableViewCell {
+class MyScrapTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -29,7 +27,7 @@ class PostingTableViewCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
-    func updateUI(post: MyPostingLists){
+    func updateUI(post: MyScrapLists){
         profileImageView.image = UIImage(named: "profile\(post.icon ?? 0)")
         nicknameLabel.text = post.nickname
         titleLabel.text = post.title

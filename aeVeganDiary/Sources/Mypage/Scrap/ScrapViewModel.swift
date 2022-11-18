@@ -1,5 +1,5 @@
 //
-//  PostingViewModel.swift
+//  ScrapViewModel.swift
 //  aeVeganDiary
 //
 //  Created by 소정의 Mac on 2022/11/18.
@@ -9,10 +9,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class PostingViewModel {
-    static let shared = PostingViewModel()
+class ScrapViewModel {
+    static let shared = ScrapViewModel()
     
-    var posts = BehaviorRelay<[MyPostingLists]>(value: [])
+    var posts = BehaviorRelay<[MyScrapLists]>(value: [])
     let disposeBag = DisposeBag()
     
     let fetchMoreDatas = PublishSubject<Void>()
@@ -54,13 +54,13 @@ class PostingViewModel {
         isPaginationRequestStillResume = true
         isLoadingSpinnerAvaliable.onNext(true)
         
-        if pageCounter == 0 || isRefreshControl {
+        if pageCounter == 0 || isRefreshControl{
             isLoadingSpinnerAvaliable.onNext(false)
         }
         
         let userId = UserDefaults.standard.integer(forKey: "UserId")
-        _ = PostingDataManager.getPostings(userIdx: userId, page: pageCounter)
-            .map { data -> [MyPostingLists] in
+        _ = ScrapDataManager.getScrap(userIdx: userId, page: pageCounter)
+            .map { data -> [MyScrapLists] in
                 self.isLoadingSpinnerAvaliable.onNext(false)
                 self.isPaginationRequestStillResume = false
                 self.isRefreshRequstStillResume = false
@@ -88,6 +88,5 @@ class PostingViewModel {
         posts.accept([])
         fetchData(page: 0, isRefreshControl: true)
     }
-    
     
 }

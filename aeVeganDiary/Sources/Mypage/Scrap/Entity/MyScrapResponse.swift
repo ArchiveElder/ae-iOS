@@ -1,5 +1,5 @@
 //
-//  PostingResponse.swift
+//  MyScrapResponse.swift
 //  aeVeganDiary
 //
 //  Created by 소정의 Mac on 2022/11/18.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MyPostingResponse : Decodable {
-    var postsLists : [MyPostingLists]?
+struct MyScrapResponse : Decodable {
+    var postsLists : [MyScrapLists]?
 }
 
-struct MyPostingLists: Decodable {
+struct MyScrapLists: Decodable {
     var commentCount : Int?
     var content : String?
     var createdAt : String?
