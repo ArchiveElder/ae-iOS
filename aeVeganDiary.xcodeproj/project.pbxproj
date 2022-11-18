@@ -623,6 +623,7 @@
 			path = PostingDetailMoreSheet;
 			sourceTree = "<group>";
 		};
+
 		8FADEBF129275F4A00420C14 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +657,7 @@
 		8FC969F3291A1683006C0C8B /* Scrap */ = {
 			isa = PBXGroup;
 			children = (
+				8FADEBE02923726A00420C14 /* Cell */,
 				8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */,
 				8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */,
 			);
@@ -672,6 +674,8 @@
 				8FC969FE291BD6C7006C0C8B /* PostingDetailViewController.xib */,
 				8FB829D7291E8B5500A13842 /* GetPostingDetailDataManager.swift */,
 				8FB829D9291E8B5D00A13842 /* GetPostingDetailProtocol.swift */,
+				8F92039F292215B7009679EC /* DeletePostingDataManager.swift */,
+				8F9203A1292215C6009679EC /* DeletePostingProtocol.swift */,
 				8F92038729213DDB009679EC /* PostThumbUpDataManager.swift */,
 				8F92038929213DF4009679EC /* PostThumbUpProtocol.swift */,
 				8F92038D29214964009679EC /* DeleteThumbUpDataManager.swift */,
@@ -680,8 +684,6 @@
 				8F92039929214FDD009679EC /* PostScrapProtocol.swift */,
 				8F92039B29215120009679EC /* DeleteScrapDataManager.swift */,
 				8F92039D2921512D009679EC /* DeleteScrapProtocol.swift */,
-				8F92039F292215B7009679EC /* DeletePostingDataManager.swift */,
-				8F9203A1292215C6009679EC /* DeletePostingProtocol.swift */,
 				8FADEBC82923457D00420C14 /* PostCommentDataManager.swift */,
 				8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */,
 				8FADEBD7292358F900420C14 /* DeleteCommentDataManager.swift */,
@@ -695,14 +697,14 @@
 			children = (
 				8FC96A08291CC135006C0C8B /* PostingDetailRequest.swift */,
 				8FC96A0A291CC13F006C0C8B /* PostingDetailResponse.swift */,
+				8F9203A3292233D0009679EC /* DeletePostingResponse.swift */,
+				8F9203A529223464009679EC /* DeletePostingRequest.swift */,
 				8F9203812920DF17009679EC /* ThumbUpRequest.swift */,
 				8F9203852920DF3E009679EC /* ThumbUpResponse.swift */,
 				8F92038B29214939009679EC /* ThumbUpDeleteResponse.swift */,
 				8F92039129214E95009679EC /* ScrapRequest.swift */,
 				8F92039329214EB1009679EC /* ScrapResponse.swift */,
 				8F92039529214EBF009679EC /* ScrapDeleteResponse.swift */,
-				8F9203A3292233D0009679EC /* DeletePostingResponse.swift */,
-				8F9203A529223464009679EC /* DeletePostingRequest.swift */,
 				8FADEBCE292345CB00420C14 /* CommentRequest.swift */,
 				8FADEBD0292345D500420C14 /* CommentResponse.swift */,
 				8FADEBD32923582900420C14 /* DeleteCommentRequest.swift */,
@@ -1328,6 +1330,7 @@
 				CDAECCAA29059A6500C13D3D /* FoodDetailEditViewController.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
+				8FADEBE42923727C00420C14 /* MyScrapTableViewCell.xib in Resources */,
 				CD7C9FD828B870D000C8635E /* BookmarkViewController.xib in Resources */,
 				8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */,
 				8FD47FFC28A63282002D2B82 /* RestaurantSearchViewController.xib in Resources */,
@@ -1357,6 +1360,7 @@
 				CDED42342917DA1D002A4B49 /* BoardViewController.xib in Resources */,
 				CD3D1CCD292114DD0075BC17 /* BoardHeaderView.xib in Resources */,
 				8F1A5FAF28990A7300B64409 /* RecommInnerView.xib in Resources */,
+				8FADEBDF2923704300420C14 /* MyPostingTableViewCell.xib in Resources */,
 				CD464F712921357700BC7FA7 /* CategoryCollectionViewCell.xib in Resources */,
 				8F1A5F89287C2BDE00B64409 /* CookRecommTableViewCell.xib in Resources */,
 				CD8810DE2921295D00AF7D2D /* RestaurantViewController.xib in Resources */,
@@ -1430,6 +1434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F92039C29215120009679EC /* DeleteScrapDataManager.swift in Sources */,
+				8FADEBDE2923704300420C14 /* MyPostingTableViewCell.swift in Sources */,
 				CDE47F5728426E74005D8BB3 /* UIViewController.swift in Sources */,
 				CDE47F4028424B44005D8BB3 /* aeVeganDiary.xcdatamodeld in Sources */,
 				8F92039029214970009679EC /* DeleteThumbUpProtocol.swift in Sources */,
@@ -1515,6 +1520,7 @@
 				CDD9DCEA291E0D5700FEBF32 /* BoardResponse.swift in Sources */,
 				CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */,
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
+				8FADEBE32923727C00420C14 /* MyScrapTableViewCell.swift in Sources */,
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,
@@ -1536,12 +1542,14 @@
 				8FD47FF628A62D64002D2B82 /* RestaurantSearchInput.swift in Sources */,
 				CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */,
 				8FC96A0B291CC13F006C0C8B /* PostingDetailResponse.swift in Sources */,
+				8FADEBE92923764B00420C14 /* MyPostingResponse.swift in Sources */,
 				8FD47FF428A62D44002D2B82 /* RestaurantSearchDataManager.swift in Sources */,
 				CD0E214428C59BFA0041371B /* AppleLoginDataManager.swift in Sources */,
 				8F92038A29213DF4009679EC /* PostThumbUpProtocol.swift in Sources */,
 				8F1A5F9D2893E63300B64409 /* IngreInput.swift in Sources */,
 				8F69464A29059058001C19EA /* RestaurantSearchProtocol.swift in Sources */,
 				8F1A5F7628703BD700B64409 /* UpdateMyInfoDataManager.swift in Sources */,
+				8FADEBE72923764300420C14 /* MyPostingRequest.swift in Sources */,
 				CD3D1CBE29208AFD0075BC17 /* PostDataManager.swift in Sources */,
 				8F13E94B2850AEB300F090C4 /* MealDetailViewController.swift in Sources */,
 				CDE47F6D2842747D005D8BB3 /* AnalyzeViewController.swift in Sources */,
