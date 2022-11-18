@@ -29,7 +29,7 @@ class PostingTableViewCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
-    func updateUI(post: PostingLists){
+    func updateUI(post: MyPostingLists){
         profileImageView.image = UIImage(named: "profile\(post.icon ?? 0)")
         nicknameLabel.text = post.nickname
         titleLabel.text = post.title

@@ -12,7 +12,7 @@ import RxCocoa
 class PostingViewModel {
     static let shared = PostingViewModel()
     
-    var posts = BehaviorRelay<[PostingLists]>(value: [])
+    var posts = BehaviorRelay<[MyPostingLists]>(value: [])
     let disposeBag = DisposeBag()
     
     let fetchMoreDatas = PublishSubject<Void>()
@@ -60,7 +60,7 @@ class PostingViewModel {
         
         let userId = UserDefaults.standard.integer(forKey: "UserId")
         _ = PostingDataManager.getPostings(userIdx: userId, page: pageCounter)
-            .map { data -> [PostingLists] in
+            .map { data -> [MyPostingLists] in
                 self.isLoadingSpinnerAvaliable.onNext(false)
                 self.isPaginationRequestStillResume = false
                 self.isRefreshRequstStillResume = false

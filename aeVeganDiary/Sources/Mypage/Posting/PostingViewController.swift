@@ -58,7 +58,7 @@ class PostingViewController: BaseViewController, UITableViewDelegate{
             }
             .disposed(by: disposeBag)
         
-        postingTableView.rx.modelSelected(PostingLists.self)
+        postingTableView.rx.modelSelected(MyPostingLists.self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] post in self?.presentDetail(of: post)
             })
@@ -90,7 +90,7 @@ class PostingViewController: BaseViewController, UITableViewDelegate{
         .disposed(by: disposeBag)
     }
     
-    private func presentDetail(of post : PostingLists) {
+    private func presentDetail(of post : MyPostingLists) {
         let vc = PostingDetailViewController()
         vc.postIdx = post.postIdx ?? 0
         let nav = UINavigationController(rootViewController: vc)
