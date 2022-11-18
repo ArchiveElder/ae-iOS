@@ -23,16 +23,51 @@ class PostingTableViewCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
         disposeBag = DisposeBag()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func updateUI(post: PostingLists){
+        profileImageView.image = UIImage(named: "profile\(post.icon ?? 0)")
+        nicknameLabel.text = post.nickname
+        titleLabel.text = post.title
+        
+        timeLabel.text = calculateTime(dateString: post.createdAt ?? "")
+        
+        //게시판 카테고리, 사진 유무
+        //isPhotoImageView.isHidden = post.hasImg == 1 ? false : true
+        likeCountLabel.text = "\(post.thumbupCount ?? 0)"
+        commentCountLabel.text = "\(post.commentCount ?? 0)"
+    }
+    
+    func calculateTime(dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
+        dateFormatter.locale = Locale(identifier: "ko_kr")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        let current = Date()
+        
+        let date = dateFormatter.date(from: dateString) ?? Date()
+        let timeCalculate = current.timeIntervalSinceReferenceDate - (date.timeIntervalSinceReferenceDate)
 
-        // Configure the view for the selected state
+        let time: Int = Int(abs(timeCalculate))
+        if time >= 0 && time < 60 {
+            return "\(time)초 전"
+        } else if time >= 60 && time < 3600 {
+            return "\(time / 60)분 전"
+        } else if time >= 3600 && time < 86400 {
+            return "\(time / 3600)시간 전"
+        } else if time >= 86400 && time < 604800 {
+            return "\(time / 86400)일 전" // 7일 미만일 때
+        } else {
+            // 7일 이상일 때
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy.MM.dd"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            return dateFormatter.string(from: date)
+        }
     }
     
 }
