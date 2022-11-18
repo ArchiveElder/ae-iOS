@@ -15,12 +15,16 @@ class RestaurantListViewController: UIViewController {
     lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
 
     @IBOutlet weak var restaurantTableView: UITableView!
+    @IBOutlet weak var dimmedView: UIView!
     
     var restaurantList = [MapData]()
     var filteredRestaurantList = [MapData]()
     
     var mainCategory = ""
     var middleCategory = ""
+    
+    var siteWide = ""
+    var siteMiddle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,30 +47,71 @@ class RestaurantListViewController: UIViewController {
         self.mainCategory = mainCategory
         self.middleCategory = middleCategory
         
-        filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        if siteWide == "" {
+            filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        } else {
+            if siteMiddle == "" {
+                filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+            } else {
+                filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+            }
+        }
+        
+        hideDimmedView()
         
         self.restaurantTableView.reloadData()
+    }
+    
+    func loadRegionWide(region: String) {
+        self.siteWide = region
+        self.siteMiddle = ""
+        
+        if region == "전체" {
+            self.siteWide = ""
+            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        } else {
+            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+        }
+        
+        hideDimmedView()
+        
+        self.restaurantTableView.reloadData()
+    }
+    
+    func loadRegionMiddle(region: String) {
+        self.siteMiddle = region
+        
+        if region == "전체" {
+            self.siteMiddle = ""
+            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+        } else {
+            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+        }
+        
+        hideDimmedView()
+        
+        self.restaurantTableView.reloadData()
+    }
+    
+    func hideDimmedView() {
+        if filteredRestaurantList.isEmpty {
+            dimmedView.isHidden = false
+        } else {
+            dimmedView.isHidden = true
+        }
     }
 }
 
 extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filteredRestaurantList.isEmpty {
-            return restaurantList.count
-        } else {
-            return filteredRestaurantList.count
-        }
+        filteredRestaurantList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListTableViewCell", for: indexPath) as! RestaurantListTableViewCell
         cell.selectionStyle = .none
         var resData: MapData? = nil
-        if filteredRestaurantList.isEmpty {
-            resData = restaurantList[indexPath.row]
-        } else {
-            resData = filteredRestaurantList[indexPath.row]
-        }
+        resData = filteredRestaurantList[indexPath.row]
         cell.nameLabel.text = resData?.name
         cell.categoryLabel.text = resData?.middleCategory
         cell.roadAddrLabel.text = resData?.roadAddr
@@ -83,11 +128,7 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
     
     @objc func bookmark(sender: UIButton) {
         var resData: MapData? = nil
-        if filteredRestaurantList.isEmpty {
-            resData = restaurantList[sender.tag]
-        } else {
-            resData = filteredRestaurantList[sender.tag]
-        }
+        resData = filteredRestaurantList[sender.tag]
         if sender.isSelected {
             showIndicator()
             let input = BookmarkRequest(bistroId: resData?.bistro_id ?? 0)
@@ -101,11 +142,7 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
     
     @objc func toDetail(sender: UIButton) {
         var resData: MapData? = nil
-        if filteredRestaurantList.isEmpty {
-            resData = restaurantList[sender.tag]
-        } else {
-            resData = filteredRestaurantList[sender.tag]
-        }
+        resData = filteredRestaurantList[sender.tag]
         
         let urlStr = resData?.bistroUrl ?? "https://www.naver.com/"
         if let url = URL(string: urlStr) {
@@ -120,7 +157,11 @@ extension RestaurantListViewController: MapViewDelegate, BookmarkViewDelegate, B
     func didSuccessGetMap(_ result: MapResponse) {
         dismissIndicator()
         self.restaurantList = result.result?.data ?? []
+        self.filteredRestaurantList = restaurantList
         loadList(mainCategory: self.mainCategory, middleCategory: self.middleCategory)
+        
+        hideDimmedView()
+        
         self.restaurantTableView.reloadData()
     }
     

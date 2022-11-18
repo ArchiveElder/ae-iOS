@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantListViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
+                <outlet property="dimmedView" destination="eaJ-Bt-9Hn" id="Ir8-ld-IJK"/>
                 <outlet property="restaurantTableView" destination="MPD-9q-by2" id="n4Y-op-K24"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,19 +26,50 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaJ-Bt-9Hn">
+                    <rect key="frame" x="0.0" y="213" width="414" height="683"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리에 해당하는 음식점이 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV5-Ie-wTv">
+                            <rect key="frame" x="88.5" y="332.5" width="237" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="0.4039215686" green="0.40784313729999999" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mWH-Be-bT6">
+                            <rect key="frame" x="197.5" y="293.5" width="19.5" height="28"/>
+                            <color key="tintColor" red="0.4039215686" green="0.40784313729999999" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="mWH-Be-bT6" secondAttribute="height" multiplier="13:20" id="bLW-kK-1lS"/>
+                                <constraint firstAttribute="height" constant="30" id="kne-RI-k0g"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="RV5-Ie-wTv" firstAttribute="centerY" secondItem="eaJ-Bt-9Hn" secondAttribute="centerY" id="7z9-X5-pHk"/>
+                        <constraint firstItem="RV5-Ie-wTv" firstAttribute="centerX" secondItem="eaJ-Bt-9Hn" secondAttribute="centerX" id="FcW-QP-s8T"/>
+                        <constraint firstItem="RV5-Ie-wTv" firstAttribute="top" secondItem="mWH-Be-bT6" secondAttribute="bottom" constant="10" id="PdD-bT-b3o"/>
+                        <constraint firstItem="mWH-Be-bT6" firstAttribute="centerX" secondItem="eaJ-Bt-9Hn" secondAttribute="centerX" id="lXk-b9-CWn"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="MPD-9q-by2" secondAttribute="bottom" id="AB2-uq-YSR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MPD-9q-by2" secondAttribute="trailing" id="Im5-nN-siz"/>
+                <constraint firstItem="eaJ-Bt-9Hn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bBO-GV-M2X"/>
+                <constraint firstItem="eaJ-Bt-9Hn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cI4-ga-dfo"/>
                 <constraint firstItem="MPD-9q-by2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="egr-fb-Ih3"/>
                 <constraint firstItem="MPD-9q-by2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="165" id="mqQ-UZ-2rH"/>
+                <constraint firstItem="eaJ-Bt-9Hn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="165" id="opm-Rm-mhp"/>
+                <constraint firstAttribute="bottom" secondItem="eaJ-Bt-9Hn" secondAttribute="bottom" id="yfV-ng-CCY"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="20"/>
+            <point key="canvasLocation" x="139.13043478260872" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>
+        <image name="questionmark" catalog="system" width="94" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,12 +8,25 @@
 import UIKit
 import EventKit
 
+struct RegionList {
+    var wide: String
+    var middle: [String]
+}
+
 class RestaurantViewController: UIViewController {
     
     lazy var mapDataManager: MapDataManagerDelegate = MapDataManager()
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var regionView: UIView!
+    @IBOutlet weak var siteWideTextField: UITextField!
+    @IBOutlet weak var siteMiddleTextField: UITextField!
+    
+    var regionWidePickerView = UIPickerView()
+    var regionMiddlePickerView = UIPickerView()
+    var selectedWide: Int = 0
+    var selectedMiddle: Int = -1
+    
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var categoryViewTopConstraint: NSLayoutConstraint!
     
@@ -53,16 +66,57 @@ class RestaurantViewController: UIViewController {
     let categoryCafe = ["디저트", "베이커리", "과일/주스", "브런치"]
     var categoryList: [String] = []
     
+    let siteList = [RegionList(wide: "전체", middle: ["전체"]),
+                    RegionList(wide: "서울특별시", middle: ["전체", "종로구", "동대문구", "영등포구", "종로구", "강남구", "마포구", "양천구", "서초구", "서대문구", "용산구", "구로구", "관악구", "광진구", "은평구", "성북구", "성동구"]),
+                RegionList(wide: "경기도", middle: ["전체", "용인시", "고양시", "수원시", "성남시", "화성시", "시흥시"]),
+                RegionList(wide: "인천광역시", middle: ["전체", "남동구", "미추홀구"]),
+                RegionList(wide: "경상남도", middle: ["전체", "합천군", "창원시", "거제시", "장흥군", "거창군", "함안군"]),
+                RegionList(wide: "경상북도", middle: ["전체", "경주시"]),
+                RegionList(wide: "광주광역시", middle: ["전체", "동구"]),
+                RegionList(wide: "대구광역시", middle: ["전체", "수성구"]),
+                RegionList(wide: "대전광역시", middle: ["전체", "유성구", "동구"]),
+                RegionList(wide: "부산광역시", middle: ["전체", "수영구", "해운대구"]),
+                RegionList(wide: "울산광역시", middle: ["전체", "중구"]),
+                RegionList(wide: "전라남도", middle: ["전체", "담양군", "목포시"]),
+                RegionList(wide: "전라북도", middle: ["전체", "완주군"]),
+                RegionList(wide: "제주특별자치도", middle: ["전체", "서귀포시", "제주시"]),
+                RegionList(wide: "충청북도", middle: ["전체", "충주시"])]
+    
+    var toolBarWide = UIToolbar()
+    var toolBarMiddle = UIToolbar()
+    
     var location: CLLocation?
     let mapVC = MapViewController()
     let listVC = RestaurantListViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapVC.location = self.location
         setUp()
         categoryList = categoryBistro
+        
+        regionWidePickerView.delegate = self
+        regionWidePickerView.dataSource = self
+        regionMiddlePickerView.delegate = self
+        regionMiddlePickerView.dataSource = self
+        
+        siteWideTextField.inputView = regionWidePickerView
+        siteMiddleTextField.inputView = regionMiddlePickerView
+        
+        toolBarWide.sizeToFit()
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(changeRegionWide))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBarWide.setItems([flexSpace, button], animated: true)
+        toolBarWide.isUserInteractionEnabled = true
+        
+        toolBarMiddle.sizeToFit()
+        let middleButton = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(changeRegionMiddle))
+        toolBarMiddle.setItems([flexSpace, middleButton], animated: true)
+        toolBarMiddle.isUserInteractionEnabled = true
+        
+        siteWideTextField.inputAccessoryView = toolBarWide
+        siteMiddleTextField.inputAccessoryView = toolBarMiddle
         
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -106,6 +160,22 @@ class RestaurantViewController: UIViewController {
             categoryViewTopConstraint.constant = 60
         }
         
+    }
+    
+    @objc func changeRegionWide() {
+        dismissKeyboard()
+        selectedMiddle = 0
+        let wideStr = siteList[selectedWide].wide
+        siteWideTextField.text = wideStr
+        siteMiddleTextField.text = siteList[selectedWide].middle[selectedMiddle]
+        listVC.loadRegionWide(region: wideStr)
+    }
+    
+    @objc func changeRegionMiddle() {
+        dismissKeyboard()
+        let middleStr = siteList[selectedWide].middle[selectedMiddle]
+        siteMiddleTextField.text = middleStr
+        listVC.loadRegionMiddle(region: middleStr)
     }
 
 }
@@ -170,5 +240,39 @@ extension RestaurantViewController: UICollectionViewDelegate, UICollectionViewDa
         let size = label.frame.size
         
         return CGSize(width: size.width + 30, height: 36)
+    }
+}
+
+extension RestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == regionWidePickerView {
+            return siteList.count
+        } else {
+            return siteList[selectedWide].middle.count
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == regionWidePickerView {
+            return siteList[row].wide
+        } else {
+            return siteList[selectedWide].middle[row]
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //self.categoryIndex = row
+        //self.viewModel.category = categories[row]
+        //refreshControlTriggered()
+        
+        if pickerView == regionWidePickerView {
+            selectedWide = row
+        } else {
+            selectedMiddle = row
+        }
     }
 }

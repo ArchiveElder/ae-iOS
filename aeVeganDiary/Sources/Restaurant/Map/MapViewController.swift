@@ -139,6 +139,8 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
     }
     
     func loadMap(mainCategory: String, middleCategory: String) {
+        infoView.isHidden = true
+        
         if mainCategory == "" || middleCategory == "" {
             return
         }
