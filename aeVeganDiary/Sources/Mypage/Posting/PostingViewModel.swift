@@ -54,7 +54,7 @@ class PostingViewModel {
         isPaginationRequestStillResume = true
         isLoadingSpinnerAvaliable.onNext(true)
         
-        if pageCounter == 0 || isRefreshControl{
+        if pageCounter == 0 || isRefreshControl {
             isLoadingSpinnerAvaliable.onNext(false)
         }
         

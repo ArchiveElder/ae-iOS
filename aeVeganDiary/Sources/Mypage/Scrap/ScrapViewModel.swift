@@ -89,5 +89,4 @@ class ScrapViewModel {
         fetchData(page: 0, isRefreshControl: true)
     }
     
-    
 }

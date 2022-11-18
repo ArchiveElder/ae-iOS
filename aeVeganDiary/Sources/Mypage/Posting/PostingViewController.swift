@@ -45,7 +45,15 @@ class PostingViewController: BaseViewController, UITableViewDelegate{
         postingTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshControlTriggered), for: .valueChanged)
         
+        postingTableView.reloadData()
         setBinding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        //viewModel.fetchData(page: 0, isRefreshControl: true)
+        refreshControlTriggered()
     }
     
     private func setBinding(){
