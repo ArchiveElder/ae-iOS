@@ -72,7 +72,6 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         super.viewWillAppear(animated)
         
         showIndicator()
-        print(location)
         
         if location != nil {
             let latitude = location?.coordinate.latitude
@@ -105,7 +104,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
                 let info = filteredRestaurantList[firstIndex]
                 markerIndex = info.bistro_id
                 nameLabel.text = info.name
-                categoryLabel.text = info.category
+                categoryLabel.text = info.middleCategory
                 roadAddrLabel.text = info.roadAddr
                 lnmAddrLabel.text = info.lnmAddr
                 restaurantUrl = info.bistroUrl ?? ""
@@ -122,7 +121,7 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
                 let info = restaurantList[firstIndex]
                 markerIndex = info.bistro_id
                 nameLabel.text = info.name
-                categoryLabel.text = info.category
+                categoryLabel.text = info.middleCategory
                 roadAddrLabel.text = info.roadAddr
                 lnmAddrLabel.text = info.lnmAddr
                 restaurantUrl = info.bistroUrl ?? ""

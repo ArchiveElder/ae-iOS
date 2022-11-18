@@ -31,7 +31,7 @@ class RestaurantViewController: UIViewController {
         } else {
             listVC.view.isHidden = false
             regionView.isHidden = false
-            categoryViewTopConstraint.constant = 115
+            categoryViewTopConstraint.constant = 112
         }
     }
     
@@ -97,7 +97,7 @@ class RestaurantViewController: UIViewController {
             listVC.view.isHidden = false
             segmentedControl.selectedSegmentIndex = 1
             regionView.isHidden = false
-            categoryViewTopConstraint.constant = 115
+            categoryViewTopConstraint.constant = 112
         } else {
             mapVC.view.isHidden = false
             listVC.view.isHidden = true

@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class RestaurantListViewController: UIViewController {
     
     lazy var mapDataManager: MapDataManagerDelegate = MapDataManager()
+    lazy var bookmarkDataManager: BookmarkDataManagerDelegate = BookmarkDataManager()
+    lazy var bookmarkDeleteDataManager: BookmarkDeleteDataManagerDelegate = BookmarkDeleteDataManager()
 
     @IBOutlet weak var restaurantTableView: UITableView!
     
@@ -24,7 +27,7 @@ class RestaurantListViewController: UIViewController {
         
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
-        restaurantTableView.register(UINib(nibName: "RestaurantSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurantSearchTableViewCell")
+        restaurantTableView.register(UINib(nibName: "RestaurantListTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurantListTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +59,8 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListTableViewCell", for: indexPath) as! RestaurantListTableViewCell
+        cell.selectionStyle = .none
         var resData: MapData? = nil
         if filteredRestaurantList.isEmpty {
             resData = restaurantList[indexPath.row]
@@ -65,7 +69,49 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
         }
         cell.nameLabel.text = resData?.name
         cell.categoryLabel.text = resData?.middleCategory
+        cell.roadAddrLabel.text = resData?.roadAddr
+        cell.lnmAddrLabel.text = resData?.lnmAddr
+        
+        cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.isSelected = resData?.isBookmark == 1 ? true : false
+        cell.bookmarkButton.addTarget(self, action: #selector(bookmark(sender:)), for: .touchUpInside)
+        cell.detailButton.tag = indexPath.row
+        cell.detailButton.addTarget(self, action: #selector(toDetail(sender:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func bookmark(sender: UIButton) {
+        var resData: MapData? = nil
+        if filteredRestaurantList.isEmpty {
+            resData = restaurantList[sender.tag]
+        } else {
+            resData = filteredRestaurantList[sender.tag]
+        }
+        if sender.isSelected {
+            showIndicator()
+            let input = BookmarkRequest(bistroId: resData?.bistro_id ?? 0)
+            bookmarkDeleteDataManager.deleteBookmark(input, delegate: self)
+        } else {
+            showIndicator()
+            let input = BookmarkRequest(bistroId: resData?.bistro_id ?? 0)
+            bookmarkDataManager.postBookmark(input, delegate: self)
+        }
+    }
+    
+    @objc func toDetail(sender: UIButton) {
+        var resData: MapData? = nil
+        if filteredRestaurantList.isEmpty {
+            resData = restaurantList[sender.tag]
+        } else {
+            resData = filteredRestaurantList[sender.tag]
+        }
+        
+        let urlStr = resData?.bistroUrl ?? "https://www.naver.com/"
+        if let url = URL(string: urlStr) {
+            let safariView : SFSafariViewController = SFSafariViewController(url: url)
+            present(safariView, animated: true, completion: nil)
+        }
     }
 }
 
@@ -74,6 +120,7 @@ extension RestaurantListViewController: MapViewDelegate, BookmarkViewDelegate, B
     func didSuccessGetMap(_ result: MapResponse) {
         dismissIndicator()
         self.restaurantList = result.result?.data ?? []
+        loadList(mainCategory: self.mainCategory, middleCategory: self.middleCategory)
         self.restaurantTableView.reloadData()
     }
     
