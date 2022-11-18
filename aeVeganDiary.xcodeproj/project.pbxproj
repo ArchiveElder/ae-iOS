@@ -84,6 +84,8 @@
 		8F9FEE0D292792A200279D60 /* MyScrapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE0C292792A200279D60 /* MyScrapResponse.swift */; };
 		8F9FEE10292792CB00279D60 /* MyScrapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE0E292792CB00279D60 /* MyScrapTableViewCell.swift */; };
 		8F9FEE11292792CB00279D60 /* MyScrapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9FEE0F292792CB00279D60 /* MyScrapTableViewCell.xib */; };
+		8F9FEE132927953F00279D60 /* ScrapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE122927953F00279D60 /* ScrapViewModel.swift */; };
+		8F9FEE152927954C00279D60 /* ScrapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE142927954C00279D60 /* ScrapDataManager.swift */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FADEBC629225A4100420C14 /* PostingDetailMoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */; };
@@ -327,6 +329,8 @@
 		8F9FEE0C292792A200279D60 /* MyScrapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrapResponse.swift; sourceTree = "<group>"; };
 		8F9FEE0E292792CB00279D60 /* MyScrapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrapTableViewCell.swift; sourceTree = "<group>"; };
 		8F9FEE0F292792CB00279D60 /* MyScrapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyScrapTableViewCell.xib; sourceTree = "<group>"; };
+		8F9FEE122927953F00279D60 /* ScrapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewModel.swift; sourceTree = "<group>"; };
+		8F9FEE142927954C00279D60 /* ScrapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapDataManager.swift; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailMoreSheetViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +687,8 @@
 				8FADEBFD29278F0700420C14 /* Entity */,
 				8FC969F8291A16BE006C0C8B /* ScrapViewController.swift */,
 				8FC969F9291A16BE006C0C8B /* ScrapViewController.xib */,
+				8F9FEE122927953F00279D60 /* ScrapViewModel.swift */,
+				8F9FEE142927954C00279D60 /* ScrapDataManager.swift */,
 			);
 			path = Scrap;
 			sourceTree = "<group>";
@@ -1466,6 +1472,7 @@
 				CD00F68C286DE13000F8A8C0 /* LoginDataManager.swift in Sources */,
 				CD7F38212844678700D15356 /* TabCollectionViewCell.swift in Sources */,
 				8FC969E929192E34006C0C8B /* CheckNicknameInput.swift in Sources */,
+				8F9FEE152927954C00279D60 /* ScrapDataManager.swift in Sources */,
 				CD4778ED29066C3C002D8D7C /* FoodDetailEditDataManager.swift in Sources */,
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
@@ -1527,6 +1534,7 @@
 				CDD9498D28BCA8BA00695E50 /* BookmarkListResponse.swift in Sources */,
 				8FADEBCB2923458800420C14 /* PostCommentProtocol.swift in Sources */,
 				CDAECC8A2905283F00C13D3D /* RegisterRequest.swift in Sources */,
+				8F9FEE132927953F00279D60 /* ScrapViewModel.swift in Sources */,
 				8F69465E29062CFF001C19EA /* DeleteUserDataManager.swift in Sources */,
 				8F9203A2292215C6009679EC /* DeletePostingProtocol.swift in Sources */,
 				8F9203862920DF3E009679EC /* ThumbUpResponse.swift in Sources */,
