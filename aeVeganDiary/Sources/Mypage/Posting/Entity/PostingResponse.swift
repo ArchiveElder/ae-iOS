@@ -21,4 +21,6 @@ struct MyPostingLists: Decodable {
     var thumbupCount : Int?
     var title : String?
     var userIdx : Int?
+    var boardName : String?
+    var hasImg : Int?
 }

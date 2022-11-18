@@ -36,8 +36,8 @@ class PostingTableViewCell: UITableViewCell {
         
         timeLabel.text = calculateTime(dateString: post.createdAt ?? "")
         
-        //게시판 카테고리, 사진 유무
-        //isPhotoImageView.isHidden = post.hasImg == 1 ? false : true
+        categoryLabel.text = post.boardName
+        isPhotoImageView.isHidden = post.hasImg == 1 ? false : true
         likeCountLabel.text = "\(post.thumbupCount ?? 0)"
         commentCountLabel.text = "\(post.commentCount ?? 0)"
     }
