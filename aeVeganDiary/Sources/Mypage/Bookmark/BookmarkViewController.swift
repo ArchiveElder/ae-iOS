@@ -27,7 +27,7 @@ class BookmarkViewController: BaseViewController {
         
         bookmarkTableView.delegate = self
         bookmarkTableView.dataSource = self
-        bookmarkTableView.register(UINib(nibName: "RestaurantSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurantSearchTableViewCell")
+        bookmarkTableView.register(UINib(nibName: "RestaurantListTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurantListTableViewCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,18 +45,17 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSearchTableViewCell", for: indexPath) as! RestaurantSearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListTableViewCell", for: indexPath) as! RestaurantListTableViewCell
         cell.nameLabel.text = listData?.data?[indexPath.row].name
         cell.categoryLabel.text = listData?.data?[indexPath.row].category
         cell.roadAddrLabel.text = listData?.data?[indexPath.row].roadAddr
         cell.lnmAddrLabel.text = listData?.data?[indexPath.row].lnmAddr
-        cell.telNoLabel.text = listData?.data?[indexPath.row].telNo
-        cell.searchBookmarkButton.isSelected = true
-        cell.searchBookmarkButton.tag = indexPath.row
-        cell.searchBookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
+        cell.bookmarkButton.isSelected = true
+        cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.addTarget(self, action: #selector(bookmarkDelete(sender: )), for: .touchUpInside)
         
-        cell.restaurantDetailButton.tag = indexPath.row
-        cell.restaurantDetailButton.addTarget(self, action: #selector(restaurantWebView(sender:)), for: .touchUpInside)
+        cell.detailButton.tag = indexPath.row
+        cell.detailButton.addTarget(self, action: #selector(restaurantWebView(sender:)), for: .touchUpInside)
         return cell
     }
     
