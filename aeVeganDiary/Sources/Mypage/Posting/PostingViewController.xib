@@ -11,29 +11,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostingViewController" customModule="aeVeganDiary" customModuleProvider="target">
             <connections>
-                <outlet property="myPostingTableView" destination="pkD-rW-5ar" id="siQ-30-DJq"/>
+                <outlet property="postingTableView" destination="OVi-qH-1Qz" id="L9g-22-Qqx"/>
+
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pkD-rW-5ar">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OVi-qH-1Qz">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="670"/>
+
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="pkD-rW-5ar" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="J3W-59-NYM"/>
-                <constraint firstItem="pkD-rW-5ar" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ady-jW-2pl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pkD-rW-5ar" secondAttribute="bottom" id="em0-bj-AhP"/>
-                <constraint firstItem="pkD-rW-5ar" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="osV-8g-wvR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OVi-qH-1Qz" secondAttribute="trailing" id="Qcv-Jn-xgL"/>
+                <constraint firstItem="OVi-qH-1Qz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xfp-Ia-bAx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OVi-qH-1Qz" secondAttribute="bottom" id="aeY-Yp-4B8"/>
+                <constraint firstItem="OVi-qH-1Qz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ztq-Ar-R3w"/>
             </constraints>
-            <point key="canvasLocation" x="4.615384615384615" y="20.616113744075829"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+            <point key="canvasLocation" x="117" y="21"/>
         </view>
     </objects>
     <resources>
