@@ -161,6 +161,8 @@
 		CD4FE96E28939B5400D2F2E6 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */; };
 		CD54F1B8289B87D600009EC1 /* FoodPredictResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */; };
 		CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */; };
+		CD5813D3292750C9001A02EB /* RestaurantListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5813D1292750C9001A02EB /* RestaurantListTableViewCell.swift */; };
+		CD5813D4292750C9001A02EB /* RestaurantListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD5813D2292750C9001A02EB /* RestaurantListTableViewCell.xib */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
 		CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */; };
@@ -399,6 +401,8 @@
 		CD4FE96D28939B5400D2F2E6 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		CD54F1B7289B87D600009EC1 /* FoodPredictResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictResponse.swift; sourceTree = "<group>"; };
 		CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictDataManager.swift; sourceTree = "<group>"; };
+		CD5813D1292750C9001A02EB /* RestaurantListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewCell.swift; sourceTree = "<group>"; };
+		CD5813D2292750C9001A02EB /* RestaurantListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantListTableViewCell.xib; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -835,6 +839,7 @@
 		CD464F682921346900BC7FA7 /* RestaurantList */ = {
 			isa = PBXGroup;
 			children = (
+				CD5813D0292750A7001A02EB /* Cell */,
 				CD464F692921348100BC7FA7 /* RestaurantListViewController.swift */,
 				CD464F6A2921348100BC7FA7 /* RestaurantListViewController.xib */,
 			);
@@ -866,6 +871,15 @@
 				CD29AD95289ACF4A001C8C51 /* BookmarkResponse.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		CD5813D0292750A7001A02EB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD5813D1292750C9001A02EB /* RestaurantListTableViewCell.swift */,
+				CD5813D2292750C9001A02EB /* RestaurantListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CD6A455E288E78D9004B8B91 /* Restaurant */ = {
@@ -1281,6 +1295,7 @@
 				CD6A455D288E7859004B8B91 /* EventTableViewCell.xib in Resources */,
 				8F0FF9DE28D1C91800B870DF /* RecommTabCollectionViewCell.xib in Resources */,
 				8FB829D6291E4A2600A13842 /* PostingDetailHeaderView.xib in Resources */,
+				CD5813D4292750C9001A02EB /* RestaurantListTableViewCell.xib in Resources */,
 				CD464F6C2921348100BC7FA7 /* RestaurantListViewController.xib in Resources */,
 				8F1A5F6E286D7A1D00B64409 /* MyInfoViewController.xib in Resources */,
 				CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */,
@@ -1439,6 +1454,7 @@
 				8F1A5F91288E63D600B64409 /* FoodDetailDataManager.swift in Sources */,
 				CDAECCA02905776B00C13D3D /* SignupRequest.swift in Sources */,
 				CDD9DCEC291E0EC000FEBF32 /* BoardDataManager.swift in Sources */,
+				CD5813D3292750C9001A02EB /* RestaurantListTableViewCell.swift in Sources */,
 				CD3D1CC029208B250075BC17 /* PostProtocol.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				8F92037F2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift in Sources */,
