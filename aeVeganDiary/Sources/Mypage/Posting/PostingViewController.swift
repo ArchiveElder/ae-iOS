@@ -9,21 +9,31 @@ import UIKit
 
 class PostingViewController: UIViewController {
 
+    @IBOutlet weak var myPostingTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        myPostingTableView.delegate = self
+        myPostingTableView.dataSource = self
+        myPostingTableView.register(UINib(nibName: "MyPostingTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostingTableViewCell")
     }
 
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension PostingViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 4
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = (myPostingTableView?.dequeueReusableCell(withIdentifier: "MyPostingTableViewCell", for: indexPath)) as! MyPostingTableViewCell
+        
+        return cell
+    }
+    
+    
 }
