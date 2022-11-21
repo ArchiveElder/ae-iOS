@@ -21,7 +21,7 @@ class FoodPredictDataManager {
                 multipartFormData.append(image, withName: "file", fileName: "\(image).jpeg", mimeType: "image/jpeg")
             }
             print(param)
-        }, to: "http://3.35.123.36:8080/api/foodpredict", usingThreshold: UInt64.init(), method: .post)
+        }, to: "http://15.165.108.130:8080/api/foodpredict", usingThreshold: UInt64.init(), method: .post)
         .validate()
         .responseDecodable(of: FoodPredictResponse.self) { response in
             switch response.result {

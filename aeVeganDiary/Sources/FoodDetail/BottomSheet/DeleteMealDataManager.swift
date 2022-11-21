@@ -11,7 +11,7 @@ import Alamofire
 class DeleteMealDataManager: DeleteMealDataManagerDelegate {
     func deleteMealData(_ parameters: DeleteMealRequest, delegate: DeleteMealViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/record", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/record", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: DeleteMealResponse.self) { response in
                 switch response.result {

@@ -10,7 +10,7 @@ import Alamofire
 class DeleteThumbUpDataManager: DeleteThumbUpDataManagerDelegate {
     func deleteThumbUp(_  userIdx:Int, parameters: ThumbUpRequest, delegate: DeleteThumbUpViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("http://15.164.40.10:8080/thumbup/\(userIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/thumbup/\(userIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: ThumbUpDeleteResponse.self) { response in
                 switch response.result {

@@ -14,7 +14,7 @@ class ScrapDataManager {
     static func getScrap(userIdx : Int, page: Int) -> Observable<[MyScrapLists]> {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         return Observable.create { observer -> Disposable in
-            AF.request("http://15.164.40.10:8080/posting/myscrap/\(userIdx)?page=\(page)&sort=idx,desc", method: .get, headers: headers)
+            AF.request("\(Constant.BASE_URL)/community/posting/myscrap/\(userIdx)?page=\(page)&sort=idx,desc", method: .get, headers: headers)
                 .responseDecodable(of: MyScrapResponse.self) { response in
                     switch response.result {
                     case .success(let data):

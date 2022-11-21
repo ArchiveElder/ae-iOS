@@ -11,7 +11,7 @@ import Alamofire
 class DeleteUserDataManager: DeleteUserDataManagerDelegate{
     func deleteUserData(_ parameters: DeleteUserRequest, delegate: DeleteUserViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/userdelete", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/user", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: DeleteUserResponse.self) { response in
                 switch response.result {
