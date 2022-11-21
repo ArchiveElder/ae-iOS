@@ -84,6 +84,8 @@
 		8F9FEE11292792CB00279D60 /* MyScrapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9FEE0F292792CB00279D60 /* MyScrapTableViewCell.xib */; };
 		8F9FEE132927953F00279D60 /* ScrapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE122927953F00279D60 /* ScrapViewModel.swift */; };
 		8F9FEE152927954C00279D60 /* ScrapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE142927954C00279D60 /* ScrapDataManager.swift */; };
+		8F9FEE18292B52A500279D60 /* PostingImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FEE16292B52A500279D60 /* PostingImageDetailViewController.swift */; };
+		8F9FEE19292B52A500279D60 /* PostingImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9FEE17292B52A500279D60 /* PostingImageDetailViewController.xib */; };
 		8FA5F31E284A29DC00ED3B66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */; };
 		8FA5F31F284A29DC00ED3B66 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */; };
 		8FADEBC629225A4100420C14 /* PostingDetailMoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */; };
@@ -318,6 +320,8 @@
 		8F9FEE0F292792CB00279D60 /* MyScrapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyScrapTableViewCell.xib; sourceTree = "<group>"; };
 		8F9FEE122927953F00279D60 /* ScrapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewModel.swift; sourceTree = "<group>"; };
 		8F9FEE142927954C00279D60 /* ScrapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapDataManager.swift; sourceTree = "<group>"; };
+		8F9FEE16292B52A500279D60 /* PostingImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingImageDetailViewController.swift; sourceTree = "<group>"; };
+		8F9FEE17292B52A500279D60 /* PostingImageDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostingImageDetailViewController.xib; sourceTree = "<group>"; };
 		8FA5F31C284A29DC00ED3B66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8FA5F31D284A29DC00ED3B66 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8FADEBC429225A4100420C14 /* PostingDetailMoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailMoreSheetViewController.swift; sourceTree = "<group>"; };
@@ -695,6 +699,8 @@
 				8FADEBCA2923458800420C14 /* PostCommentProtocol.swift */,
 				8FADEBD7292358F900420C14 /* DeleteCommentDataManager.swift */,
 				8FADEBD92923590700420C14 /* DeleteCommentProtocol.swift */,
+				8F9FEE16292B52A500279D60 /* PostingImageDetailViewController.swift */,
+				8F9FEE17292B52A500279D60 /* PostingImageDetailViewController.xib */,
 			);
 			path = PostingDetail;
 			sourceTree = "<group>";
@@ -1327,6 +1333,7 @@
 				8FC96A18291E319B006C0C8B /* PostingDetailTableViewCell.xib in Resources */,
 				CD7F38272844AE9800D15356 /* FoodRegisterViewController.xib in Resources */,
 				8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */,
+				8F9FEE19292B52A500279D60 /* PostingImageDetailViewController.xib in Resources */,
 				8F1A5FA52898F68900B64409 /* HasTableViewCell.xib in Resources */,
 				CD7F38222844678700D15356 /* TabCollectionViewCell.xib in Resources */,
 				CDED42392917DECF002A4B49 /* BoardTableViewCell.xib in Resources */,
@@ -1503,6 +1510,7 @@
 				CDAECC8629043ACC00C13D3D /* HomeRequest.swift in Sources */,
 				CD7C9FD728B870D000C8635E /* BookmarkViewController.swift in Sources */,
 				8F9FEE10292792CB00279D60 /* MyScrapTableViewCell.swift in Sources */,
+				8F9FEE18292B52A500279D60 /* PostingImageDetailViewController.swift in Sources */,
 				8F0FF9D928D1BE2E00B870DF /* RecommCollectionViewCell.swift in Sources */,
 				8F1A5F972892522E00B64409 /* IngreDataManager.swift in Sources */,
 				CD0F067A286F23020032D590 /* SignupResponse.swift in Sources */,

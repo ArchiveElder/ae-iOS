@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PostingDetailHeaderViewProtocol {
+    func presentImageView(url: String)
+}
+
 class PostingDetailHeaderView: UITableViewHeaderFooterView {
     
     lazy var getPostingDetailDataManager: GetPostingDetailDataManager = GetPostingDetailDataManager()
@@ -15,7 +19,7 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
     lazy var postScrapDataManager : PostScrapDataManager = PostScrapDataManager()
     lazy var deleteScrapDataManager : DeleteScrapDataManager = DeleteScrapDataManager()
     
-    
+    var delegate : PostingDetailHeaderViewProtocol?
 
     @IBOutlet weak var labelToCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageCollectionViewHeight: NSLayoutConstraint!
@@ -91,11 +95,15 @@ extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.delegate?.presentImageView(url: imageArray[indexPath.row].imageUrl ?? "")
+    }
 }
 
 extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
-        print("헤더뷰:" ,result)
         self.postingDetailResponse = result
         postingThumbUpButton.setTitle(String(postingDetailResponse?.thumbupCount ?? 0), for: .normal)
         if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
@@ -114,7 +122,7 @@ extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
 
 extension PostingDetailHeaderView : PostThumbUpViewDelegate {
     func didSuccessPostThumbUp(_ result: ThumbUpResponse) {
-        //print(result)
+        print(result)
     }
     
     func failedToRequest(message: String, code: Int) {
@@ -132,12 +140,12 @@ extension PostingDetailHeaderView : DeleteThumbUpViewDelegate {
 
 extension PostingDetailHeaderView : PostScrapViewDelegate{
     func didSuccessPostScrap(_ result: ScrapResponse) {
-        //print(result)
+        print(result)
     }
 }
 
 extension PostingDetailHeaderView : DeleteScrapViewDelegate {
     func didSuccessDeleteScrap(_ result: ScrapDeleteResponse) {
-        //print(result)
+        print(result)
     }
 }
