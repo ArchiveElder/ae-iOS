@@ -11,7 +11,7 @@ struct UpdateMyInfoResponse: Decodable{
     var isSuccess: Bool
     var code: Int
     var message: String
-    var result: String?
+    var result: UpdateMyInfoResult?
     
     private enum CodingKeys: String, CodingKey {
         case isSuccess
@@ -25,6 +25,11 @@ struct UpdateMyInfoResponse: Decodable{
         isSuccess = try! values.decode(Bool.self, forKey: .isSuccess)
         code = try! values.decode(Int.self, forKey: .code)
         message = try! values.decode(String.self, forKey: .message)
-        result = try? values.decode(String.self, forKey: .result)
+        result = try? values.decode(UpdateMyInfoResult.self, forKey: .result)
     }
+}
+
+struct UpdateMyInfoResult: Decodable {
+    var token: String?
+    var userId: String?
 }

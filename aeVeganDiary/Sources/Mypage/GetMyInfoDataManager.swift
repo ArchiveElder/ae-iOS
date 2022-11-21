@@ -26,7 +26,7 @@ class GetMyInfoDataManager : GetMyInfoDataManagerDelegate {
                         }
                     }
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("정보 조회 \(error.localizedDescription)")
                 }
             }
     }

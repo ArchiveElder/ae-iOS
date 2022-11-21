@@ -11,7 +11,7 @@ struct SignupResponse: Decodable {
     var isSuccess: Bool
     var code: Int
     var message: String
-    var result: String?
+    var result: SignupResult?
     
     private enum CodingKeys: String, CodingKey {
         case isSuccess
@@ -25,7 +25,11 @@ struct SignupResponse: Decodable {
         isSuccess = try! values.decode(Bool.self, forKey: .isSuccess)
         code = try! values.decode(Int.self, forKey: .code)
         message = try! values.decode(String.self, forKey: .message)
-        result = try? values.decode(String.self, forKey: .result)
+        result = try? values.decode(SignupResult.self, forKey: .result)
     }
 }
 
+struct SignupResult: Decodable {
+    var token: String?
+    var userId: String?
+}
