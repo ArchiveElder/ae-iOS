@@ -153,7 +153,12 @@ class MapViewController: BaseViewController, GMSMapViewDelegate {
         }
         markerList.removeAll()
         
-        filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        if middleCategory == "전체" {
+            filteredRestaurantList = restaurantList
+        } else {
+            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        }
+        
         print("mainCategory \(mainCategory)")
         print("middleCategory \(middleCategory)")
         print(filteredRestaurantList)

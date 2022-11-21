@@ -48,12 +48,31 @@ class RestaurantListViewController: UIViewController {
         self.middleCategory = middleCategory
         
         if siteWide == "" {
-            filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+            if middleCategory == "전체" {
+                filteredRestaurantList = restaurantList
+                self.mainCategory = ""
+                self.middleCategory = ""
+            } else {
+                filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+            }
         } else {
             if siteMiddle == "" {
-                filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+                if middleCategory == "전체" {
+                    filteredRestaurantList = restaurantList.filter { $0.siteWide == siteWide }
+                    self.mainCategory = ""
+                    self.middleCategory = ""
+                } else {
+                    filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+                }
             } else {
-                filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+                if middleCategory == "전체" {
+                    filteredRestaurantList = restaurantList.filter { $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+                    self.mainCategory = ""
+                    self.middleCategory = ""
+                } else {
+                    filteredRestaurantList = restaurantList.filter { $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+                }
+                
             }
         }
         
@@ -66,12 +85,23 @@ class RestaurantListViewController: UIViewController {
         self.siteWide = region
         self.siteMiddle = ""
         
-        if region == "전체" {
-            self.siteWide = ""
-            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+        if self.mainCategory == "" || self.middleCategory == ""  {
+            if region == "전체" {
+                self.siteWide = ""
+                filteredRestaurantList = restaurantList
+            } else {
+                filteredRestaurantList = restaurantList.filter{ $0.siteWide == siteWide }
+            }
         } else {
-            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+            if region == "전체" {
+                self.siteWide = ""
+                filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory }
+            } else {
+                filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+            }
         }
+        
+        
         
         hideDimmedView()
         
@@ -81,11 +111,20 @@ class RestaurantListViewController: UIViewController {
     func loadRegionMiddle(region: String) {
         self.siteMiddle = region
         
-        if region == "전체" {
-            self.siteMiddle = ""
-            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+        if self.mainCategory == "" || self.middleCategory == "" {
+            if region == "전체" {
+                self.siteMiddle = ""
+                filteredRestaurantList = restaurantList.filter{ $0.siteWide == siteWide }
+            } else {
+                filteredRestaurantList = restaurantList.filter{ $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+            }
         } else {
-            filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+            if region == "전체" {
+                self.siteMiddle = ""
+                filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide }
+            } else {
+                filteredRestaurantList = restaurantList.filter{ $0.mainCategory == mainCategory && $0.middleCategory == middleCategory && $0.siteWide == siteWide && $0.siteMiddle == siteMiddle }
+            }
         }
         
         hideDimmedView()
@@ -132,10 +171,12 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
         if sender.isSelected {
             showIndicator()
             let input = BookmarkRequest(bistroId: resData?.bistro_id ?? 0)
+            print(input)
             bookmarkDeleteDataManager.deleteBookmark(input, delegate: self)
         } else {
             showIndicator()
             let input = BookmarkRequest(bistroId: resData?.bistro_id ?? 0)
+            print(input)
             bookmarkDataManager.postBookmark(input, delegate: self)
         }
     }
