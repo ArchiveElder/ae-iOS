@@ -171,6 +171,11 @@ class MyInfoViewController: BaseViewController {
 
 extension MyInfoViewController : UpdateMyInfoViewDelegate {
     func didSuccessUpdateMyInfoData(_ result: UpdateMyInfoResponse) {
+        print(result)
+        UserDefaults.standard.setValue(result.result?.userId, forKey: "UserId")
+        if result.result?.token != "" {
+            UserManager.shared.jwt = result.result?.token ?? ""
+        }
         //서버통신 성공하면 view를 pop 해준다
         navigationController?.popViewController(animated: true)
     }

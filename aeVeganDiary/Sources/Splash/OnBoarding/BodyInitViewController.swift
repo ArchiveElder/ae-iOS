@@ -77,6 +77,8 @@ extension BodyInitViewController: SignupViewDelegate {
     func didSuccessSignup(_ result: SignupResponse) {
         dismissIndicator()
         UserDefaults.standard.setValue(false, forKey: "SignUp")
+        UserDefaults.standard.setValue(result.result?.userId, forKey: "UserId")
+        UserManager.shared.jwt = result.result?.token ?? ""
         self.changeRootViewController(BaseTabBarController())
     }
     
