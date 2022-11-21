@@ -14,6 +14,18 @@ class PostingDetailMoreSheetViewController: UIViewController {
     @IBOutlet weak var moreSheetView: UIView!
     
     @IBAction func editPostingButton(_ sender: Any) {
+        let vc = PostViewController()
+        vc.isEditingPost = true
+        vc.postIdx = self.postIdx
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.modalPresentationStyle = .overFullScreen
+        nvc.view.backgroundColor = .white
+        
+        guard let pvc = self.presentingViewController else { return }
+
+        self.dismiss(animated: true) {
+            pvc.present(nvc, animated: true, completion: nil)
+        }
     }
     @IBAction func deletePostingButton(_ sender: Any) {
         presentAlert(title: "정말 삭제하시겠어요?", message: "삭제는 취소할 수 없습니다", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
