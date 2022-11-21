@@ -37,7 +37,7 @@ class ScrapViewController: BaseViewController, UITableViewDelegate {
         super.viewDidLoad()
     
         self.view.backgroundColor = .white
-        setNavigationTitle(title: "내가 쓴 글")
+        setNavigationTitle(title: "스크랩한 글")
         
         scrapTableView.delegate = self
         
