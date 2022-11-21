@@ -10,7 +10,7 @@ import Alamofire
 class PostThumbUpDataManager: PostThumbUpDataManagerDelegate {
     func postThumbUp(_  userIdx:Int, parameters: ThumbUpRequest, delegate: PostThumbUpViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("http://15.164.40.10:8080/thumbup/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/thumbup/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: ThumbUpResponse.self) { response in
                 switch response.result {

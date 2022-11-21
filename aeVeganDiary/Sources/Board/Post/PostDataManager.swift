@@ -29,7 +29,7 @@ class PostDataManager: PostDataManagerDelegate {
                     }
                 }
             }
-        }, to: "http://15.164.40.10:8080/posting/\(userIdx)", usingThreshold: UInt64.init(), method: .post, headers: headers)
+        }, to: "\(Constant.BASE_URL)/community/posting/\(userIdx)", usingThreshold: UInt64.init(), method: .post, headers: headers)
         .validate()
         .response(responseSerializer: serializer) { response in
             switch response.result {

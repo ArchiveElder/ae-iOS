@@ -10,7 +10,7 @@ import Alamofire
 class PostScrapDataManager: PostScrapDataManagerDelegate {
     func postScrap(_  userIdx:Int, parameters: ScrapRequest, delegate: PostScrapViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("http://15.164.40.10:8080/scrap/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/scrap/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: ScrapResponse.self) { response in
                 switch response.result {

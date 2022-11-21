@@ -10,7 +10,7 @@ import Alamofire
 class SearchDataManager : SearchDataManagerDelegate {
     func getSearchData(delegate:SearchViewDelegate){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/foodname", method: .get, encoding: JSONEncoding.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/food/search-all", method: .get, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseDecodable(of: SearchResponse.self){ response in
                 switch response.result{

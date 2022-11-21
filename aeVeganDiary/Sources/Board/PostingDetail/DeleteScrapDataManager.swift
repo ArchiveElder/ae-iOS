@@ -10,7 +10,7 @@ import Alamofire
 class DeleteScrapDataManager: DeleteScrapDataManagerDelegate {
     func deleteScrap(_  userIdx:Int, parameters: ScrapRequest, delegate: DeleteScrapViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("http://15.164.40.10:8080/scrap/\(userIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/scrap/\(userIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: ScrapDeleteResponse.self) { response in
                 switch response.result {
