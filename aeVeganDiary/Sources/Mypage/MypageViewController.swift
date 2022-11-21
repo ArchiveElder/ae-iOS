@@ -82,7 +82,6 @@ class MypageViewController: BaseViewController {
 extension MypageViewController : GetMyInfoViewDelegate {
     func didSuccessGetMyInfoData(_ result: MyInfoResponse) {
         dismissIndicator()
-        print(result)
         self.myInfoResponse = result
         nicknameLabel.text = result.result?.nickname
         profileImageView.image = UIImage(named: "profile\(result.result?.icon ?? 0)")
