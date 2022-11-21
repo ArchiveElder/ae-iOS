@@ -28,7 +28,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var fatPercentLabel: UILabel!
     
-    @IBOutlet weak var mealReportTitleLabel: UILabel!
+    @IBOutlet weak var reportLabel: UILabel!
     @IBOutlet weak var foodRecommCollectionView: UICollectionView!
     
     @IBOutlet weak var ratioInfoView: UIView!
@@ -265,7 +265,7 @@ extension AnalyzeViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 210, height: 130)
+        return CGSize(width: 200, height: 110)
     }
     
 }
@@ -315,11 +315,39 @@ extension AnalyzeViewController: AnalyzeViewDelegate {
             
             self.suggestionList = response?.suggestionsDtoList ?? []
             self.foodRecommCollectionView.reloadData()
+            
+            if let problemList = response?.problemsDtoList {
+                reportLabel.text = "최근에 "
+                for i in 0..<problemList.count {
+                    reportLabel.text! += "\(problemToStr(num: problemList[i].problemId ?? 0))"
+                    if i != problemList.count - 1 {
+                        reportLabel.text! += ", "
+                    }
+                }
+                reportLabel.text! += " 식단을 하고 계시네요.\n"
+                reportLabel.text! += "균형 잡힌 식사를 위해 아래 <식단 제안>의 음식을 섭취해보세요!"
+            }
+            
         } else {
             statusView.isHidden = false
         }
         
         
+    }
+    
+    func problemToStr(num: Int) -> String {
+        switch num {
+        case 1: return "고칼로리"
+        case 2: return "저칼로리"
+        case 3: return "고탄수"
+        case 4: return "저탄수"
+        case 5: return "고단백"
+        case 6: return "저단백"
+        case 7: return "고지방"
+        case 8: return "저지방"
+        default:
+            return ""
+        }
     }
     
     func failedToRequest(message: String, code: Int) {
