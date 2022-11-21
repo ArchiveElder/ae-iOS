@@ -45,27 +45,29 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYb-Mi-kcB">
-                    <rect key="frame" x="15" y="87" width="345" height="39"/>
+                    <rect key="frame" x="15" y="87" width="345" height="32"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2X-wx-g8T">
-                    <rect key="frame" x="15" y="141" width="345" height="17"/>
+                    <rect key="frame" x="15" y="134" width="345" height="17"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aL1-x0-uFt">
-                    <rect key="frame" x="14.999999999999996" y="303" width="34.666666666666657" height="18"/>
+                    <rect key="frame" x="15" y="296" width="45" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="18" id="rL6-uk-6TD"/>
+                        <constraint firstAttribute="height" constant="25" id="rL6-uk-6TD"/>
+                        <constraint firstAttribute="width" constant="45" id="xOt-Qm-GbE"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                     <color key="tintColor" systemColor="systemPinkColor"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
-                    <state key="normal" title="nn" image="heart" catalog="system">
+                    <state key="normal" title="nn">
                         <color key="titleColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                     </state>
                     <state key="selected" image="heart.fill" catalog="system"/>
                     <connections>
@@ -73,19 +75,20 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKn-Vs-OUQ">
-                    <rect key="frame" x="64.666666666666671" y="302.33333333333331" width="41" height="19.333333333333314"/>
+                    <rect key="frame" x="75" y="296" width="45" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="19.333333333333329" id="I2u-sV-je8"/>
-                        <constraint firstAttribute="width" constant="41" id="RJi-jl-YrQ"/>
+                        <constraint firstAttribute="height" constant="25" id="I2u-sV-je8"/>
+                        <constraint firstAttribute="width" constant="45" id="RJi-jl-YrQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
-                    <state key="normal" title="nn" image="text.bubble" catalog="system">
+                    <state key="normal" title="nn">
                         <color key="titleColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="image" image="text.bubble" catalog="system" symbolScale="large"/>
                     </state>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kQ1-qR-lpU">
-                    <rect key="frame" x="15" y="173" width="345" height="110"/>
+                    <rect key="frame" x="15" y="166" width="345" height="110"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="110" id="nFK-oc-9Jx"/>
