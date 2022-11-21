@@ -123,6 +123,11 @@
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
 		CD00C84E292B571100FCC80D /* SuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C84C292B571100FCC80D /* SuggestionCollectionViewCell.swift */; };
 		CD00C84F292B571100FCC80D /* SuggestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD00C84D292B571100FCC80D /* SuggestionCollectionViewCell.xib */; };
+		CD00C851292B7D5F00FCC80D /* PostEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C850292B7D5F00FCC80D /* PostEditDataManager.swift */; };
+		CD00C853292B7D9200FCC80D /* PostEditProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C852292B7D9200FCC80D /* PostEditProtocol.swift */; };
+		CD00C855292B8FB400FCC80D /* EditPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C854292B8FB400FCC80D /* EditPostResponse.swift */; };
+		CD00C857292B904C00FCC80D /* EditPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C856292B904C00FCC80D /* EditPostProtocol.swift */; };
+		CD00C859292B908800FCC80D /* EditPostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C858292B908800FCC80D /* EditPostDataManager.swift */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
 		CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */; };
 		CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */; };
@@ -359,6 +364,11 @@
 		C631CBED21040A7912D91EEA /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
 		CD00C84C292B571100FCC80D /* SuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD00C84D292B571100FCC80D /* SuggestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		CD00C850292B7D5F00FCC80D /* PostEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditDataManager.swift; sourceTree = "<group>"; };
+		CD00C852292B7D9200FCC80D /* PostEditProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditProtocol.swift; sourceTree = "<group>"; };
+		CD00C854292B8FB400FCC80D /* EditPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostResponse.swift; sourceTree = "<group>"; };
+		CD00C856292B904C00FCC80D /* EditPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostProtocol.swift; sourceTree = "<group>"; };
+		CD00C858292B908800FCC80D /* EditPostDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostDataManager.swift; sourceTree = "<group>"; };
 		CD00F67D286D77D700F8A8C0 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResponse.swift; sourceTree = "<group>"; };
 		CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeDataManager.swift; sourceTree = "<group>"; };
@@ -827,6 +837,7 @@
 			children = (
 				CD3D1CBB29208A1A0075BC17 /* PostRequest.swift */,
 				CD3D1CC129208B470075BC17 /* PostResponse.swift */,
+				CD00C854292B8FB400FCC80D /* EditPostResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -941,6 +952,10 @@
 				CDA99C8C291F4A2600E01342 /* PostViewController.xib */,
 				CD3D1CBD29208AFD0075BC17 /* PostDataManager.swift */,
 				CD3D1CBF29208B250075BC17 /* PostProtocol.swift */,
+				CD00C850292B7D5F00FCC80D /* PostEditDataManager.swift */,
+				CD00C852292B7D9200FCC80D /* PostEditProtocol.swift */,
+				CD00C858292B908800FCC80D /* EditPostDataManager.swift */,
+				CD00C856292B904C00FCC80D /* EditPostProtocol.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -1434,6 +1449,7 @@
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
 				CD5813D62927A33C001A02EB /* AnalyzeViewModel.swift in Sources */,
+				CD00C853292B7D9200FCC80D /* PostEditProtocol.swift in Sources */,
 				8F92039629214EBF009679EC /* ScrapDeleteResponse.swift in Sources */,
 				8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */,
 				8F92038E29214964009679EC /* DeleteThumbUpDataManager.swift in Sources */,
@@ -1463,6 +1479,7 @@
 				CD3D1CC029208B250075BC17 /* PostProtocol.swift in Sources */,
 				CD3E930E284DED9D0057E24F /* ArcProgressView.swift in Sources */,
 				8F92037F2920D0D6009679EC /* PostingDetailImageCollectionViewCell.swift in Sources */,
+				CD00C857292B904C00FCC80D /* EditPostProtocol.swift in Sources */,
 				8FADEBF7292762DA00420C14 /* PostingViewModel.swift in Sources */,
 				CDC61205284A50190041F5C7 /* RegisterResponse.swift in Sources */,
 				8F1A5F6A2868563000B64409 /* SearchDataManager.swift in Sources */,
@@ -1541,7 +1558,9 @@
 				CD0F067C286F236F0032D590 /* SignupDataManager.swift in Sources */,
 				CDAECC922905366700C13D3D /* AnalyzeProtocol.swift in Sources */,
 				CDE47F5A28426FA7005D8BB3 /* BaseViewController.swift in Sources */,
+				CD00C859292B908800FCC80D /* EditPostDataManager.swift in Sources */,
 				CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */,
+				CD00C855292B8FB400FCC80D /* EditPostResponse.swift in Sources */,
 				8FB829D4291E49CA00A13842 /* PostingDetailHeaderView.swift in Sources */,
 				CDE47F75284274B0005D8BB3 /* MypageViewController.swift in Sources */,
 				CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */,
@@ -1574,6 +1593,7 @@
 				CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */,
 				CDE47F4F28426B86005D8BB3 /* Constant.swift in Sources */,
 				8F1A5F9B2893E3D900B64409 /* CookRecommDataManager.swift in Sources */,
+				CD00C851292B7D5F00FCC80D /* PostEditDataManager.swift in Sources */,
 				CD7F38192844668C00D15356 /* RegisterCollectionViewCell.swift in Sources */,
 				8FC969F6291A16B1006C0C8B /* PostingViewController.swift in Sources */,
 				CDE47F6128427062005D8BB3 /* LoginViewController.swift in Sources */,
