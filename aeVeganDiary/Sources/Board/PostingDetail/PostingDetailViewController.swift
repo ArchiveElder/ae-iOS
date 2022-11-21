@@ -44,7 +44,7 @@ class PostingDetailViewController: BaseViewController, PostingDetailHeaderViewPr
         super.viewDidLoad()
 
         setDismissButton()
-        
+        view.backgroundColor = .white
         postingDetailTableView?.delegate = self
         postingDetailTableView?.dataSource = self
         postingDetailTableView?.register(UINib(nibName: "PostingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PostingDetailTableViewCell")
