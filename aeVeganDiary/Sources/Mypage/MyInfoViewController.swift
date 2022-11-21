@@ -8,6 +8,7 @@
 import UIKit
 
 class MyInfoViewController: BaseViewController {
+   
     
     lazy var updateMyInfoDataManager : UpdateMyInfoDataManagerDelegate = UpdateMyInfoDataManager()
     lazy var deleteUserDataManager : DeleteUserDataManagerDelegate = DeleteUserDataManager()
@@ -45,21 +46,21 @@ class MyInfoViewController: BaseViewController {
         dismissKeyboard()
         inputNickname = nicknameTextField.text ?? ""
         var checkNicknameInput = CheckNicknameInput(nickname: inputNickname ?? "")
-        //print("텍스트 필드 값:", inputNickname)
         checkNicknameDataManager.postNickname(checkNicknameInput, delegate: self)
         
         //viewdidload에서 입력된 닉네임이 현재 닉네임과 같으면 중복확인 버튼 비활성화하기
     }
     
     @IBAction func editDoneAction(_ sender: Any) {
-        
+
         //중복 확인 안눌렀을 때 or 중복 확인 된 후에 값 변경했을 때
         if(changeState == true){
             presentBottomAlert(message: "닉네임을 중복 확인 해주세요.")
-        } else if(changeState == false && approvedNickname == inputNickname && approvedNickname != ""){
+        } else if(changeState == false && approvedNickname == nicknameTextField.text && approvedNickname != ""){
             let input = MyInfoInput(age: Int(ageTextField.text!) ?? 0, height: self.heightTextField.text!, weight: self.weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 1], nickname: approvedNickname)
             updateMyInfoDataManager.putMyInfoData(input, delegate: self)
-            // 서버 통신 결과는 여기서 작성하면 안됨! 통신 실패할수도 있기 때문에
+            //navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true)
         }
     }
     
@@ -108,8 +109,6 @@ class MyInfoViewController: BaseViewController {
             changeState = true
             approvedNickname = ""
         }
-        //print(changeState)
-        //print("텍스트 필드 변경된 값:",nicknameTextField.text)
        }
     
     override func viewDidLoad() {
@@ -145,6 +144,15 @@ class MyInfoViewController: BaseViewController {
                 activityButtons[index].backgroundColor = .systemGray5
             }
         }
+        
+        if(nickname == nicknameTextField.text){
+            changeState = false
+            approvedNickname = nickname
+        } else {
+            changeState = true
+            approvedNickname = ""
+        }
+       
 
     }
     
@@ -208,14 +216,13 @@ extension MyInfoViewController : CheckNicknameViewDelegate {
             presentBottomAlert(message:"닉네임 사용이 가능합니다.")
             changeState = false
             approvedNickname = inputNickname
-            //print("상태: ",changeState)
-            //print("승인된 닉네임", approvedNickname)
         } else if(result.result?.exist == true) {
             presentBottomAlert(message:"닉네임이 이미 존재합니다.")
             approvedNickname = ""
         }
     }
 }
+
 
 
 //서버통신 보내서 exist 가 false 뜬 닉네임만 사용 가능
