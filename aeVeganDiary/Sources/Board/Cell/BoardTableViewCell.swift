@@ -16,7 +16,6 @@ class BoardTableViewCell: UITableViewCell {
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var isPhotoImageView: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var commentCountLabel: UILabel!
@@ -39,7 +38,6 @@ class BoardTableViewCell: UITableViewCell {
         
         timeLabel.text = calculateTime(dateString: post.createdAt ?? "")
         
-        bookmarkButton.isSelected = post.isScraped == 1 ? true : false
         isPhotoImageView.isHidden = post.hasImg == 1 ? false : true
         likeCountLabel.text = "\(post.likeCnt ?? 0)"
         commentCountLabel.text = "\(post.commentCnt ?? 0)"

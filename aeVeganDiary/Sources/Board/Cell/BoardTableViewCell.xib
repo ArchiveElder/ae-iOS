@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -87,19 +86,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-AW-vjK">
-                                <rect key="frame" x="275" y="54.333333333333336" width="25" height="29.333333333333336"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rwV-AW-vjK" secondAttribute="height" multiplier="11:13" id="QrK-k8-UsB"/>
-                                    <constraint firstAttribute="width" constant="25" id="WQt-0a-ZuX"/>
-                                </constraints>
-                                <color key="tintColor" red="0.062745098040000002" green="0.32156862749999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
-                                </state>
-                                <state key="selected" image="bookmark.fill" catalog="system"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yY-sE-Nfm">
                                 <rect key="frame" x="15" y="102" width="290" height="17.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -179,12 +165,10 @@
                             <constraint firstItem="Uxb-yi-Skz" firstAttribute="top" secondItem="7yY-sE-Nfm" secondAttribute="bottom" constant="15" id="GRX-5V-XBj"/>
                             <constraint firstItem="yEu-yr-Kge" firstAttribute="leading" secondItem="1oo-Ko-c4J" secondAttribute="leading" constant="15" id="H5i-6L-dml"/>
                             <constraint firstItem="7yY-sE-Nfm" firstAttribute="top" secondItem="yEu-yr-Kge" secondAttribute="bottom" constant="15" id="KOO-hZ-kiW"/>
-                            <constraint firstItem="rwV-AW-vjK" firstAttribute="centerY" secondItem="yEu-yr-Kge" secondAttribute="centerY" id="VP2-FX-Fzn"/>
                             <constraint firstItem="1f7-l2-WxZ" firstAttribute="top" secondItem="BHH-Bi-2dd" secondAttribute="bottom" constant="17" id="Vaz-7M-ZRN"/>
                             <constraint firstItem="wdd-F5-UgO" firstAttribute="leading" secondItem="yEu-yr-Kge" secondAttribute="trailing" constant="8" id="Voj-HL-9dx"/>
                             <constraint firstItem="1f7-l2-WxZ" firstAttribute="leading" secondItem="1oo-Ko-c4J" secondAttribute="leading" id="agp-zt-sUI"/>
                             <constraint firstItem="wdd-F5-UgO" firstAttribute="centerY" secondItem="yEu-yr-Kge" secondAttribute="centerY" id="dwe-Cp-lWL"/>
-                            <constraint firstAttribute="trailing" secondItem="rwV-AW-vjK" secondAttribute="trailing" constant="20" id="g2B-Hc-bz9"/>
                             <constraint firstItem="yEu-yr-Kge" firstAttribute="top" secondItem="yqw-pw-CUS" secondAttribute="bottom" constant="10" id="gzq-6j-leg"/>
                             <constraint firstAttribute="trailing" secondItem="1f7-l2-WxZ" secondAttribute="trailing" id="mh0-B2-n1h"/>
                             <constraint firstItem="yqw-pw-CUS" firstAttribute="leading" secondItem="1oo-Ko-c4J" secondAttribute="leading" constant="15" id="oY3-z0-gt3"/>
@@ -201,7 +185,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bookmarkButton" destination="rwV-AW-vjK" id="SSr-Q5-1Pb"/>
                 <outlet property="categoryLabel" destination="8B7-E1-lHf" id="LjN-Q3-HJG"/>
                 <outlet property="commentCountLabel" destination="CKU-f8-Rhy" id="lj5-HK-87S"/>
                 <outlet property="isPhotoImageView" destination="gJc-Ib-csa" id="Aq9-ad-tEk"/>
@@ -215,8 +198,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bookmark" catalog="system" width="110" height="128"/>
-        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="photo" catalog="system" width="128" height="93"/>
