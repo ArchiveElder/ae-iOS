@@ -10,6 +10,7 @@ import PhotosUI
 
 class PostViewController: BaseViewController {
     
+    lazy var editPostDataManager: EditPostDataManagerDelegate = EditPostDataManager()
     lazy var postDataManager: PostDataManagerDelegate = PostDataManager()
     lazy var postEditDataManager: PostEditDataManagerDelegate = PostEditDataManager()
     
@@ -52,7 +53,7 @@ class PostViewController: BaseViewController {
         self.view.backgroundColor = .white
         dismissButton()
         setDoneButton()
-        setNavigationTitle(title: "글쓰기")
+        
         doneButton.isEnabled = false
         editingStatusChanged()
         self.categoryTextField.text = categories[0]
@@ -72,6 +73,17 @@ class PostViewController: BaseViewController {
         categoryTextField.inputView = pickerView
         
         photoCollectionView.register(UINib(nibName: "PostPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostPhotoCollectionViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isEditingPost {
+            setNavigationTitle(title: "수정")
+            showIndicator()
+            editPostDataManager.getEditing(userIdx: UserDefaults.standard.integer(forKey: "UserId"), postIdx: self.postIdx, delegate: self)
+        } else {
+            setNavigationTitle(title: "글쓰기")
+        }
     }
     
     @objc func editingStatusChanged() {
@@ -125,9 +137,16 @@ class PostViewController: BaseViewController {
     }
     
     @objc func donePost() {
-        presentAlert(title: "글쓰기를 완료하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
-            self.postContent()
-        })
+        if isEditingPost {
+            presentAlert(title: "수정을 완료하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+                self.postContent()
+            })
+        } else {
+            presentAlert(title: "글쓰기를 완료하시겠어요?", message: nil, isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+                self.postContent()
+            })
+        }
+        
     }
     
     func postContent() {
@@ -263,18 +282,50 @@ extension PostViewController: PostViewDelegate {
         dismissIndicator()
         presentAlert(message: message)
     }
-    
-    
 }
 
 extension PostViewController: PostEditViewDelegate {
     func didSuccessEdit() {
         dismissIndicator()
-        
+        self.dismiss(animated: true)
     }
     
     func failedToEdit(message: String, code: Int) {
         dismissIndicator()
         presentAlert(message: message)
     }
+}
+
+extension PostViewController: EditPostViewDelegate {
+    func didSuccessGetEdit(response: EditPostResponse) {
+        dismissIndicator()
+        self.categoryTextField.text = response.boardName
+        self.titleTextField.text = response.title
+        self.contentTextView.text = response.content
+        
+        if let imageList = response.imagesLists {
+            let sortedList = imageList.sorted { return $0.imgRank ?? 0 < $1.imgRank ?? 0 }
+            for i in sortedList {
+                guard let url = URL(string: i.imageUrl ?? "") else { return }
+                DispatchQueue.global().async { [weak self] in
+                    if let data = try? Data(contentsOf: url) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                self?.photoList.append(image)
+                                self?.photoCollectionView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        self.editingStatusChanged()
+    }
+    
+    func failedToGetEdit(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+    }
+    
+    
 }
