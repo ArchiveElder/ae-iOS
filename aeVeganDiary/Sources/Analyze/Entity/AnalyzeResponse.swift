@@ -42,7 +42,20 @@ struct AnalyzeResult: Codable {
     var totalCarb: Int?
     var totalPro: Int?
     var totalFat: Int?
+    var problemsDtoList: [ProblemsDto]?
+    var suggestionsDtoList: [SuggestionsDto]?
     var analysisDtos: [Analysis]?
+}
+
+struct ProblemsDto: Codable {
+    var problemId: Int?
+    var cnt: Int?
+}
+
+struct SuggestionsDto: Codable {
+    var problemId: Int?
+    var foodUrl: String?
+    var foodName: String?
 }
 
 struct Analysis: Codable {

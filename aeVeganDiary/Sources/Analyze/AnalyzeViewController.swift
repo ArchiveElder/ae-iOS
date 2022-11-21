@@ -28,6 +28,14 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var fatPercentLabel: UILabel!
     
+    @IBOutlet weak var mealReportTitleLabel: UILabel!
+    @IBOutlet weak var foodRecommCollectionView: UICollectionView!
+    
+    @IBOutlet weak var ratioInfoView: UIView!
+    @IBAction func ratioInfoButtonAction(_ sender: Any) {
+        ratioInfoView.isHidden = !ratioInfoView.isHidden
+    }
+    
     @IBOutlet weak var colorInfoView: UIView!
     @IBAction func colorInfoButtonAction(_ sender: Any) {
         colorInfoView.isHidden = !colorInfoView.isHidden
@@ -39,11 +47,17 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     var analysis = [Analysis]()
     var rcal:Double? = 0
     
+    var suggestionList = [SuggestionsDto]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationTitle(title: "분석")
         
         calChartView.delegate = self
+        
+        foodRecommCollectionView.delegate = self
+        foodRecommCollectionView.dataSource = self
+        foodRecommCollectionView.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SuggestionCollectionViewCell")
         
         // ProgressView
         carbProgressView.clipsToBounds = true
@@ -67,6 +81,7 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ratioInfoView.isHidden = true
         colorInfoView.isHidden = true
         dates = [String]()
         values = [Double]()
@@ -210,6 +225,51 @@ class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     }
 }
 
+extension AnalyzeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return suggestionList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestionCollectionViewCell", for: indexPath) as! SuggestionCollectionViewCell
+    
+        if let url = URL(string: suggestionList[indexPath.row].foodUrl ?? "") {
+            cell.foodImageView.load(url: url)
+        }
+        
+        if (suggestionList[indexPath.row].problemId ?? 1) % 2 == 0 {
+            cell.arrowImageView.image = UIImage(systemName: "arrow.up")
+        } else {
+            cell.arrowImageView.image = UIImage(systemName: "arrow.down")
+        }
+        
+        var suggestionStr = ""
+        switch suggestionList[indexPath.row].problemId {
+        case 1, 2:
+            suggestionStr = "칼로리"
+        case 3, 4:
+            suggestionStr = "탄수화물"
+        case 5, 6:
+            suggestionStr = "단백질"
+        case 7, 8:
+            suggestionStr = "지방"
+        default:
+            suggestionStr = ""
+        }
+        
+        cell.problemLabel.text = suggestionStr
+        
+        cell.foodNameLabel.text = suggestionList[indexPath.row].foodName
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 210, height: 130)
+    }
+    
+}
+
 extension AnalyzeViewController: AnalyzeViewDelegate {
     func didSuccessGetAnalyze(_ result: AnalyzeResponse) {
         dismissIndicator()
@@ -236,17 +296,30 @@ extension AnalyzeViewController: AnalyzeViewDelegate {
             let fatPercent = Float(response?.ratioFat ?? 0) / 100
             
             drawStackedProgress(percentages: [carbPercent, proPercent, fatPercent], width: Float(ratioView.frame.width), height: Float(ratioView.frame.height), x: 0, y: 0)
+            
+            setProgressResult(sender: carbProgressView, data: Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1))
+            setProgressResult(sender: proProgressView, data: Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1))
+            setProgressResult(sender: fatProgressView, data: Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1))
+            
+            
+            let totalCarbFloat = Float(response?.totalCarb ?? 0)
+            let rcarbFloat = Float(response?.rcarb ?? "1")
+            let totalProFloat = Float(response?.totalPro ?? 0)
+            let rproFloat = Float(response?.rpro ?? "1")
+            let totalFatFloat = Float(response?.totalFat ?? 0)
+            let rfatFloat = Float(response?.rfat ?? "1")
+            
+            carbPercentLabel.text = "\(Int(totalCarbFloat / 7 / (rcarbFloat ?? 1) * 100))%"
+            proPercentLabel.text = "\(Int(totalProFloat / 7 / (rproFloat ?? 1) * 100))%"
+            fatPercentLabel.text = "\(Int(totalFatFloat / 7 / (rfatFloat ?? 1) * 100))%"
+            
+            self.suggestionList = response?.suggestionsDtoList ?? []
+            self.foodRecommCollectionView.reloadData()
         } else {
             statusView.isHidden = false
         }
         
-        setProgressResult(sender: carbProgressView, data: Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1))
-        setProgressResult(sender: proProgressView, data: Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1))
-        setProgressResult(sender: fatProgressView, data: Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1))
         
-        //carbPercentLabel.text = "\(Int(Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1) * 100))%"
-        //proPercentLabel.text = "\(Int(Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1) * 100))%"
-        //fatPercentLabel.text = "\(Int(Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1) * 100))%"
     }
     
     func failedToRequest(message: String, code: Int) {

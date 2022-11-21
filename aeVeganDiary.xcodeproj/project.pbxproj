@@ -121,6 +121,8 @@
 		8FC96A18291E319B006C0C8B /* PostingDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC96A16291E319B006C0C8B /* PostingDetailTableViewCell.xib */; };
 		8FD58B73284DC19C00B7BDAD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD58B71284DC19C00B7BDAD /* SearchTableViewCell.swift */; };
 		8FD58B74284DC19C00B7BDAD /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */; };
+		CD00C84E292B571100FCC80D /* SuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00C84C292B571100FCC80D /* SuggestionCollectionViewCell.swift */; };
+		CD00C84F292B571100FCC80D /* SuggestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD00C84D292B571100FCC80D /* SuggestionCollectionViewCell.xib */; };
 		CD00F67E286D77D700F8A8C0 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F67D286D77D700F8A8C0 /* UIImageView.swift */; };
 		CD00F682286DDB8D00F8A8C0 /* AnalyzeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */; };
 		CD00F684286DDB9800F8A8C0 /* AnalyzeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */; };
@@ -355,6 +357,8 @@
 		8FD58B72284DC19C00B7BDAD /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		AF81E3FBAC7CA22BB643B288 /* Pods-aeVeganDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.debug.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		C631CBED21040A7912D91EEA /* Pods-aeVeganDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aeVeganDiary.release.xcconfig"; path = "Target Support Files/Pods-aeVeganDiary/Pods-aeVeganDiary.release.xcconfig"; sourceTree = "<group>"; };
+		CD00C84C292B571100FCC80D /* SuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD00C84D292B571100FCC80D /* SuggestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD00F67D286D77D700F8A8C0 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CD00F681286DDB8C00F8A8C0 /* AnalyzeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResponse.swift; sourceTree = "<group>"; };
 		CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeDataManager.swift; sourceTree = "<group>"; };
@@ -752,6 +756,15 @@
 			path = FoodDetail;
 			sourceTree = "<group>";
 		};
+		CD00C84B292B56F400FCC80D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD00C84C292B571100FCC80D /* SuggestionCollectionViewCell.swift */,
+				CD00C84D292B571100FCC80D /* SuggestionCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CD00F67F286DDB3200F8A8C0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1137,6 +1150,7 @@
 		CDE47F6828427442005D8BB3 /* Analyze */ = {
 			isa = PBXGroup;
 			children = (
+				CD00C84B292B56F400FCC80D /* Cell */,
 				CD00F67F286DDB3200F8A8C0 /* Entity */,
 				CDE47F6B2842747D005D8BB3 /* AnalyzeViewController.swift */,
 				CDE47F6C2842747D005D8BB3 /* AnalyzeViewController.xib */,
@@ -1304,6 +1318,7 @@
 				CDAECCAA29059A6500C13D3D /* FoodDetailEditViewController.xib in Resources */,
 				CDBBF2A7284B87CC003F5EEA /* MealTableViewCell.xib in Resources */,
 				8F9FEE11292792CB00279D60 /* MyScrapTableViewCell.xib in Resources */,
+				CD00C84F292B571100FCC80D /* SuggestionCollectionViewCell.xib in Resources */,
 				CD7F381A2844668C00D15356 /* RegisterCollectionViewCell.xib in Resources */,
 				CD7C9FD828B870D000C8635E /* BookmarkViewController.xib in Resources */,
 				8F13E9532851FAB600F090C4 /* NicknameInitViewController.xib in Resources */,
@@ -1542,6 +1557,7 @@
 				CD3D1CC92920DDDA0075BC17 /* BoardHeaderView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
 				CD5813D82928FCA6001A02EB /* NetworkStatusTarget.swift in Sources */,
+				CD00C84E292B571100FCC80D /* SuggestionCollectionViewCell.swift in Sources */,
 				8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				8FADEBCF292345CB00420C14 /* CommentRequest.swift in Sources */,
