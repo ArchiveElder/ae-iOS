@@ -11,10 +11,13 @@ import PhotosUI
 class PostViewController: BaseViewController {
     
     lazy var postDataManager: PostDataManagerDelegate = PostDataManager()
+    lazy var postEditDataManager: PostEditDataManagerDelegate = PostEditDataManager()
     
     let categories = ["일상", "레시피", "질문", "꿀팁"]
     var pickerView = UIPickerView()
     
+    var isEditingPost = false
+    var postIdx = 0
     var photoList:[UIImage] = []
     var pickerConfiguration = PHPickerConfiguration()
     
@@ -51,8 +54,8 @@ class PostViewController: BaseViewController {
         setDoneButton()
         setNavigationTitle(title: "글쓰기")
         doneButton.isEnabled = false
-        categoryTextField.text = categories[0]
         editingStatusChanged()
+        self.categoryTextField.text = categories[0]
         contentTextView.delegate = self
         
         photoCollectionView.delegate = self
@@ -96,9 +99,16 @@ class PostViewController: BaseViewController {
     
     // 뒤로가기/중간이탈 모달
     @objc func dismissAndGoBack() {
-        presentAlert(title: "글쓰기를 취소하시겠어요?", message: "작성한 내용은 저장되지 않습니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
-            self.navigationController?.popToRootViewController(animated: true)
-        })
+        if isEditingPost {
+            let nav = self.presentingViewController
+            self.dismiss(animated: true, completion: {
+                nav?.dismiss(animated: true)
+            })
+        } else {
+            presentAlert(title: "글쓰기를 취소하시겠어요?", message: "작성한 내용은 저장되지 않습니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        }
     }
     
     func setDoneButton() {
@@ -127,8 +137,11 @@ class PostViewController: BaseViewController {
         let boardName = categoryTextField.text ?? ""
         let postingInput = PostRequest(title: title, content: content, boardName: boardName)
         let userId = UserDefaults.standard.integer(forKey: "UserId")
-        
-        postDataManager.postPosting(postingInput, multipartFileList: photoList, userIdx: userId, delegate: self)
+        if self.isEditingPost {
+            postEditDataManager.postEditing(postingInput, multipartFileList: photoList, userIdx: userId, postIdx: self.postIdx, delegate: self)
+        } else {
+            postDataManager.postPosting(postingInput, multipartFileList: photoList, userIdx: userId, delegate: self)
+        }
     }
     
     func isPostingAvailable() -> Bool {
@@ -252,4 +265,16 @@ extension PostViewController: PostViewDelegate {
     }
     
     
+}
+
+extension PostViewController: PostEditViewDelegate {
+    func didSuccessEdit() {
+        dismissIndicator()
+        
+    }
+    
+    func failedToEdit(message: String, code: Int) {
+        dismissIndicator()
+        presentAlert(message: message)
+    }
 }
