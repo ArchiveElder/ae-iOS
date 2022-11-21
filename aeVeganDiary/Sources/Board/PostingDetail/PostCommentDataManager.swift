@@ -10,7 +10,7 @@ import Alamofire
 class PostCommentDataManager: PostCommentDataManagerDelegate {
     func postComment(_  userIdx:Int, parameters: CommentRequest, delegate: PostCommentViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("http://15.164.40.10:8080/comment/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/comment/\(userIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: CommentResponse.self) { response in
                 switch response.result {

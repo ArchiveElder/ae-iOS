@@ -11,7 +11,7 @@ class DeletePostingDataManager: DeletePostingDataManagerDelegate {
     func deletePosting(_  userIdx:Int, postIdx:Int, parameters: DeletePostingRequest, delegate: DeletePostingViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         let serializer = DataResponseSerializer(emptyResponseCodes: Set([200, 204, 205]))
-        AF.request("http://15.164.40.10:8080/posting/\(userIdx)/\(postIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/community/posting/\(userIdx)/\(postIdx)", method: .delete, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .response(responseSerializer: serializer) { response in
                 switch response.result {

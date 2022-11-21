@@ -11,7 +11,7 @@ class IngreDataManager : IngreDataManagerDelegate{
     
     func getIngreData(delegate: IngreViewDelegate){
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/ingredient", method: .get, encoding: JSONEncoding.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/ingredient", method: .get, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseDecodable(of: IngreResponse.self){ response in
                 switch response.result{

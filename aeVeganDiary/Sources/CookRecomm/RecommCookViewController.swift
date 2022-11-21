@@ -78,6 +78,8 @@ class RecommCookViewController: BaseViewController, UISearchBarDelegate, UIWebVi
             //recommButton.isHidden = false
             recommButton.setTitleColor(.darkGray, for: .normal)
             recommButton.setTitle("추천받기", for: .normal)
+            //추천받기 Button Truncated 방지
+            recommButton.titleLabel?.adjustsFontSizeToFitWidth = true
             recommButton.setImage(UIImage(), for: .normal)
         }
         

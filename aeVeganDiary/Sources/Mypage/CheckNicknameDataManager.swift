@@ -10,7 +10,7 @@ import Alamofire
 class CheckNicknameDataManager : CheckNicknameDataManagerDelegate{
     func postNickname(_ parameters: CheckNicknameInput, delegate: CheckNicknameViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/v3/nicknamecheck", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/user/check-nickname", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: CheckNicknameResponse.self) { response in
                 switch response.result {

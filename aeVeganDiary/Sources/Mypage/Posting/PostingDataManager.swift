@@ -15,7 +15,7 @@ class PostingDataManager {
     static func getPostings(userIdx : Int, page: Int) -> Observable<[MyPostingLists]> {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
         return Observable.create { observer -> Disposable in
-            AF.request("http://15.164.40.10:8080/posting/mypost/\(userIdx)?page=\(page)&sort=idx,desc", method: .get, headers: headers)
+            AF.request("\(Constant.BASE_URL)/community/posting/mypost/\(userIdx)?page=\(page)&sort=idx,desc", method: .get, headers: headers)
                 .responseDecodable(of: MyPostingResponse.self) { response in
                     switch response.result {
                     case .success(let data):
