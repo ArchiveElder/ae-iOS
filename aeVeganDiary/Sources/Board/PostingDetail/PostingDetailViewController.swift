@@ -7,7 +7,14 @@
 
 import UIKit
 
-class PostingDetailViewController: BaseViewController {
+class PostingDetailViewController: BaseViewController, PostingDetailHeaderViewProtocol {
+    
+    func presentImageView(url: String) {
+        let vc = PostingImageDetailViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.imageUrl = url
+        self.present(vc, animated: true)
+    }
     
     @IBOutlet weak var keyBoardToolBarConstraint: NSLayoutConstraint!
     @IBOutlet weak var keyBoardToolBarView: UIView!
@@ -37,7 +44,7 @@ class PostingDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         setDismissButton()
-        
+        view.backgroundColor = .white
         postingDetailTableView?.delegate = self
         postingDetailTableView?.dataSource = self
         postingDetailTableView?.register(UINib(nibName: "PostingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PostingDetailTableViewCell")
@@ -181,6 +188,7 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
             header.imageCollectionViewHeight.constant = 0
         }
         
+        header.delegate = self
         header.reloadInputViews()
         return header
         
