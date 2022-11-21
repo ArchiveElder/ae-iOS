@@ -155,6 +155,9 @@
 		CD54F1BA289B887E00009EC1 /* FoodPredictDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */; };
 		CD5813D3292750C9001A02EB /* RestaurantListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5813D1292750C9001A02EB /* RestaurantListTableViewCell.swift */; };
 		CD5813D4292750C9001A02EB /* RestaurantListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD5813D2292750C9001A02EB /* RestaurantListTableViewCell.xib */; };
+		CD5813D62927A33C001A02EB /* AnalyzeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5813D52927A33C001A02EB /* AnalyzeViewModel.swift */; };
+		CD5813D82928FCA6001A02EB /* NetworkStatusTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5813D72928FCA6001A02EB /* NetworkStatusTarget.swift */; };
+		CD5813DC2929003B001A02EB /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5813DB2929003B001A02EB /* CommonViewModel.swift */; };
 		CD636D22284B346700ED137E /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD636D20284B346700ED137E /* MealCollectionViewCell.swift */; };
 		CD636D23284B346700ED137E /* MealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD636D21284B346700ED137E /* MealCollectionViewCell.xib */; };
 		CD6A455C288E7859004B8B91 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */; };
@@ -387,6 +390,9 @@
 		CD54F1B9289B887E00009EC1 /* FoodPredictDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPredictDataManager.swift; sourceTree = "<group>"; };
 		CD5813D1292750C9001A02EB /* RestaurantListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewCell.swift; sourceTree = "<group>"; };
 		CD5813D2292750C9001A02EB /* RestaurantListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantListTableViewCell.xib; sourceTree = "<group>"; };
+		CD5813D52927A33C001A02EB /* AnalyzeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeViewModel.swift; sourceTree = "<group>"; };
+		CD5813D72928FCA6001A02EB /* NetworkStatusTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusTarget.swift; sourceTree = "<group>"; };
+		CD5813DB2929003B001A02EB /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		CD636D20284B346700ED137E /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD636D21284B346700ED137E /* MealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD6A455A288E7859004B8B91 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -1065,6 +1071,8 @@
 			isa = PBXGroup;
 			children = (
 				CDE47F5128426BAD005D8BB3 /* IndicatorView.swift */,
+				CD5813D72928FCA6001A02EB /* NetworkStatusTarget.swift */,
+				CD5813DB2929003B001A02EB /* CommonViewModel.swift */,
 			);
 			path = Commonclass;
 			sourceTree = "<group>";
@@ -1132,6 +1140,7 @@
 				CD00F67F286DDB3200F8A8C0 /* Entity */,
 				CDE47F6B2842747D005D8BB3 /* AnalyzeViewController.swift */,
 				CDE47F6C2842747D005D8BB3 /* AnalyzeViewController.xib */,
+				CD5813D52927A33C001A02EB /* AnalyzeViewModel.swift */,
 				CD00F683286DDB9800F8A8C0 /* AnalyzeDataManager.swift */,
 				CDAECC912905366700C13D3D /* AnalyzeProtocol.swift */,
 			);
@@ -1409,6 +1418,7 @@
 				CDE47F5C28426FB8005D8BB3 /* BaseTabBarController.swift in Sources */,
 				CDFF9ABC284A351F00217725 /* UITextField.swift in Sources */,
 				CDA2937D28CA2ABA00A48467 /* UserManager.swift in Sources */,
+				CD5813D62927A33C001A02EB /* AnalyzeViewModel.swift in Sources */,
 				8F92039629214EBF009679EC /* ScrapDeleteResponse.swift in Sources */,
 				8FC969EF291938F5006C0C8B /* CheckNicknameResponse.swift in Sources */,
 				8F92038E29214964009679EC /* DeleteThumbUpDataManager.swift in Sources */,
@@ -1531,9 +1541,11 @@
 				8F1A5F6D286D7A1D00B64409 /* MyInfoViewController.swift in Sources */,
 				CD3D1CC92920DDDA0075BC17 /* BoardHeaderView.swift in Sources */,
 				CDA125E02843A0C500ECBED6 /* UIView.swift in Sources */,
+				CD5813D82928FCA6001A02EB /* NetworkStatusTarget.swift in Sources */,
 				8F694642290531C4001C19EA /* IngreProtocol.swift in Sources */,
 				CDE47F662842741E005D8BB3 /* HomeViewController.swift in Sources */,
 				8FADEBCF292345CB00420C14 /* CommentRequest.swift in Sources */,
+				CD5813DC2929003B001A02EB /* CommonViewModel.swift in Sources */,
 				CDAECC902905316800C13D3D /* MealDetailRequest.swift in Sources */,
 				CD482AFF291B90CE006682FA /* BoardViewModel.swift in Sources */,
 				8F9203A629223464009679EC /* DeletePostingRequest.swift in Sources */,

@@ -11,6 +11,7 @@ import Charts
 class AnalyzeViewController: BaseViewController, ChartViewDelegate {
     
     lazy var analyzeDataManager: AnalyzeDataManagerDelegate = AnalyzeDataManager()
+    var viewModel: AnalyzeViewModel?
     
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var ratioView: UIView!
@@ -243,9 +244,9 @@ extension AnalyzeViewController: AnalyzeViewDelegate {
         setProgressResult(sender: proProgressView, data: Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1))
         setProgressResult(sender: fatProgressView, data: Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1))
         
-        carbPercentLabel.text = "\(Int(Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1) * 100))%"
-        proPercentLabel.text = "\(Int(Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1) * 100))%"
-        fatPercentLabel.text = "\(Int(Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1) * 100))%"
+        //carbPercentLabel.text = "\(Int(Float(response?.totalCarb ?? 0) / 7 / (Float(response?.rcarb ?? "0") ?? 1) * 100))%"
+        //proPercentLabel.text = "\(Int(Float(response?.totalPro ?? 0) / 7 / (Float(response?.rpro ?? "0") ?? 1) * 100))%"
+        //fatPercentLabel.text = "\(Int(Float(response?.totalFat ?? 0) / 7 / (Float(response?.rfat ?? "0") ?? 1) * 100))%"
     }
     
     func failedToRequest(message: String, code: Int) {
