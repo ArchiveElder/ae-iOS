@@ -41,7 +41,6 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
         } else if(postingThumbUpButton.isSelected == true) {
             deleteThumbUpDataManager.deleteThumbUp(userIdx, parameters: thumbUpRequest, delegate: self)
         }
-        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
     
     @IBAction func scrapButtonAction(_ sender: Any) {
@@ -51,7 +50,6 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
         } else if (postingScrapButton.isSelected == true){
             deleteScrapDataManager.deleteScrap(userIdx, parameters: scrapRequset, delegate: self)
         }
-        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
     
     
@@ -109,6 +107,7 @@ extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDa
 extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
         self.postingDetailResponse = result
+        print(postingDetailResponse)
         postingThumbUpButton.setTitle(String(postingDetailResponse?.thumbupCount ?? 0), for: .normal)
         if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
             postingThumbUpButton.isSelected = false
@@ -127,8 +126,8 @@ extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
 extension PostingDetailHeaderView : PostThumbUpViewDelegate {
     func didSuccessPostThumbUp(_ result: ThumbUpResponse) {
         print(result)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
-    
     func failedToRequest(message: String, code: Int) {
         
     }
@@ -138,18 +137,20 @@ extension PostingDetailHeaderView : PostThumbUpViewDelegate {
 extension PostingDetailHeaderView : DeleteThumbUpViewDelegate {
     func didSuccessDeleteThumbUp(_ result: ThumbUpDeleteResponse) {
         print(result)
-
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
 
 extension PostingDetailHeaderView : PostScrapViewDelegate{
     func didSuccessPostScrap(_ result: ScrapResponse) {
         print(result)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
 
 extension PostingDetailHeaderView : DeleteScrapViewDelegate {
     func didSuccessDeleteScrap(_ result: ScrapDeleteResponse) {
         print(result)
+        getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
