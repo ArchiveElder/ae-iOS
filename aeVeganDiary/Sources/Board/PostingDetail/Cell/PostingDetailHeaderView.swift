@@ -82,7 +82,7 @@ class PostingDetailHeaderView: UITableViewHeaderFooterView {
    
 }
 
-extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDataSource {
+extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(imageArray)
         return imageArray.count
@@ -99,6 +99,10 @@ extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.delegate?.presentImageView(url: imageArray[indexPath.row].imageUrl ?? "")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 120)
     }
 }
 

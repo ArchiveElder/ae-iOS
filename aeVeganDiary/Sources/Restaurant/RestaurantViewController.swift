@@ -211,22 +211,39 @@ extension RestaurantViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        categoryBistroSelectedIndex = -1
-        categoryCafeSelectedIndex = -1
         if categoryList == categoryBistro {
-            categoryBistroSelectedIndex = indexPath.row
-            if mapVC.view.isHidden {
-                listVC.loadList(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+            if categoryBistroSelectedIndex == indexPath.row {
+                categoryBistroSelectedIndex = -1
+                if mapVC.view.isHidden {
+                    listVC.loadList(mainCategory: "전체", middleCategory: "전체")
+                } else {
+                    mapVC.loadMap(mainCategory: "전체", middleCategory: "전체")
+                }
             } else {
-                mapVC.loadMap(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+                categoryBistroSelectedIndex = indexPath.row
+                categoryCafeSelectedIndex = -1
+                if mapVC.view.isHidden {
+                    listVC.loadList(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+                } else {
+                    mapVC.loadMap(mainCategory: "음식점", middleCategory: categoryBistro[categoryBistroSelectedIndex])
+                }
             }
-            
         } else {
-            categoryCafeSelectedIndex = indexPath.row
-            if mapVC.view.isHidden {
-                listVC.loadList(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+            if categoryCafeSelectedIndex == indexPath.row {
+                categoryCafeSelectedIndex = -1
+                if mapVC.view.isHidden {
+                    listVC.loadList(mainCategory: "전체", middleCategory: "전체")
+                } else {
+                    mapVC.loadMap(mainCategory: "전체", middleCategory: "전체")
+                }
             } else {
-                mapVC.loadMap(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+                categoryCafeSelectedIndex = indexPath.row
+                categoryBistroSelectedIndex = -1
+                if mapVC.view.isHidden {
+                    listVC.loadList(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+                } else {
+                    mapVC.loadMap(mainCategory: "카페", middleCategory: categoryCafe[categoryCafeSelectedIndex])
+                }
             }
         }
         categoryCollectionView.reloadData()

@@ -53,7 +53,7 @@ class PostingViewController: BaseViewController, UITableViewDelegate{
         super.viewWillAppear(animated)
     
         //viewModel.fetchData(page: 0, isRefreshControl: true)
-        refreshControlTriggered()
+        //refreshControlTriggered()
     }
     
     private func setBinding(){

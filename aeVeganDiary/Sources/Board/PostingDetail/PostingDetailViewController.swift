@@ -179,7 +179,7 @@ extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSourc
         header.imageArray = imageLists ?? []
         if(imageLists?.isEmpty == false) {
             header.postingContentImageCollectionView.isHidden = false
-            header.imageCollectionViewHeight.constant = 110
+            header.imageCollectionViewHeight.constant = 120
             header.labelToCollectionViewHeight.constant = 15
             header.postingContentImageCollectionView.reloadData()
         } else {

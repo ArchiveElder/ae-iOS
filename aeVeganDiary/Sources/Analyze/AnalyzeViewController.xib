@@ -43,37 +43,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rA-iN-F1h">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1054"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTb-UD-bIr">
-                                    <rect key="frame" x="15" y="15" width="384" height="1024"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7일 이상 데이터가 모여야 분석 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-5U-KZq">
-                                            <rect key="frame" x="97" y="505" width="190" height="14"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.clock.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-Kh-INq">
-                                            <rect key="frame" x="178.5" y="472.5" width="25.5" height="23"/>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="d6C-NX-kdj"/>
-                                                <constraint firstAttribute="width" constant="24" id="jxG-Va-nYP"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="top" secondItem="Ncb-Kh-INq" secondAttribute="bottom" constant="10" id="000-83-oXm"/>
-                                        <constraint firstItem="Ncb-Kh-INq" firstAttribute="centerX" secondItem="RTb-UD-bIr" secondAttribute="centerX" id="GjX-bN-oSg"/>
-                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="centerY" secondItem="RTb-UD-bIr" secondAttribute="centerY" id="JOa-Xb-lfQ"/>
-                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="centerX" secondItem="RTb-UD-bIr" secondAttribute="centerX" id="ukc-st-Uvo"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQk-Ck-gMp">
                                     <rect key="frame" x="15" y="20" width="384" height="1019"/>
                                     <subviews>
@@ -523,6 +492,37 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTb-UD-bIr">
+                                    <rect key="frame" x="15" y="15" width="384" height="1024"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7일 이상 데이터가 모여야 분석 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-5U-KZq">
+                                            <rect key="frame" x="97" y="505" width="190" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.clock.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-Kh-INq">
+                                            <rect key="frame" x="178.5" y="472.5" width="25.5" height="23"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="d6C-NX-kdj"/>
+                                                <constraint firstAttribute="width" constant="24" id="jxG-Va-nYP"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="top" secondItem="Ncb-Kh-INq" secondAttribute="bottom" constant="10" id="000-83-oXm"/>
+                                        <constraint firstItem="Ncb-Kh-INq" firstAttribute="centerX" secondItem="RTb-UD-bIr" secondAttribute="centerX" id="GjX-bN-oSg"/>
+                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="centerY" secondItem="RTb-UD-bIr" secondAttribute="centerY" id="JOa-Xb-lfQ"/>
+                                        <constraint firstItem="RAQ-5U-KZq" firstAttribute="centerX" secondItem="RTb-UD-bIr" secondAttribute="centerX" id="ukc-st-Uvo"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>

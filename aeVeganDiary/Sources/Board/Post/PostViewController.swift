@@ -112,10 +112,7 @@ class PostViewController: BaseViewController {
     // 뒤로가기/중간이탈 모달
     @objc func dismissAndGoBack() {
         if isEditingPost {
-            let nav = self.presentingViewController
-            self.dismiss(animated: true, completion: {
-                nav?.dismiss(animated: true)
-            })
+            self.dismiss(animated: true)
         } else {
             presentAlert(title: "글쓰기를 취소하시겠어요?", message: "작성한 내용은 저장되지 않습니다.", isCancelActionIncluded: true, preferredStyle: .alert, handler: {_ in
                 self.navigationController?.popToRootViewController(animated: true)
@@ -287,7 +284,10 @@ extension PostViewController: PostViewDelegate {
 extension PostViewController: PostEditViewDelegate {
     func didSuccessEdit() {
         dismissIndicator()
-        self.dismiss(animated: true)
+        let nav = self.presentingViewController
+        self.dismiss(animated: true, completion: {
+            nav?.dismiss(animated: true)
+        })
     }
     
     func failedToEdit(message: String, code: Int) {
@@ -299,19 +299,22 @@ extension PostViewController: PostEditViewDelegate {
 extension PostViewController: EditPostViewDelegate {
     func didSuccessGetEdit(response: EditPostResponse) {
         dismissIndicator()
+        print(response)
         self.categoryTextField.text = response.boardName
         self.titleTextField.text = response.title
         self.contentTextView.text = response.content
         
         if let imageList = response.imagesLists {
             let sortedList = imageList.sorted { return $0.imgRank ?? 0 < $1.imgRank ?? 0 }
+            var tempList = [UIImage](repeating: UIImage(), count: sortedList.count)
             for i in sortedList {
                 guard let url = URL(string: i.imageUrl ?? "") else { return }
                 DispatchQueue.global().async { [weak self] in
                     if let data = try? Data(contentsOf: url) {
                         if let image = UIImage(data: data) {
                             DispatchQueue.main.async {
-                                self?.photoList.append(image)
+                                tempList[(i.imgRank ?? 1) - 1] = image
+                                self?.photoList = tempList
                                 self?.photoCollectionView.reloadData()
                             }
                         }
