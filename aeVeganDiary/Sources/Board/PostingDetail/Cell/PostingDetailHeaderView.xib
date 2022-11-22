@@ -90,7 +90,7 @@
                         <imageReference key="image" image="text.bubble" catalog="system" symbolScale="large"/>
                     </state>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kQ1-qR-lpU">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kQ1-qR-lpU">
                     <rect key="frame" x="15" y="156" width="345" height="120"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
