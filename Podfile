@@ -20,6 +20,7 @@ target 'aeVeganDiary' do
   pod 'Google-Maps-iOS-Utils', '3.4.0'
   pod 'KeychainSwift', '~> 20.0'
   pod 'Moya/RxSwift'
+  pod 'Siren'
 
 end
 
