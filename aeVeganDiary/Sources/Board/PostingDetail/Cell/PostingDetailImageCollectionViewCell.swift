@@ -10,6 +10,11 @@ import UIKit
 class PostingDetailImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
+    
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
