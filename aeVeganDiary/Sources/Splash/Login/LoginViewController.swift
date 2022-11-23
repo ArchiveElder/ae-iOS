@@ -8,11 +8,14 @@
 import UIKit
 import KakaoSDKUser
 import AuthenticationServices
+import RxSwift
 
 class LoginViewController: BaseViewController {
     
     lazy var loginDataManager: LoginDataManagerDelegate = LoginDataManager()
     lazy var appleLoginDataManager: LoginDataManagerDelegate = AppleLoginDataManager()
+    
+    var disposeBag = DisposeBag()
 
     @IBAction func kakaoLoginButton(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -66,7 +69,7 @@ class LoginViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        _ = try? isUpdateAvailable { (update, error) in
+        /*_ = try? isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
             } else if update != nil {
@@ -74,10 +77,12 @@ class LoginViewController: BaseViewController {
                     self.presentUpdateAlertVC()
                 }
             }
-        }
-        
-        
+        }*/
     }
+    
+    
+    
+    
 }
 
 extension LoginViewController: LoginViewDelegate {

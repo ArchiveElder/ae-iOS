@@ -27,7 +27,6 @@ class PostingDetailViewController: BaseViewController, PostingDetailHeaderViewPr
         var commentRequest = CommentRequest(postIdx: postIdx, content: commentText ?? "")
         postCommentDataManager.postComment(userIdx, parameters: commentRequest, delegate: self)
         dismissKeyboard()
-        commentTextField.text = ""
     }
     var postingDetailResponse : PostingDetailResponse?
     var commentLists : [CommentsLists]?
@@ -59,6 +58,21 @@ class PostingDetailViewController: BaseViewController, PostingDetailHeaderViewPr
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
 
+        commentTextField.addTarget(self, action: #selector(isEnableSendButton), for: .editingChanged)
+        postCommentButton.isEnabled = false
+        postCommentButton.backgroundColor = .lightGray
+        
+        commentTextField.delegate = self
+    }
+    
+    @objc func isEnableSendButton() {
+        if commentTextField.text?.count ?? 0 > 0 {
+            postCommentButton.isEnabled = true
+            postCommentButton.backgroundColor = .mainGreen
+        } else {
+            postCommentButton.isEnabled = false
+            postCommentButton.backgroundColor = .lightGray
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,6 +121,20 @@ class PostingDetailViewController: BaseViewController, PostingDetailHeaderViewPr
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
 
+}
+
+extension PostingDetailViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentStr = commentTextField.text ?? ""
+        guard let strRange = Range(range, in: currentStr) else { return false }
+        let changedText = currentStr.replacingCharacters(in: strRange, with: string)
+        
+        if changedText.count > 200 {
+            presentAlert(message: "댓글은 200자까지만 입력할 수 있어요")
+        }
+        
+        return changedText.count <= 200
+    }
 }
 
 
@@ -227,6 +255,9 @@ extension PostingDetailViewController : PostCommentViewDelegate{
     func didSuccessPostComment(_ result: CommentResponse) {
         print("댓글 등록 성공")
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
+        postingDetailTableView?.reloadData()
+        commentTextField.text = ""
+        isEnableSendButton()
     }
 }
 

@@ -7,6 +7,7 @@
 
 import UIKit
 import KakaoSDKAuth
+import Siren
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -52,6 +53,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = win
         }
         
+        Siren.shared.presentationManager = PresentationManager(
+          appName: "채삐",
+          alertTitle: "업데이트",
+          updateButtonTitle: "업데이트가 필요합니다"
+        )
+        Siren.shared.rulesManager = RulesManager(globalRules: .critical)
+        Siren.shared.wail(performCheck: .onDemand)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

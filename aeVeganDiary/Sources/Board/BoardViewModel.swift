@@ -89,7 +89,7 @@ class BoardViewModel {
         isPaginationRequestStillResume = false
         pageCounter = 0
         posts.accept([])
-        fetchData(category: "all", page: 0, isRefreshControl: true)
+        fetchData(category: categoryToEng(category: self.category), page: 0, isRefreshControl: true)
     }
     
     func categoryToEng(category: String) -> String {

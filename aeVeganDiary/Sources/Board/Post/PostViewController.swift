@@ -58,6 +58,7 @@ class PostViewController: BaseViewController {
         editingStatusChanged()
         self.categoryTextField.text = categories[0]
         contentTextView.delegate = self
+        titleTextField.delegate = self
         
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
@@ -248,6 +249,24 @@ extension PostViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         editingStatusChanged()
         return true
+    }
+}
+
+extension PostViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == titleTextField {
+            let currentStr = titleTextField.text ?? ""
+            guard let strRange = Range(range, in: currentStr) else { return false }
+            let changedText = currentStr.replacingCharacters(in: strRange, with: string)
+            
+            if changedText.count > 45 {
+                presentAlert(message: "제목은 45자까지만 입력할 수 있어요")
+            }
+            
+            return changedText.count <= 45
+        } else {
+            return false
+        }
     }
 }
 
