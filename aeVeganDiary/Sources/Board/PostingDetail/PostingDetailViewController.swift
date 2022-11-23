@@ -214,7 +214,6 @@ extension PostingDetailViewController : GetPostingDetailViewDelegate {
         if(result.userIdx == self.userIdx){
             setMoreButton()
         }
-        
         postingDetailTableView?.reloadData()
     }
     
@@ -228,14 +227,12 @@ extension PostingDetailViewController : PostCommentViewDelegate{
     func didSuccessPostComment(_ result: CommentResponse) {
         print("댓글 등록 성공")
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
-        postingDetailTableView?.reloadData()
     }
 }
 
 extension PostingDetailViewController : DeleteCommentViewDelegate{
     func didSuccessDeleteComment(_ result: DeleteCommentResponse) {
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
-        postingDetailTableView?.reloadData()
         presentBottomAlert(message: "삭제가 완료되었습니다.")    }
 }
 
