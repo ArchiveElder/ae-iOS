@@ -107,7 +107,11 @@ extension PostingDetailHeaderView : UICollectionViewDelegate, UICollectionViewDa
 extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
     func didSuccessGetPostingDetailData(_ result: PostingDetailResponse) {
         self.postingDetailResponse = result
-        print(postingDetailResponse)
+        //print(postingDetailResponse)
+        
+        postingScrapButton.isEnabled = true
+        postingThumbUpButton.isEnabled = true
+        
         postingThumbUpButton.setTitle(String(postingDetailResponse?.thumbupCount ?? 0), for: .normal)
         if(postingDetailResponse?.liked == false || postingDetailResponse?.liked == nil){
             postingThumbUpButton.isSelected = false
@@ -123,9 +127,11 @@ extension PostingDetailHeaderView : GetPostingDetailViewDelegate {
     }
 }
 
+//좋아요 등록
 extension PostingDetailHeaderView : PostThumbUpViewDelegate {
     func didSuccessPostThumbUp(_ result: ThumbUpResponse) {
         print(result)
+        postingThumbUpButton.isEnabled = false
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
     func failedToRequest(message: String, code: Int) {
@@ -133,24 +139,29 @@ extension PostingDetailHeaderView : PostThumbUpViewDelegate {
     }
     
 }
-
+//좋아요 취소
 extension PostingDetailHeaderView : DeleteThumbUpViewDelegate {
     func didSuccessDeleteThumbUp(_ result: ThumbUpDeleteResponse) {
         print(result)
+        postingThumbUpButton.isEnabled = false
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
 
+//스크랩 등록
 extension PostingDetailHeaderView : PostScrapViewDelegate{
     func didSuccessPostScrap(_ result: ScrapResponse) {
         print(result)
+        postingScrapButton.isEnabled = false
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
 
+//스크랩 취소
 extension PostingDetailHeaderView : DeleteScrapViewDelegate {
     func didSuccessDeleteScrap(_ result: ScrapDeleteResponse) {
         print(result)
+        postingScrapButton.isEnabled = false
         getPostingDetailDataManager.getPostingDetailData(userIdx, postIdx: postIdx, delegate: self)
     }
 }
