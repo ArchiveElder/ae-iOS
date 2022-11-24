@@ -259,11 +259,11 @@ extension PostViewController: UITextFieldDelegate {
             guard let strRange = Range(range, in: currentStr) else { return false }
             let changedText = currentStr.replacingCharacters(in: strRange, with: string)
             
-            if changedText.count > 45 {
-                presentAlert(message: "제목은 45자까지만 입력할 수 있어요")
+            if changedText.count >= 45 {
+                presentAlert(message: "제목은 44자까지만 입력할 수 있어요")
             }
             
-            return changedText.count <= 45
+            return changedText.count < 45
         } else {
             return false
         }
