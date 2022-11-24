@@ -12,4 +12,5 @@ struct MyInfoInput: Encodable {
     var height: String
     var weight: String
     var activity: Int
+    var nickname : String
 }

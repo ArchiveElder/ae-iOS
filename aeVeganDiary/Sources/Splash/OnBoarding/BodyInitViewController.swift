@@ -14,7 +14,7 @@ class BodyInitViewController: BaseViewController {
     @IBAction func doneButtonAction(_ sender: Any) {
         if (heightTextField.text != "") && (weightTextField.text != "") && indexOfOneAndOnly != nil {
             showIndicator()
-            let input = SignupRequest(name: self.name, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
+            let input = SignupRequest(nickname: self.nickname, age: self.age, gender: self.gender, height: heightTextField.text!, weight: weightTextField.text!, activity: activities[indexOfOneAndOnly ?? 25])
             signupDataManager.postSignup(input, delegate: self)
         } else {
             presentBottomAlert(message: "정보를 모두 입력해주세요")
@@ -22,7 +22,7 @@ class BodyInitViewController: BaseViewController {
         
     }
     
-    var name = ""
+    var nickname = ""
     var age = 0
     var gender = 0
     @IBOutlet weak var heightTextField: UITextField!
@@ -77,6 +77,8 @@ extension BodyInitViewController: SignupViewDelegate {
     func didSuccessSignup(_ result: SignupResponse) {
         dismissIndicator()
         UserDefaults.standard.setValue(false, forKey: "SignUp")
+        UserDefaults.standard.setValue(result.result?.userId, forKey: "UserId")
+        UserManager.shared.jwt = result.result?.token ?? ""
         self.changeRootViewController(BaseTabBarController())
     }
     

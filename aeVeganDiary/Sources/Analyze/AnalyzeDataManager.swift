@@ -10,7 +10,7 @@ import Alamofire
 class AnalyzeDataManager: AnalyzeDataManagerDelegate {
     func getAnalyze(delegate: AnalyzeViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/analysis", method: .get, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/analysis", method: .get, headers: headers)
             .validate()
             .responseDecodable(of: AnalyzeResponse.self) { response in
                 switch response.result {

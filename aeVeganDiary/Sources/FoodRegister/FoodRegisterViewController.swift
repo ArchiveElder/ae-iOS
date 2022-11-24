@@ -30,6 +30,10 @@ class FoodRegisterViewController: BaseViewController {
     }
     @IBOutlet weak var changeView: UIView!
     
+    @IBOutlet weak var recognizeInfoView: UIView!
+    @IBAction func recognizeInfoButton(_ sender: Any) {
+        recognizeInfoView.isHidden = !recognizeInfoView.isHidden
+    }
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216))
     let dateFormatterA = DateFormatter()
     let dateFormatter24 = DateFormatter()

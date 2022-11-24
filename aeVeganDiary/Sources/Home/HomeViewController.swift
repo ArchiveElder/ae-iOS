@@ -70,9 +70,9 @@ class HomeViewController: BaseViewController {
     
     @IBAction func restaurantSearchButtonAction(_ sender: Any) {
         let vc = RestaurantViewController()
-        vc.hidesBottomBarWhenPushed = true
         vc.location = nil
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
     }
     
     // MARK: 서버 통신 변수 선언
@@ -82,6 +82,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationTitle(title: "기록")
+        setMypageButton()
         
         //FSCalendar Custom
         weekCalendarView.delegate = self
@@ -152,7 +153,7 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         calendarInfoView.isHidden = true
-        _ = try? isUpdateAvailable { (update, error) in
+        /*_ = try? isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
             } else if update != nil {
@@ -160,7 +161,7 @@ class HomeViewController: BaseViewController {
                     self.presentUpdateAlertVC()
                 }
             }
-        }
+        }*/
         
         store.requestAccess(to: .event) { granted, error in
             //if granted { self.accessGranted() }
@@ -180,6 +181,23 @@ class HomeViewController: BaseViewController {
                 self.view.removeGestureRecognizer(recognizer)
             }
         }
+    }
+    
+    func setMypageButton() {
+        let mypageButton: UIButton = UIButton()
+        mypageButton.setImage(UIImage(named: "mypage"), for: .normal)
+        mypageButton.tintColor = .darkGreen
+        mypageButton.addTarget(self, action: #selector(toMypage), for: .touchUpInside)
+        mypageButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        let addMypageButton = UIBarButtonItem(customView: mypageButton)
+        
+        self.navigationItem.setRightBarButton(addMypageButton, animated: false)
+    }
+    
+    @objc func toMypage() {
+        let vc = MypageViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // datePicker에서 Done 누르면 실행
@@ -330,9 +348,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = RestaurantViewController()
-        vc.hidesBottomBarWhenPushed = true
         vc.location = eventList[indexPath.row].location
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
     }
     
 }

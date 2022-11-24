@@ -38,12 +38,18 @@ PODS:
   - KakaoSDKUser (2.11.1):
     - KakaoSDKAuth (= 2.11.1)
   - KeychainSwift (20.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - Siren (5.8.1)
   - SnapKit (5.0.1)
   - SwiftAlgorithms (1.0.0)
   - SwiftyJSON (4.3.0)
@@ -58,8 +64,10 @@ DEPENDENCIES:
   - KakaoSDKCommon
   - KakaoSDKUser
   - KeychainSwift (~> 20.0)
+  - Moya/RxSwift
   - RxCocoa
   - RxSwift
+  - Siren
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 4.0)
 
@@ -74,9 +82,11 @@ SPEC REPOS:
     - KakaoSDKCommon
     - KakaoSDKUser
     - KeychainSwift
+    - Moya
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Siren
     - SnapKit
     - SwiftAlgorithms
     - SwiftyJSON
@@ -91,13 +101,15 @@ SPEC CHECKSUMS:
   KakaoSDKCommon: 555e1bb46595b842ded01cf7888cc17bbae4e113
   KakaoSDKUser: 08c0a4f40bebdebdf948a9e3d0e44ed5c2754f99
   KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  Siren: de768099aff1f1c9acda4247064788a4940b4bf3
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 4eda703b78d56ea8e460667128f7d71211f02142
+PODFILE CHECKSUM: 5832ca52b0ca67aa7e92928313d9953d15cb2543
 
 COCOAPODS: 1.11.3

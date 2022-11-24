@@ -99,8 +99,17 @@ class DetailBottomSheetViewController: UIViewController {
 
 }
 
+//presentingViewController:  Optional(<UINavigationController: 0x109034a00>)
+//presentingViewController.presentingViewController:  Optional(<aeVeganDiary.BaseTabBarController: 0x104818600>)
+
+//presentingViewController:  Optional(<aeVeganDiary.BaseTabBarController: 0x104818600>)
+//presentingViewController.presentingViewController:  nil
+
+
 extension DetailBottomSheetViewController : DeleteMealViewDelegate{
     func didSuccessDeleteMeal(_ result: DeleteMealResponse) {
+        print("presentingViewController: ",presentingViewController)
+        print("presentingViewController.presentingViewController: ",presentingViewController?.presentingViewController)
         if let first = presentingViewController,
                 let second = first.presentingViewController{
                   first.view.isHidden = true

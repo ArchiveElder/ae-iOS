@@ -10,7 +10,7 @@ import Alamofire
 class HomeDataManager: HomeDataManagerDelegate {
     func getDaterecord(_ parameters: HomeRequest, delegate: HomeViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/daterecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/record/daterecord", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
             .validate()
             .responseDecodable(of: HomeResponse.self) { response in
                 switch response.result {

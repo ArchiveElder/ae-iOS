@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TQ-UU-iAv">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TQ-UU-iAv">
                             <rect key="frame" x="20" y="75" width="33" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
@@ -76,13 +76,13 @@
                                 <action selector="bookmark:" destination="-1" eventType="touchUpInside" id="EV2-hg-HPr"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-ea-HQE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-ea-HQE">
                             <rect key="frame" x="51.5" y="100" width="33" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-Zv-i1C">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-Zv-i1C">
                             <rect key="frame" x="20" y="47" width="33" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
@@ -90,6 +90,9 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etJ-UC-kfL">
                             <rect key="frame" x="284" y="83.5" width="83" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="83" id="Zxd-8T-hEm"/>
+                            </constraints>
                             <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Button">
@@ -112,15 +115,17 @@
                         <constraint firstItem="Agi-fP-Lth" firstAttribute="leading" secondItem="slW-7F-dhP" secondAttribute="leading" constant="20" id="5uG-Sc-CWQ"/>
                         <constraint firstAttribute="trailing" secondItem="etJ-UC-kfL" secondAttribute="trailing" constant="15" id="72I-ex-q2K"/>
                         <constraint firstItem="fWe-M1-XYu" firstAttribute="top" secondItem="7TQ-UU-iAv" secondAttribute="bottom" constant="10" id="9qy-nL-K2B"/>
-                        <constraint firstAttribute="bottom" secondItem="fWe-M1-XYu" secondAttribute="bottom" constant="18" id="KPA-Mr-eql"/>
-                        <constraint firstItem="sAt-ea-HQE" firstAttribute="centerY" secondItem="fWe-M1-XYu" secondAttribute="centerY" id="ZCQ-aP-L4k"/>
+                        <constraint firstAttribute="bottom" secondItem="sAt-ea-HQE" secondAttribute="bottom" constant="16.5" id="Gpa-Nf-SEk"/>
                         <constraint firstItem="sAt-ea-HQE" firstAttribute="leading" secondItem="fWe-M1-XYu" secondAttribute="trailing" constant="6" id="ceo-SZ-2Lv"/>
                         <constraint firstItem="fWe-M1-XYu" firstAttribute="leading" secondItem="7TQ-UU-iAv" secondAttribute="leading" id="esh-qt-ldQ"/>
                         <constraint firstAttribute="trailing" secondItem="YcX-vN-XTd" secondAttribute="trailing" constant="20" id="fAw-PW-0aS"/>
                         <constraint firstItem="7TQ-UU-iAv" firstAttribute="leading" secondItem="slW-7F-dhP" secondAttribute="leading" constant="20" id="i0N-EO-iOF"/>
                         <constraint firstItem="Agi-fP-Lth" firstAttribute="top" secondItem="slW-7F-dhP" secondAttribute="top" constant="18" id="lsx-2m-4nk"/>
+                        <constraint firstItem="etJ-UC-kfL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sAt-ea-HQE" secondAttribute="trailing" constant="5" id="m6u-dt-X6P"/>
                         <constraint firstItem="iPL-Zv-i1C" firstAttribute="top" secondItem="Agi-fP-Lth" secondAttribute="bottom" constant="8" id="o3h-Zd-vba"/>
                         <constraint firstItem="iPL-Zv-i1C" firstAttribute="leading" secondItem="Agi-fP-Lth" secondAttribute="leading" id="tmm-wL-gwx"/>
+                        <constraint firstItem="sAt-ea-HQE" firstAttribute="top" secondItem="fWe-M1-XYu" secondAttribute="top" constant="-1" id="wgU-Bn-2wC"/>
+                        <constraint firstItem="etJ-UC-kfL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7TQ-UU-iAv" secondAttribute="trailing" constant="5" id="wtX-dW-zHL"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

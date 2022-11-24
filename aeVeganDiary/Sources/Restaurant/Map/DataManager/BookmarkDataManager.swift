@@ -10,7 +10,7 @@ import Alamofire
 class BookmarkDataManager: BookmarkDataManagerDelegate {
     func postBookmark(_ parameters: BookmarkRequest, delegate: BookmarkViewDelegate) {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserManager.shared.jwt)"]
-        AF.request("\(Constant.BASE_URL)/api/v2/bookmark", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("\(Constant.BASE_URL)/chaebbi/bookmark", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: BookmarkResponse.self) { response in
                 switch response.result {

@@ -29,11 +29,23 @@ class MypageViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func postingButtonAction(_ sender: Any) {
+        let vc = PostingViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func scrapButtonAction(_ sender: Any) {
+        let vc = ScrapViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var myInfoButton: UIButton!
     @IBOutlet var profileImageView: UIImageView!
     @IBAction func moveInfo(_ sender: Any) {
         let vc = MyInfoViewController()
+        vc.nickname = myInfoResponse?.result?.nickname ?? ""
         vc.age = myInfoResponse?.result?.age ?? 0
         vc.height = myInfoResponse?.result?.height ?? "0"
         vc.weight = myInfoResponse?.result?.weight ?? "0"
@@ -56,6 +68,7 @@ class MypageViewController: BaseViewController {
         profileImageView.layer.borderColor = UIColor.clear.cgColor
         profileImageView.clipsToBounds=true
         
+        setBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,9 +82,8 @@ class MypageViewController: BaseViewController {
 extension MypageViewController : GetMyInfoViewDelegate {
     func didSuccessGetMyInfoData(_ result: MyInfoResponse) {
         dismissIndicator()
-        print(result)
         self.myInfoResponse = result
-        nicknameLabel.text = result.result?.name
+        nicknameLabel.text = result.result?.nickname
         profileImageView.image = UIImage(named: "profile\(result.result?.icon ?? 0)")
         profileImageView.borderWidth = 1
         profileImageView.borderColor = .lightGray

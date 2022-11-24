@@ -51,6 +51,7 @@ class BaseViewController: UIViewController {
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        backButton.tintColor = .darkGreen
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
@@ -61,6 +62,7 @@ class BaseViewController: UIViewController {
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(popToVC), for: .touchUpInside)
         backButton.frame = CGRect(x: 18, y: 0, width: 44, height: 44)
+        backButton.tintColor = .darkGreen
         let addBackButton = UIBarButtonItem(customView: backButton)
         
         self.navigationItem.setLeftBarButton(addBackButton, animated: false)
@@ -102,7 +104,7 @@ class BaseViewController: UIViewController {
         let alertVC = UIAlertController(title: "업데이트", message: "업데이트가 필요합니다.", preferredStyle: .alert)
         let alertAtion = UIAlertAction(title: "업데이트", style: .default) { _ in
             // ✅ App store connet 앱의 일반 정보의 Apple ID 입력.
-            let appleID = "..."
+            let appleID = "1643485964"
             // ✅ URL Scheme 방식을 이용해서 앱스토어를 연결.
             guard let url = URL(string: "itms-apps://itunes.apple.com/app/\(appleID)") else { return }
             // ✅ canOpenURL(_:) - 앱이 URL Scheme 처리할 수 있는지 여부를 나타내는 Boolean 값을 리턴한다.
@@ -112,7 +114,9 @@ class BaseViewController: UIViewController {
         }
         alertVC.addAction(alertAtion)
 
-        present(alertVC, animated: true)
+        DispatchQueue.main.sync {
+            present(alertVC, animated: true)
+        }
     }
     
 }
